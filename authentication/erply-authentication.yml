@@ -1,0 +1,54 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/erply-assignments-openapi.json, openapi/erply-cafa-openapi.json, openapi/erply-pim-openapi.json,
+  openapi/erply-webhook-openapi.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: AccessToken
+  type: apiKey
+  in: header
+  parameter: accessToken
+  sources:
+  - openapi/erply-assignments-openapi.json
+- name: ErplyClientCode
+  type: apiKey
+  in: header
+  parameter: clientCode
+  sources:
+  - openapi/erply-assignments-openapi.json
+  - openapi/erply-cafa-openapi.json
+  - openapi/erply-pim-openapi.json
+  - openapi/erply-webhook-openapi.json
+- name: ErplyJWT
+  type: apiKey
+  in: header
+  parameter: jwt
+  sources:
+  - openapi/erply-assignments-openapi.json
+  - openapi/erply-cafa-openapi.json
+  - openapi/erply-pim-openapi.json
+- name: ErplySession
+  type: apiKey
+  in: header
+  parameter: sessionKey
+  sources:
+  - openapi/erply-assignments-openapi.json
+  - openapi/erply-cafa-openapi.json
+  - openapi/erply-pim-openapi.json
+  - openapi/erply-webhook-openapi.json
+- name: RequestKey
+  type: apiKey
+  in: header
+  parameter: requestKey
+  sources:
+  - openapi/erply-assignments-openapi.json
+- name: hmac-auth
+  type: apiKey
+  in: header
+  parameter: hmac-auth
+  sources:
+  - openapi/erply-cafa-openapi.json
