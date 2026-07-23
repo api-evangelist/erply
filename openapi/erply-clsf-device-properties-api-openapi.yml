@@ -1,0 +1,636 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment clsf-device-properties API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: clsf-device-properties
+paths:
+  /api/v1/clsf/brand:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Look up device brands
+      parameters:
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Brand ids
+        name: ids
+        in: query
+      - type: string
+        description: Language to use when sorting by name (`en`, `et`, `ru` etc.)
+        name: lang
+        in: query
+      - type: string
+        description: Brand code to search for. Partial matching from the beginning of the code
+        name: code
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `id`, `name`. Defaults to `id`'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClsfResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Add a new device brand
+      parameters:
+      - description: Clsf record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DeviceBrandRequest'
+      responses:
+        '201':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/clsf/brand/{brandId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Delete one device brand record
+      parameters:
+      - type: integer
+        description: Record id
+        name: brandId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Update an existing device brand record
+      parameters:
+      - type: integer
+        description: Record id
+        name: brandId
+        in: path
+        required: true
+      - description: Clsf record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DeviceBrandRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/clsf/model:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Look up device models
+      parameters:
+      - type: string
+        description: Device brand code for which models should be returned
+        name: brandCode
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Device brand ids
+        name: ids
+        in: query
+      - type: string
+        description: Language to use when sorting by name (`en`, `et`, `ru` etc.)
+        name: lang
+        in: query
+      - type: string
+        description: Model code to search for. Partial matching from the beginning of the code
+        name: code
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `id`, `name`. Defaults to `id`'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClsfResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Add a new device model record
+      parameters:
+      - description: Device model record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DeviceModelRequest'
+      responses:
+        '201':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/clsf/model/{modelId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Delete one device model record
+      parameters:
+      - type: integer
+        description: Record id
+        name: modelId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Update an existing device model record
+      parameters:
+      - type: integer
+        description: Record id
+        name: modelId
+        in: path
+        required: true
+      - description: Clsf record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DeviceModelRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/clsf/version:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Look up device versions
+      parameters:
+      - type: string
+        description: Device brand code for which versions should be returned
+        name: brandCode
+        in: query
+      - type: string
+        description: Device model code for which versions should be returned
+        name: modelCode
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Device brand ids
+        name: ids
+        in: query
+      - type: string
+        description: Language to use when sorting by name (`en`, `et`, `ru` etc.)
+        name: lang
+        in: query
+      - type: string
+        description: Version code to search for. Partial matching from the beginning of the code
+        name: code
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `id`, `name`. Defaults to `id`'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClsfResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Add a new device version record
+      parameters:
+      - description: Device version record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DeviceVersionRequest'
+      responses:
+        '201':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/clsf/version/{versionId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Delete one device version record
+      parameters:
+      - type: integer
+        description: Record id
+        name: versionId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf-device-properties
+      summary: Update an existing device version record
+      parameters:
+      - type: integer
+        description: Record id
+        name: versionId
+        in: path
+        required: true
+      - description: Clsf record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DeviceVersionRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+definitions:
+  DeviceModelRequest:
+    type: object
+    properties:
+      brand:
+        type: string
+      code:
+        type: string
+      id:
+        type: integer
+      name:
+        $ref: '#/definitions/core.Translatable'
+  DeviceVersionRequest:
+    type: object
+    properties:
+      brand:
+        type: string
+      code:
+        type: string
+      id:
+        type: integer
+      model:
+        type: string
+      name:
+        $ref: '#/definitions/core.Translatable'
+  ClsfResponse:
+    type: object
+    properties:
+      children:
+        type: array
+        items:
+          $ref: '#/definitions/ClsfChildResponse'
+      code:
+        type: string
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      entity:
+        type: string
+      id:
+        type: integer
+      name:
+        $ref: '#/definitions/core.Translatable'
+      parentId:
+        type: integer
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+  DeviceBrandRequest:
+    type: object
+    properties:
+      code:
+        type: string
+      id:
+        type: integer
+      name:
+        $ref: '#/definitions/core.Translatable'
+  ClsfChildResponse:
+    type: object
+    properties:
+      code:
+        type: string
+      type:
+        type: string
+  core.Translatable:
+    type: object
+    properties:
+      ar:
+        type: string
+        example: ' '
+      cs:
+        type: string
+        example: ' '
+      da:
+        type: string
+        example: ' '
+      de:
+        type: string
+        example: ' '
+      default:
+        type: string
+        example: ' '
+      el:
+        type: string
+        example: ' '
+      en:
+        type: string
+        example: ' '
+      es:
+        type: string
+        example: ' '
+      et:
+        type: string
+        example: ' '
+      fi:
+        type: string
+        example: ' '
+      fo:
+        type: string
+        example: ' '
+      fr:
+        type: string
+        example: ' '
+      it:
+        type: string
+        example: ' '
+      lt:
+        type: string
+        example: ' '
+      lv:
+        type: string
+        example: ' '
+      nl:
+        type: string
+        example: ' '
+      'no':
+        type: string
+        example: ' '
+      pl:
+        type: string
+        example: ' '
+      ru:
+        type: string
+        example: ' '
+      sv:
+        type: string
+        example: ' '
+      th:
+        type: string
+        example: ' '
+      tr:
+        type: string
+        example: ' '
+      vi:
+        type: string
+        example: ' '
+      zh_Hans:
+        type: string
+        example: ' '
+      zh_Hant:
+        type: string
+        example: ' '
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

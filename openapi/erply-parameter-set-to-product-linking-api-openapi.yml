@@ -1,0 +1,122 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Parameter Set To Product Linking API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Parameter Set To Product Linking
+paths:
+  /v1/product/parameter/set/{id}/products:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get products that have values for this st
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Parameter Set To Product Linking
+      summary: Get products that have values for this set
+      parameters:
+      - type: integer
+        description: set ID
+        name: id
+        in: path
+        required: true
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/parametermodels.ParameterResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  Translatable:
+    type: object
+    properties:
+      en:
+        description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  parametermodels.ParameterResponse:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby_id:
+        description: user ID
+        type: integer
+        example: 1
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby_id:
+        description: user ID
+        type: integer
+        example: 1
+      dataset_id:
+        type: integer
+      id:
+        type: integer
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      type:
+        type: string
+      type_id:
+        type: integer
+      value: {}
+      value_id:
+        type: integer
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

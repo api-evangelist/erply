@@ -1,0 +1,1359 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment workorder API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: workorder
+paths:
+  /api/v1/workorder:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Look up workorder records
+      parameters:
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Record ID-s
+        name: id
+        in: query
+      - type: string
+        description: Search by record number, document number, title, customer name, email, device serial, registration, make and model
+        name: searchPhrase
+        in: query
+      - type: string
+        description: Workorder/Record number
+        name: workorderNo
+        in: query
+      - type: integer
+        description: Document number
+        name: documentNo
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Reference numbers
+        name: referenceNos
+        in: query
+      - type: boolean
+        description: If templates or regular workorders should be returned. By default returns both
+        name: isTemplate
+        in: query
+      - type: string
+        description: Record root entity (workorder, raji)
+        name: entity
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Record types to return. If undefined, defaults to 'workorder'
+        name: types
+        in: query
+      - type: string
+        description: Record title. Uses case insensitive partial matching
+        name: title
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Record Group ID-s that must match
+        name: groupIds
+        in: query
+      - type: boolean
+        description: Group ID field should be filled or empty
+        name: groupIdNil
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Record Parent ID-s that must match
+        name: parentIds
+        in: query
+      - type: boolean
+        description: Parent ID field should be filled or empty
+        name: parentIdNil
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Record ID-s for which child objects must be retrieved recursively
+        name: childrenOfIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Record ID-s for which parent objects must be retrieved recursively
+        name: parentsOfIds
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Record priorities that must match
+        name: priorities
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Warehouse ids
+        name: warehouseId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Customer ids
+        name: customerId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Contact ids
+        name: contactId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Device ids
+        name: deviceId
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Record state codes (draft, confirmed, checked_in, checked_out, in_progress, blocked, done, cancelled)
+        name: state
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Record transactional state codes (preparation, estimated, prepaid, invoiced, paid)
+        name: tranState
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Record task scheduled state codes (some_scheduled, nothing_scheduled)
+        name: taskSchedState
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Record row product stock state codes (parts_available, parts_not_ordered, need_po_finalization, awaiting_parts)
+        name: productStockState
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: ID-s of employees who created the record
+        name: createdById
+        in: query
+      - type: string
+        description: Search for workorders created after the specified time (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)
+        name: createdAtStart
+        in: query
+      - type: string
+        description: "\tSearch for workorders created before the specified time (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)"
+        name: createdAtEnd
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: ID-s of employees who updated the record
+        name: updatedById
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: ID-s of employees who marked the linked device as received
+        name: receivedById
+        in: query
+      - type: string
+        description: Device received time range lower bound (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)
+        name: receivedAtStart
+        in: query
+      - type: string
+        description: Device received time range upper bound (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)
+        name: receivedAtEnd
+        in: query
+      - type: boolean
+        description: Received or not received records
+        name: isReceived
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: ID-s of employees who marked the linked device as returned
+        name: returnedById
+        in: query
+      - type: string
+        description: Device returned time range lower bound (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)
+        name: returnedAtStart
+        in: query
+      - type: string
+        description: Device returned time range upper bound (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)
+        name: returnedAtEnd
+        in: query
+      - type: boolean
+        description: Returned or not returned records
+        name: isReturned
+        in: query
+      - type: boolean
+        description: Confirmed or not confirmed records
+        name: isConfirmed
+        in: query
+      - type: boolean
+        description: Cancelled or not cancelled records
+        name: isCancelled
+        in: query
+      - type: boolean
+        description: Search for workorders with linked prepayment sales documents
+        name: hasDocPrepay
+        in: query
+      - type: boolean
+        description: Search for workorders with linked offer sales documents
+        name: hasDocOffer
+        in: query
+      - type: boolean
+        description: Search for workorders with linked invoice sales documents
+        name: hasDocInvoice
+        in: query
+      - type: boolean
+        description: Search for workorders with linked credit documents
+        name: hasDocCredit
+        in: query
+      - type: boolean
+        description: Search for workorders which have been paid in full
+        name: isFullyPaid
+        in: query
+      - type: string
+        description: Label type
+        name: labelType
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Labels under the specified labelType that must match
+        name: label
+        in: query
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `id`, `workorderNo`, `referenceNo`, `netTotal`, `vatTotal`, `total`, `receivedAt`, `returnedAt`, `createdAt`, `updatedAt`, `registration`, `serial`, `brand`, `model`, `custFirstname`, `custName`, `stateCode`, `tranStateCode`, `priority`, `receiver`, `creator`, `type`'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/WorkorderResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Add a new workorder record
+      parameters:
+      - description: Workorder record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WorkorderRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/WorkorderResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Delete one workorder record
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Delete one workorder record
+      parameters:
+      - type: integer
+        description: Record id
+        name: workorderId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Update workorder record
+      parameters:
+      - type: integer
+        description: Record id
+        name: workorderId
+        in: path
+        required: true
+      - description: Workorder record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WorkorderRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/backup:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Look up workorder backups
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Look up workorder backups
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Search by associated sales document numbers
+        name: docNo
+        in: query
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: Sorting order. Supported values [backupId workorderId workorderNo createdAt]
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BackupResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/cancel:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Mark the workorder as cancelled
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/confirm:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Mark the workorder as confirmed
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/copy:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Create a copy of a workorder
+      parameters:
+      - type: integer
+        description: Record id
+        name: workorderId
+        in: path
+        required: true
+      - description: Workorder record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/model.WorkorderCopyRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/device-received:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Mark the device associated with the workorder as received
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/device-returned:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Mark the device associated with the workorder as returned
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/order:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Allows changing the order of workorders. A single record can be moved either in front of any other one in the same grouping, or to the end of the list
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Change the order of one workorder within the grouping
+      parameters:
+      - type: integer
+        description: Workorder id that must be moved to new position
+        name: workorderId
+        in: path
+        required: true
+      - description: Reorder parameter `inFrontOfId` defines the record in front of which the moved workorder should be placed
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WorkorderOrderRequest'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/prepay:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Create a prepayment document based on the specified workorder and optionally add payments to it
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - description: Request body
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/model.WorkorderPrepayRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderDocResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/quote:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Generates a quote from the workorder
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderDocResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/settle:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Settle workorders. Generate sales document and make payments
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - description: Request body
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/model.WorkorderSettleRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderDocResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/uncancel:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Mark the workorder as not cancelled
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/unconfirm:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - workorder
+      summary: Mark the workorder as not confirmed
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+definitions:
+  LabelResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      label:
+        type: string
+      labelType:
+        type: string
+      taskId:
+        type: integer
+      workorderId:
+        type: integer
+  model.WorkorderCopyRequest:
+    type: object
+    properties:
+      copyContact:
+        type: boolean
+      copyCustomer:
+        type: boolean
+      copyDevice:
+        type: boolean
+      copyItems:
+        type: boolean
+      copyRows:
+        type: boolean
+      copyTasks:
+        type: boolean
+      copyWarehouse:
+        type: boolean
+  SalesDocument:
+    type: object
+    properties:
+      net:
+        type: number
+      receiptLink:
+        type: string
+      rounding:
+        type: number
+      salesDocId:
+        type: integer
+      salesDocLink:
+        type: string
+      salesDocNo:
+        type: string
+      total:
+        type: number
+      vat:
+        type: number
+  WorkorderResponse:
+    type: object
+    properties:
+      cancelledAt:
+        type: string
+      cancelledById:
+        type: integer
+      confirmedAt:
+        type: string
+      confirmedById:
+        type: integer
+      contactId:
+        type: integer
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      customerId:
+        type: integer
+      data:
+        type: object
+      deviceId:
+        type: integer
+      deviceUse:
+        description: Stored in device_log table
+        type: integer
+      emsThreadId:
+        type: integer
+      entity:
+        type: string
+      hasDocCredit:
+        type: boolean
+      id:
+        type: integer
+      labels:
+        type: array
+        items:
+          $ref: '#/definitions/LabelResponse'
+      netTotal:
+        type: number
+      noteCount:
+        type: integer
+      order:
+        type: integer
+      paid:
+        type: number
+      parentId:
+        type: integer
+      priority:
+        type: string
+      productStockState:
+        type: string
+      progress:
+        type: number
+      receivedAt:
+        type: string
+      receivedById:
+        type: integer
+      referenceNo:
+        type: string
+      returnedAt:
+        type: string
+      returnedById:
+        type: integer
+      salepointId:
+        type: integer
+      state:
+        type: string
+      taskScheduledState:
+        type: string
+      taxExempt:
+        type: boolean
+      templateId:
+        type: integer
+      title:
+        type: string
+      total:
+        type: number
+      transactionalState:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      vatTotal:
+        type: number
+      warehouseId:
+        type: integer
+      workorderGroupId:
+        type: integer
+      workorderNo:
+        type: string
+  BackupResponse:
+    type: object
+    properties:
+      backupId:
+        type: integer
+        example: 1
+      createdAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      createdById:
+        type: integer
+        example: 1
+      docNo:
+        description: Number of the sales document for which this backup was created
+        type: string
+        example: '123'
+      eventName:
+        $ref: '#/definitions/core.Translatable'
+      eventType:
+        type: string
+        example: doc_quote_created
+      workorderId:
+        type: integer
+        example: 1
+      workorderNo:
+        type: string
+        example: '1'
+  WorkorderRequest:
+    type: object
+    properties:
+      contactId:
+        type: integer
+      customerId:
+        type: integer
+      data:
+        type: object
+      deviceId:
+        type: integer
+      deviceUse:
+        description: Stored in device_log table
+        type: integer
+      entity:
+        type: string
+      id:
+        type: integer
+      parentId:
+        type: integer
+      priority:
+        type: string
+      receivedAt:
+        type: string
+      receivedById:
+        description: Set by user
+        type: integer
+      referenceNo:
+        type: string
+      returnedAt:
+        type: string
+      returnedById:
+        description: Set by user
+        type: integer
+      salepointId:
+        type: integer
+      state:
+        type: string
+      taxExempt:
+        type: boolean
+      title:
+        type: string
+      type:
+        type: string
+      warehouseId:
+        type: integer
+      workorderGroupId:
+        type: integer
+  model.WorkorderSettleRequest:
+    type: object
+    properties:
+      docType:
+        type: string
+      payment:
+        type: array
+        items:
+          $ref: '#/definitions/WorkorderDocRequestPayment'
+      rounding:
+        description: Specify rounding amount (eg. 0.02 or -0.04). Rounding is applied to invoice total with tax, after all other calculations.
+        type: number
+      salepointId:
+        type: integer
+  WorkorderDocResponse:
+    type: object
+    properties:
+      cancelledAt:
+        type: string
+      cancelledById:
+        type: integer
+      confirmedAt:
+        type: string
+      confirmedById:
+        type: integer
+      contactId:
+        type: integer
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      customerId:
+        type: integer
+      data:
+        type: object
+      deviceId:
+        type: integer
+      deviceUse:
+        description: Stored in device_log table
+        type: integer
+      emsThreadId:
+        type: integer
+      entity:
+        type: string
+      hasDocCredit:
+        type: boolean
+      id:
+        type: integer
+      labels:
+        type: array
+        items:
+          $ref: '#/definitions/LabelResponse'
+      netTotal:
+        type: number
+      noteCount:
+        type: integer
+      order:
+        type: integer
+      paid:
+        type: number
+      parentId:
+        type: integer
+      paymentId:
+        type: array
+        items:
+          type: integer
+      priority:
+        type: string
+      productStockState:
+        type: string
+      progress:
+        type: number
+      receivedAt:
+        type: string
+      receivedById:
+        type: integer
+      referenceNo:
+        type: string
+      returnedAt:
+        type: string
+      returnedById:
+        type: integer
+      salepointId:
+        type: integer
+      salesDoc:
+        $ref: '#/definitions/SalesDocument'
+      salesDocId:
+        type: integer
+      state:
+        type: string
+      taskScheduledState:
+        type: string
+      taxExempt:
+        type: boolean
+      templateId:
+        type: integer
+      title:
+        type: string
+      total:
+        type: number
+      transactionalState:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      vatTotal:
+        type: number
+      warehouseId:
+        type: integer
+      workorderGroupId:
+        type: integer
+      workorderNo:
+        type: string
+  model.WorkorderPrepayRequest:
+    type: object
+    properties:
+      payment:
+        type: array
+        items:
+          $ref: '#/definitions/WorkorderDocRequestPayment'
+      rounding:
+        description: Specify rounding amount (eg. 0.02 or -0.04). Rounding is applied to invoice total with tax, after all other calculations.
+        type: number
+      salepointId:
+        type: integer
+  WorkorderDocRequestPayment:
+    type: object
+    properties:
+      aid:
+        type: string
+      applicationLabel:
+        type: string
+      attributeAuthCode:
+        type: string
+      attributeRefNo:
+        type: string
+      cardHolder:
+        type: string
+      cardNumber:
+        type: string
+      cardType:
+        type: string
+      cashChange:
+        type: number
+      cashPaid:
+        type: number
+      certificateBalance:
+        type: string
+      cryptogram:
+        type: string
+      cryptogramType:
+        type: string
+      currencyCode:
+        description: EUR, USD
+        type: string
+      entryMethod:
+        type: string
+      expirationDate:
+        type: string
+      info:
+        description: Information about the payer or payment transaction
+        type: string
+      klarnaPaymentID:
+        type: string
+      paymentServiceProvider:
+        type: string
+      pinStatement:
+        type: string
+      signature:
+        type: string
+      signatureIV:
+        type: string
+      statusCode:
+        type: string
+      statusMessage:
+        type: string
+      sum:
+        type: number
+      transactionId:
+        type: string
+      transactionNumber:
+        type: string
+      transactionTime:
+        type: integer
+      transactionType:
+        type: string
+      type:
+        description: CASH, TRANSFER, CARD, CREDIT, GIFTCARD, CHECK, TIP
+        type: string
+  core.Translatable:
+    type: object
+    properties:
+      ar:
+        type: string
+        example: ' '
+      cs:
+        type: string
+        example: ' '
+      da:
+        type: string
+        example: ' '
+      de:
+        type: string
+        example: ' '
+      default:
+        type: string
+        example: ' '
+      el:
+        type: string
+        example: ' '
+      en:
+        type: string
+        example: ' '
+      es:
+        type: string
+        example: ' '
+      et:
+        type: string
+        example: ' '
+      fi:
+        type: string
+        example: ' '
+      fo:
+        type: string
+        example: ' '
+      fr:
+        type: string
+        example: ' '
+      it:
+        type: string
+        example: ' '
+      lt:
+        type: string
+        example: ' '
+      lv:
+        type: string
+        example: ' '
+      nl:
+        type: string
+        example: ' '
+      'no':
+        type: string
+        example: ' '
+      pl:
+        type: string
+        example: ' '
+      ru:
+        type: string
+        example: ' '
+      sv:
+        type: string
+        example: ' '
+      th:
+        type: string
+        example: ' '
+      tr:
+        type: string
+        example: ' '
+      vi:
+        type: string
+        example: ' '
+      zh_Hans:
+        type: string
+        example: ' '
+      zh_Hant:
+        type: string
+        example: ' '
+  WorkorderOrderRequest:
+    type: object
+    properties:
+      inFrontOfId:
+        description: 'ID of the record in front of which the moved record should be placed. Must belong to a record associated
+
+          with the same grouping. If left nil, the workorder will be moved to the last place'
+        type: integer
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

@@ -1,0 +1,145 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Import & Export API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Import & Export
+paths:
+  /configurations/export:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Import & Export
+      summary: Export configurations to files
+      parameters:
+      - type: string
+        description: Application name that uses CAFA to store configs
+        name: application
+        in: query
+      - type: string
+        description: Level is the operating level where the config is stored. Has to be one of Company, Warehouse, Pos, User. Default is Company
+        name: level
+        in: query
+      - type: string
+        description: LevelID is a unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  `Company level does not need level_id.`
+        name: level_id
+        in: query
+      - type: string
+        description: Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations
+        name: type
+        in: query
+      - type: string
+        description: Name of the configuration
+        name: name
+        in: query
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      responses:
+        '200':
+          description: binary .json file content
+          schema:
+            type: string
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+  /configurations/import:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      consumes:
+      - multipart/form-data
+      produces:
+      - application/json
+      tags:
+      - Import & Export
+      summary: Import configurations from file
+      parameters:
+      - type: file
+        description: File that contains the data for the import (should be .json)
+        name: file
+        in: formData
+        required: true
+      - type: boolean
+        description: If true, existing configurations will not be updated, otherwise they will be updated with the imported data
+        name: preserveExistingConfigurations
+        in: query
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/server.importResult'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+definitions:
+  server.importResult:
+    type: object
+    properties:
+      error:
+        type: string
+      id:
+        type: string
+  response:
+    type: object
+    properties:
+      id:
+        type: integer
+      message:
+        type: string
+      statusCode:
+        type: string
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

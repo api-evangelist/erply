@@ -1,0 +1,423 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment template API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: template
+paths:
+  /api/v1/template:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: "Allows searching for templates matching specific criteria. To find templates for a specific workorder, just specify the workorderId as a filter but detailed filtering by fields is also supported.\r\n\r\n> Param           | Default&nbsp;          | Example&nbsp; | Description\r\n> ----------------|------------------------|---------------|----\r\n> `onlyTemplateGroups` | false                  | true          | Search for templates created from entire workorders, not individual item templates. Such workorder-based templates can contain multiple items in them\r\n> `workorderId`   |                        | 2             | Search for templates with matching filters for the specified workorder. When filtering templates using this field, it is not possible to additionally filter by single fields like `name`, `deviceModel` etc.\r\n> `name`          |                        | My template   | Search for templates by name. Supports partial matches\r\n> `deviceBrand`   |                        | Ford          | Search for templates by device brand. Exact match\r\n> `deviceModel`   |                        | Mondeo        | Search for templates by device model. Exact match\r\n> `deviceVersion` |                        | MK2           | Search for templates by device version. Exact match\r\n> `deviceSoldAt`  |                        | 2020-06-06T13:55:00Z&nbsp; | Search for templates by device soldAt date. When specified, the accepted format is `yyyy-mm-ddThh:mm:ssZ` or a UNIX timestamp\r\n> `withTotalCount` | false                  | true          | If total count of matched records should be returned in response header `x-total-count`\r\n> `pageSize`      | 20                     | 100           | Allows specifying how many records per page should be returned\r\n> `pageNr`        | 1                      | 2             | Allows specifying which page should be returned for creating paginated views over the data.\r\n> `sort`          | -usedCount, -relevance | -id           | Allows specifying in which order the rows should be returned. Supported values are: `id`, `name`, `usedCount`, `relevance`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword.\r\n>\r\n>"
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - template
+      summary: Look up templates
+      parameters:
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: boolean
+        description: When set to `true` returns workorder templates, `false` returns item templates and if missing, both template types are returned
+        name: onlyTemplateGroups
+        in: query
+      - type: integer
+        description: ID of workorder for which matching templates should be found
+        name: workorderId
+        in: query
+      - type: string
+        description: Search for templates by name. Supports partial matches
+        name: name
+        in: query
+      - type: string
+        description: Search for templates by device brand
+        name: deviceBrand
+        in: query
+      - type: string
+        description: Search for templates by device model
+        name: deviceModel
+        in: query
+      - type: string
+        description: Search for templates by device version
+        name: deviceVersion
+        in: query
+      - type: string
+        description: Search for templates by device soldAt date
+        name: deviceSoldAt
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `id`, `name`, `usedCount`, `relevance`. Defaults to `-usedCount, -relevance`'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TemplateResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: "Create a new template. Templates are used to modify existing workorders to fill them with pre-defined items, rows and tasks. They can be based either on a workorder or an individual item. A template based on a workorder can contain multiple items. Once a template is created, the associated workorderId and itemId cannot be changed.\r\n\r\nA template must be assigned a name which can be used for looking it up.\r\n\r\nTemplate definition can also contain a number of scope fields. These determine what kind of workorders this template is suitable for. If a value is not defined for a specific scope, it means that the field is ignored when determining workorder suitability. As a result a template without any defined scopes matches all workorders.\r\n\r\nCurrently supported scopes are:\r\n\r\n> Scope              | Example value&nbsp; | Description      \r\n> -------|---------------------|---------------\r\n> `scopeDeviceBrand` | Ford                | device with the specified brand   |\r\n> `scopeDeviceModel` | Mondeo              | device with the specified model   |\r\n> `scopeDeviceVersion` | MK2               | device with the specified version |\r\n> `scopeDeviceSoldAtLessDaysAgo` | 365     | device that was sold less than the specified number of days ago |\r\n> \r\n\r\n"
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - template
+      summary: Create a new template
+      parameters:
+      - description: Template record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/TemplateRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/TemplateResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/template/{templateId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Delete one template record
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - template
+      summary: Delete one template record
+      parameters:
+      - type: integer
+        description: Record id
+        name: templateId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Update a template. It is possible to update its name and scopes. Changing the associated workorderId and itemId-s is not supported.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - template
+      summary: Update template record
+      parameters:
+      - type: integer
+        description: Record id
+        name: templateId
+        in: path
+        required: true
+      - description: Template record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/TemplateRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/TemplateResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/template/{templateId}/apply:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - template
+      summary: Applies a template to a workorder. If the workorderId is not specified, creates a new workorder
+      parameters:
+      - type: integer
+        description: Template id
+        name: templateId
+        in: path
+        required: true
+      - description: Request on how to apply template
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/TemplateApplyRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/WorkorderResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+definitions:
+  LabelResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      label:
+        type: string
+      labelType:
+        type: string
+      taskId:
+        type: integer
+      workorderId:
+        type: integer
+  WorkorderResponse:
+    type: object
+    properties:
+      cancelledAt:
+        type: string
+      cancelledById:
+        type: integer
+      confirmedAt:
+        type: string
+      confirmedById:
+        type: integer
+      contactId:
+        type: integer
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      customerId:
+        type: integer
+      data:
+        type: object
+      deviceId:
+        type: integer
+      deviceUse:
+        description: Stored in device_log table
+        type: integer
+      emsThreadId:
+        type: integer
+      entity:
+        type: string
+      hasDocCredit:
+        type: boolean
+      id:
+        type: integer
+      labels:
+        type: array
+        items:
+          $ref: '#/definitions/LabelResponse'
+      netTotal:
+        type: number
+      noteCount:
+        type: integer
+      order:
+        type: integer
+      paid:
+        type: number
+      parentId:
+        type: integer
+      priority:
+        type: string
+      productStockState:
+        type: string
+      progress:
+        type: number
+      receivedAt:
+        type: string
+      receivedById:
+        type: integer
+      referenceNo:
+        type: string
+      returnedAt:
+        type: string
+      returnedById:
+        type: integer
+      salepointId:
+        type: integer
+      state:
+        type: string
+      taskScheduledState:
+        type: string
+      taxExempt:
+        type: boolean
+      templateId:
+        type: integer
+      title:
+        type: string
+      total:
+        type: number
+      transactionalState:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      vatTotal:
+        type: number
+      warehouseId:
+        type: integer
+      workorderGroupId:
+        type: integer
+      workorderNo:
+        type: string
+  TemplateRequest:
+    type: object
+    properties:
+      data:
+        type: object
+      id:
+        type: integer
+      itemId:
+        type: array
+        items:
+          type: integer
+      name:
+        type: string
+      scopeDeviceBrand:
+        type: string
+      scopeDeviceModel:
+        type: string
+      scopeDeviceSoldAtLessDaysAgo:
+        type: integer
+      scopeDeviceVersion:
+        type: string
+      workorderId:
+        type: integer
+  TemplateApplyRequest:
+    type: object
+    properties:
+      templateId:
+        type: integer
+      warehouseId:
+        type: integer
+      workorderId:
+        type: integer
+  TemplateResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      data:
+        type: object
+      id:
+        type: integer
+      itemIds:
+        type: array
+        items:
+          type: integer
+      name:
+        type: string
+      relevance:
+        type: number
+      scopeDeviceBrand:
+        type: string
+      scopeDeviceModel:
+        type: string
+      scopeDeviceSoldAtLessDaysAgo:
+        type: integer
+      scopeDeviceVersion:
+        type: string
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      usedCount:
+        type: integer
+      workorderId:
+        type: integer
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

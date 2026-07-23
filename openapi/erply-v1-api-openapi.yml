@@ -1,0 +1,441 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment v1 API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: v1
+paths:
+  /configuration:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      description: 'All those parameters work like filters. You can search for all configs by type or by level. Or get all configs of Pos 1.
+
+        With `Look-Deeper` header set to `true` you will get the following logic of the request:
+
+        When you request a config at a User or Warehouse levels, if it is not there it will check Company level as well. When you request a config at a POS level, if it is not there it will check Warehouse (if request to ERPLY API was ok to get the Warehouse ID) and Company levels as well.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - v1
+      summary: Get all configurations or a sub-list.
+      parameters:
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      - type: boolean
+        description: look for configuration on deeper levels. if CAFA does not find any configuration with the query parameters, CAFA will use the level_id(PointOfSaleID), to find which Warehouse the Pos belongs to and check for configuration with the same name(and type if present)
+        name: Look-Deeper
+        in: header
+      - type: string
+        description: Application name that uses CAFA to store configs
+        name: application
+        in: query
+      - enum:
+        - Company
+        - Warehouse
+        - Pos
+        - User
+        - Device
+        type: string
+        description: Level is the operating level where the config is stored
+        name: level
+        in: query
+      - type: string
+        description: LevelID is a unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  `Company level does not need level_id.`
+        name: level_id
+        in: query
+      - type: string
+        description: Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations
+        name: type
+        in: query
+      - type: string
+        description: Name of the configuration
+        name: name
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/configuration'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      description: '`level`, `level_id` and `type` are optional fields.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - v1
+      summary: Update `value` only
+      deprecated: true
+      parameters:
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      - description: ConfigurationDbRecord
+        name: config
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/configurationRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      description: '`NB`: You cannot have 2 configurations with the same level,level_id, type, name and application
+
+        level, level_id and type are optional fields.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - v1
+      summary: Save
+      deprecated: true
+      parameters:
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      - description: ConfigurationDbRecord
+        name: config
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/configurationRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      description: 'Delete will delete the configuration by strict match of the following fields: level, application, levelID, type and name.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - v1
+      summary: Delete
+      deprecated: true
+      parameters:
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      - type: string
+        description: Application (s) name that uses CAFA to store configs
+        name: application
+        in: query
+        required: true
+      - type: string
+        description: Level is the operating level where the config is stored. Has to be one of Company, Warehouse, Pos, User
+        name: level
+        in: query
+      - type: string
+        description: LevelID is an unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  Company level does not need level_id.
+        name: level_id
+        in: query
+      - type: string
+        description: Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations
+        name: type
+        in: query
+      - type: string
+        description: Name of the configuration
+        name: name
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+  /configuration/apps:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      description: Get a list of all application names that the user has configurations for.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - v1
+      summary: Get a list of all application names that the user has configurations for.
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/appsResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+  /configuration/{applicationName}:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      description: The endpoint allows you to get all the configurations in an application
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - v1
+      summary: Get all configurations for an application.
+      parameters:
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      - type: string
+        description: Application name
+        name: applicationName
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/configuration'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+  /configuration/{id}/move:
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - v1
+      summary: Moving means changing the level_id.
+      parameters:
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      - description: desired levelID
+        name: moveRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/moveRequest'
+      - type: string
+        description: ConfigurationDbRecord ID
+        name: id
+        in: path
+        required: true
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+definitions:
+  response:
+    type: object
+    properties:
+      id:
+        type: integer
+      message:
+        type: string
+      statusCode:
+        type: string
+  moveRequest:
+    type: object
+    properties:
+      level_id:
+        description: LevelID is new level_id to set for the config
+        type: string
+  appsResponse:
+    type: object
+    properties:
+      applications:
+        type: array
+        items:
+          type: string
+  configurationRequest:
+    type: object
+    properties:
+      application:
+        description: Application (s) name that uses CAFA to store configs, application name has to be generated manually before it can be used in Identity Admin.
+        type: string
+        example: woo-comm
+      level:
+        description: Level is the operating level where the config will be stored. Has to be one of Company, Warehouse, Pos, User
+        type: string
+        example: Pos
+      level_id:
+        description: 'LevelID is a unique value, used to identify the instance of the level.
+
+          for User level, user id
+
+          for Pos - Point of Sale ID. Each Pos belongs to Warehouse. When we query CAFA for configuration on level: ''Pos'', and add ''Look-Deeper: true'' header, if CAFA dooes not find any configuration with the query parameters, CAFA will use the level_id(PointOfSaleID), to find which Warehouse the Pos belongs to and check for configuration with the same name(and type if present)
+
+          Warehouse can use any unique string to identify the instance of its level, because the higher level for each Warehouse is Company level, which can only be one instance per account
+
+          Company level does not need level_id because there can only be one company per account in Erply.'
+        type: string
+        example: '1'
+      name:
+        description: Name of the configuration
+        type: string
+        example: adyen
+      type:
+        description: 'Type is an optional grouping property, in this case its ''payment'',
+
+          indicating that this configuration belongs to payment integrations group
+
+          used to query groups of related configurations'
+        type: string
+        example: payment
+      value:
+        description: 'Value stored by the configuration. Supported types: JSON, JSON array, string'
+  configuration:
+    type: object
+    properties:
+      added:
+        type: integer
+      addedby_id:
+        type: integer
+      application:
+        type: string
+        example: erply-to-woo-sync
+      changed:
+        type: integer
+      changedby_id:
+        type: integer
+      id:
+        type: string
+      level:
+        description: Level is optional
+        type: string
+        example: Pos
+      level_id:
+        description: LevelID is optional
+        type: string
+        example: '1'
+      name:
+        type: string
+        example: adyen
+      type:
+        description: Type is optional
+        type: string
+        example: payment
+      value: {}
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

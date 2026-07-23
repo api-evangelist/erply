@@ -1,0 +1,165 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Warehouse Locations API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Warehouse Locations
+paths:
+  /v1/warehouse/locations:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Warehouse Locations
+      summary: Create a Warehouse Location
+      parameters:
+      - description: request
+        name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/warehouses.CreateLocationRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/warehouse/locations/{ids}:
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Warehouse Locations
+      summary: Delete Warehouse Locations by IDs
+      parameters:
+      - type: string
+        description: up to 100 semicolon delimited Warehouse Location IDs
+        name: ids
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/warehouse/locations/{id}:
+    patch:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Warehouse Locations
+      summary: Update a warehouse location
+      parameters:
+      - type: integer
+        description: location ID
+        name: id
+        in: path
+        required: true
+      - description: update request
+        name: UpdateRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/warehouses.UpdateLocationRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  responses.Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 73
+  warehouses.CreateLocationRequest:
+    type: object
+    properties:
+      name:
+        type: string
+        example: loc1
+  warehouses.UpdateLocationRequest:
+    type: object
+    properties:
+      name:
+        type: string
+        example: loc1
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

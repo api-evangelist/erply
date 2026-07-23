@@ -1,0 +1,555 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment task API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: task
+paths:
+  /api/v1/task:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - task
+      summary: Look up any tasks
+      parameters:
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: Task ID-s
+        name: id
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        example: lunchbreak
+        description: Task types. By default returns all
+        name: type
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: List of workorder ID-s
+        name: workorderId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: Workorder customer ID-s
+        name: workorderCustomerId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: Workorder contact ID-s
+        name: workorderContactId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: List of item ID-s
+        name: itemId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: List of row ID-s
+        name: rowId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: List of row product ID-s
+        name: rowProductId
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        example: '1'
+        description: List of row product codes
+        name: rowProductCode
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: List of row product group ID-s
+        name: rowProductGroupId
+        in: query
+      - type: string
+        example: '1'
+        description: Row title matching
+        name: rowTitleLike
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: List of workorder warehouse ID-s
+        name: warehouseId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: List of resource ID-s
+        name: resourceId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: List of assigned-to Employee ID-s
+        name: assignedToId
+        in: query
+      - type: string
+        example: '2020-06-06T13:55:00Z'
+        description: Task time range lower bound (yyyy-mm-ddThh:mm:ssZ or a UNIX timestamp). Defaults to Unix Epoch. If no filtering by workorder, item or row ID is applied, difference between rangeStart and rangeEnd must be less than 61 days
+        name: rangeStart
+        in: query
+      - type: string
+        example: '2020-06-06T13:55:00Z'
+        description: Task time range upper bound (yyyy-mm-ddThh:mm:ssZ or a UNIX timestamp). Defaults to NOW. If no filtering by workorder, item or row ID is applied, difference between rangeStart and rangeEnd must be less than 61 days
+        name: rangeEnd
+        in: query
+      - type: boolean
+        example: true
+        description: If task start and end time must fit entirely inside the filter range
+        name: rangeStrict
+        in: query
+      - type: boolean
+        example: true
+        description: If linked row notes should also be returned in the response
+        name: withRowNotes
+        in: query
+      - type: string
+        description: Label type
+        name: labelType
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Labels under the specified type that must match
+        name: label
+        in: query
+      - type: boolean
+        example: true
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        example: 30
+        description: Result page size. Defaults to 20
+        name: pageSize
+        in: query
+      - type: integer
+        example: 2
+        description: Result page number. Defaults to 1
+        name: pageNr
+        in: query
+      - type: string
+        example: -id
+        description: 'Allows specifying in which order the rows should be returned. Supported values are: `id`, `startAt`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TaskResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - task
+      summary: Add a new task record
+      parameters:
+      - description: Task record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/TaskRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/TaskResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/task/reschedule:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: "Allows to execute task rescheduling logic if the account has been configured accordingly. When triggered, tasks which were left unclosed (in states other that `done`) in the account's timezone yesterday, will be rescheduled for today and set to `blocked` state.\r\n\r\n#### Configuration ####\r\n\r\nFunctionality can be enabled or disabled in Cafa. If there is no configuration in Cafa, calling this function will generate a Cafa entry with default values.\r\n\r\n> Field         | Value&nbsp;       | Description\r\n> --------------|-------------------|----\r\n> `application` | assignments       | Application name. Has to be `assignments`\r\n> `level`       | Company           | Level is the operating level where the config will be stored. Has to be `Company`\r\n> `name`        | task_rescheduling | Name of the configuration. Has to be `task_rescheduling`\r\n> `value`       | true              | If task rescheduling is enabled or not. Must be parseable as a boolean. Will default to `false`\r\n>\r\n\r\nAdditionally, this functionality is affected by Erply configuration parameter `timezone` which is briefly described in Erply API docs: https://learn-api.erply.com/requests/getconfparameters\r\n"
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - task
+      summary: Reschedule tasks if so configured
+      responses:
+        '202':
+          description: Accepted
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/task/{taskId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Delete one task record
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - task
+      summary: Delete one task record
+      parameters:
+      - type: integer
+        description: Task id
+        name: taskId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - task
+      summary: Update task record
+      parameters:
+      - type: integer
+        description: Task id
+        name: taskId
+        in: path
+        required: true
+      - description: Task record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/TaskRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/TaskResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/task/{taskId}/{repeatId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Delete one task within a recurring task chain
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - task
+      summary: Delete one task within a recurring task chain
+      parameters:
+      - type: integer
+        description: Task id
+        name: taskId
+        in: path
+        required: true
+      - type: integer
+        description: Recurring task repeatId
+        name: repeatId
+        in: path
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+definitions:
+  TaskRequest:
+    type: object
+    properties:
+      assignedToId:
+        type: integer
+        example: 1
+      data:
+        type: object
+      endAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      id:
+        type: integer
+        example: 1
+      repeatId:
+        description: Index of the task in a repeated task chain. Index is 0 based so 0 is a valid value
+        type: integer
+        example: 1
+      resourceId:
+        type: integer
+        example: 1
+      rowId:
+        type: integer
+        example: 1
+      rrule:
+        description: RRule definition (RFC 2445). Eg. `RRULE:FREQ=DAILY;COUNT=10`
+        type: string
+        example: RRULE:FREQ=DAILY;UNTIL=20220919T063000Z
+      startAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      title:
+        type: string
+        example: some title
+      type:
+        type: string
+        example: default
+      userDuration:
+        description: 'User definable number of minutes that have been spent on the task. This will be used to fill
+
+          the response field `duration`. If not set, `duration` will be automatically calculated from
+
+          the difference between `startAt` and `endAt`'
+        type: integer
+        example: 1
+      warehouseId:
+        type: integer
+        example: 1
+      workorderId:
+        type: integer
+        example: 1
+  LabelResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      label:
+        type: string
+      labelType:
+        type: string
+      taskId:
+        type: integer
+      workorderId:
+        type: integer
+  TaskResponse:
+    type: object
+    properties:
+      assignedToId:
+        type: integer
+        example: 1
+      createdAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      createdById:
+        type: integer
+        example: 1
+      data:
+        type: object
+      duration:
+        description: 'Number of minutes that have been spent on the task. This is either the user defined value
+
+          `userDuration` or calculated automatically from the difference between `startAt` and `endAt`.
+
+          Nil if these fields are not set'
+        type: integer
+        example: 1
+      endAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      id:
+        type: integer
+        example: 1
+      itemId:
+        type: integer
+        example: 1
+      labels:
+        type: array
+        items:
+          $ref: '#/definitions/LabelResponse'
+      repeatEndAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      repeatId:
+        type: integer
+        example: 1
+      repeatStartAt:
+        description: Start of the repeated task range for easier access
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      resourceId:
+        type: integer
+        example: 1
+      rowId:
+        type: integer
+        example: 1
+      rowNotes:
+        type: array
+        items:
+          $ref: '#/definitions/NoteResponse'
+      rrule:
+        type: string
+        example: RRULE:FREQ=DAILY;UNTIL=20220919T063000Z
+      startAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      title:
+        type: string
+        example: Row A;Row B
+      type:
+        type: string
+        example: default
+      updatedAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      updatedById:
+        type: integer
+        example: 1
+      userDuration:
+        description: User defined number of minutes that have been spent on the task
+        type: integer
+        example: 1
+      warehouseId:
+        type: integer
+        example: 1
+      workorderId:
+        type: integer
+        example: 1
+  NoteResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      data:
+        type: object
+      id:
+        type: integer
+      itemId:
+        type: integer
+      rowId:
+        type: integer
+      taskId:
+        type: integer
+      text:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      workorderId:
+        type: integer
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

@@ -1,0 +1,323 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment item API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: item
+paths:
+  /api/v1/workorder/{workorderId}/item:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: "Allows searching for workorder items matching specific criteria.\r\n\r\n> Param           | Default&nbsp; | Example&nbsp; | Description\r\n> ----------------|---------|---------|----\r\n> `withTotalCount` | false  | true    | If total count of matched records should be returned in response header `x-total-count\r\n> `pageSize`      | 20      | 100     | Allows specifying how many records per page should be returned\r\n> `pageNr`        | 1       | 2       | Allows specifying which page should be returned for creating paginated views over the data.\r\n> `sort`          | id      | -id     | Allows specifying in which order the rows should be returned. Supported values are: `id`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword.\r\n>\r\n>"
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - item
+      summary: Look up items
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: Sorting order
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ItemResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - item
+      summary: Add a new item record
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - description: Item record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ItemRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/ItemResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/item/{itemId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Delete one item record
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - item
+      summary: Delete one item record
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - type: integer
+        description: Record id
+        name: itemId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - item
+      summary: Update item record
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - type: integer
+        description: Record id
+        name: itemId
+        in: path
+        required: true
+      - description: Item record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ItemRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ItemResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/item/{itemId}/link:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: One or more rows in the same workorder and item can now be linked together. This is supported only for services, not regular products. Linked rows will be associated with the same task as a group and will share their state - performing task related or state change actions on one row will affect all of them.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - item
+      summary: Link rows together
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - type: integer
+        description: Item id
+        name: itemId
+        in: path
+        required: true
+      - description: Link payload
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/RowLinkRequest'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/item/{itemId}/link/{rowId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - item
+      summary: Unlink row from other rows
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - type: integer
+        description: Item id
+        name: itemId
+        in: path
+        required: true
+      - type: integer
+        description: Row id
+        name: rowId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+definitions:
+  ItemRequest:
+    type: object
+    properties:
+      data:
+        type: object
+      id:
+        type: integer
+      text:
+        type: string
+      workorderId:
+        type: integer
+  ItemResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      data:
+        type: object
+      id:
+        type: integer
+      templateId:
+        type: integer
+      templateSourceId:
+        type: integer
+      text:
+        type: string
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      workorderId:
+        type: integer
+  RowLinkRequest:
+    type: object
+    properties:
+      rowIds:
+        type: array
+        items:
+          type: integer
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

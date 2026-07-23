@@ -1,0 +1,277 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment v3 API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: v3
+paths:
+  /v3/configuration:
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      description: '`NB`: You cannot have 2 configurations with the same level,level_id, type, name and application
+
+        level, level_id and type are optional fields.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - v3
+      summary: Save or update a configuration
+      parameters:
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      - description: ConfigurationDbRecord
+        name: config
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/configurationRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+  /v3/configuration/{id}:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - v3
+      summary: Get by ID
+      parameters:
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      - type: string
+        description: Configuration ID
+        name: id
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/configuration'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      description: Update `value` by ID
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - v3
+      summary: Update `value` by ID
+      parameters:
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      - type: string
+        description: Configuration ID
+        name: id
+        in: path
+        required: true
+      - description: new configuration value
+        name: value
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/valueRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      description: Delete By ID
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - v3
+      summary: Delete By ID
+      parameters:
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      - type: integer
+        description: configuration ID
+        name: id
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+definitions:
+  valueRequest:
+    type: object
+    properties:
+      value:
+        description: 'Value stored by the configuration. Supported types: JSON, JSON array, string'
+  configurationRequest:
+    type: object
+    properties:
+      application:
+        description: Application (s) name that uses CAFA to store configs, application name has to be generated manually before it can be used in Identity Admin.
+        type: string
+        example: woo-comm
+      level:
+        description: Level is the operating level where the config will be stored. Has to be one of Company, Warehouse, Pos, User
+        type: string
+        example: Pos
+      level_id:
+        description: 'LevelID is a unique value, used to identify the instance of the level.
+
+          for User level, user id
+
+          for Pos - Point of Sale ID. Each Pos belongs to Warehouse. When we query CAFA for configuration on level: ''Pos'', and add ''Look-Deeper: true'' header, if CAFA dooes not find any configuration with the query parameters, CAFA will use the level_id(PointOfSaleID), to find which Warehouse the Pos belongs to and check for configuration with the same name(and type if present)
+
+          Warehouse can use any unique string to identify the instance of its level, because the higher level for each Warehouse is Company level, which can only be one instance per account
+
+          Company level does not need level_id because there can only be one company per account in Erply.'
+        type: string
+        example: '1'
+      name:
+        description: Name of the configuration
+        type: string
+        example: adyen
+      type:
+        description: 'Type is an optional grouping property, in this case its ''payment'',
+
+          indicating that this configuration belongs to payment integrations group
+
+          used to query groups of related configurations'
+        type: string
+        example: payment
+      value:
+        description: 'Value stored by the configuration. Supported types: JSON, JSON array, string'
+  configuration:
+    type: object
+    properties:
+      added:
+        type: integer
+      addedby_id:
+        type: integer
+      application:
+        type: string
+        example: erply-to-woo-sync
+      changed:
+        type: integer
+      changedby_id:
+        type: integer
+      id:
+        type: string
+      level:
+        description: Level is optional
+        type: string
+        example: Pos
+      level_id:
+        description: LevelID is optional
+        type: string
+        example: '1'
+      name:
+        type: string
+        example: adyen
+      type:
+        description: Type is optional
+        type: string
+        example: payment
+      value: {}
+  response:
+    type: object
+    properties:
+      id:
+        type: integer
+      message:
+        type: string
+      statusCode:
+        type: string
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

@@ -1,0 +1,785 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Assortment To Product Linking API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Assortment To Product Linking
+paths:
+  /v1/assortment/products/links/{productIDs}:
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Delete products from all assortments providing product IDs
+
+        responds with link IDs that were deleted'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Assortment To Product Linking
+      summary: Delete products from all assortments
+      parameters:
+      - type: string
+        description: can contain up to 100 semicolon delimited product IDs.
+        name: productIDs
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/assortment/products/{ids}:
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Assortment To Product Linking
+      summary: Delete Assortment Product Links
+      parameters:
+      - type: string
+        description: up to 100 semicolon delimited link IDs
+        name: ids
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/assortment/products/{ids}/bulk:
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Assortment To Product Linking
+      summary: Delete product to assortment links by link IDs
+      deprecated: true
+      parameters:
+      - type: string
+        description: can contain up to 100 semicolon delimited link IDs.
+        name: ids
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/assortment/products/{id}:
+    patch:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Assortment To Product Linking
+      summary: Update Assortment's Products Link Data
+      parameters:
+      - type: integer
+        description: link ID
+        name: id
+        in: path
+        required: true
+      - description: link status is mandatory, product name translations only if you want to update some language name
+        name: link
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.AssortmentToProductUpdateRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/assortment/{id}/products:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get Assortment's Products Link Data only for active links.  Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Assortment To Product Linking
+      summary: Get Assortment's Products Link Data
+      parameters:
+      - type: integer
+        description: it' s a `UNIX timestamp`
+        name: If-Modified-Since
+        in: header
+      - type: integer
+        description: Assortment ID
+        name: id
+        in: path
+        required: true
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.AssortmentToProductLinkResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Add Product to Assortment. Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Assortment To Product Linking
+      summary: Add Product to Assortment
+      parameters:
+      - type: integer
+        description: Assortment ID
+        name: id
+        in: path
+        required: true
+      - description: product ID, link status, product name
+        name: assortmentRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.AssortmentToProductRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/assortment/{id}/products/bulk:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Add Products to Assortment in bulk.  Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Assortment To Product Linking
+      summary: Add Products to Assortment
+      parameters:
+      - description: bulk add request
+        name: assortmentRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.AssortmentToProductBulkRequest'
+      - type: integer
+        description: Assortment ID
+        name: id
+        in: path
+        required: true
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.BulkResponseWithResults'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/assortment/{id}/products/data:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Get Assortment''s Products Data with total count. The assortment to product link status is in the `linkStatus` field under each product''s data.
+
+        The `linkStatus` field is filterable and sortable.  Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE
+
+        The `product_name_in_assortment` field is filterable.  just put [[''product_name_in_assortment.en'',''='',''bla-bla-bla''],''or'',''product_name_in_assortment.fr'',''='',''yada-yada]
+
+        the ''and'' operand is not supported for the  `product_name_in_assortment`'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Assortment To Product Linking
+      summary: Get Assortment's Products Data
+      parameters:
+      - type: integer
+        description: it' s a `UNIX timestamp`
+        name: If-Modified-Since
+        in: header
+      - type: integer
+        description: Assortment ID
+        name: id
+        in: path
+        required: true
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: filter
+        in: query
+      - type: boolean
+        description: optionally return total number of records in the X-Total-Count response header
+        name: withTotalCount
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/products.ProductsResponseWithCount'
+          headers:
+            X-Total-Count:
+              type: uint
+              description: total number of records (ignores skip & take parameters)
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/assortment/{id}/products/deleted:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Input the assortment ID and optionally a header with the unix timestamp, responds with the found product IDs in the IDs field
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Assortment To Product Linking
+      summary: Get Deleted Assortment's Products IDs
+      parameters:
+      - type: integer
+        description: it' s a `UNIX timestamp`
+        name: If-Deleted-Since
+        in: header
+      - type: integer
+        description: Assortment ID
+        name: id
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.AssortmentToProductLinkResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/{id}/assortments:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get Assortments for Product
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Assortment To Product Linking
+      summary: Get Assortments for Product
+      parameters:
+      - type: integer
+        description: product ID
+        name: id
+        in: path
+        required: true
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.AssortmentToProductLinkResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  responses.Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 73
+  Description:
+    type: object
+    properties:
+      en:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/ProductDescription'
+  ProductDescription:
+    type: object
+    properties:
+      html:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+        example: <b>Very good product!</b>
+      plain_text:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+        example: Very good product!
+  models.AssortmentToProductLinkResponse:
+    type: object
+    properties:
+      assortment_id:
+        type: integer
+      id:
+        type: integer
+      product_id:
+        type: integer
+      product_name_in_assortment:
+        $ref: '#/definitions/Translatable'
+      status:
+        description: Status of the Assortment To Product link
+        type: string
+        example: ACTIVE
+  models.AssortmentToProductRequest:
+    type: object
+    properties:
+      product_id:
+        type: integer
+      product_name_in_assortment:
+        $ref: '#/definitions/Translatable'
+      status:
+        description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        type: string
+        example: ACTIVE
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  models.AssortmentToProductUpdateRequest:
+    type: object
+    properties:
+      product_name_in_assortment:
+        $ref: '#/definitions/Translatable'
+      status:
+        description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        type: string
+        example: ACTIVE
+  products.ProductsResponseWithCount:
+    type: object
+    properties:
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/products.ProductResponseWithLinkStatus'
+      totalCount:
+        type: integer
+        example: 20
+  Translatable:
+    type: object
+    properties:
+      en:
+        description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+  models.AssortmentToProductBulkRequest:
+    type: object
+    properties:
+      links:
+        type: array
+        items:
+          $ref: '#/definitions/models.AssortmentToProductRequest'
+  products.ProductResponseWithLinkStatus:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      age_restriction:
+        type: integer
+      alcohol_percentage:
+        type: string
+      alcohol_registry_number:
+        type: string
+      batches:
+        type: string
+      brand_id:
+        type: integer
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        type: integer
+      category_id:
+        type: integer
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      code:
+        type: string
+      code2:
+        type: string
+      code3:
+        type: string
+      code5:
+        type: string
+      code6:
+        type: string
+      code7:
+        type: string
+      code8:
+        type: string
+      cost:
+        type: number
+      country_of_origin_id:
+        type: integer
+      delivery_time:
+        type: string
+      deposit_fee_amount:
+        type: integer
+      deposit_fee_id:
+        type: integer
+      description:
+        $ref: '#/definitions/Description'
+      displayed_in_webshop:
+        description: 0 or 1
+        type: integer
+      excise_declaration_number:
+        type: string
+      extra_field1_id:
+        type: integer
+      extra_field2_id:
+        type: integer
+      extra_field3_id:
+        type: integer
+      extra_field4_id:
+        type: integer
+      family_id:
+        type: integer
+      formula_identifier:
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      group_id:
+        type: integer
+      group_package_ferrous_metal:
+        type: number
+      group_package_metal:
+        type: number
+      group_package_non_ferrous_metal:
+        type: number
+      group_package_paper:
+        type: number
+      group_package_plastic:
+        type: number
+      group_package_wood:
+        type: number
+      has_serial_numbers:
+        type: integer
+      height:
+        type: number
+      id:
+        type: integer
+      is_gift_card:
+        description: 0 or 1
+        type: integer
+      is_lot_product:
+        type: boolean
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        type: integer
+      is_used_product:
+        type: boolean
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        type: integer
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      linkStatus:
+        type: string
+      location_in_warehouse_id:
+        type: integer
+      location_in_warehouse_text:
+        type: string
+      manufacturer_name:
+        type: string
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      net_weight:
+        type: number
+      non_discountable:
+        description: 0 or 1
+        type: integer
+      non_refundable:
+        description: 0 or 1
+        type: integer
+      non_stock_product:
+        description: boolean flag 0 or 1
+        type: integer
+      packaging_type:
+        type: string
+      packing_not_required:
+        type: integer
+      parent_product_id:
+        type: integer
+      price:
+        type: number
+      price_with_tax:
+        type: number
+      priority_group_id:
+        type: integer
+      product_item_level_promotions_disabled:
+        type: integer
+      product_name_in_assortment:
+        $ref: '#/definitions/Translatable'
+      product_reorder_multiples:
+        type: integer
+      revenue_account:
+        type: string
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        type: integer
+      sales_package_cardboard:
+        type: number
+      sales_package_clear_brown_glass:
+        type: number
+      sales_package_green_other_glass:
+        type: number
+      sales_package_metal_al:
+        type: number
+      sales_package_metal_fe:
+        type: number
+      sales_package_other_metal:
+        type: number
+      sales_package_paper_and_cardboard_mono:
+        description: Product package materials
+        type: number
+      sales_package_plastic_pet:
+        type: number
+      sales_package_plastic_pp_pe:
+        type: number
+      sales_package_wood:
+        type: number
+      serial_number:
+        type: string
+      shelf_life_days:
+        type: integer
+      sold_in_packages:
+        type: integer
+      status:
+        description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        type: string
+        example: ACTIVE
+      suggested_retail_price:
+        type: number
+      supplier_code:
+        type: string
+      supplier_id:
+        type: integer
+      tax_free:
+        description: boolean flag 0 or 1
+        type: integer
+      tax_rate_id:
+        type: integer
+      transport_package_cardboard:
+        type: number
+      transport_package_ferrous_metal:
+        type: number
+      transport_package_non_ferrous_metal:
+        type: number
+      transport_package_plastic:
+        type: number
+      transport_package_wood:
+        type: number
+      type:
+        type: string
+      unit_id:
+        type: integer
+      volume:
+        type: number
+      webshop_description:
+        type: string
+      webshop_keywords:
+        type: string
+      webshop_title:
+        type: string
+      webshop_url_slug:
+        type: string
+      width:
+        type: number
+  responses.BulkResult:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+      resourceId:
+        description: identifier of the REST-ful response
+        type: integer
+        example: 2
+      resultId:
+        description: identifier of the result item
+        type: integer
+        example: 2
+  responses.BulkResponseWithResults:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/responses.BulkResult'
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

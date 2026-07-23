@@ -1,0 +1,688 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment clsf API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: clsf
+paths:
+  /api/v1/clsf/priority:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Look up priorities
+      parameters:
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Priority ids
+        name: ids
+        in: query
+      - type: string
+        description: Entity for which priority should be returned (`raji`)
+        name: entity
+        in: query
+        required: true
+      - type: string
+        description: Language to use when sorting by name (`en`, `et`, `ru` etc.)
+        name: lang
+        in: query
+      - type: string
+        description: Priority code to search for. Partial matching from the beginning of the code
+        name: code
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `id`, `name`. Defaults to `id`'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClsfResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Add a new priority
+      parameters:
+      - description: Clsf record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/PriorityRequest'
+      responses:
+        '201':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/clsf/priority/{priorityId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Delete one priority record
+      parameters:
+      - type: integer
+        description: Record id
+        name: priorityId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Update an existing priority record
+      parameters:
+      - type: integer
+        description: Record id
+        name: priorityId
+        in: path
+        required: true
+      - description: Clsf record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/PriorityRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/clsf/state:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Look up states
+      parameters:
+      - type: string
+        description: Object type for which states should be returned. One of [workorder row_work row_product transaction task_schedule product_stock raji]
+        name: entity
+        in: query
+        required: true
+      - type: string
+        description: Type code for which states should be returned
+        name: typeCode
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: State ids
+        name: ids
+        in: query
+      - type: string
+        description: Language to use when sorting by name
+        name: lang
+        in: query
+      - type: string
+        description: State code to search for. Partial matching from the beginning of the code
+        name: code
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `id`, `name`. Defaults to `id`'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClsfResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Add a new state record
+      parameters:
+      - description: State record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/StateRequest'
+      responses:
+        '201':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/clsf/state/{stateId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Delete one state record
+      parameters:
+      - type: integer
+        description: Record id
+        name: stateId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Update an existing state record
+      parameters:
+      - type: integer
+        description: Record id
+        name: stateId
+        in: path
+        required: true
+      - description: State record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/StateRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/clsf/unit:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Look up product units
+      parameters:
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Device brand ids
+        name: ids
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: Sorting order
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClsfResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/clsf/workorder-type:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Look up workorder types
+      parameters:
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Workorder type ids
+        name: ids
+        in: query
+      - type: string
+        description: Entity for which workorder types should be returned (`workorder`, `raji`). Defaults to `workorder`
+        name: entity
+        in: query
+      - type: string
+        description: Language to use when sorting by name (`en`, `et`, `ru` etc.)
+        name: lang
+        in: query
+      - type: string
+        description: Type code to search for. Partial matching from the beginning of the code
+        name: code
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `id`, `name`. Defaults to `id`'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ClsfResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Add a new workorder type
+      parameters:
+      - description: Clsf record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WorkorderTypeRequest'
+      responses:
+        '201':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/clsf/workorder-type/{typeId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Delete one workorder type record
+      parameters:
+      - type: integer
+        description: Record id
+        name: typeId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - clsf
+      summary: Update an existing workorder type record
+      parameters:
+      - type: integer
+        description: Record id
+        name: typeId
+        in: path
+        required: true
+      - description: Clsf record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WorkorderTypeRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ClsfResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+definitions:
+  StateRequest:
+    type: object
+    properties:
+      code:
+        type: string
+      entity:
+        type: string
+      id:
+        type: integer
+      name:
+        $ref: '#/definitions/core.Translatable'
+      type:
+        type: string
+  ClsfResponse:
+    type: object
+    properties:
+      children:
+        type: array
+        items:
+          $ref: '#/definitions/ClsfChildResponse'
+      code:
+        type: string
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      entity:
+        type: string
+      id:
+        type: integer
+      name:
+        $ref: '#/definitions/core.Translatable'
+      parentId:
+        type: integer
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+  ClsfChildResponse:
+    type: object
+    properties:
+      code:
+        type: string
+      type:
+        type: string
+  PriorityRequest:
+    type: object
+    properties:
+      code:
+        type: string
+      entity:
+        type: string
+      id:
+        type: integer
+      name:
+        $ref: '#/definitions/core.Translatable'
+  core.Translatable:
+    type: object
+    properties:
+      ar:
+        type: string
+        example: ' '
+      cs:
+        type: string
+        example: ' '
+      da:
+        type: string
+        example: ' '
+      de:
+        type: string
+        example: ' '
+      default:
+        type: string
+        example: ' '
+      el:
+        type: string
+        example: ' '
+      en:
+        type: string
+        example: ' '
+      es:
+        type: string
+        example: ' '
+      et:
+        type: string
+        example: ' '
+      fi:
+        type: string
+        example: ' '
+      fo:
+        type: string
+        example: ' '
+      fr:
+        type: string
+        example: ' '
+      it:
+        type: string
+        example: ' '
+      lt:
+        type: string
+        example: ' '
+      lv:
+        type: string
+        example: ' '
+      nl:
+        type: string
+        example: ' '
+      'no':
+        type: string
+        example: ' '
+      pl:
+        type: string
+        example: ' '
+      ru:
+        type: string
+        example: ' '
+      sv:
+        type: string
+        example: ' '
+      th:
+        type: string
+        example: ' '
+      tr:
+        type: string
+        example: ' '
+      vi:
+        type: string
+        example: ' '
+      zh_Hans:
+        type: string
+        example: ' '
+      zh_Hant:
+        type: string
+        example: ' '
+  WorkorderTypeRequest:
+    type: object
+    properties:
+      code:
+        type: string
+      entity:
+        type: string
+      id:
+        type: integer
+      name:
+        $ref: '#/definitions/core.Translatable'
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

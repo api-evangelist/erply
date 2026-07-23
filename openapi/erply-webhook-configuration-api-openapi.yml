@@ -1,0 +1,257 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment webhook-configuration API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: webhook-configuration
+paths:
+  /v1/webhook-configuration:
+    get:
+      security:
+      - ClientCode: []
+      - SessionKey: []
+      description: '# Get webhook configurations
+
+        Get current authenticated users existing webhook configurations'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - webhook-configuration
+      summary: Get webhook configurations
+      operationId: getWebhookConfigurations
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.WebhookConfiguration'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.OutputError'
+        '503':
+          description: Service Unavailable
+          schema:
+            $ref: '#/definitions/models.OutputError'
+    post:
+      security:
+      - ClientCode: []
+      - SessionKey: []
+      description: '# Add new webhook configuration
+
+        In action field use: insert, update, delete or confirm (only usable on items that support it)'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - webhook-configuration
+      summary: Add webhook configuration
+      operationId: addWebhookConfiguration
+      parameters:
+      - description: New webhook configuration data
+        name: json
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.InputWebhookConfiguration'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/models.WebhookConfiguration'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.OutputError'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.OutputError'
+        '503':
+          description: Service Unavailable
+          schema:
+            $ref: '#/definitions/models.OutputError'
+  /v1/webhook-configuration/{id}:
+    put:
+      security:
+      - ClientCode: []
+      - SessionKey: []
+      description: '# Update existing webhook configuration
+
+        Updates an existing webhook configuration by its id'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - webhook-configuration
+      summary: Update existing webhook configuration
+      operationId: updateWebhookConfiguration
+      parameters:
+      - type: string
+        description: ID of the webhook configuration
+        name: id
+        in: path
+        required: true
+      - description: Edit webhook configuration data
+        name: json
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.InputWebhookConfiguration'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/models.WebhookConfiguration'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.OutputError'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.OutputError'
+        '503':
+          description: Service Unavailable
+          schema:
+            $ref: '#/definitions/models.OutputError'
+    delete:
+      security:
+      - ClientCode: []
+      - SessionKey: []
+      description: '# Remove existing webhook configuration
+
+        Removes an existing webhook configuration by its id'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - webhook-configuration
+      summary: Remove existing webhook configuration
+      operationId: removeWebhookConfiguration
+      parameters:
+      - type: string
+        description: ID of the webhook configuration
+        name: id
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/models.OutputOK'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.OutputError'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.OutputError'
+        '503':
+          description: Service Unavailable
+          schema:
+            $ref: '#/definitions/models.OutputError'
+definitions:
+  models.OutputOK:
+    type: object
+    properties:
+      message:
+        type: string
+        example: configuration removed
+  models.WebhookConfiguration:
+    type: object
+    properties:
+      action:
+        type: string
+        example: insert
+      clientcode:
+        type: string
+        example: '000000'
+      createdat:
+        type: string
+        example: '2019-11-21T14:01:13.471Z'
+      disabled:
+        type: boolean
+        example: false
+      endpoint:
+        type: string
+        example: https://test.receiver
+      id:
+        type: string
+        example: 5dd63cc81810fd18722e23df
+      secret:
+        type: string
+        example: mySecretWord
+      table:
+        type: string
+        example: product
+      updatedat:
+        type: string
+        example: '2019-11-21T14:01:13.471Z'
+  models.OutputError:
+    type: object
+    properties:
+      error:
+        type: string
+        example: Description of the failure
+  models.InputWebhookConfiguration:
+    type: object
+    required:
+    - action
+    - endpoint
+    - secret
+    - table
+    properties:
+      action:
+        description: Action of the event insert, update, delete or confirm (only usable on items that support it)
+        type: string
+        example: insert
+      disabled:
+        description: Disabled optional input, can be used to create inactive configurations for later use - false by default
+        type: boolean
+        example: false
+      endpoint:
+        description: Endpoint full url of the server where the webhook will be sent to
+        type: string
+        example: https://my.receiver
+      secret:
+        description: Secret optional secret that can be used to authenticate the webhooks
+        type: string
+        example: mySecretWord
+      table:
+        description: Table references a database table or a custom event name
+        type: string
+        example: product
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

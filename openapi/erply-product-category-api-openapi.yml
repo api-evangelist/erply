@@ -1,0 +1,842 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Product Category API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Product Category
+paths:
+  /v1/product/category:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get Product Categories
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Category
+      summary: Get Categories
+      parameters:
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: filter
+        in: query
+      - type: boolean
+        description: optionally return total number of records in the X-Total-Count response header
+        name: withTotalCount
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/categorymodels.Response'
+          headers:
+            X-Total-Count:
+              type: uint
+              description: total number of records (ignores skip & take parameters)
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Create Product Category
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Category
+      summary: Create Product Category
+      parameters:
+      - description: Name and ParentID
+        name: nameWithParent
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/categorymodels.Request'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/category/bulk:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: each request contains the category data
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Category
+      summary: Create categories in bulk
+      parameters:
+      - description: bulk create request
+        name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/categorymodels.BulkCreateRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.BulkResponseWithResults'
+  /v1/product/category/bulk/get:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Category
+      summary: Get categories in bulk
+      parameters:
+      - description: requests have the parameters that the original get request has, but in json format. This way you can apply the parameters to each request separately.
+        name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/parammodels.BulkReadRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/categorymodels.BulkReadResponse'
+  /v1/product/category/indented:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: The result is a indented list of category ids and names sorted by orders and  prefixed by the dash (―) sign if is a parent
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Category
+      summary: Get Indented List of Categories
+      parameters:
+      - type: string
+        description: Language code (ISO 639). Return the name in the requested language or leave empty for account default language.
+        name: lang
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/indentation.Result'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/category/tree:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Optionally you can get products that belong to each category
+
+        You must specify the fields to you want to get from the categories and products (models can be found under GET /product/category and GET /product)'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Category
+      summary: Get Tree of product categories
+      parameters:
+      - type: array
+        items:
+          type: string
+        description: You must specify the fields to you want to get from the categories and products (models can be found under GET /product/group and GET /product)
+        name: categoryFields
+        in: query
+      - type: array
+        items:
+          type: string
+        description: You must specify the fields to you want to get from the categories and products (models can be found under GET /product/group and GET /product)
+        name: productFields
+        in: query
+      - type: boolean
+        description: Optionally you can get products that belong to each category
+        name: withProducts
+        in: query
+      - type: string
+        description: Optionally specify the language ISO 639-1 code for the translatable fields. Default is the default language of the account.
+        name: languageCode
+        in: query
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      - type: boolean
+        description: optionally return total number of records in the X-Total-Count response header
+        name: withTotalCount
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: itemFilters
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: productFilters
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/indentation.CategoryTreeResultSample'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/category/{ids}:
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Category
+      summary: Delete Product Categories
+      parameters:
+      - type: string
+        description: up to 100 semicolon delimited category IDs
+        name: ids
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/category/{id}:
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Category
+      summary: Update Product Category
+      parameters:
+      - type: integer
+        description: category ID
+        name: id
+        in: path
+        required: true
+      - description: Name and ParentID
+        name: nameWithParent
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/categorymodels.Request'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/category/{id}/move:
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'position has to be one of the following:  `lastChild` | `before` | `after`'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Category
+      summary: Move Product Category
+      parameters:
+      - type: integer
+        description: Category ID
+        name: id
+        in: path
+        required: true
+      - description: moveRequest
+        name: moveRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.MoveRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  parammodels.SortRequest:
+    type: object
+    properties:
+      desc:
+        description: If true - descending, if false - ascending
+        type: boolean
+      language:
+        description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
+        type: string
+        example: en
+      selector:
+        description: 'JSON field. For description: description_plain or description_html'
+        type: string
+        example: name
+  Translatable:
+    type: object
+    properties:
+      en:
+        description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+  indentation.Result:
+    type: object
+    properties:
+      id:
+        description: ID of the element
+        type: integer
+        example: 64
+      name:
+        description: The name is the name in the client's default language. Will be prefixed n times if the element is a child of another element.
+        type: string
+        example: element 1
+  categorymodels.Request:
+    type: object
+    properties:
+      main_id:
+        description: ParentID Refers to the parent category — product categories are hierarchical.
+        type: integer
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+  responses.Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 73
+  indentation.CategoryTreeResultSampleNoChildren:
+    type: object
+    properties:
+      item:
+        $ref: '#/definitions/categorymodels.Response'
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/products.ProductResponse'
+  parammodels.FilterJSON:
+    type: object
+    properties:
+      fieldName:
+        type: string
+        example: group_id
+      operandBefore:
+        description: supported values are "and", "or"
+        type: string
+        example: or
+      operator:
+        type: string
+        example: '='
+      sliceValue:
+        description: to be used if the value is a slice
+        type: array
+        items: {}
+      value:
+        type: object
+  ProductDescription:
+    type: object
+    properties:
+      html:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+        example: <b>Very good product!</b>
+      plain_text:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+        example: Very good product!
+  categorymodels.BulkCreateRequest:
+    type: object
+    properties:
+      requests:
+        type: array
+        items:
+          $ref: '#/definitions/categorymodels.Request'
+  categorymodels.BulkReadResponseItem:
+    type: object
+    properties:
+      categories:
+        type: array
+        items:
+          $ref: '#/definitions/categorymodels.Response'
+      message:
+        type: string
+        example: some message
+      resultId:
+        description: id of the response, if requested 3 read requests each ID represents 1 response item
+        type: integer
+      totalCount:
+        description: total number of records (ignores skip & take parameters)
+        type: integer
+  parammodels.ReadRequestWithTotalCount:
+    type: object
+    properties:
+      filters:
+        type: array
+        items:
+          $ref: '#/definitions/parammodels.FilterJSON'
+      paginationParameters:
+        $ref: '#/definitions/parammodels.PaginationParameters'
+      sortingParameters:
+        $ref: '#/definitions/parammodels.SortRequest'
+      withTotalCount:
+        type: boolean
+  models.MoveRequest:
+    type: object
+    properties:
+      position:
+        description: Position has to be  lastChild | before | after
+        type: string
+        example: after
+      target_id:
+        description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
+        type: integer
+  categorymodels.Response:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      id:
+        type: integer
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      order:
+        type: integer
+      parent_id:
+        type: integer
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  indentation.CategoryTreeResultSample:
+    type: object
+    properties:
+      children:
+        type: array
+        items:
+          $ref: '#/definitions/indentation.CategoryTreeResultSampleNoChildren'
+      item:
+        $ref: '#/definitions/categorymodels.Response'
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/products.ProductResponse'
+  responses.BulkResult:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+      resourceId:
+        description: identifier of the REST-ful response
+        type: integer
+        example: 2
+      resultId:
+        description: identifier of the result item
+        type: integer
+        example: 2
+  responses.BulkResponseWithResults:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/responses.BulkResult'
+  parammodels.BulkReadRequest:
+    type: object
+    properties:
+      requests:
+        type: array
+        items:
+          $ref: '#/definitions/parammodels.ReadRequestWithTotalCount'
+  Description:
+    type: object
+    properties:
+      en:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/ProductDescription'
+  categorymodels.BulkReadResponse:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/categorymodels.BulkReadResponseItem'
+  parammodels.PaginationParameters:
+    type: object
+    properties:
+      skip:
+        type: integer
+      take:
+        type: integer
+  products.ProductResponse:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      age_restriction:
+        type: integer
+      alcohol_percentage:
+        type: string
+      alcohol_registry_number:
+        type: string
+      batches:
+        type: string
+      brand_id:
+        type: integer
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        type: integer
+      category_id:
+        type: integer
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      code:
+        type: string
+      code2:
+        type: string
+      code3:
+        type: string
+      code5:
+        type: string
+      code6:
+        type: string
+      code7:
+        type: string
+      code8:
+        type: string
+      cost:
+        type: number
+      country_of_origin_id:
+        type: integer
+      delivery_time:
+        type: string
+      deposit_fee_amount:
+        type: integer
+      deposit_fee_id:
+        type: integer
+      description:
+        $ref: '#/definitions/Description'
+      displayed_in_webshop:
+        description: 0 or 1
+        type: integer
+      excise_declaration_number:
+        type: string
+      extra_field1_id:
+        type: integer
+      extra_field2_id:
+        type: integer
+      extra_field3_id:
+        type: integer
+      extra_field4_id:
+        type: integer
+      family_id:
+        type: integer
+      formula_identifier:
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      group_id:
+        type: integer
+      group_package_ferrous_metal:
+        type: number
+      group_package_metal:
+        type: number
+      group_package_non_ferrous_metal:
+        type: number
+      group_package_paper:
+        type: number
+      group_package_plastic:
+        type: number
+      group_package_wood:
+        type: number
+      has_serial_numbers:
+        type: integer
+      height:
+        type: number
+      id:
+        type: integer
+      is_gift_card:
+        description: 0 or 1
+        type: integer
+      is_lot_product:
+        type: boolean
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        type: integer
+      is_used_product:
+        type: boolean
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        type: integer
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      location_in_warehouse_id:
+        type: integer
+      location_in_warehouse_text:
+        type: string
+      manufacturer_name:
+        type: string
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      net_weight:
+        type: number
+      non_discountable:
+        description: 0 or 1
+        type: integer
+      non_refundable:
+        description: 0 or 1
+        type: integer
+      non_stock_product:
+        description: boolean flag 0 or 1
+        type: integer
+      packaging_type:
+        type: string
+      packing_not_required:
+        type: integer
+      parent_product_id:
+        type: integer
+      price:
+        type: number
+      price_with_tax:
+        type: number
+      priority_group_id:
+        type: integer
+      product_item_level_promotions_disabled:
+        type: integer
+      product_reorder_multiples:
+        type: integer
+      revenue_account:
+        type: string
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        type: integer
+      sales_package_cardboard:
+        type: number
+      sales_package_clear_brown_glass:
+        type: number
+      sales_package_green_other_glass:
+        type: number
+      sales_package_metal_al:
+        type: number
+      sales_package_metal_fe:
+        type: number
+      sales_package_other_metal:
+        type: number
+      sales_package_paper_and_cardboard_mono:
+        description: Product package materials
+        type: number
+      sales_package_plastic_pet:
+        type: number
+      sales_package_plastic_pp_pe:
+        type: number
+      sales_package_wood:
+        type: number
+      serial_number:
+        type: string
+      shelf_life_days:
+        type: integer
+      sold_in_packages:
+        type: integer
+      status:
+        description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        type: string
+        example: ACTIVE
+      suggested_retail_price:
+        type: number
+      supplier_code:
+        type: string
+      supplier_id:
+        type: integer
+      tax_free:
+        description: boolean flag 0 or 1
+        type: integer
+      tax_rate_id:
+        type: integer
+      transport_package_cardboard:
+        type: number
+      transport_package_ferrous_metal:
+        type: number
+      transport_package_non_ferrous_metal:
+        type: number
+      transport_package_plastic:
+        type: number
+      transport_package_wood:
+        type: number
+      type:
+        type: string
+      unit_id:
+        type: integer
+      volume:
+        type: number
+      webshop_description:
+        type: string
+      webshop_keywords:
+        type: string
+      webshop_title:
+        type: string
+      webshop_url_slug:
+        type: string
+      width:
+        type: number
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

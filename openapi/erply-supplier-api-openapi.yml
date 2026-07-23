@@ -1,0 +1,597 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Supplier API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Supplier
+paths:
+  /v1/supplier:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get Suppliers
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Supplier
+      summary: Get Suppliers
+      parameters:
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: filter
+        in: query
+      - type: boolean
+        description: optionally return total number of active records in the X-Total-Count response header
+        name: withTotalCount
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.SupplierResponse'
+          headers:
+            X-Total-Count:
+              type: uint
+              description: total number of records (ignores skip & take parameters)
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Supplier
+      summary: Create Supplier
+      parameters:
+      - description: Supplier
+        name: Supplier
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.SupplierRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/supplier/bulk:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: each request contains the created resource data
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Supplier
+      summary: Create suppliers in bulk
+      parameters:
+      - description: bulk create request
+        name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.BulkCreateSupplierRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.BulkResponseWithResults'
+  /v1/supplier/bulk/get:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Supplier
+      summary: Get suppliers in bulk
+      parameters:
+      - description: requests have the parameters that the original get request has, but in json format. This way you can apply the parameters to each request separately.
+        name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/parammodels.BulkReadRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/models.BulkReadSuppliersResponse'
+  /v1/supplier/type:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Supplier
+      summary: Get Supplier Types
+      parameters:
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: filter
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.SupplierTypeResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/supplier/{ids}:
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Supplier
+      summary: Delete suppliers
+      parameters:
+      - type: string
+        description: up to 100 semicolon delimited supplier IDs
+        name: ids
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/supplier/{id}:
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Supplier
+      summary: Update Supplier
+      parameters:
+      - type: integer
+        description: Supplier ID
+        name: id
+        in: path
+        required: true
+      - description: Supplier
+        name: Supplier
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.SupplierRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  responses.Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 73
+  parammodels.FilterJSON:
+    type: object
+    properties:
+      fieldName:
+        type: string
+        example: group_id
+      operandBefore:
+        description: supported values are "and", "or"
+        type: string
+        example: or
+      operator:
+        type: string
+        example: '='
+      sliceValue:
+        description: to be used if the value is a slice
+        type: array
+        items: {}
+      value:
+        type: object
+  models.SupplierTypeResponse:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      id:
+        description: object ID
+        type: integer
+        example: 1234
+      issupplier:
+        type: integer
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      order:
+        type: integer
+        example: 15
+  models.SupplierResponse:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      bank_account_number:
+        description: Number of supplier's bank account.
+        type: string
+      bank_iban:
+        description: IBAN number of supplier's bank account.
+        type: string
+      bank_name:
+        description: Name of supplier's bank.
+        type: string
+      bank_swift:
+        description: BIC/SWIFT identifier of supplier's bank account.
+        type: string
+      channel_docura_edi_enabled:
+        type: boolean
+      channel_email_enabled:
+        type: boolean
+      code:
+        description: National ID number (for persons) / Registry code (for companies).
+        type: string
+      country_id:
+        type: integer
+      currency_id:
+        description: Currency code, e.g. "EUR"
+        type: integer
+      displayed_name:
+        description: Name with customer type
+        type: string
+      displayed_name2:
+        type: string
+      edi_type:
+        type: string
+      employer_id:
+        type: integer
+      fax:
+        type: string
+      first_name:
+        description: First name / given name (for persons). Not used for companies.
+        type: string
+      gln:
+        type: string
+      id:
+        type: integer
+      mail:
+        type: string
+      mobile:
+        type: string
+      name:
+        description: For companies - Company name, for Persons - last name
+        type: string
+      notes:
+        type: string
+      phone:
+        type: string
+      skype:
+        type: string
+      supplier_manager_id:
+        type: integer
+      supplier_type_id:
+        description: must be valid ID
+        type: integer
+      type:
+        description: COMPANY or PERSON.
+        type: integer
+      vat_number:
+        description: Supplier's VAT number.
+        type: string
+      vatrate_id:
+        description: ID of a VAT rate
+        type: integer
+      website:
+        type: string
+  parammodels.SortRequest:
+    type: object
+    properties:
+      desc:
+        description: If true - descending, if false - ascending
+        type: boolean
+      language:
+        description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
+        type: string
+        example: en
+      selector:
+        description: 'JSON field. For description: description_plain or description_html'
+        type: string
+        example: name
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  parammodels.PaginationParameters:
+    type: object
+    properties:
+      skip:
+        type: integer
+      take:
+        type: integer
+  models.SupplierRequest:
+    type: object
+    properties:
+      bank_account_number:
+        description: Number of supplier's bank account.
+        type: string
+      bank_iban:
+        description: IBAN number of supplier's bank account.
+        type: string
+      bank_name:
+        description: Name of supplier's bank.
+        type: string
+      bank_swift:
+        description: BIC/SWIFT identifier of supplier's bank account.
+        type: string
+      channel_docura_edi_enabled:
+        type: boolean
+      channel_email_enabled:
+        type: boolean
+      code:
+        description: National ID number (for persons) / Registry code (for companies).
+        type: string
+      country_id:
+        type: integer
+      currency_id:
+        description: Currency code, e.g. "EUR"
+        type: integer
+      edi_type:
+        type: string
+      employer_id:
+        type: integer
+      fax:
+        type: string
+      first_name:
+        description: First name / given name (for persons). Not used for companies.
+        type: string
+      gln:
+        type: string
+      mail:
+        type: string
+      mobile:
+        type: string
+      name:
+        description: For companies - Company name, for Persons - last name
+        type: string
+      notes:
+        type: string
+      phone:
+        type: string
+      skype:
+        type: string
+      supplier_manager_id:
+        type: integer
+      supplier_type_id:
+        description: must be valid company type ID, get from /v1/supplier/type
+        type: integer
+        example: 1
+      type:
+        description: PERSON - 0 or COMPANY - valid ID. Get from getCompanyTypes ERPLY API endpoint
+        type: integer
+        example: 1
+      vat_number:
+        description: Supplier's VAT number.
+        type: string
+      vatrate_id:
+        description: ID of a VAT rate
+        type: integer
+      website:
+        type: string
+  Translatable:
+    type: object
+    properties:
+      en:
+        description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+  parammodels.ReadRequestWithTotalCount:
+    type: object
+    properties:
+      filters:
+        type: array
+        items:
+          $ref: '#/definitions/parammodels.FilterJSON'
+      paginationParameters:
+        $ref: '#/definitions/parammodels.PaginationParameters'
+      sortingParameters:
+        $ref: '#/definitions/parammodels.SortRequest'
+      withTotalCount:
+        type: boolean
+  models.BulkCreateSupplierRequest:
+    type: object
+    properties:
+      requests:
+        type: array
+        items:
+          $ref: '#/definitions/models.SupplierRequest'
+  models.BulkReadSuppliersResponse:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/models.BulkReadSuppliersResponseItem'
+  models.BulkReadSuppliersResponseItem:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+      resultId:
+        description: id of the response, if requested 3 read requests each ID represents 1 response item
+        type: integer
+      suppliers:
+        type: array
+        items:
+          $ref: '#/definitions/models.SupplierResponse'
+      totalCount:
+        description: total number of records (ignores skip & take parameters)
+        type: integer
+  responses.BulkResult:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+      resourceId:
+        description: identifier of the REST-ful response
+        type: integer
+        example: 2
+      resultId:
+        description: identifier of the result item
+        type: integer
+        example: 2
+  parammodels.BulkReadRequest:
+    type: object
+    properties:
+      requests:
+        type: array
+        items:
+          $ref: '#/definitions/parammodels.ReadRequestWithTotalCount'
+  responses.BulkResponseWithResults:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/responses.BulkResult'
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

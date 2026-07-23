@@ -1,0 +1,105 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment auth API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: auth
+paths:
+  /api/v1/auth:
+    post:
+      description: Returns an Erply session token which can be used for calling the authenticated endpoints. This session token is retrieved from Erply API and the authentication method is exposed here just for the convenience. During actual use the client system does not need to authenticate against this endpoint, but can retrieve the Erply session token by any means available to them
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - auth
+      summary: Authenticate to get session token
+      deprecated: true
+      parameters:
+      - description: Authenticate
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/APIAuthRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/APIAuthResponse'
+        '400':
+          description: Problematic request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+definitions:
+  APIAuthResponse:
+    type: object
+    properties:
+      employeeID:
+        type: string
+        example: '1'
+      employeeName:
+        type: string
+        example: Bob Smith
+      sessionExpiration:
+        type: integer
+        example: 1661856635
+      sessionKey:
+        type: string
+        example: d5884b1cc10b5b2f3a9601f27a21c3b57925a79fd75d
+      setCookie:
+        type: boolean
+        example: false
+      token:
+        type: string
+        example: jwt.token
+      userID:
+        type: string
+        example: '1'
+      userName:
+        type: string
+        example: username
+  APIAuthRequest:
+    type: object
+    properties:
+      clientCode:
+        type: string
+        example: '123456'
+      password:
+        type: string
+        example: secret
+      setCookie:
+        type: boolean
+        example: true
+      username:
+        type: string
+        example: username
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

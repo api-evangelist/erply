@@ -1,0 +1,385 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Linked Products API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- description: Manage substitute and cross-sell products
+  name: Linked Products
+paths:
+  /v1/product/linked-products:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Each product can have zero or more substitute products (items that the cashier could offer as alternatives if the original is out of stock) and zero or more cross-sell products (items that are often sold along the main item).
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Linked Products
+      summary: Link 2 products for cross-sell or substitute purposes
+      parameters:
+      - description: link ID and type of the link `cross-sell | substitute`
+        name: CreateRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/linkedproductmodels.CreateRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/linked-products/bulk:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: each request contains the created resource data
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Linked Products
+      summary: Create product links in bulk
+      parameters:
+      - description: bulk create request
+        name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/linkedproductmodels.BulkCreateRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.BulkResponseWithResults'
+  /v1/product/linked-products/bulk/get:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Each product can have zero or more substitute products (items that the cashier could offer as alternatives if the original is out of stock) and zero or more cross-sell products (items that are often sold along the main item).
+
+        link type (values: cross-sell or substitute)'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Linked Products
+      summary: Read all products linked products and the link types
+      parameters:
+      - description: request
+        name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/products.BulkReadRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/products.BulkReadResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/linked-products/{ids}:
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Each product can have zero or more substitute products
+
+        (items that the cashier could offer as alternatives if the original is out of stock)
+
+        and zero or more cross-sell products (items that are often sold along the main item).'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Linked Products
+      summary: Delete links between 2 products
+      parameters:
+      - type: string
+        description: up to 100 semicolon delimited link IDs
+        name: ids
+        in: path
+        required: true
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/linked-products/{id}:
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Each product can have zero or more substitute products (items that the cashier could offer as alternatives if the original is out of stock) and zero or more cross-sell products (items that are often sold along the main item).
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Linked Products
+      summary: Update a link between 2 products
+      parameters:
+      - type: integer
+        description: link ID
+        name: id
+        in: path
+        required: true
+      - description: update request
+        name: UpdateRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/linkedproductmodels.UpdateRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/{productID}/linked-products:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Each product can have zero or more substitute products (items that the cashier could offer as alternatives if the original is out of stock) and zero or more cross-sell products (items that are often sold along the main item).
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Linked Products
+      summary: Read all product's linked products and the link types
+      parameters:
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      - type: integer
+        description: product ID
+        name: productID
+        in: path
+        required: true
+      - type: string
+        description: 'link type (values: `cross-sell` or `substitute`)'
+        name: type
+        in: query
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/linkedproductmodels.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  responses.Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 73
+  products.BulkReadRequestItem:
+    type: object
+    properties:
+      linkType:
+        type: string
+        example: cross-sell
+      productID:
+        type: integer
+        example: 1
+      skip:
+        type: integer
+      take:
+        type: integer
+        example: 20
+  products.BulkReadResponse:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/products.BulkReadResponseItem'
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  linkedproductmodels.CreateRequest:
+    type: object
+    properties:
+      linked_product_id:
+        type: integer
+      product_id:
+        type: integer
+      type:
+        description: Link type can be cross-sell or substitute
+        type: string
+        example: cross-sell
+  linkedproductmodels.Response:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      id:
+        description: object ID
+        type: integer
+        example: 1234
+      linked_product_id:
+        type: integer
+      product_id:
+        type: integer
+      type:
+        description: Link type can be cross-sell or substitute
+        type: string
+        example: cross-sell
+  linkedproductmodels.UpdateRequest:
+    type: object
+    properties:
+      linked_product_id:
+        type: integer
+      product_id:
+        type: integer
+  products.BulkReadResponseItem:
+    type: object
+    properties:
+      error:
+        type: string
+      productID:
+        type: integer
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/linkedproductmodels.Response'
+  products.BulkReadRequest:
+    type: object
+    properties:
+      requests:
+        type: array
+        items:
+          $ref: '#/definitions/products.BulkReadRequestItem'
+  linkedproductmodels.BulkCreateRequest:
+    type: object
+    properties:
+      requests:
+        type: array
+        items:
+          $ref: '#/definitions/linkedproductmodels.CreateRequest'
+  responses.BulkResult:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+      resourceId:
+        description: identifier of the REST-ful response
+        type: integer
+        example: 2
+      resultId:
+        description: identifier of the result item
+        type: integer
+        example: 2
+  responses.BulkResponseWithResults:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/responses.BulkResult'
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

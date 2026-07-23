@@ -1,0 +1,628 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment sync API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: sync
+paths:
+  /api/v1/sync/device:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - sync
+      summary: Sync devices
+      parameters:
+      - type: integer
+        description: Last record ID from previous page
+        name: lastIdRetrieved
+        in: query
+      - type: integer
+        description: Last modification time of records (unix timestamp)
+        name: lastModified
+        in: query
+      - type: integer
+        description: Result page size
+        name: take
+        in: query
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DeviceListResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/sync/workorder:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - sync
+      summary: Sync workorders
+      parameters:
+      - type: integer
+        description: Last record ID from previous page
+        name: lastIdRetrieved
+        in: query
+      - type: integer
+        description: Last modification time of records (unix timestamp)
+        name: lastModified
+        in: query
+      - type: integer
+        description: Result page size
+        name: take
+        in: query
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SyncResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /configurations/sync:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      description: 'Request the configurations with the intention to sync some or all of the configurations created or modified since the lastModified timestamp.
+
+        At most, 5000 configurations will be returned from this endpoint in one request.
+
+        Continue making requests with the same lastModified to get the remaining configurations. The API remembers itself where you left off.'
+      produces:
+      - application/json
+      tags:
+      - sync
+      summary: Sync configurations
+      parameters:
+      - type: string
+        description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+      - type: integer
+        description: change since date for the configurations to sync
+        name: lastModified
+        in: query
+        required: true
+      - type: integer
+        description: the ID of the last configuration in the previous response. It is the responsibility of the API client to extract this value and use it for the next call.
+        name: lastIdRetrieved
+        in: query
+      - type: integer
+        description: Number of records to return. If API client omits this parameter, the 20 is the default value.
+        name: take
+        in: query
+      - type: boolean
+        description: optionally return total number of records in the X-Total-Count response header
+        name: withTotalCount
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/configuration'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response'
+definitions:
+  response:
+    type: object
+    properties:
+      id:
+        type: integer
+      message:
+        type: string
+      statusCode:
+        type: string
+  LabelResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      label:
+        type: string
+      labelType:
+        type: string
+      taskId:
+        type: integer
+      workorderId:
+        type: integer
+  ItemResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      data:
+        type: object
+      id:
+        type: integer
+      templateId:
+        type: integer
+      templateSourceId:
+        type: integer
+      text:
+        type: string
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      workorderId:
+        type: integer
+  TaskResponse:
+    type: object
+    properties:
+      assignedToId:
+        type: integer
+        example: 1
+      createdAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      createdById:
+        type: integer
+        example: 1
+      data:
+        type: object
+      duration:
+        description: 'Number of minutes that have been spent on the task. This is either the user defined value
+
+          `userDuration` or calculated automatically from the difference between `startAt` and `endAt`.
+
+          Nil if these fields are not set'
+        type: integer
+        example: 1
+      endAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      id:
+        type: integer
+        example: 1
+      itemId:
+        type: integer
+        example: 1
+      labels:
+        type: array
+        items:
+          $ref: '#/definitions/LabelResponse'
+      repeatEndAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      repeatId:
+        type: integer
+        example: 1
+      repeatStartAt:
+        description: Start of the repeated task range for easier access
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      resourceId:
+        type: integer
+        example: 1
+      rowId:
+        type: integer
+        example: 1
+      rowNotes:
+        type: array
+        items:
+          $ref: '#/definitions/NoteResponse'
+      rrule:
+        type: string
+        example: RRULE:FREQ=DAILY;UNTIL=20220919T063000Z
+      startAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      title:
+        type: string
+        example: Row A;Row B
+      type:
+        type: string
+        example: default
+      updatedAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      updatedById:
+        type: integer
+        example: 1
+      userDuration:
+        description: User defined number of minutes that have been spent on the task
+        type: integer
+        example: 1
+      warehouseId:
+        type: integer
+        example: 1
+      workorderId:
+        type: integer
+        example: 1
+  DeviceListResponse:
+    type: object
+    properties:
+      identity:
+        type: integer
+      records:
+        type: array
+        items:
+          $ref: '#/definitions/DeviceResponse'
+      totalCount:
+        type: integer
+  RowResponse:
+    type: object
+    properties:
+      amount:
+        type: number
+      confirmedAt:
+        type: string
+      confirmedById:
+        type: integer
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      data:
+        type: object
+      discount:
+        type: number
+      id:
+        type: integer
+      isLinked:
+        type: boolean
+      itemId:
+        type: integer
+      netTotal:
+        type: number
+      nonStockProduct:
+        type: boolean
+      order:
+        type: integer
+      parentLinkId:
+        type: integer
+      price:
+        type: number
+      productCode:
+        type: string
+      productId:
+        type: integer
+      productName:
+        type: string
+      productOriginalPrice:
+        type: number
+      productUnitId:
+        type: integer
+      productUpcEan:
+        type: string
+      purchaseOrderRowId:
+        type: integer
+      state:
+        type: string
+      taxExempt:
+        type: boolean
+      title:
+        type: string
+      total:
+        type: number
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      vatRateId:
+        type: integer
+      vatTotal:
+        type: number
+      workorderId:
+        type: integer
+  NoteResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      data:
+        type: object
+      id:
+        type: integer
+      itemId:
+        type: integer
+      rowId:
+        type: integer
+      taskId:
+        type: integer
+      text:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      workorderId:
+        type: integer
+  DeviceResponse:
+    type: object
+    properties:
+      brand:
+        type: string
+        example: Volvo
+      callerAccess:
+        type: boolean
+        example: false
+      color:
+        type: string
+        example: yellow
+      createdAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      createdById:
+        type: integer
+        example: 1
+      customerId:
+        type: integer
+        example: 1
+      data:
+        type: object
+      dateSoldAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      hidden:
+        type: boolean
+        example: false
+      id:
+        type: integer
+        example: 1
+      invoiceId:
+        type: integer
+        example: 1
+      limitedAccess:
+        type: boolean
+        example: false
+      model:
+        type: string
+        example: S90
+      notes:
+        type: string
+        example: Some notes
+      productId:
+        type: integer
+        example: 1
+      productName:
+        type: string
+        example: Some product
+      registration:
+        type: string
+        example: 123 abc
+      relevance:
+        type: number
+        example: 0.5
+      serial:
+        type: string
+        example: '123'
+      updatedAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      updatedById:
+        type: integer
+        example: 1
+      version:
+        type: string
+        example: '1'
+      warrantyEndAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      warrantyStartAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      year:
+        type: string
+        example: '2020'
+  SyncResponse:
+    type: object
+    properties:
+      cancelledAt:
+        type: string
+      cancelledById:
+        type: integer
+      confirmedAt:
+        type: string
+      confirmedById:
+        type: integer
+      contactId:
+        type: integer
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      customerId:
+        type: integer
+      data:
+        type: object
+      deviceId:
+        type: integer
+      deviceUse:
+        description: Stored in device_log table
+        type: integer
+      emsThreadId:
+        type: integer
+      entity:
+        type: string
+      hasDocCredit:
+        type: boolean
+      id:
+        type: integer
+      items:
+        description: Items the items linked to the workorder
+        type: array
+        items:
+          $ref: '#/definitions/ItemResponse'
+      labels:
+        type: array
+        items:
+          $ref: '#/definitions/LabelResponse'
+      netTotal:
+        type: number
+      noteCount:
+        type: integer
+      notes:
+        description: Notes the notes linked to the workorder
+        type: array
+        items:
+          $ref: '#/definitions/NoteResponse'
+      order:
+        type: integer
+      paid:
+        type: number
+      parentId:
+        type: integer
+      priority:
+        type: string
+      productStockState:
+        type: string
+      progress:
+        type: number
+      receivedAt:
+        type: string
+      receivedById:
+        type: integer
+      referenceNo:
+        type: string
+      returnedAt:
+        type: string
+      returnedById:
+        type: integer
+      rows:
+        description: Rows the rows belonging to the workorder
+        type: array
+        items:
+          $ref: '#/definitions/RowResponse'
+      salepointId:
+        type: integer
+      state:
+        type: string
+      taskScheduledState:
+        type: string
+      tasks:
+        description: Tasks the tasks belonging to the workorder
+        type: array
+        items:
+          $ref: '#/definitions/TaskResponse'
+      taxExempt:
+        type: boolean
+      templateId:
+        type: integer
+      title:
+        type: string
+      total:
+        type: number
+      transactionalState:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      vatTotal:
+        type: number
+      warehouseId:
+        type: integer
+      workorderGroupId:
+        type: integer
+      workorderNo:
+        type: string
+  configuration:
+    type: object
+    properties:
+      added:
+        type: integer
+      addedby_id:
+        type: integer
+      application:
+        type: string
+        example: erply-to-woo-sync
+      changed:
+        type: integer
+      changedby_id:
+        type: integer
+      id:
+        type: string
+      level:
+        description: Level is optional
+        type: string
+        example: Pos
+      level_id:
+        description: LevelID is optional
+        type: string
+        example: '1'
+      name:
+        type: string
+        example: adyen
+      type:
+        description: Type is optional
+        type: string
+        example: payment
+      value: {}
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

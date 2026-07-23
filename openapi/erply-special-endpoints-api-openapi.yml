@@ -1,0 +1,522 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Special Endpoints API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Special Endpoints
+paths:
+  /v1/offline-db/sync/pricelist-prices:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get products that have been added or modified since the specified timestamp. Fetches only the columns that are actually needed for ODB (Offline Database).
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Special Endpoints
+      summary: Get Pricelist Prices for Offline DB to sync
+      parameters:
+      - type: integer
+        description: Last modification time (create/update)
+        name: lastModified
+        in: query
+        required: true
+      - type: integer
+        description: price list ID
+        name: pricelistID
+        in: query
+        required: true
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000 for this special endpoint'
+        name: take
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.PriceListPrice'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/offline-db/sync/product:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get products that have been added or modified since the specified timestamp. Fetches only the columns that are actually needed for ODB (Offline Database).
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Special Endpoints
+      summary: 'Get Products for Offline DB to sync, Product pictures: CDN API'
+      parameters:
+      - type: integer
+        description: Last modification time (create/update)
+        name: lastModified
+        in: query
+        required: true
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 8000 for this special endpoint'
+        name: take
+        in: query
+      - type: boolean
+        description: optionally return total number of records in the X-Total-Count response header
+        name: withTotalCount
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.ProductResponseForOfflineDB'
+          headers:
+            X-Total-Count:
+              type: uint
+              description: total number of records (ignores skip & take parameters)
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/ui/product:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Getting the products for the UI involves additional steps and the query is slower than the regular get products.
+
+        NB: Filtering & sorting is not supported for the following fields: length, delivery_time, packaging_type, alcohol_registry_number, alcohol_percentage
+
+        batches, excise_declaration_number, tax_free, is_regular_gift_card, reward_points_not_allowed, non_stock_product, cashier_must_enter_price, labels_not_needed, deposit_fee_amount'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Special Endpoints
+      summary: 'Get Products for UI, Product pictures: CDN API'
+      parameters:
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 1000'
+        name: take
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: filter
+        in: query
+      - type: string
+        description: this is an alternative for the added field filter, the format is ISO 'yyyy-mm-dd'.
+        name: createdDate
+        in: query
+      - type: boolean
+        description: optionally return total number of records in the X-Total-Count response header
+        name: withTotalCount
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/products.ProductResponseForUI'
+          headers:
+            X-Total-Count:
+              type: uint
+              description: total number of records (ignores skip & take parameters)
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  models.ProductResponseForOfflineDB:
+    type: object
+    properties:
+      attributes:
+        type: array
+        items:
+          $ref: '#/definitions/models.AttributeResponse'
+      category_id:
+        type: integer
+      code:
+        type: string
+      code2:
+        type: string
+      code5:
+        type: string
+      code6:
+        type: string
+      code7:
+        type: string
+      code8:
+        type: string
+      deposit_fee_id:
+        type: integer
+      id:
+        type: integer
+      lastModified:
+        type: integer
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      price:
+        type: number
+      status:
+        description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        type: string
+        example: ACTIVE
+      tax_rate_id:
+        type: integer
+  Description:
+    type: object
+    properties:
+      en:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/ProductDescription'
+  ProductDescription:
+    type: object
+    properties:
+      html:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+        example: <b>Very good product!</b>
+      plain_text:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+        example: Very good product!
+  models.PriceListPrice:
+    type: object
+    properties:
+      id:
+        type: integer
+      price:
+        type: number
+      product_id:
+        type: integer
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  models.AttributeResponse:
+    type: object
+    properties:
+      entity:
+        description: Entity name of the record
+        type: string
+        example: product
+      id:
+        description: ID of the attribute
+        type: integer
+        example: 33
+      name:
+        type: string
+        example: has_warranty
+      record_id:
+        description: ID of the database record
+        type: integer
+        example: 7
+      type:
+        description: 3 types are available - int, double, text
+        type: string
+        example: text
+      value:
+        description: based on the type value can be number of text
+  Translatable:
+    type: object
+    properties:
+      en:
+        description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+  products.ProductResponseForUI:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      age_restriction:
+        type: integer
+      alcohol_percentage:
+        type: string
+      alcohol_registry_number:
+        type: string
+      batches:
+        type: string
+      brand_id:
+        type: integer
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        type: integer
+      category_id:
+        type: integer
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      code:
+        type: string
+      code2:
+        type: string
+      code3:
+        type: string
+      code5:
+        type: string
+      code6:
+        type: string
+      code7:
+        type: string
+      code8:
+        type: string
+      cost:
+        type: number
+      country_of_origin_id:
+        type: integer
+      delivery_time:
+        type: string
+      deposit_fee_amount:
+        type: integer
+      deposit_fee_id:
+        type: integer
+      description:
+        $ref: '#/definitions/Description'
+      displayed_in_webshop:
+        description: 0 or 1
+        type: integer
+      excise_declaration_number:
+        type: string
+      extra_field1_id:
+        type: integer
+      extra_field2_id:
+        type: integer
+      extra_field3_id:
+        type: integer
+      extra_field4_id:
+        type: integer
+      family_id:
+        type: integer
+      formula_identifier:
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      group_id:
+        type: integer
+      group_package_ferrous_metal:
+        type: number
+      group_package_metal:
+        type: number
+      group_package_non_ferrous_metal:
+        type: number
+      group_package_paper:
+        type: number
+      group_package_plastic:
+        type: number
+      group_package_wood:
+        type: number
+      has_serial_numbers:
+        type: integer
+      height:
+        type: number
+      id:
+        type: integer
+      is_gift_card:
+        description: 0 or 1
+        type: integer
+      is_lot_product:
+        type: boolean
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        type: integer
+      is_used_product:
+        type: boolean
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        type: integer
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      location_in_warehouse_id:
+        type: integer
+      location_in_warehouse_text:
+        type: string
+      manufacturer_name:
+        type: string
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      net_weight:
+        type: number
+      non_discountable:
+        description: 0 or 1
+        type: integer
+      non_refundable:
+        description: 0 or 1
+        type: integer
+      non_stock_product:
+        description: boolean flag 0 or 1
+        type: integer
+      packaging_type:
+        type: string
+      packing_not_required:
+        type: integer
+      parent_product_id:
+        type: integer
+      price:
+        type: number
+      price_with_tax:
+        type: number
+      priority_group_id:
+        type: integer
+      product_item_level_promotions_disabled:
+        type: integer
+      product_reorder_multiples:
+        type: integer
+      revenue_account:
+        type: string
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        type: integer
+      sales_package_cardboard:
+        type: number
+      sales_package_clear_brown_glass:
+        type: number
+      sales_package_green_other_glass:
+        type: number
+      sales_package_metal_al:
+        type: number
+      sales_package_metal_fe:
+        type: number
+      sales_package_other_metal:
+        type: number
+      sales_package_paper_and_cardboard_mono:
+        description: Product package materials
+        type: number
+      sales_package_plastic_pet:
+        type: number
+      sales_package_plastic_pp_pe:
+        type: number
+      sales_package_wood:
+        type: number
+      serial_number:
+        type: string
+      shelf_life_days:
+        type: integer
+      sold_in_packages:
+        type: integer
+      status:
+        description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        type: string
+        example: ACTIVE
+      suggested_retail_price:
+        type: number
+      supplier_code:
+        type: string
+      supplier_id:
+        type: integer
+      supplier_name:
+        type: string
+      tax_free:
+        description: boolean flag 0 or 1
+        type: integer
+      tax_rate_id:
+        type: integer
+      transport_package_cardboard:
+        type: number
+      transport_package_ferrous_metal:
+        type: number
+      transport_package_non_ferrous_metal:
+        type: number
+      transport_package_plastic:
+        type: number
+      transport_package_wood:
+        type: number
+      type:
+        type: string
+      unit_id:
+        type: integer
+      volume:
+        type: number
+      webshop_description:
+        type: string
+      webshop_keywords:
+        type: string
+      webshop_title:
+        type: string
+      webshop_url_slug:
+        type: string
+      width:
+        type: number
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

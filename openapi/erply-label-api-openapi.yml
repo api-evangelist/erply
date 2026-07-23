@@ -1,0 +1,223 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment label API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: label
+paths:
+  /api/v1/label:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - label
+      summary: Look up labels
+      parameters:
+      - type: integer
+        description: Workorder ID for which labels should be returned
+        name: workorderId
+        in: query
+      - type: integer
+        description: Task ID for which labels should be returned
+        name: taskId
+        in: query
+      - type: string
+        description: Label type
+        name: labelType
+        in: query
+        required: true
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LabelResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    put:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - label
+      summary: Set multiple labels on the same object. If a label does not exist on the object, it will be added. Existing labels that are not specified in the call will be removed from the object
+      parameters:
+      - description: Labels to set
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/LabelBulkRequest'
+      responses:
+        '202':
+          description: Accepted
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LabelResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - label
+      summary: Add a new label record
+      parameters:
+      - description: Label record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/LabelRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/LabelResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - label
+      summary: Delete one label record
+      parameters:
+      - type: integer
+        description: Workorder ID
+        name: workorderId
+        in: query
+      - type: integer
+        description: Task ID
+        name: taskId
+        in: query
+      - type: string
+        description: Label type
+        name: labelType
+        in: query
+        required: true
+      - type: string
+        description: Label code
+        name: label
+        in: query
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+definitions:
+  LabelRequest:
+    type: object
+    properties:
+      label:
+        type: string
+      labelType:
+        type: string
+      taskId:
+        type: integer
+      workorderId:
+        type: integer
+  LabelResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      label:
+        type: string
+      labelType:
+        type: string
+      taskId:
+        type: integer
+      workorderId:
+        type: integer
+  LabelBulkRequest:
+    type: object
+    properties:
+      labelType:
+        type: string
+      labels:
+        type: array
+        items:
+          type: string
+      taskId:
+        type: integer
+      workorderId:
+        type: integer
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

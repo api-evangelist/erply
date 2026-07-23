@@ -1,0 +1,628 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment printout API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: printout
+paths:
+  /api/v1/workorder/{workorderId}/printout/{templateId}/data:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - printout
+      summary: Get printout example dataset
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - type: integer
+        description: Template id
+        name: templateId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/PrintoutWorkorderData'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/printout/{templateId}/download:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/pdf
+      tags:
+      - printout
+      summary: Generate and download printout file
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - type: integer
+        description: Template id
+        name: templateId
+        in: path
+        required: true
+      - type: string
+        description: File name
+        name: fileName
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: file
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/printout/{templateId}/send:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - printout
+      summary: Send printout to customer
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - type: integer
+        description: Template id
+        name: templateId
+        in: path
+        required: true
+      - description: Input for sending the printout
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/model.EmailPrintoutRequest'
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+definitions:
+  PrintoutRowTotal:
+    type: object
+    properties:
+      netTotal:
+        type: number
+      total:
+        type: number
+      vatTotal:
+        type: number
+  PrintoutDocument:
+    type: object
+    properties:
+      createdBy:
+        $ref: '#/definitions/PrintoutParty'
+      date:
+        type: string
+      deadline:
+        type: integer
+      documentNo:
+        type: integer
+      id:
+        type: integer
+      round:
+        type: number
+      time:
+        type: string
+      type:
+        type: string
+  PrintoutWorkorderData:
+    type: object
+    properties:
+      address:
+        $ref: '#/definitions/PrintoutAddress'
+      company:
+        $ref: '#/definitions/PrintoutCompany'
+      createdAt:
+        type: string
+      documents:
+        type: array
+        items:
+          $ref: '#/definitions/PrintoutDocument'
+      invoiceLogoUrl:
+        type: string
+      payments:
+        type: array
+        items:
+          $ref: '#/definitions/PrintoutPayment'
+      workorder:
+        $ref: '#/definitions/PrintoutWorkorder'
+  PrintoutItem:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      data:
+        type: object
+      id:
+        type: integer
+      netTotal:
+        type: number
+      notes:
+        type: array
+        items:
+          $ref: '#/definitions/PrintoutNote'
+      notesMerged:
+        type: string
+      rows:
+        type: array
+        items:
+          $ref: '#/definitions/PrintoutRow'
+      text:
+        type: string
+      total:
+        type: number
+      updatedAt:
+        type: string
+      vatTotal:
+        type: number
+  PrintoutCompany:
+    type: object
+    properties:
+      account:
+        type: string
+      account2:
+        type: string
+      bank:
+        type: string
+      bank2:
+        type: string
+      code:
+        type: string
+      email:
+        type: string
+      fax:
+        type: string
+      fullName:
+        type: string
+      fullName2:
+        type: string
+      iban:
+        type: string
+      iban2:
+        type: string
+      id:
+        type: integer
+      mobile:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      swift:
+        type: string
+      swift2:
+        type: string
+      vatrateId:
+        type: integer
+  PrintoutRow:
+    type: object
+    properties:
+      amount:
+        type: number
+      confirmedAt:
+        type: string
+      createdAt:
+        type: string
+      data:
+        type: object
+      discount:
+        type: number
+      id:
+        type: integer
+      itemId:
+        type: integer
+      netTotal:
+        type: number
+      nonStockProduct:
+        type: boolean
+      notes:
+        type: array
+        items:
+          $ref: '#/definitions/PrintoutNote'
+      notesMerged:
+        type: string
+      price:
+        type: number
+      productCode:
+        type: string
+      productId:
+        type: integer
+      productName:
+        type: string
+      productOriginalPrice:
+        type: number
+      productUnitId:
+        type: integer
+      productUpcEan:
+        type: string
+      purchaseOrderRowId:
+        type: integer
+      taxExempt:
+        type: boolean
+      title:
+        type: string
+      total:
+        type: number
+      updatedAt:
+        type: string
+      vatRateId:
+        type: integer
+      vatRateName:
+        $ref: '#/definitions/core.Translatable'
+      vatRateRate:
+        type: number
+      vatTotal:
+        type: number
+  PrintoutDevice:
+    type: object
+    properties:
+      brand:
+        type: string
+      color:
+        type: string
+      createdAt:
+        type: string
+      customer:
+        $ref: '#/definitions/PrintoutParty'
+      customerId:
+        type: integer
+      data:
+        type: object
+      dateSoldAt:
+        type: string
+      deviceUse:
+        type: integer
+      id:
+        type: integer
+      invoiceId:
+        type: integer
+      model:
+        type: string
+      notes:
+        type: string
+      productId:
+        type: integer
+      productName:
+        type: string
+      registration:
+        type: string
+      serial:
+        type: string
+      updatedAt:
+        type: string
+      version:
+        type: string
+      warrantyEndAt:
+        type: string
+      warrantyStartAt:
+        type: string
+      year:
+        type: string
+  PrintoutParty:
+    type: object
+    properties:
+      email:
+        type: string
+      firstname:
+        type: string
+      fullName:
+        type: string
+      fullName2:
+        type: string
+      id:
+        type: integer
+      mobile:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      userId:
+        type: integer
+  PrintoutAddress:
+    type: object
+    properties:
+      address:
+        type: string
+      address2:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      id:
+        type: integer
+      postcode:
+        type: string
+      state:
+        type: string
+      typeId:
+        type: integer
+  model.EmailPrintoutRequest:
+    type: object
+    properties:
+      fileName:
+        type: string
+      messageBody:
+        type: string
+      messageSubject:
+        type: string
+      recipientEmail:
+        type: string
+      senderEmail:
+        type: string
+      senderName:
+        type: string
+      templateId:
+        type: integer
+      workorderId:
+        type: integer
+  PrintoutNote:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdBy:
+        $ref: '#/definitions/PrintoutParty'
+      data:
+        type: object
+      id:
+        type: integer
+      text:
+        type: string
+      updatedAt:
+        type: string
+  PrintoutPayment:
+    type: object
+    properties:
+      authorizationCode:
+        type: string
+      cardHolder:
+        type: string
+      cardNumber:
+        type: string
+      cardType:
+        type: string
+      cashChange:
+        type: number
+      cashPaid:
+        type: number
+      date:
+        type: string
+      id:
+        type: integer
+      referenceNumber:
+        type: string
+      sum:
+        type: number
+      type:
+        type: string
+      typeId:
+        type: integer
+  core.Translatable:
+    type: object
+    properties:
+      ar:
+        type: string
+        example: ' '
+      cs:
+        type: string
+        example: ' '
+      da:
+        type: string
+        example: ' '
+      de:
+        type: string
+        example: ' '
+      default:
+        type: string
+        example: ' '
+      el:
+        type: string
+        example: ' '
+      en:
+        type: string
+        example: ' '
+      es:
+        type: string
+        example: ' '
+      et:
+        type: string
+        example: ' '
+      fi:
+        type: string
+        example: ' '
+      fo:
+        type: string
+        example: ' '
+      fr:
+        type: string
+        example: ' '
+      it:
+        type: string
+        example: ' '
+      lt:
+        type: string
+        example: ' '
+      lv:
+        type: string
+        example: ' '
+      nl:
+        type: string
+        example: ' '
+      'no':
+        type: string
+        example: ' '
+      pl:
+        type: string
+        example: ' '
+      ru:
+        type: string
+        example: ' '
+      sv:
+        type: string
+        example: ' '
+      th:
+        type: string
+        example: ' '
+      tr:
+        type: string
+        example: ' '
+      vi:
+        type: string
+        example: ' '
+      zh_Hans:
+        type: string
+        example: ' '
+      zh_Hant:
+        type: string
+        example: ' '
+  PrintoutWorkorder:
+    type: object
+    properties:
+      contact:
+        $ref: '#/definitions/PrintoutParty'
+      createdAt:
+        type: string
+      createdBy:
+        $ref: '#/definitions/PrintoutParty'
+      customer:
+        $ref: '#/definitions/PrintoutParty'
+      data:
+        type: object
+      device:
+        $ref: '#/definitions/PrintoutDevice'
+      docInvoiceNo:
+        type: integer
+      docPrepayNo:
+        type: integer
+      docQuoteNo:
+        type: integer
+      id:
+        type: integer
+      items:
+        type: array
+        items:
+          $ref: '#/definitions/PrintoutItem'
+      netTotal:
+        type: number
+      notes:
+        type: array
+        items:
+          $ref: '#/definitions/PrintoutNote'
+      paidTotal:
+        type: number
+      productRowTotals:
+        $ref: '#/definitions/PrintoutRowTotal'
+      receivedAt:
+        type: string
+      referenceNo:
+        type: string
+      remainingTotal:
+        type: number
+      returnedAt:
+        type: string
+      taxExempt:
+        type: boolean
+      total:
+        type: number
+      updatedAt:
+        type: string
+      vatRateTotals:
+        type: array
+        items:
+          $ref: '#/definitions/PrintoutVatRateTotal'
+      vatTotal:
+        type: number
+      warehouseId:
+        type: integer
+      workRowTotals:
+        $ref: '#/definitions/PrintoutRowTotal'
+      workorderNo:
+        type: string
+  PrintoutVatRateTotal:
+    type: object
+    properties:
+      name:
+        $ref: '#/definitions/core.Translatable'
+      netTotal:
+        type: number
+      rate:
+        type: number
+      total:
+        type: number
+      vatRateId:
+        type: integer
+      vatTotal:
+        type: number
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

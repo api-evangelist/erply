@@ -1,0 +1,180 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Product Replacement API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Product Replacement
+paths:
+  /v1/product/replacements/{ids}:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Not to be mistaken with the product substituting feature. This feature is meant for complete replacement
+
+        of old products (discontinued etc).
+
+        A product cannot replace multiple products. Api can still return multiple replacements however since
+
+        api also returns inherited replacements from the replaced products.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Replacement
+      summary: Get products replacement information
+      parameters:
+      - type: string
+        description: product IDs
+        name: ids
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/{newProductId}/replace/{oldProductId}:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Not to be mistaken with the product substituting feature. This feature is meant for complete replacement
+
+        of old products (discontinued etc).
+
+        If the replaced product has replacements on its own then the new product will also inherit all of them.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Replacement
+      summary: Create a new product replacement
+      parameters:
+      - type: string
+        description: product ID - product that replaces the other product
+        name: newProductId
+        in: path
+        required: true
+      - type: string
+        description: product ID - product that will be replaced
+        name: oldProductId
+        in: path
+        required: true
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Not to be mistaken with the product substituting feature. This feature is meant for complete replacement
+
+        of old products (discontinued etc).
+
+        Call only removes the requested replacement, it will not remove replacements that might have been inherited when the replacement was added.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Replacement
+      summary: Delete an existing product replacement
+      parameters:
+      - type: string
+        description: product ID - product that replaces the other product
+        name: newProductId
+        in: path
+        required: true
+      - type: string
+        description: product ID - product that will be replaced
+        name: oldProductId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  responses.Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 73
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

@@ -1,0 +1,531 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment device API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: device
+paths:
+  /api/v1/device:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: "Allows searching for devices matching specific criteria.\r\n\r\n> Param           | Default&nbsp; | Example&nbsp; | Description\r\n> ----------------|---------------|---------------|----\r\n> `id`            | -             | 11            | Filter by device ID-s\r\n> `registration`  | -             | 12            | Filter by registration number. Exact match\r\n> `serial`        | -             | 13            | Filter by serial number. Exact match\r\n> `brand`         | -             | Tesla         | Filter by brand. Exact match\r\n> `model`         | -             | Model S       | Filter by model. Exact match\r\n> `version`       | -             | 100 AWD       | Filter by version. Exact match\r\n> `year`          | -             | 2020          | Filter by year. Exact match\r\n> `color`         | -             | red           | Filter by device color. Exact match\r\n> `customerId`    | -             | 14            | Filter by customer ID-s\r\n> `customerName`  | -             | Tom           | Filter by customer name. Fuzzy search\r\n> `searchPhrase`  | -             | AWD           | Fuzzy search over fields `registration`, `serial`, `brand`, `model`, `version`, `year` and owner name.\r\n> `limitedAccess` | -             | true          | If devices with access restrictions should be returned\r\n> `callerAccess`  | -             | true          | If the query should return devices that are accessible to the user or those that are not accessible. Returns both by default\r\n> `withTotalCount` | false         | true          | If total count of matched records should be returned in response header `x-total-count` \r\n> `pageSize`      | 20            | 100           | Allows specifying how many records per page should be returned\r\n> `pageNr`        | 1             | 2             | Allows specifying which page should be returned for creating paginated views over the data.\r\n> `sort`          | id            | -id           | Allows specifying in which order the rows should be returned. Supported values are: `id`, `relevance`, `custFirstname`, `custName`, `dateSoldAt`, `registration`, `serial`, `brand`, `model`, `version`, `year`, `createdAt`, `updatedAt`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword.\r\n>"
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - device
+      summary: Look up devices
+      parameters:
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Device ids
+        name: id
+        in: query
+      - type: string
+        description: Registration number
+        name: registration
+        in: query
+      - type: string
+        description: Serial number
+        name: serial
+        in: query
+      - type: string
+        description: Device brand
+        name: brand
+        in: query
+      - type: string
+        description: Device model
+        name: model
+        in: query
+      - type: string
+        description: Device version
+        name: version
+        in: query
+      - type: string
+        description: Device year
+        name: year
+        in: query
+      - type: string
+        description: Device color
+        name: color
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Customer ids
+        name: customerId
+        in: query
+      - type: string
+        description: Customer name
+        name: customerName
+        in: query
+      - type: string
+        description: Fulltext search phrase
+        name: searchPhrase
+        in: query
+      - type: boolean
+        description: If hidden or unhidden devices should be returned. If undefined, all are returned
+        name: hidden
+        in: query
+      - type: boolean
+        description: If device has access restrictions applied
+        name: limitedAccess
+        in: query
+      - type: boolean
+        description: If caller has access to the device content
+        name: callerAccess
+        in: query
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `id`, `relevance`, `custFirstname`, `custName`, `dateSoldAt`, `registration`, `serial`, `brand`, `model`, `version`, `year`, `createdAt`, `updatedAt`'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DeviceResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - device
+      summary: Add a new device record
+      parameters:
+      - description: Device record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DeviceRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/DeviceResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/device-global:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: "Allows searching for devices matching specific criteria across all accessible tenants\r\n\r\n> Param           | Default&nbsp; | Example&nbsp; | Description\r\n> ----------------|---------|---------|----\r\n> `registration`  | -       | 11      | Filter by registration number. Exact match\r\n> `serial`        | -       | 22      | Filter by serial number. Exact match\r\n> `brand`         | -       | Tesla   | Filter by brand. Exact match\r\n> `model`         | -       | Model S | Filter by model. Exact match\r\n> `version`       | -       | 100 AWD | Filter by version. Exact match\r\n> `year`          | -       | 2020    | Filter by year. Exact match\r\n> `searchPhrase`  | -       | AWD     | Fuzzy search over fields `registration`, `serial`, `brand`, `model`, `version`, `year` and owner name.\r\n>"
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - device
+      summary: Search for devices across all accessible tenants
+      parameters:
+      - type: string
+        description: Registration number
+        name: registration
+        in: query
+      - type: string
+        description: Serial number
+        name: serial
+        in: query
+      - type: string
+        description: Device brand
+        name: brand
+        in: query
+      - type: string
+        description: Device model
+        name: model
+        in: query
+      - type: string
+        description: Device version
+        name: version
+        in: query
+      - type: string
+        description: Device year
+        name: year
+        in: query
+      - type: string
+        description: Device color
+        name: color
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Customer ids
+        name: customerId
+        in: query
+      - type: string
+        description: Customer name
+        name: customerName
+        in: query
+      - type: string
+        description: Fulltext search phrase
+        name: searchPhrase
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DeviceResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/device/{deviceId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Delete one device record
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - device
+      summary: Delete one device record
+      parameters:
+      - type: integer
+        description: Record id
+        name: deviceId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - device
+      summary: Update device record
+      parameters:
+      - type: integer
+        description: Record id
+        name: deviceId
+        in: path
+        required: true
+      - description: Device record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DeviceRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DeviceResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/device/{deviceId}/log:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Retrieve logged values for device record
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - device
+      summary: Retrieve device record related logged values
+      parameters:
+      - type: integer
+        description: Device id
+        name: deviceId
+        in: path
+        required: true
+      - type: string
+        description: Log type name
+        name: name
+        in: query
+      - type: string
+        description: Log entry time range lower bound (yyyy-mm-ddThh:mm:ssZ)
+        name: dateStart
+        in: query
+      - type: string
+        description: Log entry time range upper bound (yyyy-mm-ddThh:mm:ssZ)
+        name: dateEnd
+        in: query
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `id`, `deviceId`, `workorderId`, `date`, `name`, `createdAt`, `updatedAt`'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DeviceLogResponse'
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+definitions:
+  DeviceRequest:
+    type: object
+    properties:
+      brand:
+        type: string
+        example: Volvo
+      color:
+        type: string
+        example: yellow
+      customerId:
+        type: integer
+        example: 1
+      data:
+        type: object
+      dateSoldAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      hidden:
+        type: boolean
+        example: false
+      id:
+        type: integer
+        example: 1
+      invoiceId:
+        type: integer
+        example: 1
+      model:
+        type: string
+        example: S90
+      notes:
+        type: string
+        example: Some notes
+      productId:
+        type: integer
+        example: 1
+      productName:
+        type: string
+        example: Some product
+      registration:
+        type: string
+        example: 123 abc
+      serial:
+        type: string
+        example: '123'
+      setAccessToken:
+        type: string
+        example: secret
+      version:
+        type: string
+        example: '1'
+      warrantyEndAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      warrantyStartAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      year:
+        type: string
+        example: '2020'
+  DeviceResponse:
+    type: object
+    properties:
+      brand:
+        type: string
+        example: Volvo
+      callerAccess:
+        type: boolean
+        example: false
+      color:
+        type: string
+        example: yellow
+      createdAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      createdById:
+        type: integer
+        example: 1
+      customerId:
+        type: integer
+        example: 1
+      data:
+        type: object
+      dateSoldAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      hidden:
+        type: boolean
+        example: false
+      id:
+        type: integer
+        example: 1
+      invoiceId:
+        type: integer
+        example: 1
+      limitedAccess:
+        type: boolean
+        example: false
+      model:
+        type: string
+        example: S90
+      notes:
+        type: string
+        example: Some notes
+      productId:
+        type: integer
+        example: 1
+      productName:
+        type: string
+        example: Some product
+      registration:
+        type: string
+        example: 123 abc
+      relevance:
+        type: number
+        example: 0.5
+      serial:
+        type: string
+        example: '123'
+      updatedAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      updatedById:
+        type: integer
+        example: 1
+      version:
+        type: string
+        example: '1'
+      warrantyEndAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      warrantyStartAt:
+        type: string
+        example: '2022-01-01T00:00:00Z'
+      year:
+        type: string
+        example: '2020'
+  DeviceLogResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      date:
+        type: string
+      deviceId:
+        type: integer
+      id:
+        type: integer
+      name:
+        type: string
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      valueInt:
+        type: integer
+      workorderId:
+        type: integer
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

@@ -1,0 +1,2282 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Products API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- description: 'NB: Product picture management is done with CDN API: https://learn-api.erply.com/new-apis/cdn-api'
+  name: Products
+  externalDocs:
+    description: Detailed product documentation
+    url: https://learn-api.erply.com/concepts/products
+paths:
+  /v1/product:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Get Products, NB: Filtering & sorting is not supported for the following fields: length, delivery_time, packaging_type, alcohol_registry_number, alcohol_percentage
+
+        batches, excise_declaration_number, tax_free, is_regular_gift_card, reward_points_not_allowed, non_stock_product, cashier_must_enter_price, labels_not_needed, deposit_fee_amount
+
+        In filteration `group_id_with_sub` with `in` operator can be used in filters to get group ids with subgroups
+
+        also `category_id_with_sub` with `in` operator can be used in filters to get category ids with subgroups'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: 'Get Products, Product pictures: CDN API'
+      parameters:
+      - type: string
+        description: comma or semicolon separated list of fields to fetch
+        name: fields
+        in: query
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: filter
+        in: query
+      - type: boolean
+        description: optionally return total number of records in the X-Total-Count response header
+        name: withTotalCount
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/products.ProductResponse'
+          headers:
+            X-Total-Count:
+              type: uint
+              description: total number of records (ignores skip & take parameters)
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'The field descriptions can be found under the model description. For that please click the Model button near the Example Value button under the product (body) parameter description.
+
+        The group_id is a required field. Code, code2 must be unique or empty.
+
+        Filtering won''t work for the price_with_tax field.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: 'Create a Product, Pictures: CDN API'
+      parameters:
+      - description: Product
+        name: product
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/products.ProductRequest'
+      - type: boolean
+        description: trim spaces on all text fields
+        name: trimInput
+        in: query
+      - type: boolean
+        description: generate code automatically based on the preconfigured starting code or based on a generated code. If the code is not blank in the request, will override.
+        name: generateCodeAutomatically
+        in: query
+        required: true
+      - type: boolean
+        description: generate code2 (EAN/UPC) automatically based on the preconfigured starting code or based on a generated code. If the code is not blank in the request, will override.
+        name: generateCode2Automatically
+        in: query
+        required: true
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/bulk:
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: The resourceId request field should be used for the product id in each request for the bulk update.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Update Products in bulk
+      parameters:
+      - description: Products to update with IDs
+        name: product
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/products.BulkUpdateProductRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.BulkResponseWithResults'
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Each request body is a product to create. The parameters to generate the product code/code2 automatically is embedded into the request body as the `generateCodeAutomatically` & `generateCode2Automatically` fields.
+
+        The body can contain up to 100 requests.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Create Products in bulk
+      parameters:
+      - description: Create Product Requests
+        name: products
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/products.BulkCreateProductRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.BulkResponseWithResults'
+    patch:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: This API endpoint is to update the product field by field in bulk. You must provide the fields you want to update only
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Update Product field by field in bulk
+      parameters:
+      - description: products
+        name: product
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/products.BulkPatchUpdateProductRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.BulkResponseWithResults'
+  /v1/product/bulk/get:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Get Products in bulk, NB: Filtering & sorting is not supported for the following fields: length, delivery_time, packaging_type, alcohol_registry_number, alcohol_percentage
+
+        batches, excise_declaration_number, tax_free, is_regular_gift_card, reward_points_not_allowed, non_stock_product, cashier_must_enter_price, labels_not_needed, deposit_fee_amount'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Get Products in bulk
+      parameters:
+      - description: requests have the parameters that the original get request has, but in json format. This way you can apply the parameters to each request separately.
+        name: product
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/parammodels.BulkReadRequestNoTotalCount'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/products.BulkReadProductResponse'
+  /v1/product/codes:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get product codes
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Get product codes
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/products.AutoCodes'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    patch:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Set/Update product codes - pass only the code(s) you need to set/update. Returns updated codes if any were updated
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Set/Update product codes
+      parameters:
+      - description: codes
+        name: codes
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/products.CreateUpdateAutoCodes'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/products.AutoCodes'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/deleted/ids:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get Deleted Product IDs
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Get Deleted Product IDs
+      parameters:
+      - type: integer
+        description: it' s a `UNIX timestamp`
+        name: If-Modified-Since
+        in: header
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: integer
+          headers:
+            Timestamp:
+              type: int
+              description: 'Server timestamp: UNIX timestamp when the execution of this API call started'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/full-text-lookup:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Full text search is a more advanced way to search products
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Lookup products
+      parameters:
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: text to lookup, must be at least 3 characters in length, if quotes are applied a string match is returned
+        name: lookupPhrase
+        in: query
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/products.ProductResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/merge:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: '`useDiscardedProductRecipe` can be true only for Assembly, Bundle products if the kept product’s recipe is replaced by the discarded product’s recipe.
+
+        `useDiscardedProductVariations` can be true only for Matrix products, if the kept product’s child products are replaced by the discarded product’s child products'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Merge a Product to another Product
+      parameters:
+      - description: ProductIDs
+        name: product
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/products.ProductMergeRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/restore:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'The back-up ID can be passed to create product, update product & update product type endpoints as well as their bulk variants.
+
+        Once passed, the system will keep a back-up of the products catalogue. To restore the catalogue, use this endpoint with the backupID.
+
+        There can be only one back-up in the system.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Restore products by backup ID
+      parameters:
+      - description: request
+        name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.BackupRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/restore/info:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Return information on what would be restored with the restore products by backup ID call.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Get information on restore
+      parameters:
+      - type: integer
+        description: backup id
+        name: backupID
+        in: query
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/models.BackupChanges'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/{ids}:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get Products in batch
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Get Products in batch
+      parameters:
+      - type: string
+        description: can contain semicolon delimited IDs.
+        name: ids
+        in: path
+        required: true
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: filter
+        in: query
+      - type: boolean
+        description: optionally return total number of records in the X-Total-Count response header
+        name: withTotalCount
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/products.ProductResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Deleting Products will delete all links to assortments and parameter values.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Delete Products
+      parameters:
+      - type: string
+        description: up to 100 semicolon delimited product IDs
+        name: ids
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/{id}:
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Update Product
+      parameters:
+      - type: integer
+        description: product ID
+        name: id
+        in: path
+        required: true
+      - type: boolean
+        description: trim spaces on all text fields
+        name: trimInput
+        in: query
+      - description: Product
+        name: product
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/products.ProductRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    patch:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: In this request you pass only the fields you want to update
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Products
+      summary: Update Product field by field
+      parameters:
+      - type: integer
+        description: product ID
+        name: id
+        in: path
+        required: true
+      - type: boolean
+        description: trim spaces on all text fields
+        name: trimInput
+        in: query
+      - description: Product
+        name: product
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/products.PatchUpdateProductRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  parammodels.SortRequest:
+    type: object
+    properties:
+      desc:
+        description: If true - descending, if false - ascending
+        type: boolean
+      language:
+        description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
+        type: string
+        example: en
+      selector:
+        description: 'JSON field. For description: description_plain or description_html'
+        type: string
+        example: name
+  products.BulkReadProductResponseItem:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/products.ProductResponse'
+      resultId:
+        description: id of the response item
+        type: integer
+      totalCount:
+        description: total number of records (ignores skip & take parameters)
+        type: integer
+  products.AutoCodes:
+    type: object
+    properties:
+      nextCode:
+        type: integer
+      nextCode2:
+        type: integer
+  products.BulkPatchUpdateProductRequestItem:
+    type: object
+    properties:
+      age_restriction:
+        type: integer
+      alcohol_percentage:
+        type: string
+      alcohol_registry_number:
+        type: string
+      backup_id:
+        type: integer
+      batches:
+        type: string
+      brand_id:
+        description: ID of product brand. To get the list of brandmodels, use getBrands.
+        type: integer
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        type: integer
+      category_id:
+        type: integer
+      code:
+        description: Product's code. Must be UNIQUE, unless the account is configured otherwise.
+        type: string
+      code2:
+        description: Product's second code (by convention, EAN barcode). Must be UNIQUE, unless the account is configured otherwise.
+        type: string
+      code3:
+        description: Third code of the item (note that this field may not be visible on product card by default).
+        type: string
+      code5:
+        type: string
+      code6:
+        type: string
+      code7:
+        type: string
+      code8:
+        type: string
+      cost:
+        description: Cost is Product cost
+        type: number
+      country_of_origin_id:
+        type: integer
+      delivery_time:
+        type: string
+      deposit_fee_amount:
+        type: integer
+      deposit_fee_id:
+        description: ContainerID is ID of another product, a beverage container that is always sold together with this item.
+        type: integer
+      description:
+        $ref: '#/definitions/Description'
+      displayed_in_webshop:
+        description: 0 or 1
+        type: integer
+      excise_declaration_number:
+        type: string
+      extra_field1_id:
+        type: integer
+      extra_field2_id:
+        type: integer
+      extra_field3_id:
+        type: integer
+      extra_field4_id:
+        type: integer
+      family_id:
+        type: integer
+      formula_identifier:
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      group_id:
+        description: ID of product group. To get the list of product groups, use getProductGroups.
+        type: integer
+      group_package_ferrous_metal:
+        type: number
+      group_package_metal:
+        type: number
+      group_package_non_ferrous_metal:
+        type: number
+      group_package_paper:
+        type: number
+      group_package_plastic:
+        type: number
+      group_package_wood:
+        type: number
+      has_serial_numbers:
+        type: integer
+      height:
+        type: number
+      is_gift_card:
+        description: 0 or 1
+        type: integer
+      is_lot_product:
+        type: boolean
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        type: integer
+      is_used_product:
+        type: boolean
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        type: integer
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      location_in_warehouse_id:
+        description: LocationInWarehouseID is ID of selected location in warehouse.
+        type: integer
+      location_in_warehouse_text:
+        description: LocationInWarehouseText is Product's specific text added to location in warehouse.
+        type: string
+      manufacturer_name:
+        type: string
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      net_weight:
+        description: NetWeight is Item's net weight. Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      non_discountable:
+        description: 0 or 1
+        type: integer
+      non_refundable:
+        description: 0 or 1
+        type: integer
+      non_stock_product:
+        description: boolean flag 0 or 1
+        type: integer
+      packaging_type:
+        type: string
+      packing_not_required:
+        type: integer
+      parent_product_id:
+        description: Parent product ID. Only for matrix variations (specific colors/sizes of a matrix item). See guidelines below.
+        type: integer
+      price:
+        description: 'Price is just the default price of a product and the actual price applied in a particular location, to a particular customer, depends on price lists and promotions: https://learn-api.erply.com/concepts/pricing'
+        type: number
+      priority_group_id:
+        type: integer
+      product_item_level_promotions_disabled:
+        type: integer
+      product_reorder_multiples:
+        type: integer
+      resourceId:
+        description: The resourceId request field should be used for the product id in each request for the bulk update.
+        type: integer
+      revenue_account:
+        type: string
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        type: integer
+      sales_package_cardboard:
+        type: number
+      sales_package_clear_brown_glass:
+        type: number
+      sales_package_green_other_glass:
+        type: number
+      sales_package_metal_al:
+        type: number
+      sales_package_metal_fe:
+        type: number
+      sales_package_other_metal:
+        type: number
+      sales_package_paper_and_cardboard_mono:
+        description: Product package materials
+        type: number
+      sales_package_plastic_pet:
+        type: number
+      sales_package_plastic_pp_pe:
+        type: number
+      sales_package_wood:
+        type: number
+      serial_number:
+        type: string
+      shelf_life_days:
+        type: integer
+      sold_in_packages:
+        type: integer
+      status:
+        type: string
+        example: ACTIVE
+      suggested_retail_price:
+        type: number
+      supplier_code:
+        description: Supplier's product code
+        type: string
+      supplier_id:
+        type: integer
+      tax_free:
+        description: boolean flag 0 or 1
+        type: integer
+      tax_rate_id:
+        description: 'TaxRateID is just the default tax rate of a product and the actual tax applied in a particular location depends on multiple rules: https://learn-api.erply.com/concepts/taxes.'
+        type: integer
+      transport_package_cardboard:
+        type: number
+      transport_package_ferrous_metal:
+        type: number
+      transport_package_non_ferrous_metal:
+        type: number
+      transport_package_plastic:
+        type: number
+      transport_package_wood:
+        type: number
+      type:
+        description: Product type, possible types are 'PRODUCT', 'BUNDLE', 'MATRIX', 'ASSEMBLY'. By default 'PRODUCT'.
+        type: string
+      unit_id:
+        description: ID of product unit. To get the list of units, use getProductUnits.
+        type: integer
+      volume:
+        description: Volume is Item's fluid volume, eg. for beverages or perfumery. Unit depends on locale, check your Erply account (typically mL or fl oz).
+        type: number
+      webshop_description:
+        type: string
+      webshop_keywords:
+        type: string
+      webshop_title:
+        type: string
+      webshop_url_slug:
+        type: string
+      width:
+        type: number
+  Translatable:
+    type: object
+    properties:
+      en:
+        description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+  responses.Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 73
+  parammodels.FilterJSON:
+    type: object
+    properties:
+      fieldName:
+        type: string
+        example: group_id
+      operandBefore:
+        description: supported values are "and", "or"
+        type: string
+        example: or
+      operator:
+        type: string
+        example: '='
+      sliceValue:
+        description: to be used if the value is a slice
+        type: array
+        items: {}
+      value:
+        type: object
+  ProductDescription:
+    type: object
+    properties:
+      html:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+        example: <b>Very good product!</b>
+      plain_text:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+        example: Very good product!
+  models.BackupRequest:
+    type: object
+    properties:
+      backup_id:
+        type: integer
+  products.PatchUpdateProductRequest:
+    type: object
+    properties:
+      age_restriction:
+        type: integer
+      alcohol_percentage:
+        type: string
+      alcohol_registry_number:
+        type: string
+      backup_id:
+        type: integer
+      batches:
+        type: string
+      brand_id:
+        description: ID of product brand. To get the list of brandmodels, use getBrands.
+        type: integer
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        type: integer
+      category_id:
+        type: integer
+      code:
+        description: Product's code. Must be UNIQUE, unless the account is configured otherwise.
+        type: string
+      code2:
+        description: Product's second code (by convention, EAN barcode). Must be UNIQUE, unless the account is configured otherwise.
+        type: string
+      code3:
+        description: Third code of the item (note that this field may not be visible on product card by default).
+        type: string
+      code5:
+        type: string
+      code6:
+        type: string
+      code7:
+        type: string
+      code8:
+        type: string
+      cost:
+        description: Cost is Product cost
+        type: number
+      country_of_origin_id:
+        type: integer
+      delivery_time:
+        type: string
+      deposit_fee_amount:
+        type: integer
+      deposit_fee_id:
+        description: ContainerID is ID of another product, a beverage container that is always sold together with this item.
+        type: integer
+      description:
+        $ref: '#/definitions/Description'
+      displayed_in_webshop:
+        description: 0 or 1
+        type: integer
+      excise_declaration_number:
+        type: string
+      extra_field1_id:
+        type: integer
+      extra_field2_id:
+        type: integer
+      extra_field3_id:
+        type: integer
+      extra_field4_id:
+        type: integer
+      family_id:
+        type: integer
+      formula_identifier:
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      group_id:
+        description: ID of product group. To get the list of product groups, use getProductGroups.
+        type: integer
+      group_package_ferrous_metal:
+        type: number
+      group_package_metal:
+        type: number
+      group_package_non_ferrous_metal:
+        type: number
+      group_package_paper:
+        type: number
+      group_package_plastic:
+        type: number
+      group_package_wood:
+        type: number
+      has_serial_numbers:
+        type: integer
+      height:
+        type: number
+      is_gift_card:
+        description: 0 or 1
+        type: integer
+      is_lot_product:
+        type: boolean
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        type: integer
+      is_used_product:
+        type: boolean
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        type: integer
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      location_in_warehouse_id:
+        description: LocationInWarehouseID is ID of selected location in warehouse.
+        type: integer
+      location_in_warehouse_text:
+        description: LocationInWarehouseText is Product's specific text added to location in warehouse.
+        type: string
+      manufacturer_name:
+        type: string
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      net_weight:
+        description: NetWeight is Item's net weight. Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      non_discountable:
+        description: 0 or 1
+        type: integer
+      non_refundable:
+        description: 0 or 1
+        type: integer
+      non_stock_product:
+        description: boolean flag 0 or 1
+        type: integer
+      packaging_type:
+        type: string
+      packing_not_required:
+        type: integer
+      parent_product_id:
+        description: Parent product ID. Only for matrix variations (specific colors/sizes of a matrix item). See guidelines below.
+        type: integer
+      price:
+        description: 'Price is just the default price of a product and the actual price applied in a particular location, to a particular customer, depends on price lists and promotions: https://learn-api.erply.com/concepts/pricing'
+        type: number
+      priority_group_id:
+        type: integer
+      product_item_level_promotions_disabled:
+        type: integer
+      product_reorder_multiples:
+        type: integer
+      revenue_account:
+        type: string
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        type: integer
+      sales_package_cardboard:
+        type: number
+      sales_package_clear_brown_glass:
+        type: number
+      sales_package_green_other_glass:
+        type: number
+      sales_package_metal_al:
+        type: number
+      sales_package_metal_fe:
+        type: number
+      sales_package_other_metal:
+        type: number
+      sales_package_paper_and_cardboard_mono:
+        description: Product package materials
+        type: number
+      sales_package_plastic_pet:
+        type: number
+      sales_package_plastic_pp_pe:
+        type: number
+      sales_package_wood:
+        type: number
+      serial_number:
+        type: string
+      shelf_life_days:
+        type: integer
+      sold_in_packages:
+        type: integer
+      status:
+        type: string
+        example: ACTIVE
+      suggested_retail_price:
+        type: number
+      supplier_code:
+        description: Supplier's product code
+        type: string
+      supplier_id:
+        type: integer
+      tax_free:
+        description: boolean flag 0 or 1
+        type: integer
+      tax_rate_id:
+        description: 'TaxRateID is just the default tax rate of a product and the actual tax applied in a particular location depends on multiple rules: https://learn-api.erply.com/concepts/taxes.'
+        type: integer
+      transport_package_cardboard:
+        type: number
+      transport_package_ferrous_metal:
+        type: number
+      transport_package_non_ferrous_metal:
+        type: number
+      transport_package_plastic:
+        type: number
+      transport_package_wood:
+        type: number
+      type:
+        description: Product type, possible types are 'PRODUCT', 'BUNDLE', 'MATRIX', 'ASSEMBLY'. By default 'PRODUCT'.
+        type: string
+      unit_id:
+        description: ID of product unit. To get the list of units, use getProductUnits.
+        type: integer
+      volume:
+        description: Volume is Item's fluid volume, eg. for beverages or perfumery. Unit depends on locale, check your Erply account (typically mL or fl oz).
+        type: number
+      webshop_description:
+        type: string
+      webshop_keywords:
+        type: string
+      webshop_title:
+        type: string
+      webshop_url_slug:
+        type: string
+      width:
+        type: number
+  parammodels.BulkReadRequestNoTotalCount:
+    type: object
+    properties:
+      requests:
+        type: array
+        items:
+          $ref: '#/definitions/parammodels.ReadRequest'
+  products.BulkUpdateProductRequestItem:
+    type: object
+    properties:
+      age_restriction:
+        type: integer
+      alcohol_percentage:
+        type: string
+      alcohol_registry_number:
+        type: string
+      backup_id:
+        type: integer
+      batches:
+        type: string
+      brand_id:
+        description: ID of product brand. To get the list of brandmodels, use getBrands.
+        type: integer
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        type: integer
+      category_id:
+        type: integer
+      code:
+        description: Product's code. Must be UNIQUE, unless the account is configured otherwise.
+        type: string
+      code2:
+        description: Product's second code (by convention, EAN barcode). Must be UNIQUE, unless the account is configured otherwise.
+        type: string
+      code3:
+        description: Third code of the item (note that this field may not be visible on product card by default).
+        type: string
+      code5:
+        type: string
+      code6:
+        type: string
+      code7:
+        type: string
+      code8:
+        type: string
+      cost:
+        description: Cost is Product cost
+        type: number
+      country_of_origin_id:
+        type: integer
+      delivery_time:
+        type: string
+      deposit_fee_amount:
+        type: integer
+      deposit_fee_id:
+        description: ContainerID is ID of another product, a beverage container that is always sold together with this item.
+        type: integer
+      description:
+        $ref: '#/definitions/Description'
+      displayed_in_webshop:
+        description: 0 or 1
+        type: integer
+      excise_declaration_number:
+        type: string
+      extra_field1_id:
+        type: integer
+      extra_field2_id:
+        type: integer
+      extra_field3_id:
+        type: integer
+      extra_field4_id:
+        type: integer
+      family_id:
+        type: integer
+      formula_identifier:
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      group_id:
+        description: ID of product group. To get the list of product groups, use getProductGroups.
+        type: integer
+      group_package_ferrous_metal:
+        type: number
+      group_package_metal:
+        type: number
+      group_package_non_ferrous_metal:
+        type: number
+      group_package_paper:
+        type: number
+      group_package_plastic:
+        type: number
+      group_package_wood:
+        type: number
+      has_serial_numbers:
+        type: integer
+      height:
+        type: number
+      is_gift_card:
+        description: 0 or 1
+        type: integer
+      is_lot_product:
+        type: boolean
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        type: integer
+      is_used_product:
+        type: boolean
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        type: integer
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      location_in_warehouse_id:
+        description: LocationInWarehouseID is ID of selected location in warehouse.
+        type: integer
+      location_in_warehouse_text:
+        description: LocationInWarehouseText is Product's specific text added to location in warehouse.
+        type: string
+      manufacturer_name:
+        type: string
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      net_weight:
+        description: NetWeight is Item's net weight. Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      non_discountable:
+        description: 0 or 1
+        type: integer
+      non_refundable:
+        description: 0 or 1
+        type: integer
+      non_stock_product:
+        description: boolean flag 0 or 1
+        type: integer
+      packaging_type:
+        type: string
+      packing_not_required:
+        type: integer
+      parent_product_id:
+        description: Parent product ID. Only for matrix variations (specific colors/sizes of a matrix item). See guidelines below.
+        type: integer
+      price:
+        description: 'Price is just the default price of a product and the actual price applied in a particular location, to a particular customer, depends on price lists and promotions: https://learn-api.erply.com/concepts/pricing'
+        type: number
+      priority_group_id:
+        type: integer
+      product_item_level_promotions_disabled:
+        type: integer
+      product_reorder_multiples:
+        type: integer
+      resourceId:
+        description: The resourceId request field should be used for the product id in each request for the bulk update.
+        type: integer
+      revenue_account:
+        type: string
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        type: integer
+      sales_package_cardboard:
+        type: number
+      sales_package_clear_brown_glass:
+        type: number
+      sales_package_green_other_glass:
+        type: number
+      sales_package_metal_al:
+        type: number
+      sales_package_metal_fe:
+        type: number
+      sales_package_other_metal:
+        type: number
+      sales_package_paper_and_cardboard_mono:
+        description: Product package materials
+        type: number
+      sales_package_plastic_pet:
+        type: number
+      sales_package_plastic_pp_pe:
+        type: number
+      sales_package_wood:
+        type: number
+      serial_number:
+        type: string
+      shelf_life_days:
+        type: integer
+      sold_in_packages:
+        type: integer
+      status:
+        description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        type: string
+        example: ACTIVE
+      suggested_retail_price:
+        type: number
+      supplier_code:
+        description: Supplier's product code
+        type: string
+      supplier_id:
+        type: integer
+      tax_free:
+        description: boolean flag 0 or 1
+        type: integer
+      tax_rate_id:
+        description: 'TaxRateID is just the default tax rate of a product and the actual tax applied in a particular location depends on multiple rules: https://learn-api.erply.com/concepts/taxes.'
+        type: integer
+      transport_package_cardboard:
+        type: number
+      transport_package_ferrous_metal:
+        type: number
+      transport_package_non_ferrous_metal:
+        type: number
+      transport_package_plastic:
+        type: number
+      transport_package_wood:
+        type: number
+      type:
+        description: Product type, possible types are 'PRODUCT', 'BUNDLE', 'MATRIX', 'ASSEMBLY'. By default 'PRODUCT'.
+        type: string
+      unit_id:
+        description: ID of product unit. To get the list of units, use getProductUnits.
+        type: integer
+      volume:
+        description: Volume is Item's fluid volume, eg. for beverages or perfumery. Unit depends on locale, check your Erply account (typically mL or fl oz).
+        type: number
+      webshop_description:
+        type: string
+      webshop_keywords:
+        type: string
+      webshop_title:
+        type: string
+      webshop_url_slug:
+        type: string
+      width:
+        type: number
+  models.BackupSampleProduct:
+    type: object
+    properties:
+      code:
+        type: string
+      id:
+        type: integer
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  responses.BulkResult:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+      resourceId:
+        description: identifier of the REST-ful response
+        type: integer
+        example: 2
+      resultId:
+        description: identifier of the result item
+        type: integer
+        example: 2
+  products.ProductMergeRequest:
+    type: object
+    properties:
+      discardedProductID:
+        type: integer
+      keptProductID:
+        type: integer
+      useDiscardedProductRecipe:
+        type: boolean
+      useDiscardedProductVariations:
+        type: boolean
+  responses.BulkResponseWithResults:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/responses.BulkResult'
+  parammodels.ReadRequest:
+    type: object
+    properties:
+      filters:
+        type: array
+        items:
+          $ref: '#/definitions/parammodels.FilterJSON'
+      paginationParameters:
+        $ref: '#/definitions/parammodels.PaginationParameters'
+      sortingParameters:
+        $ref: '#/definitions/parammodels.SortRequest'
+  products.BulkCreateProductRequestItem:
+    type: object
+    properties:
+      age_restriction:
+        type: integer
+      alcohol_percentage:
+        type: string
+      alcohol_registry_number:
+        type: string
+      backup_id:
+        type: integer
+      batches:
+        type: string
+      brand_id:
+        description: ID of product brand. To get the list of brandmodels, use getBrands.
+        type: integer
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        type: integer
+      category_id:
+        type: integer
+      code:
+        description: Product's code. Must be UNIQUE, unless the account is configured otherwise.
+        type: string
+      code2:
+        description: Product's second code (by convention, EAN barcode). Must be UNIQUE, unless the account is configured otherwise.
+        type: string
+      code3:
+        description: Third code of the item (note that this field may not be visible on product card by default).
+        type: string
+      code5:
+        type: string
+      code6:
+        type: string
+      code7:
+        type: string
+      code8:
+        type: string
+      cost:
+        description: Cost is Product cost
+        type: number
+      country_of_origin_id:
+        type: integer
+      delivery_time:
+        type: string
+      deposit_fee_amount:
+        type: integer
+      deposit_fee_id:
+        description: ContainerID is ID of another product, a beverage container that is always sold together with this item.
+        type: integer
+      description:
+        $ref: '#/definitions/Description'
+      displayed_in_webshop:
+        description: 0 or 1
+        type: integer
+      excise_declaration_number:
+        type: string
+      extra_field1_id:
+        type: integer
+      extra_field2_id:
+        type: integer
+      extra_field3_id:
+        type: integer
+      extra_field4_id:
+        type: integer
+      family_id:
+        type: integer
+      formula_identifier:
+        type: string
+      generateCode2Automatically:
+        description: if true, the product code will be generated based on the user configuration or will generate the code in case there is none
+        type: boolean
+      generateCodeAutomatically:
+        description: if true, the product code will be generated based on the user configuration or will generate the code in case there is none
+        type: boolean
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      group_id:
+        description: ID of product group. To get the list of product groups, use getProductGroups.
+        type: integer
+      group_package_ferrous_metal:
+        type: number
+      group_package_metal:
+        type: number
+      group_package_non_ferrous_metal:
+        type: number
+      group_package_paper:
+        type: number
+      group_package_plastic:
+        type: number
+      group_package_wood:
+        type: number
+      has_serial_numbers:
+        type: integer
+      height:
+        type: number
+      is_gift_card:
+        description: 0 or 1
+        type: integer
+      is_lot_product:
+        type: boolean
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        type: integer
+      is_used_product:
+        type: boolean
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        type: integer
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      location_in_warehouse_id:
+        description: LocationInWarehouseID is ID of selected location in warehouse.
+        type: integer
+      location_in_warehouse_text:
+        description: LocationInWarehouseText is Product's specific text added to location in warehouse.
+        type: string
+      manufacturer_name:
+        type: string
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      net_weight:
+        description: NetWeight is Item's net weight. Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      non_discountable:
+        description: 0 or 1
+        type: integer
+      non_refundable:
+        description: 0 or 1
+        type: integer
+      non_stock_product:
+        description: boolean flag 0 or 1
+        type: integer
+      packaging_type:
+        type: string
+      packing_not_required:
+        type: integer
+      parent_product_id:
+        description: Parent product ID. Only for matrix variations (specific colors/sizes of a matrix item). See guidelines below.
+        type: integer
+      price:
+        description: 'Price is just the default price of a product and the actual price applied in a particular location, to a particular customer, depends on price lists and promotions: https://learn-api.erply.com/concepts/pricing'
+        type: number
+      priority_group_id:
+        type: integer
+      product_item_level_promotions_disabled:
+        type: integer
+      product_reorder_multiples:
+        type: integer
+      revenue_account:
+        type: string
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        type: integer
+      sales_package_cardboard:
+        type: number
+      sales_package_clear_brown_glass:
+        type: number
+      sales_package_green_other_glass:
+        type: number
+      sales_package_metal_al:
+        type: number
+      sales_package_metal_fe:
+        type: number
+      sales_package_other_metal:
+        type: number
+      sales_package_paper_and_cardboard_mono:
+        description: Product package materials
+        type: number
+      sales_package_plastic_pet:
+        type: number
+      sales_package_plastic_pp_pe:
+        type: number
+      sales_package_wood:
+        type: number
+      serial_number:
+        type: string
+      shelf_life_days:
+        type: integer
+      sold_in_packages:
+        type: integer
+      status:
+        description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        type: string
+        example: ACTIVE
+      suggested_retail_price:
+        type: number
+      supplier_code:
+        description: Supplier's product code
+        type: string
+      supplier_id:
+        type: integer
+      tax_free:
+        description: boolean flag 0 or 1
+        type: integer
+      tax_rate_id:
+        description: 'TaxRateID is just the default tax rate of a product and the actual tax applied in a particular location depends on multiple rules: https://learn-api.erply.com/concepts/taxes.'
+        type: integer
+      transport_package_cardboard:
+        type: number
+      transport_package_ferrous_metal:
+        type: number
+      transport_package_non_ferrous_metal:
+        type: number
+      transport_package_plastic:
+        type: number
+      transport_package_wood:
+        type: number
+      type:
+        description: Product type, possible types are 'PRODUCT', 'BUNDLE', 'MATRIX', 'ASSEMBLY'. By default 'PRODUCT'.
+        type: string
+      unit_id:
+        description: ID of product unit. To get the list of units, use getProductUnits.
+        type: integer
+      volume:
+        description: Volume is Item's fluid volume, eg. for beverages or perfumery. Unit depends on locale, check your Erply account (typically mL or fl oz).
+        type: number
+      webshop_description:
+        type: string
+      webshop_keywords:
+        type: string
+      webshop_title:
+        type: string
+      webshop_url_slug:
+        type: string
+      width:
+        type: number
+  products.BulkReadProductResponse:
+    type: object
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/products.BulkReadProductResponseItem'
+  Description:
+    type: object
+    properties:
+      en:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/ProductDescription'
+  products.ProductRequest:
+    type: object
+    properties:
+      age_restriction:
+        type: integer
+      alcohol_percentage:
+        type: string
+      alcohol_registry_number:
+        type: string
+      backup_id:
+        type: integer
+      batches:
+        type: string
+      brand_id:
+        description: ID of product brand. To get the list of brandmodels, use getBrands.
+        type: integer
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        type: integer
+      category_id:
+        type: integer
+      code:
+        description: Product's code. Must be UNIQUE, unless the account is configured otherwise.
+        type: string
+      code2:
+        description: Product's second code (by convention, EAN barcode). Must be UNIQUE, unless the account is configured otherwise.
+        type: string
+      code3:
+        description: Third code of the item (note that this field may not be visible on product card by default).
+        type: string
+      code5:
+        type: string
+      code6:
+        type: string
+      code7:
+        type: string
+      code8:
+        type: string
+      cost:
+        description: Cost is Product cost
+        type: number
+      country_of_origin_id:
+        type: integer
+      delivery_time:
+        type: string
+      deposit_fee_amount:
+        type: integer
+      deposit_fee_id:
+        description: ContainerID is ID of another product, a beverage container that is always sold together with this item.
+        type: integer
+      description:
+        $ref: '#/definitions/Description'
+      displayed_in_webshop:
+        description: 0 or 1
+        type: integer
+      excise_declaration_number:
+        type: string
+      extra_field1_id:
+        type: integer
+      extra_field2_id:
+        type: integer
+      extra_field3_id:
+        type: integer
+      extra_field4_id:
+        type: integer
+      family_id:
+        type: integer
+      formula_identifier:
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      group_id:
+        description: ID of product group. To get the list of product groups, use getProductGroups.
+        type: integer
+      group_package_ferrous_metal:
+        type: number
+      group_package_metal:
+        type: number
+      group_package_non_ferrous_metal:
+        type: number
+      group_package_paper:
+        type: number
+      group_package_plastic:
+        type: number
+      group_package_wood:
+        type: number
+      has_serial_numbers:
+        type: integer
+      height:
+        type: number
+      is_gift_card:
+        description: 0 or 1
+        type: integer
+      is_lot_product:
+        type: boolean
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        type: integer
+      is_used_product:
+        type: boolean
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        type: integer
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      location_in_warehouse_id:
+        description: LocationInWarehouseID is ID of selected location in warehouse.
+        type: integer
+      location_in_warehouse_text:
+        description: LocationInWarehouseText is Product's specific text added to location in warehouse.
+        type: string
+      manufacturer_name:
+        type: string
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      net_weight:
+        description: NetWeight is Item's net weight. Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      non_discountable:
+        description: 0 or 1
+        type: integer
+      non_refundable:
+        description: 0 or 1
+        type: integer
+      non_stock_product:
+        description: boolean flag 0 or 1
+        type: integer
+      packaging_type:
+        type: string
+      packing_not_required:
+        type: integer
+      parent_product_id:
+        description: Parent product ID. Only for matrix variations (specific colors/sizes of a matrix item). See guidelines below.
+        type: integer
+      price:
+        description: 'Price is just the default price of a product and the actual price applied in a particular location, to a particular customer, depends on price lists and promotions: https://learn-api.erply.com/concepts/pricing'
+        type: number
+      priority_group_id:
+        type: integer
+      product_item_level_promotions_disabled:
+        type: integer
+      product_reorder_multiples:
+        type: integer
+      revenue_account:
+        type: string
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        type: integer
+      sales_package_cardboard:
+        type: number
+      sales_package_clear_brown_glass:
+        type: number
+      sales_package_green_other_glass:
+        type: number
+      sales_package_metal_al:
+        type: number
+      sales_package_metal_fe:
+        type: number
+      sales_package_other_metal:
+        type: number
+      sales_package_paper_and_cardboard_mono:
+        description: Product package materials
+        type: number
+      sales_package_plastic_pet:
+        type: number
+      sales_package_plastic_pp_pe:
+        type: number
+      sales_package_wood:
+        type: number
+      serial_number:
+        type: string
+      shelf_life_days:
+        type: integer
+      sold_in_packages:
+        type: integer
+      status:
+        description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        type: string
+        example: ACTIVE
+      suggested_retail_price:
+        type: number
+      supplier_code:
+        description: Supplier's product code
+        type: string
+      supplier_id:
+        type: integer
+      tax_free:
+        description: boolean flag 0 or 1
+        type: integer
+      tax_rate_id:
+        description: 'TaxRateID is just the default tax rate of a product and the actual tax applied in a particular location depends on multiple rules: https://learn-api.erply.com/concepts/taxes.'
+        type: integer
+      transport_package_cardboard:
+        type: number
+      transport_package_ferrous_metal:
+        type: number
+      transport_package_non_ferrous_metal:
+        type: number
+      transport_package_plastic:
+        type: number
+      transport_package_wood:
+        type: number
+      type:
+        description: Product type, possible types are 'PRODUCT', 'BUNDLE', 'MATRIX', 'ASSEMBLY'. By default 'PRODUCT'.
+        type: string
+      unit_id:
+        description: ID of product unit. To get the list of units, use getProductUnits.
+        type: integer
+      volume:
+        description: Volume is Item's fluid volume, eg. for beverages or perfumery. Unit depends on locale, check your Erply account (typically mL or fl oz).
+        type: number
+      webshop_description:
+        type: string
+      webshop_keywords:
+        type: string
+      webshop_title:
+        type: string
+      webshop_url_slug:
+        type: string
+      width:
+        type: number
+  products.BulkPatchUpdateProductRequest:
+    type: object
+    properties:
+      requests:
+        description: products must contain IDs
+        type: array
+        items:
+          $ref: '#/definitions/products.BulkPatchUpdateProductRequestItem'
+  parammodels.PaginationParameters:
+    type: object
+    properties:
+      skip:
+        type: integer
+      take:
+        type: integer
+  products.BulkUpdateProductRequest:
+    type: object
+    properties:
+      requests:
+        description: products must contain IDs
+        type: array
+        items:
+          $ref: '#/definitions/products.BulkUpdateProductRequestItem'
+  products.BulkCreateProductRequest:
+    type: object
+    properties:
+      requests:
+        type: array
+        items:
+          $ref: '#/definitions/products.BulkCreateProductRequestItem'
+  models.BackupChanges:
+    type: object
+    properties:
+      modifiedProductsToBeRolledBack:
+        type: object
+        properties:
+          currentEarliestTimestamp:
+            type: integer
+          currentLatestTimestamp:
+            type: integer
+          earliestTimestamp:
+            type: integer
+          latestTimestamp:
+            type: integer
+          maxThreeProductsFromTheList:
+            type: array
+            items:
+              $ref: '#/definitions/models.BackupSampleProduct'
+          totalQuantity:
+            type: integer
+      productsToBeDeleted:
+        type: object
+        properties:
+          earliestTimestamp:
+            type: integer
+          latestTimestamp:
+            type: integer
+          maxThreeProductsFromTheList:
+            type: array
+            items:
+              $ref: '#/definitions/models.BackupSampleProduct'
+          totalQuantity:
+            type: integer
+  products.ProductResponse:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      age_restriction:
+        type: integer
+      alcohol_percentage:
+        type: string
+      alcohol_registry_number:
+        type: string
+      batches:
+        type: string
+      brand_id:
+        type: integer
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        type: integer
+      category_id:
+        type: integer
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      code:
+        type: string
+      code2:
+        type: string
+      code3:
+        type: string
+      code5:
+        type: string
+      code6:
+        type: string
+      code7:
+        type: string
+      code8:
+        type: string
+      cost:
+        type: number
+      country_of_origin_id:
+        type: integer
+      delivery_time:
+        type: string
+      deposit_fee_amount:
+        type: integer
+      deposit_fee_id:
+        type: integer
+      description:
+        $ref: '#/definitions/Description'
+      displayed_in_webshop:
+        description: 0 or 1
+        type: integer
+      excise_declaration_number:
+        type: string
+      extra_field1_id:
+        type: integer
+      extra_field2_id:
+        type: integer
+      extra_field3_id:
+        type: integer
+      extra_field4_id:
+        type: integer
+      family_id:
+        type: integer
+      formula_identifier:
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      group_id:
+        type: integer
+      group_package_ferrous_metal:
+        type: number
+      group_package_metal:
+        type: number
+      group_package_non_ferrous_metal:
+        type: number
+      group_package_paper:
+        type: number
+      group_package_plastic:
+        type: number
+      group_package_wood:
+        type: number
+      has_serial_numbers:
+        type: integer
+      height:
+        type: number
+      id:
+        type: integer
+      is_gift_card:
+        description: 0 or 1
+        type: integer
+      is_lot_product:
+        type: boolean
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        type: integer
+      is_used_product:
+        type: boolean
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        type: integer
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      location_in_warehouse_id:
+        type: integer
+      location_in_warehouse_text:
+        type: string
+      manufacturer_name:
+        type: string
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      net_weight:
+        type: number
+      non_discountable:
+        description: 0 or 1
+        type: integer
+      non_refundable:
+        description: 0 or 1
+        type: integer
+      non_stock_product:
+        description: boolean flag 0 or 1
+        type: integer
+      packaging_type:
+        type: string
+      packing_not_required:
+        type: integer
+      parent_product_id:
+        type: integer
+      price:
+        type: number
+      price_with_tax:
+        type: number
+      priority_group_id:
+        type: integer
+      product_item_level_promotions_disabled:
+        type: integer
+      product_reorder_multiples:
+        type: integer
+      revenue_account:
+        type: string
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        type: integer
+      sales_package_cardboard:
+        type: number
+      sales_package_clear_brown_glass:
+        type: number
+      sales_package_green_other_glass:
+        type: number
+      sales_package_metal_al:
+        type: number
+      sales_package_metal_fe:
+        type: number
+      sales_package_other_metal:
+        type: number
+      sales_package_paper_and_cardboard_mono:
+        description: Product package materials
+        type: number
+      sales_package_plastic_pet:
+        type: number
+      sales_package_plastic_pp_pe:
+        type: number
+      sales_package_wood:
+        type: number
+      serial_number:
+        type: string
+      shelf_life_days:
+        type: integer
+      sold_in_packages:
+        type: integer
+      status:
+        description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        type: string
+        example: ACTIVE
+      suggested_retail_price:
+        type: number
+      supplier_code:
+        type: string
+      supplier_id:
+        type: integer
+      tax_free:
+        description: boolean flag 0 or 1
+        type: integer
+      tax_rate_id:
+        type: integer
+      transport_package_cardboard:
+        type: number
+      transport_package_ferrous_metal:
+        type: number
+      transport_package_non_ferrous_metal:
+        type: number
+      transport_package_plastic:
+        type: number
+      transport_package_wood:
+        type: number
+      type:
+        type: string
+      unit_id:
+        type: integer
+      volume:
+        type: number
+      webshop_description:
+        type: string
+      webshop_keywords:
+        type: string
+      webshop_title:
+        type: string
+      webshop_url_slug:
+        type: string
+      width:
+        type: number
+  products.CreateUpdateAutoCodes:
+    type: object
+    properties:
+      nextCode:
+        type: integer
+      nextCode2:
+        type: integer
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

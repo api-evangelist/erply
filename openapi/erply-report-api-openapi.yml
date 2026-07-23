@@ -1,0 +1,589 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment report API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: report
+paths:
+  /api/v1/report/device:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - report
+      summary: Generates device reports
+      parameters:
+      - enum:
+        - total
+        - brand
+        - model
+        - version
+        - year
+        type: string
+        description: What kind of grouping should be used when composing a report on the data matching the specified filters. Defaults to `total`
+        name: group
+        in: query
+      - type: string
+        description: Search for devices with the specified brand
+        name: deviceBrand
+        in: query
+      - type: string
+        description: Search for devices with the specified model
+        name: deviceModel
+        in: query
+      - type: string
+        description: Search for devices with the specified version
+        name: deviceVersion
+        in: query
+      - type: string
+        description: Search for devices with the specified year
+        name: deviceYear
+        in: query
+      - type: integer
+        description: Search for devices linked to the specified customer
+        name: customerId
+        in: query
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `brand`, `model`, `version`, `year`, `count`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword. Defaults to ordering by `count` in descending order'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/model.DeviceReport'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/report/product:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - report
+      summary: Generates product reports
+      parameters:
+      - type: array
+        items:
+          enum:
+          - total
+          - group
+          - product
+          type: string
+        collectionFormat: csv
+        description: What kind of groupings should be used when composing a report on the data matching the specified filters. Possible values `total`, `group`, `product`. Defaults to `total`
+        name: groups
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Search for workorders with specified state codes
+        name: state
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Search for workorders with specified state codes
+        name: transactionalState
+        in: query
+      - type: string
+        description: Search for workorders linked to devices with the specified brand
+        name: deviceBrand
+        in: query
+      - type: string
+        description: Search for workorders linked to devices with the specified model
+        name: deviceModel
+        in: query
+      - type: string
+        description: Search for workorders linked to devices with the specified year
+        name: deviceYear
+        in: query
+      - type: integer
+        description: Search for products under the specified parent group
+        name: productParentGroupId
+        in: query
+      - type: integer
+        description: Search for results at the specified product group depth level
+        name: productGroupLvl
+        in: query
+      - type: integer
+        description: ID of employees who created the workorder
+        name: createdById
+        in: query
+      - type: integer
+        description: Search for workorders linked to the specified customer
+        name: customerId
+        in: query
+      - type: integer
+        description: Search for workorders linked to customers from the specified customer group
+        name: customerGroup
+        in: query
+      - type: string
+        description: Workorder creation time range lower bound (yyyy-mm-ddThh:mm:ssZ)
+        name: createdAtStart
+        in: query
+      - type: string
+        description: Workorder creation time range upper bound (yyyy-mm-ddThh:mm:ssZ)
+        name: createdAtEnd
+        in: query
+      - type: string
+        description: Workorder confirmed time range lower bound (yyyy-mm-ddThh:mm:ssZ)
+        name: confirmedAtStart
+        in: query
+      - type: string
+        description: Workorder confirmed time range upper bound (yyyy-mm-ddThh:mm:ssZ)
+        name: confirmedAtEnd
+        in: query
+      - type: string
+        description: Device received time range lower bound (yyyy-mm-ddThh:mm:ssZ)
+        name: receivedAtStart
+        in: query
+      - type: string
+        description: Device received time range upper bound (yyyy-mm-ddThh:mm:ssZ)
+        name: receivedAtEnd
+        in: query
+      - type: string
+        description: Device returned time range lower bound (yyyy-mm-ddThh:mm:ssZ)
+        name: returnedAtStart
+        in: query
+      - type: string
+        description: Device returned time range upper bound (yyyy-mm-ddThh:mm:ssZ)
+        name: returnedAtEnd
+        in: query
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `level`, `groupId`, `groupName`, `productId`, `productName`, `netTotal`, `vatTotal`, `total`, `amount`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword. Defaults to ordering by `total` in descending order'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/model.ProductReport'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/report/task:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - report
+      summary: Generates task reports
+      parameters:
+      - enum:
+        - total
+        - assignedToId
+        - resourceId
+        - state
+        type: string
+        description: What kind of grouping should be used when composing a report on the data matching the specified filters. Defaults to `total`
+        name: group
+        in: query
+      - type: integer
+        description: ID of employee who is assigned to the task
+        name: assignedToId
+        in: query
+      - type: integer
+        description: Search for tasks linked to the specified resource
+        name: resourceId
+        in: query
+      - type: string
+        description: Search for tasks with specified associated row state code
+        name: state
+        in: query
+      - type: string
+        description: Task end time range lower bound (yyyy-mm-ddThh:mm:ssZ)
+        name: endAtStart
+        in: query
+      - type: string
+        description: Task end time range upper bound (yyyy-mm-ddThh:mm:ssZ)
+        name: endAtEnd
+        in: query
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `assignedTo`, `resource`, `state`, `rowCount`, `taskCount`, `avgPlanned`, `avgReal`, `sumPlanned`, `sumReal`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword. Defaults to ordering by `sumReal` in descending order'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/model.TaskReport'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/report/workorder:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - report
+      summary: Generates workorder reports
+      parameters:
+      - type: array
+        items:
+          enum:
+          - total
+          - deviceBrand
+          - deviceModel
+          - deviceYear
+          type: string
+        collectionFormat: csv
+        description: What kind of groupings should be used when composing a report on the data matching the specified filters. Possible values `total`, `deviceBrand`, `deviceModel`, `deviceYear`. Defaults to `total`
+        name: groups
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Search for workorders with specified state codes
+        name: state
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: Search for workorders with specified state codes
+        name: transactionalState
+        in: query
+      - type: string
+        description: Search for workorders linked to devices with the specified brand
+        name: deviceBrand
+        in: query
+      - type: string
+        description: Search for workorders linked to devices with the specified model
+        name: deviceModel
+        in: query
+      - type: string
+        description: Search for workorders linked to devices with the specified year
+        name: deviceYear
+        in: query
+      - type: integer
+        description: ID of employees who created the workorder
+        name: createdById
+        in: query
+      - type: integer
+        description: Search for workorders linked to the specified customer
+        name: customerId
+        in: query
+      - type: integer
+        description: Search for workorders linked to customers from the specified customer group
+        name: customerGroup
+        in: query
+      - type: string
+        description: Workorder creation time range lower bound (yyyy-mm-ddThh:mm:ssZ)
+        name: createdAtStart
+        in: query
+      - type: string
+        description: Workorder creation time range upper bound (yyyy-mm-ddThh:mm:ssZ)
+        name: createdAtEnd
+        in: query
+      - type: string
+        description: Workorder confirmed time range lower bound (yyyy-mm-ddThh:mm:ssZ)
+        name: confirmedAtStart
+        in: query
+      - type: string
+        description: Workorder confirmed time range upper bound (yyyy-mm-ddThh:mm:ssZ)
+        name: confirmedAtEnd
+        in: query
+      - type: string
+        description: Device received time range lower bound (yyyy-mm-ddThh:mm:ssZ)
+        name: receivedAtStart
+        in: query
+      - type: string
+        description: Device received time range upper bound (yyyy-mm-ddThh:mm:ssZ)
+        name: receivedAtEnd
+        in: query
+      - type: string
+        description: Device returned time range lower bound (yyyy-mm-ddThh:mm:ssZ)
+        name: returnedAtStart
+        in: query
+      - type: string
+        description: Device returned time range upper bound (yyyy-mm-ddThh:mm:ssZ)
+        name: returnedAtEnd
+        in: query
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: 'Sorting order. Supported values are: `linkedDevice`, `deviceBrand`, `deviceModel`, `deviceYear`, `deviceAvgYear`, `workorderCount`, `minTotal`, `avgTotal`, `maxTotal`, `netTotal`, `vatTotal`, `total`. Defaults to ordering by `workorderCount` in descending order'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/model.WorkorderReport'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+definitions:
+  model.TaskReport:
+    type: object
+    properties:
+      assignedToId:
+        description: User ID who is assigned to the task
+        type: integer
+        example: 2
+      avgPlannedDuration:
+        description: Average planned duration
+        type: integer
+        example: 100
+      avgRealDuration:
+        description: Average real duration as specified by user (with fallback to default duration)
+        type: integer
+        example: 100
+      resourceId:
+        description: ID of the resource linked to the task
+        type: integer
+        example: 1
+      rowCount:
+        description: Number of rows
+        type: integer
+        example: 5
+      state:
+        description: State of the row linked to the task
+        type: string
+        example: planned
+      sumPlannedDuration:
+        description: Total planned duration
+        type: integer
+        example: 100
+      sumRealDuration:
+        description: Total real duration as defined by user (with fallback to default duration)
+        type: integer
+        example: 100
+      taskCount:
+        description: Number of tasks
+        type: integer
+        example: 5
+  model.ProductReport:
+    type: object
+    properties:
+      amount:
+        description: Total amount of products over the matching rows
+        type: number
+        example: 1
+      groupId:
+        description: ID of the product group. If nil, the specific product group can vary
+        type: integer
+        example: 28
+      groupName:
+        description: Group name
+        type: string
+      level:
+        description: Result level. Ranges from 0 to 100. 0 being grand total values and 100 being specific product values. Levels 1-99 indicate product group hierarchy depth
+        type: integer
+        example: 1
+      netTotal:
+        description: Net total of all matching rows
+        type: number
+        example: 80
+      parentGroupId:
+        description: ID of the parent group of this product group in case of product group hierarchies
+        type: integer
+        example: 27
+      parentGroupName:
+        description: Parent group name
+        type: string
+      productId:
+        description: ID of the product. If nil, the specific product can vary
+        type: integer
+        example: 62
+      productName:
+        description: Product name
+        type: string
+      total:
+        description: Total of all matching rows
+        type: number
+        example: 100
+      vatTotal:
+        description: VAT total of all matching rows
+        type: number
+        example: 20
+  model.WorkorderReport:
+    type: object
+    properties:
+      avgTotal:
+        description: Average Total of workorders
+        type: number
+        example: 100
+      avgYear:
+        description: Average year of associated devices
+        type: integer
+        example: 2010
+      brand:
+        description: Device brand
+        type: string
+        example: ford
+      linkedDevice:
+        description: If values correspond to workorders with an associated device
+        type: boolean
+        example: true
+      maxTotal:
+        description: Highest Total of workorders
+        type: number
+        example: 1000
+      minTotal:
+        description: Lowest Total of workorders
+        type: number
+        example: 10
+      model:
+        description: Device model
+        type: string
+        example: transit
+      netTotal:
+        description: Sum of Net Total of workorders
+        type: number
+        example: 80
+      total:
+        description: Grand total of workorders
+        type: number
+        example: 100
+      vatTotal:
+        description: Sum of VAT Total of workorders
+        type: number
+        example: 20
+      workorderCount:
+        description: Number of workorders
+        type: integer
+        example: 4
+      year:
+        description: Device year
+        type: string
+        example: '2022'
+  model.DeviceReport:
+    type: object
+    properties:
+      brand:
+        description: Device brand
+        type: string
+        example: ford
+      deviceCount:
+        description: Number of devices matching the specified criteria
+        type: integer
+        example: 5
+      model:
+        description: Device model
+        type: string
+        example: transit
+      version:
+        description: Device version
+        type: string
+        example: cargo van
+      year:
+        description: Device year
+        type: string
+        example: '2022'
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

@@ -1,0 +1,283 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Export API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Export
+paths:
+  /v1/export/assortments:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: You can export all the assortments, as well as filter by the ids.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Export
+      summary: Get Assortments Export
+      parameters:
+      - type: integer
+        description: export by assortment IDs. The parameter can contain semicolon delimited IDs.
+        name: assortmentID
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: Supply the warehouse IDs to get the values for stock, price and warehousePrice. The parameter can contain semicolon delimited IDs. To get a list of warehouse IDs, make an Account Admin API call GET /v1/warehouse, using corresponding endpoint for your account. https://api-am-eu10.erply.com/documentation/index.html#/warehouse/get_v1_warehouse
+        name: warehouseIds
+        in: query
+      responses:
+        '200':
+          description: binary xlsx file content
+          schema:
+            type: string
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/export/matrix-products:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Export
+      summary: Get Matrix Products Export
+      parameters:
+      - type: array
+        items:
+          type: integer
+        description: filter by the matrix product ids. The parameter can contain semicolon delimited IDs.
+        name: ids
+        in: query
+      - enum:
+        - ACTIVE
+        - ARCHIVED
+        - NO_LONGER_ORDERED
+        - NOT_FOR_SALE
+        type: string
+        description: filter by the status. By default all records except archived are returned
+        name: status
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the group ids. The parameter can contain semicolon delimited IDs.
+        name: groupIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the category ids. The parameter can contain semicolon delimited IDs.
+        name: categoryIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the brand ids. The parameter can contain semicolon delimited IDs.
+        name: brandIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the supplier ids. The parameter can contain semicolon delimited IDs.
+        name: supplierIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the priority group ids. The parameter can contain semicolon delimited IDs.
+        name: priorityGroupIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the family ids. The parameter can contain semicolon delimited IDs.
+        name: familyIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: Supply the warehouse IDs to get the values for stock, price and warehousePrice. The parameter can contain semicolon delimited IDs. To get a list of warehouse IDs, make an Account Admin API call GET /v1/warehouse, using corresponding endpoint for your account. https://api-am-eu10.erply.com/documentation/index.html#/warehouse/get_v1_warehouse
+        name: warehouseIds
+        in: query
+      responses:
+        '200':
+          description: binary xlsx file content
+          schema:
+            type: string
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/export/products:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: By default the endpoint exports all the products, but you can apply filtering with the parameters below
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Export
+      summary: Get Products Export
+      parameters:
+      - type: array
+        items:
+          type: integer
+        description: export only selected product IDs. The parameter can contain semicolon delimited IDs.
+        name: ids
+        in: query
+      - enum:
+        - ACTIVE
+        - ARCHIVED
+        - NO_LONGER_ORDERED
+        - NOT_FOR_SALE
+        type: string
+        description: filter by the status. By default all records except archived are returned
+        name: status
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the group ids. The parameter can contain semicolon delimited IDs.
+        name: groupIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the unit ids. The parameter can contain semicolon delimited IDs.
+        name: unitIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the tax rate ids. The parameter can contain semicolon delimited IDs.
+        name: taxRateIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the category ids. The parameter can contain semicolon delimited IDs.
+        name: categoryIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the brand ids. The parameter can contain semicolon delimited IDs.
+        name: brandIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the supplier ids. The parameter can contain semicolon delimited IDs.
+        name: supplierIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the priority group ids. The parameter can contain semicolon delimited IDs.
+        name: priorityGroupIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the country ids. The parameter can contain semicolon delimited IDs.
+        name: countryIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: Supply the warehouse IDs to get the values for stock, price and warehousePrice. The parameter can contain semicolon delimited IDs. To get a list of warehouse IDs, make an Account Admin API call GET /v1/warehouse, using corresponding endpoint for your account. https://api-am-eu10.erply.com/documentation/index.html#/warehouse/get_v1_warehouse
+        name: warehouseIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the warehouse location ids. The parameter can contain semicolon delimited IDs.
+        name: warehouseLocationIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the parent product ids. The parameter can contain semicolon delimited IDs.
+        name: parentProductIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the deposit fee ids. The parameter can contain semicolon delimited IDs.
+        name: depositFeeIds
+        in: query
+      - type: array
+        items:
+          type: integer
+        description: filter by the family ids. The parameter can contain semicolon delimited IDs.
+        name: familyIds
+        in: query
+      responses:
+        '200':
+          description: binary xlsx file content
+          schema:
+            type: string
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

@@ -1,0 +1,128 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Tasks API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Tasks
+paths:
+  /v1/tasks/recurring-billing-update-tax-rate:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Tasks
+      summary: Update tax rate for recurring bills
+      parameters:
+      - description: inputs
+        name: Inputs
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.TaxRateUpdateInputOnRecurringBillings'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/tasks/update-tax-rate:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Tasks
+      summary: Update tax rate
+      parameters:
+      - description: inputs
+        name: Inputs
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.TaxRateUpdateInput'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  models.TaxRateUpdateInput:
+    type: object
+    properties:
+      newRate:
+        type: number
+      oldRate:
+        type: number
+      preservePricesWithTax:
+        type: boolean
+      pricelistIds:
+        type: array
+        items:
+          type: integer
+  models.TaxRateUpdateInputOnRecurringBillings:
+    type: object
+    properties:
+      newRate:
+        type: number
+      oldRate:
+        type: number
+      preservePricesWithTax:
+        type: boolean
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

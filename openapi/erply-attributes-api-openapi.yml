@@ -1,0 +1,251 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Attributes API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- description: 'Attributes are attached to entities. The possible entities are: product, recipe, warehouse location, assortment, brand, matrix dimension, matrix dimension value, category, country, family, group, package, parameter, parameter option, parameter set, parameter validation rule, parameter value, unit, supplier'
+  name: Attributes
+paths:
+  /v1/attribute:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'API client specifies record ID or multiple IDs and fetches attributes for all those records.
+
+        Filtering & Sorting by Value is not supported.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Attributes
+      summary: Read Attributes
+      parameters:
+      - type: array
+        items:
+          type: integer
+        description: records are the objects that have the attributes. The parameter can contain semicolon delimited IDs.
+        name: recordIDs
+        in: query
+      - enum:
+        - product
+        - recipe
+        - warehouse location
+        - assortment
+        - brand
+        - matrix dimension
+        - matrix dimension value
+        - category
+        - country
+        - family
+        - group
+        - package
+        - parameter
+        - parameter option
+        - parameter set
+        - parameter validation rule
+        - parameter value
+        - unit
+        - supplier
+        - priority group
+        type: string
+        description: attributes entity
+        name: entityName
+        in: query
+        required: true
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: amount to take
+        name: take
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: filter
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.AttributeResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'To Create an attribute you must leave the id field empty. To Update you must specify the ID field. RecordID refers to the object that the attribute will be attached to. Product / invoice / customer, etc.
+
+        Name cannot have spaces and is limited to 50 characters. One database record must not have multiple attributes with the same name.
+
+        3 `types` are available - int, double, text. Based on the type the `value` should be number of text.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Attributes
+      summary: Attach / Update an Attribute
+      parameters:
+      - description: request
+        name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.AttributeRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/attribute/{ids}:
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Attributes
+      summary: Delete Attributes by ID
+      parameters:
+      - type: string
+        description: semicolon delimited IDs
+        name: ids
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.BulkResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  responses.Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 73
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  models.AttributeRequest:
+    type: object
+    properties:
+      entity:
+        description: Entity name of the record
+        type: string
+        example: product
+      id:
+        description: ID of the attribute
+        type: integer
+      name:
+        description: name of the attribute
+        type: string
+        example: has_warranty
+      record_id:
+        description: ID of the record
+        type: integer
+        example: 7
+      type:
+        description: 3 types are available - int, double, text
+        type: string
+        example: int
+      value:
+        description: based on the type value should be number of text
+  models.AttributeResponse:
+    type: object
+    properties:
+      entity:
+        description: Entity name of the record
+        type: string
+        example: product
+      id:
+        description: ID of the attribute
+        type: integer
+        example: 33
+      name:
+        type: string
+        example: has_warranty
+      record_id:
+        description: ID of the database record
+        type: integer
+        example: 7
+      type:
+        description: 3 types are available - int, double, text
+        type: string
+        example: text
+      value:
+        description: based on the type value can be number of text
+  responses.BulkResponse:
+    type: object
+    properties:
+      ids:
+        type: array
+        items:
+          type: integer
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

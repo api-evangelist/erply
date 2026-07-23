@@ -1,0 +1,371 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Product Package API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Product Package
+paths:
+  /v1/product/package:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get Package
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Package
+      summary: Get Packages
+      parameters:
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: filter
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/packages.PackageResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Package
+      summary: Create Package
+      parameters:
+      - description: package
+        name: package
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/packages.PackageRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/package/category:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get Product
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Package
+      summary: Get Package Categories
+      parameters:
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      - type: string
+        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: sort
+        in: query
+      - type: string
+        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        name: filter
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/packages.PackageCategoryResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/package/{ids}:
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Package
+      summary: Delete Packages
+      parameters:
+      - type: string
+        description: up to 100 semicolon delimited package IDs
+        name: ids
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/package/{id}:
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Package
+      summary: Update Package
+      parameters:
+      - type: integer
+        description: package ID
+        name: id
+        in: path
+        required: true
+      - description: package
+        name: package
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/packages.PackageUpdateRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  responses.Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 73
+  packages.PackageRequest:
+    type: object
+    properties:
+      code:
+        description: To be used if the package has a different code than the product itself.
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      height:
+        type: number
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      net_weight:
+        type: string
+      package_category_id:
+        description: Package Category ID
+        type: integer
+      product_id:
+        type: integer
+      units:
+        description: Size of the package (how many pcs it contains)
+        type: number
+      width:
+        type: number
+  packages.PackageResponse:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      code:
+        description: To be used if the package has a different code than the product itself.
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      height:
+        type: number
+      id:
+        description: object ID
+        type: integer
+        example: 1234
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      net_weight:
+        type: string
+      package_category_id:
+        description: Package Category ID
+        type: integer
+      product_id:
+        type: integer
+      units:
+        description: Size of the package (how many pcs it contains)
+        type: number
+      width:
+        type: number
+  packages.PackageUpdateRequest:
+    type: object
+    properties:
+      code:
+        description: To be used if the package has a different code than the product itself.
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      height:
+        type: number
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      net_weight:
+        type: string
+      package_category_id:
+        description: Package Category ID
+        type: integer
+      units:
+        description: Size of the package (how many pcs it contains)
+        type: number
+      width:
+        type: number
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  Translatable:
+    type: object
+    properties:
+      en:
+        description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+  packages.PackageCategoryResponse:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      id:
+        description: object ID
+        type: integer
+        example: 1234
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      order:
+        type: integer
+        example: 15
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

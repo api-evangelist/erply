@@ -1,0 +1,267 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment note API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: note
+paths:
+  /api/v1/note:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - note
+      summary: Look up notes
+      parameters:
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Note ids
+        name: noteId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Workorder ids
+        name: workorderId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Item ids
+        name: itemId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Row ids
+        name: rowId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        description: Task ids
+        name: taskId
+        in: query
+      - type: array
+        items:
+          enum:
+          - workorder
+          - item
+          - row
+          - task
+          type: string
+        collectionFormat: csv
+        description: Note types to return. Defaults to returning the `type` that correspond to the provided ID filter. Eg. when `rowId` is defined, row notes are returned etc
+        name: type
+        in: query
+      - type: boolean
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        description: Result page size
+        name: pageSize
+        in: query
+      - type: integer
+        description: Result page number
+        name: pageNr
+        in: query
+      - type: string
+        description: Sorting order
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - note
+      summary: Add a new note record
+      parameters:
+      - description: Note record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/NoteRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/NoteResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/note/{noteId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - note
+      summary: Delete one note record
+      parameters:
+      - type: integer
+        description: Note id
+        name: noteId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - note
+      summary: Update note record
+      parameters:
+      - type: integer
+        description: Note id
+        name: noteId
+        in: path
+        required: true
+      - description: Note record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/NoteRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/NoteResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+definitions:
+  NoteResponse:
+    type: object
+    properties:
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      data:
+        type: object
+      id:
+        type: integer
+      itemId:
+        type: integer
+      rowId:
+        type: integer
+      taskId:
+        type: integer
+      text:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      workorderId:
+        type: integer
+  NoteRequest:
+    type: object
+    properties:
+      data:
+        type: object
+      id:
+        type: integer
+      itemId:
+        type: integer
+      rowId:
+        type: integer
+      taskId:
+        type: integer
+      text:
+        type: string
+      workorderId:
+        type: integer
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

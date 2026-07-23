@@ -1,0 +1,534 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Product Parameter Option API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Product Parameter Option
+paths:
+  /v1/product/parameter/option:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Create Product Parameter Option
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Parameter Option
+      summary: Create Product Parameter Option
+      parameters:
+      - description: Parameter Option
+        name: parameter_option
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.ParameterOptionRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/parameter/option/{ids}:
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Parameter Option
+      summary: Delete Product Parameter Options
+      parameters:
+      - type: string
+        description: up to 100 semicolon delimited parameter Option IDs
+        name: ids
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/parameter/option/{id}:
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Update Product Parameter Option
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Parameter Option
+      summary: Update Product Parameter Option
+      parameters:
+      - description: Parameter Option Name
+        name: name
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/requests.Request'
+      - type: integer
+        description: parameterOption ID
+        name: id
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/parameter/option/{id}/products:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get Parameter Option and Products associated with a parameter that has the Parameter Options
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Parameter Option
+      summary: Get Parameter Option and Products associated with a parameter that has a Parameter Options
+      parameters:
+      - type: integer
+        description: option ID
+        name: id
+        in: path
+        required: true
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ParameterOptionWithProductsResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/parameter/option/{parameterId}:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Get Product Parameter Option
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Parameter Option
+      summary: Get Product Parameter Options
+      parameters:
+      - type: integer
+        description: parameter ID
+        name: parameterId
+        in: path
+        required: true
+      - type: integer
+        description: skip n records
+        name: skip
+        in: query
+      - type: integer
+        description: 'items to take, default: 20, max: 100000'
+        name: take
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/parametermodels.OptionResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  responses.Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 73
+  Description:
+    type: object
+    properties:
+      en:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/ProductDescription'
+  ProductDescription:
+    type: object
+    properties:
+      html:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+        example: <b>Very good product!</b>
+      plain_text:
+        description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+        example: Very good product!
+  parametermodels.OptionResponse:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby_id:
+        description: user ID
+        type: integer
+        example: 1
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby_id:
+        description: user ID
+        type: integer
+        example: 1
+      id:
+        type: integer
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      parameter_id:
+        type: integer
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  requests.Request:
+    type: object
+    properties:
+      name:
+        description: Names translations
+        $ref: '#/definitions/Translatable'
+  Translatable:
+    type: object
+    properties:
+      en:
+        description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        type: string
+  requests.ParameterOptionRequest:
+    type: object
+    properties:
+      name:
+        description: Names translations
+        $ref: '#/definitions/Translatable'
+      parameter_id:
+        description: for parameter options
+        type: integer
+        example: 1
+  products.ProductResponse:
+    type: object
+    properties:
+      added:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      addedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      age_restriction:
+        type: integer
+      alcohol_percentage:
+        type: string
+      alcohol_registry_number:
+        type: string
+      batches:
+        type: string
+      brand_id:
+        type: integer
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        type: integer
+      category_id:
+        type: integer
+      changed:
+        description: Unix timestamp
+        type: integer
+        example: 1595230999
+      changedby:
+        description: username
+        type: string
+        example: k@erp.xyz
+      code:
+        type: string
+      code2:
+        type: string
+      code3:
+        type: string
+      code5:
+        type: string
+      code6:
+        type: string
+      code7:
+        type: string
+      code8:
+        type: string
+      cost:
+        type: number
+      country_of_origin_id:
+        type: integer
+      delivery_time:
+        type: string
+      deposit_fee_amount:
+        type: integer
+      deposit_fee_id:
+        type: integer
+      description:
+        $ref: '#/definitions/Description'
+      displayed_in_webshop:
+        description: 0 or 1
+        type: integer
+      excise_declaration_number:
+        type: string
+      extra_field1_id:
+        type: integer
+      extra_field2_id:
+        type: integer
+      extra_field3_id:
+        type: integer
+      extra_field4_id:
+        type: integer
+      family_id:
+        type: integer
+      formula_identifier:
+        type: string
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: number
+      group_id:
+        type: integer
+      group_package_ferrous_metal:
+        type: number
+      group_package_metal:
+        type: number
+      group_package_non_ferrous_metal:
+        type: number
+      group_package_paper:
+        type: number
+      group_package_plastic:
+        type: number
+      group_package_wood:
+        type: number
+      has_serial_numbers:
+        type: integer
+      height:
+        type: number
+      id:
+        type: integer
+      is_gift_card:
+        description: 0 or 1
+        type: integer
+      is_lot_product:
+        type: boolean
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        type: integer
+      is_used_product:
+        type: boolean
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        type: integer
+      length:
+        description: Length is Item's physical dimensions.
+        type: number
+      location_in_warehouse_id:
+        type: integer
+      location_in_warehouse_text:
+        type: string
+      manufacturer_name:
+        type: string
+      name:
+        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        $ref: '#/definitions/Translatable'
+      net_weight:
+        type: number
+      non_discountable:
+        description: 0 or 1
+        type: integer
+      non_refundable:
+        description: 0 or 1
+        type: integer
+      non_stock_product:
+        description: boolean flag 0 or 1
+        type: integer
+      packaging_type:
+        type: string
+      packing_not_required:
+        type: integer
+      parent_product_id:
+        type: integer
+      price:
+        type: number
+      price_with_tax:
+        type: number
+      priority_group_id:
+        type: integer
+      product_item_level_promotions_disabled:
+        type: integer
+      product_reorder_multiples:
+        type: integer
+      revenue_account:
+        type: string
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        type: integer
+      sales_package_cardboard:
+        type: number
+      sales_package_clear_brown_glass:
+        type: number
+      sales_package_green_other_glass:
+        type: number
+      sales_package_metal_al:
+        type: number
+      sales_package_metal_fe:
+        type: number
+      sales_package_other_metal:
+        type: number
+      sales_package_paper_and_cardboard_mono:
+        description: Product package materials
+        type: number
+      sales_package_plastic_pet:
+        type: number
+      sales_package_plastic_pp_pe:
+        type: number
+      sales_package_wood:
+        type: number
+      serial_number:
+        type: string
+      shelf_life_days:
+        type: integer
+      sold_in_packages:
+        type: integer
+      status:
+        description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        type: string
+        example: ACTIVE
+      suggested_retail_price:
+        type: number
+      supplier_code:
+        type: string
+      supplier_id:
+        type: integer
+      tax_free:
+        description: boolean flag 0 or 1
+        type: integer
+      tax_rate_id:
+        type: integer
+      transport_package_cardboard:
+        type: number
+      transport_package_ferrous_metal:
+        type: number
+      transport_package_non_ferrous_metal:
+        type: number
+      transport_package_plastic:
+        type: number
+      transport_package_wood:
+        type: number
+      type:
+        type: string
+      unit_id:
+        type: integer
+      volume:
+        type: number
+      webshop_description:
+        type: string
+      webshop_keywords:
+        type: string
+      webshop_title:
+        type: string
+      webshop_url_slug:
+        type: string
+      width:
+        type: number
+  models.ParameterOptionWithProductsResponse:
+    type: object
+    properties:
+      parameter_option:
+        $ref: '#/definitions/parametermodels.OptionResponse'
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/products.ProductResponse'
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

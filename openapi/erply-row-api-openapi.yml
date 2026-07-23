@@ -1,0 +1,458 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment row API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: row
+paths:
+  /api/v1/row:
+    get:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - row
+      summary: Look up rows
+      parameters:
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 1
+        description: Workorder id
+        name: workorderId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 2
+        description: Item ids
+        name: itemId
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 3
+        description: Row ids
+        name: rowId
+        in: query
+      - type: boolean
+        example: true
+        description: Return only stock or non stock products
+        name: isNonStockProduct
+        in: query
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        example: state-code
+        description: States
+        name: state
+        in: query
+      - type: array
+        items:
+          type: integer
+        collectionFormat: csv
+        example: 3
+        description: Product purchase order row ids
+        name: purchaseOrderRowId
+        in: query
+      - type: string
+        example: title partial mat
+        description: Row title matching
+        name: titleLike
+        in: query
+      - type: boolean
+        example: true
+        description: If total matching record count should be return in response header
+        name: withTotalCount
+        in: query
+      - type: integer
+        example: 30
+        description: Result page size. Defaults to 20
+        name: pageSize
+        in: query
+      - type: integer
+        example: 2
+        description: Result page number. Defaults to 1
+        name: pageNr
+        in: query
+      - type: string
+        example: -order
+        description: 'Sorting order. Supported values are: `id`, `order`. Defaults to `order`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword'
+        name: sort
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RowResponse'
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - row
+      summary: Add a new row record
+      parameters:
+      - description: Row record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/RowRequest'
+      responses:
+        '201':
+          description: OK
+          schema:
+            $ref: '#/definitions/RowResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+  /api/v1/row/{rowId}:
+    delete:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Delete one row record
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - row
+      summary: Delete one row record
+      parameters:
+      - type: integer
+        description: Record id
+        name: rowId
+        in: path
+        required: true
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - row
+      summary: Update row record
+      parameters:
+      - type: integer
+        description: Record id
+        name: rowId
+        in: path
+        required: true
+      - description: Row record
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/RowRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/RowResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/row/{rowId}/order:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      description: Allows changing the order of rows. A single record can be moved either in front of any other row in the same workorder, or to the end of the row list
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - row
+      summary: Change the order of one row
+      parameters:
+      - type: integer
+        description: Row id that must be moved to new position
+        name: rowId
+        in: path
+        required: true
+      - description: Reorder parameter `inFrontOfId` defines the record in front of which the moved row should be placed
+        name: record
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/RowOrderRequest'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /api/v1/workorder/{workorderId}/row:
+    post:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - row
+      summary: Add row records
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - description: Row records
+        name: record
+        in: body
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/RowRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RowResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      security:
+      - ErplyClientCode: []
+      - ErplySession: []
+      - ErplyJWT: []
+      - AccessToken: []
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - row
+      summary: Update row records
+      parameters:
+      - type: integer
+        description: Workorder id
+        name: workorderId
+        in: path
+        required: true
+      - description: Row records
+        name: record
+        in: body
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/RowRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RowResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+definitions:
+  RowResponse:
+    type: object
+    properties:
+      amount:
+        type: number
+      confirmedAt:
+        type: string
+      confirmedById:
+        type: integer
+      createdAt:
+        type: string
+      createdById:
+        type: integer
+      data:
+        type: object
+      discount:
+        type: number
+      id:
+        type: integer
+      isLinked:
+        type: boolean
+      itemId:
+        type: integer
+      netTotal:
+        type: number
+      nonStockProduct:
+        type: boolean
+      order:
+        type: integer
+      parentLinkId:
+        type: integer
+      price:
+        type: number
+      productCode:
+        type: string
+      productId:
+        type: integer
+      productName:
+        type: string
+      productOriginalPrice:
+        type: number
+      productUnitId:
+        type: integer
+      productUpcEan:
+        type: string
+      purchaseOrderRowId:
+        type: integer
+      state:
+        type: string
+      taxExempt:
+        type: boolean
+      title:
+        type: string
+      total:
+        type: number
+      updatedAt:
+        type: string
+      updatedById:
+        type: integer
+      vatRateId:
+        type: integer
+      vatTotal:
+        type: number
+      workorderId:
+        type: integer
+  RowOrderRequest:
+    type: object
+    properties:
+      inFrontOfId:
+        description: 'ID of the record in front of which the moved row should be placed. Must belong to a record associated
+
+          with the same workorder. If left nil, the row will be moved to the last place'
+        type: integer
+  RowRequest:
+    type: object
+    properties:
+      amount:
+        type: number
+      data:
+        type: object
+      discount:
+        type: number
+      id:
+        type: integer
+      itemId:
+        type: integer
+      order:
+        type: integer
+      price:
+        type: number
+      productId:
+        type: integer
+      purchaseOrderRowId:
+        type: integer
+      state:
+        type: string
+      taxExempt:
+        type: boolean
+      title:
+        type: string
+      vatRateId:
+        type: integer
+      workorderId:
+        type: integer
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

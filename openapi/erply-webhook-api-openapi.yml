@@ -1,0 +1,207 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment webhook API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: webhook
+paths:
+  /v1/event:
+    get:
+      security:
+      - ClientCode: []
+      - SessionKey: []
+      description: '# Get recorded events
+
+        Returns events that have been recently recorded for the account.
+
+        Note that event list is constantly purged, historic events are not stored.
+
+        Events are only stored if the account has a corresponding webhook configuration.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - webhook
+      summary: Get recorded events
+      operationId: getEvents
+      parameters:
+      - type: string
+        description: Name of the table for the event
+        name: table
+        in: query
+        required: true
+      - type: string
+        description: Name of the action for the event
+        name: action
+        in: query
+        required: true
+      - type: integer
+        description: Limit the results. Default is 20 and max is 100.
+        name: limit
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.OutputEvent'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.OutputError'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.OutputError'
+        '503':
+          description: Service Unavailable
+          schema:
+            $ref: '#/definitions/models.OutputError'
+  /v1/webhook:
+    get:
+      security:
+      - ClientCode: []
+      - SessionKey: []
+      description: '# Get recently sent webhooks
+
+        Get current authenticated users recently sent webhooks.
+
+        Note that this list only includes webhooks that have been attempted to be sent in the last hour (or less).
+
+        Any webhooks that were supposed to be sent longer than 1 hour ago are not guaranteed to be returned with this request.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - webhook
+      summary: Get recently sent webhooks
+      operationId: getWebhooks
+      parameters:
+      - type: string
+        description: Name of the table for the webhook
+        name: table
+        in: query
+      - type: string
+        description: Name of the action for the webhook
+        name: action
+        in: query
+      - type: integer
+        description: Limit the results. Default is 20 and max is 100.
+        name: limit
+        in: query
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.OutputWebhook'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.OutputError'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.OutputError'
+        '503':
+          description: Service Unavailable
+          schema:
+            $ref: '#/definitions/models.OutputError'
+definitions:
+  models.OutputEvent:
+    type: object
+    properties:
+      action:
+        description: action the webhook was registered for
+        type: string
+      createdAt:
+        description: time when the event was created into the process queue
+        type: string
+      eventDate:
+        description: date when the event was created in the stream
+        type: string
+      id:
+        description: ID of the event
+        type: string
+      processedAt:
+        description: time when the event was processed
+        type: string
+      rowID:
+        description: id of the row, when it exists
+        type: integer
+        format: int64
+      status:
+        description: if the event has been processed to a webhook
+        type: string
+      table:
+        description: Table the webhook was registered for
+        type: string
+  models.OutputWebhook:
+    type: object
+    properties:
+      action:
+        description: Action the action the webhook was registered for
+        type: string
+      createdAt:
+        description: CreatedAt time when the webhook was created
+        type: string
+      endpoint:
+        description: Endpoint the endpoint where the webhook is sent
+        type: string
+      eventCount:
+        description: EventCount number of events in the webhook
+        type: integer
+      id:
+        description: ID id of the webhook
+        type: string
+      lastFailure:
+        description: LastFailure contains the last error message if the hook send has failed
+        type: string
+      processedAt:
+        description: ProcessedAt time whe the webhook was last processed
+        type: string
+      status:
+        description: Status status of the webhook
+        type: string
+      table:
+        description: Table the table the webhook was registered for
+        type: string
+      tries:
+        description: Tries number of times the webhook was tried
+        type: integer
+  models.OutputError:
+    type: object
+    properties:
+      error:
+        type: string
+        example: Description of the failure
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header

@@ -1,0 +1,519 @@
+swagger: '2.0'
+info:
+  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
+  title: assignments Assortment Product Fields API
+  contact: {}
+  version: 2.36.5
+host: ''
+basePath: ''
+schemes: []
+tags:
+- name: Product Fields
+paths:
+  /v1/product/fields/inherited:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: There is an option to make matrix variations inherit specific field values from their parent product.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Fields
+      summary: Read product fields that will be inherited from matrix products
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: string
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    patch:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'There is an option to make matrix variations inherit specific field values from their parent product.
+
+
+        This setting is followed when editing matrix products. The variation fields will be overwritten automatically.
+
+
+        Set field values for the fields you want to (re)configure only.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Fields
+      summary: Set product fields that will be inherited from matrix products
+      parameters:
+      - description: request
+        name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/products.ProductInheritedFieldsRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+  /v1/product/fields/permissions:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: Read view, edit, add, delete permissions for product fields.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Fields
+      summary: Read permissions for product fields
+      parameters:
+      - type: integer
+        description: user group ID
+        name: userGroupID
+        in: query
+        required: true
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/products.ProductFieldsPermissions'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+    patch:
+      security:
+      - sk: []
+      - cc: []
+      - jwt: []
+      description: 'Set view, edit, add, delete permissions for product fields.
+
+
+        Set field values for the fields you want to (re)configure only.'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Product Fields
+      summary: Set permissions for product fields, permissions are user group based
+      parameters:
+      - type: integer
+        description: user group ID
+        name: userGroupID
+        in: query
+        required: true
+      - description: request
+        name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/products.ProductFieldsPermissions'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/responses.Response'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/responses.MessageResponse'
+definitions:
+  responses.Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 73
+  products.PermissionSet:
+    type: object
+    properties:
+      edit:
+        type: boolean
+      view:
+        type: boolean
+  products.ProductFieldsPermissions:
+    type: object
+    properties:
+      age_restriction:
+        $ref: '#/definitions/products.PermissionSet'
+      alcohol_percentage:
+        $ref: '#/definitions/products.PermissionSet'
+      alcohol_registry_number:
+        $ref: '#/definitions/products.PermissionSet'
+      batches:
+        $ref: '#/definitions/products.PermissionSet'
+      brand_id:
+        description: ID of product brand. To get the list of brandmodels, use getBrands.
+        $ref: '#/definitions/products.PermissionSet'
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        $ref: '#/definitions/products.PermissionSet'
+      category_id:
+        $ref: '#/definitions/products.PermissionSet'
+      code:
+        description: Product's code. Must be UNIQUE, unless the account is configured otherwise.
+        $ref: '#/definitions/products.PermissionSet'
+      code2:
+        $ref: '#/definitions/products.PermissionSet'
+      code3:
+        description: Third code of the item (note that this field may not be visible on product card by default).
+        $ref: '#/definitions/products.PermissionSet'
+      code5:
+        $ref: '#/definitions/products.PermissionSet'
+      code6:
+        $ref: '#/definitions/products.PermissionSet'
+      code7:
+        $ref: '#/definitions/products.PermissionSet'
+      code8:
+        $ref: '#/definitions/products.PermissionSet'
+      cost:
+        description: Cost is Product cost
+        $ref: '#/definitions/products.PermissionSet'
+      country_of_origin_id:
+        $ref: '#/definitions/products.PermissionSet'
+      delivery_time:
+        $ref: '#/definitions/products.PermissionSet'
+      deposit_fee_amount:
+        $ref: '#/definitions/products.PermissionSet'
+      deposit_fee_id:
+        description: ContainerID is ID of another product, a beverage container that is always sold together with this item.
+        $ref: '#/definitions/products.PermissionSet'
+      description:
+        description: '//PlainTextDescription is translatable plain text description
+
+          PlainTextDescription map[string]string `json:"plain_text_description,omitempty"`
+
+          //HTMLDescription is translatable html description
+
+          HTMLDescription map[string]string `json:"html_description,omitempty"`
+
+          Description is translatable and of 2 types: plain text, HTML. Languages should be in ISO 639-1 Code'
+        $ref: '#/definitions/products.PermissionSet'
+      displayed_in_webshop:
+        description: 0 or 1
+        $ref: '#/definitions/products.PermissionSet'
+      excise_declaration_number:
+        $ref: '#/definitions/products.PermissionSet'
+      extra_field1_id:
+        $ref: '#/definitions/products.PermissionSet'
+      extra_field2_id:
+        $ref: '#/definitions/products.PermissionSet'
+      extra_field3_id:
+        $ref: '#/definitions/products.PermissionSet'
+      extra_field4_id:
+        $ref: '#/definitions/products.PermissionSet'
+      family_id:
+        $ref: '#/definitions/products.PermissionSet'
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        $ref: '#/definitions/products.PermissionSet'
+      group_id:
+        description: ID of product group. To get the list of product groups, use getProductGroups.
+        $ref: '#/definitions/products.PermissionSet'
+      has_serial_numbers:
+        $ref: '#/definitions/products.PermissionSet'
+      height:
+        $ref: '#/definitions/products.PermissionSet'
+      is_gift_card:
+        description: 0 or 1
+        $ref: '#/definitions/products.PermissionSet'
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        $ref: '#/definitions/products.PermissionSet'
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        $ref: '#/definitions/products.PermissionSet'
+      length:
+        description: Length is Item's physical dimensions.
+        $ref: '#/definitions/products.PermissionSet'
+      location_in_warehouse_id:
+        description: LocationInWarehouseID is ID of selected location in warehouse.
+        $ref: '#/definitions/products.PermissionSet'
+      location_in_warehouse_text:
+        description: LocationInWarehouseText is Product's specific text added to location in warehouse.
+        $ref: '#/definitions/products.PermissionSet'
+      manufacturer_name:
+        $ref: '#/definitions/products.PermissionSet'
+      name:
+        $ref: '#/definitions/products.PermissionSet'
+      net_weight:
+        description: NetWeight is Item's net weight. Unit depends on region, check your Erply account (typically lbs or kg).
+        $ref: '#/definitions/products.PermissionSet'
+      non_discountable:
+        description: 0 or 1
+        $ref: '#/definitions/products.PermissionSet'
+      non_refundable:
+        description: 0 or 1
+        $ref: '#/definitions/products.PermissionSet'
+      non_stock_product:
+        description: boolean flag 0 or 1
+        $ref: '#/definitions/products.PermissionSet'
+      packaging_type:
+        $ref: '#/definitions/products.PermissionSet'
+      packing_not_required:
+        $ref: '#/definitions/products.PermissionSet'
+      price:
+        description: 'Price is just the default price of a product and the actual price applied in a particular location, to a particular customer, depends on price lists and promotions: https://learn-api.erply.com/concepts/pricing'
+        $ref: '#/definitions/products.PermissionSet'
+      price_with_tax:
+        $ref: '#/definitions/products.PermissionSet'
+      priority_group_id:
+        $ref: '#/definitions/products.PermissionSet'
+      product_reorder_multiples:
+        $ref: '#/definitions/products.PermissionSet'
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        $ref: '#/definitions/products.PermissionSet'
+      sold_in_packages:
+        $ref: '#/definitions/products.PermissionSet'
+      status:
+        $ref: '#/definitions/products.PermissionSet'
+      suggested_retail_price:
+        $ref: '#/definitions/products.PermissionSet'
+      supplier_code:
+        description: Supplier's product code
+        $ref: '#/definitions/products.PermissionSet'
+      supplier_id:
+        $ref: '#/definitions/products.PermissionSet'
+      supplier_name:
+        $ref: '#/definitions/products.PermissionSet'
+      tax_free:
+        description: boolean flag 0 or 1
+        $ref: '#/definitions/products.PermissionSet'
+      tax_rate_id:
+        description: 'TaxRateID is just the default tax rate of a product and the actual tax applied in a particular location depends on multiple rules: https://learn-api.erply.com/concepts/taxes.'
+        $ref: '#/definitions/products.PermissionSet'
+      type:
+        $ref: '#/definitions/products.PermissionSet'
+      unit_id:
+        description: ID of product unit. To get the list of units, use getProductUnits.
+        $ref: '#/definitions/products.PermissionSet'
+      volume:
+        description: Volume is Item's fluid volume, eg. for beverages or perfumery. Unit depends on locale, check your Erply account (typically mL or fl oz).
+        $ref: '#/definitions/products.PermissionSet'
+      width:
+        $ref: '#/definitions/products.PermissionSet'
+  responses.MessageResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        example: some message
+  products.ProductInheritedFieldsRequest:
+    type: object
+    properties:
+      age_restriction:
+        type: boolean
+      alcohol_percentage:
+        type: boolean
+      alcohol_registry_number:
+        type: boolean
+      batches:
+        type: boolean
+      brand_id:
+        description: ID of product brand. To get the list of brandmodels, use getBrands.
+        type: boolean
+      cashier_must_enter_price:
+        description: boolean flag 0 or 1
+        type: boolean
+      category_id:
+        type: boolean
+      code:
+        description: Product's code. Must be UNIQUE, unless the account is configured otherwise.
+        type: boolean
+      code2:
+        type: boolean
+      code3:
+        description: Third code of the item (note that this field may not be visible on product card by default).
+        type: boolean
+      code5:
+        type: boolean
+      code6:
+        type: boolean
+      code7:
+        type: boolean
+      code8:
+        type: boolean
+      cost:
+        description: Cost is Product cost
+        type: boolean
+      country_of_origin_id:
+        type: boolean
+      delivery_time:
+        type: boolean
+      deposit_fee_amount:
+        type: boolean
+      deposit_fee_id:
+        description: ContainerID is ID of another product, a beverage container that is always sold together with this item.
+        type: boolean
+      description:
+        description: '//PlainTextDescription is translatable plain text description
+
+          PlainTextDescription map[string]string `json:"plain_text_description"`
+
+          //HTMLDescription is translatable html description
+
+          HTMLDescription map[string]string `json:"html_description"`
+
+          Description is translatable and of 2 types: plain text, HTML. Languages should be in ISO 639-1 Code'
+        type: boolean
+      displayed_in_webshop:
+        description: 0 or 1
+        type: boolean
+      excise_declaration_number:
+        type: boolean
+      extra_field1_id:
+        type: boolean
+      extra_field2_id:
+        type: boolean
+      extra_field3_id:
+        type: boolean
+      extra_field4_id:
+        type: boolean
+      family_id:
+        type: boolean
+      gross_weight:
+        description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+        type: boolean
+      group_id:
+        description: ID of product group. To get the list of product groups, use getProductGroups.
+        type: boolean
+      has_serial_numbers:
+        type: boolean
+      height:
+        type: boolean
+      is_gift_card:
+        description: 0 or 1
+        type: boolean
+      is_regular_gift_card:
+        description: boolean flag 0 or 1
+        type: boolean
+      labels_not_needed:
+        description: boolean flag 0 or 1
+        type: boolean
+      length:
+        description: Length is Item's physical dimensions.
+        type: boolean
+      location_in_warehouse_id:
+        description: LocationInWarehouseID is ID of selected location in warehouse.
+        type: boolean
+      location_in_warehouse_text:
+        description: LocationInWarehouseText is Product's specific text added to location in warehouse.
+        type: boolean
+      manufacturer_name:
+        type: boolean
+      name:
+        type: boolean
+      net_weight:
+        description: NetWeight is Item's net weight. Unit depends on region, check your Erply account (typically lbs or kg).
+        type: boolean
+      non_discountable:
+        description: 0 or 1
+        type: boolean
+      non_refundable:
+        description: 0 or 1
+        type: boolean
+      non_stock_product:
+        description: boolean flag 0 or 1
+        type: boolean
+      packaging_type:
+        type: boolean
+      packing_not_required:
+        type: boolean
+      price:
+        description: 'Price is just the default price of a product and the actual price applied in a particular location, to a particular customer, depends on price lists and promotions: https://learn-api.erply.com/concepts/pricing'
+        type: boolean
+      price_with_tax:
+        type: boolean
+      priority_group_id:
+        type: boolean
+      product_reorder_multiples:
+        type: boolean
+      reward_points_not_allowed:
+        description: boolean flag 0 or 1
+        type: boolean
+      sold_in_packages:
+        type: boolean
+      status:
+        type: boolean
+      suggested_retail_price:
+        type: boolean
+      supplier_code:
+        description: Supplier's product code
+        type: boolean
+      supplier_id:
+        type: boolean
+      supplier_name:
+        type: boolean
+      tax_free:
+        description: boolean flag 0 or 1
+        type: boolean
+      tax_rate_id:
+        description: 'TaxRateID is just the default tax rate of a product and the actual tax applied in a particular location depends on multiple rules: https://learn-api.erply.com/concepts/taxes.'
+        type: boolean
+      type:
+        type: boolean
+      unit_id:
+        description: ID of product unit. To get the list of units, use getProductUnits.
+        type: boolean
+      volume:
+        description: Volume is Item's fluid volume, eg. for beverages or perfumery. Unit depends on locale, check your Erply account (typically mL or fl oz).
+        type: boolean
+      width:
+        type: boolean
+securityDefinitions:
+  AccessToken:
+    type: apiKey
+    name: accessToken
+    in: header
+  ErplyClientCode:
+    type: apiKey
+    name: clientCode
+    in: header
+  ErplyJWT:
+    type: apiKey
+    name: jwt
+    in: header
+  ErplySession:
+    type: apiKey
+    name: sessionKey
+    in: header
+  RequestKey:
+    type: apiKey
+    name: requestKey
+    in: header
