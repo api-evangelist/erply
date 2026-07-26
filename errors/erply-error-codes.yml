@@ -1,0 +1,117 @@
+generated: '2026-07-19'
+method: searched
+source: https://learn-api.erply.com/error-codes
+envelope:
+  note: Classic Erply API returns a JSON body with a `status` object; a non-zero `errorCode` (1xxx) signals
+    failure. The newer REST APIs (PIM/Assignments/CAFA) return a MessageResponse schema on 400/500.
+  field: errorCode
+  rest_error_schema: responses.MessageResponse
+errors:
+- code: 1000
+  meaning: API under maintenance
+  action: Retry later
+- code: 1001
+  meaning: Account not found or clientCode missing
+  action: Verify the clientCode / account number
+- code: 1002
+  meaning: Hourly request quota (by default 2000 requests) exceeded
+  action: Throttle; back off until the next hour
+- code: 1003
+  meaning: Cannot connect to account database
+  action: Retry later
+- code: 1005
+  meaning: Unknown API call name
+  action: Check the request name against the docs
+- code: 1006
+  meaning: API call unavailable for account
+  action: Feature not enabled for this account
+- code: 1007
+  meaning: Unknown output format requested
+  action: Use JSON or XML
+- code: 1008
+  meaning: Database maintenance or incorrect API server connection
+  action: Retry later
+- code: 1009
+  meaning: Authentication parameters required but not found
+  action: Include clientCode and sessionKey
+- code: 1010
+  meaning: Required parameters missing
+  action: Supply required parameters
+- code: 1011
+  meaning: Invalid classifier ID
+  action: Use a valid ID
+- code: 1012
+  meaning: Parameter must have unique value
+  action: Provide a unique value
+- code: 1013
+  meaning: Inconsistent parameter set
+  action: Reconcile conflicting parameters
+- code: 1014
+  meaning: Incorrect data type or format
+  action: Fix the value format
+- code: 1015
+  meaning: Malformed request
+  action: Fix request encoding
+- code: 1016
+  meaning: Invalid value
+  action: Provide a valid value
+- code: 1020
+  meaning: Bulk call exceeded 100 sub-requests
+  action: Split into batches of <=100
+- code: 1021
+  meaning: Another report instance already running
+  action: Wait for the prior report to finish
+- code: 1022
+  meaning: Item cannot be deleted; other records reference it
+  action: Remove references first
+- code: 1050
+  meaning: Username/password missing
+  action: Supply credentials to verifyUser
+- code: 1051
+  meaning: Login failed
+  action: Check username/password
+- code: 1052
+  meaning: User temporarily blocked (repeated failed logins)
+  action: Wait and retry
+- code: 1053
+  meaning: No password set for user; cannot log in
+  action: Set a password for the user
+- code: 1054
+  meaning: API session has expired; call verifyUser again
+  action: Re-authenticate to get a new sessionKey
+- code: 1055
+  meaning: Supplied session key is invalid; session not found
+  action: Re-authenticate
+- code: 1056
+  meaning: Session key too old; user switching no longer possible
+  action: Re-authenticate
+- code: 1057
+  meaning: Demo account expired
+  action: Provision a live account
+- code: 1058
+  meaning: PIN login unsupported
+  action: Use username/password
+- code: 1059
+  meaning: Unable to detect user group
+  action: Assign the user to a group
+- code: 1060
+  meaning: No viewing rights
+  action: Grant read permission
+- code: 1061
+  meaning: No adding rights
+  action: Grant create permission
+- code: 1062
+  meaning: No editing rights
+  action: Grant update permission
+- code: 1063
+  meaning: No deleting rights
+  action: Grant delete permission
+- code: 1064
+  meaning: No access to specified location
+  action: Grant location access
+- code: 1065
+  meaning: User lacks API access
+  action: Enable API access for the user
+- code: 1066
+  meaning: Cannot manage specified user group
+  action: Grant user-group management rights

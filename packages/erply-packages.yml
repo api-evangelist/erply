@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/erply
+packages:
+- language: go
+  registry: pkg.go.dev
+  name: github.com/erply/api-go-wrapper
+  url: https://github.com/erply/api-go-wrapper
+  install: go get github.com/erply/api-go-wrapper
+  official: true
+  description: Erply API SDK for the Go programming language (MIT).
+- language: go
+  registry: pkg.go.dev
+  name: github.com/erply/pim-go-wrapper
+  url: https://github.com/erply/pim-go-wrapper
+  install: go get github.com/erply/pim-go-wrapper
+  official: true
+  description: Erply PIM API SDK for the Go programming language (MIT).
+- language: go
+  registry: pkg.go.dev
+  name: github.com/erply/identity-wrapper
+  url: https://github.com/erply/identity-wrapper
+  install: go get github.com/erply/identity-wrapper
+  official: true
+  description: Go client for the Erply Identity Service endpoints.
+- language: php
+  registry: github
+  name: erply/api-client
+  url: https://github.com/erply/api-client
+  install: composer require erply/api-client
+  official: true
+  description: Simple PHP wrapper around the Erply API (sendRequest()).

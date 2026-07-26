@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/erply-pim-openapi.json, openapi/erply-assignments-openapi.json, openapi/erply-cafa-openapi.json,
+  openapi/erply-webhook-openapi.json
+standards:
+- id: openapi-2.0
+  conforms: true
+  evidence: All four published specs are Swagger/OpenAPI 2.0 documents.
+- id: oauth2
+  conforms: false
+  evidence: Auth is apiKey header (clientCode + sessionKey/jwt); no oauth2 securityScheme.
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom MessageResponse envelope and numeric 1xxx codes, not application/problem+json.
+- id: json
+  conforms: true
+  evidence: All APIs consume and produce application/json.
+- id: pagination
+  conforms: true
+  evidence: REST APIs paginate (PIM take/skip, Assignments pageSize/pageNr) with withTotalCount.
+- id: hmac-webhook-signing
+  conforms: true
+  evidence: Webhook Manager signs deliveries with an HMAC secret salt.
+- id: idempotency
+  conforms: false
+  evidence: No Idempotency-Key header documented or present in specs.
+- id: fhir
+  conforms: false
+- id: scim
+  conforms: false

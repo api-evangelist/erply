@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: openapi/ (no official Erply MCP server located as of 2026-07-19)
+server:
+  name: erply
+  transport: http
+note: No official/hosted Erply MCP server was found. Candidate tools derived from real REST operations
+  across the PIM, Assignments and Webhook Manager specs; identifiers are METHOD + path (Swagger 2.0 specs
+  omit operationId except in Webhook Manager).
+tools:
+- name: list_products
+  description: List products
+  source_operation: openapi/erply-pim-openapi.json#GET /v1/product
+- name: create_product
+  description: Create a product
+  source_operation: openapi/erply-pim-openapi.json#POST /v1/product
+- name: get_products_batch
+  description: Get products in batch
+  source_operation: openapi/erply-pim-openapi.json#GET /v1/product/{ids}
+- name: list_product_categories
+  description: List product categories
+  source_operation: openapi/erply-pim-openapi.json#GET /v1/product/category
+- name: list_assortments
+  description: List assortments
+  source_operation: openapi/erply-pim-openapi.json#GET /v1/assortment
+- name: add_product_to_assortment
+  description: Add a product to an assortment
+  source_operation: openapi/erply-pim-openapi.json#POST /v1/assortment/{id}/products
+- name: list_webhook_configurations
+  description: List webhook configurations
+  source_operation: openapi/erply-webhook-openapi.json#getWebhookConfigurations
+- name: add_webhook_configuration
+  description: Add a webhook configuration
+  source_operation: openapi/erply-webhook-openapi.json#addWebhookConfiguration
+- name: get_events
+  description: Get recorded events
+  source_operation: openapi/erply-webhook-openapi.json#getEvents

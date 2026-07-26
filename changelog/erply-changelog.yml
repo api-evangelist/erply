@@ -1,0 +1,13 @@
+generated: '2026-07-19'
+method: searched
+source: https://erply.com/release-notes
+scheme: per-service semantic versioning; classic platform on a rolling 1.x line
+current_versions:
+  classic_api: 1.143.x (platform)
+  pim_api: 1.143.20
+  assignments_api: 2.36.5
+  cafa_api: 4.19.2
+  webhook_manager_api: 1.18.3
+entries: []
+note: Erply publishes a running Release Notes feed (JS-rendered) rather than a structured dated changelog;
+  current per-service versions captured verbatim from each live spec. See source for the full history.

@@ -1,0 +1,10 @@
+generated: '2026-07-19'
+method: searched
+source: https://learn-api.erply.com/getting-started, https://learn-api.erply.com/error-codes
+rate_limits:
+- scope: account
+  limit_count: 2000
+  window: 1h
+  signal: error code 1002 when exceeded
+  notes: Default hourly request quota is 2000 requests per account (older docs cite 1000). Exceeding it
+    returns error 1002.

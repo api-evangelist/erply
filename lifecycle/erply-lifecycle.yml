@@ -1,0 +1,17 @@
+generated: '2026-07-19'
+method: searched
+source: https://learn-api.erply.com/, https://status.erply.com/, https://erply.com/release-notes
+versioning:
+  scheme: per-service semantic + uri-path (/v1, /v3)
+  notes: The classic Erply API is versioned by a rolling platform version (e.g. 1.143.x); each REST API
+    carries its own version (PIM 1.143.20, Assignments 2.36.5, CAFA 4.19.2, Webhook Manager 1.18.3) and
+    prefixes paths with /v1 (CAFA also /v3).
+status_page: https://status.erply.com/
+release_notes: https://erply.com/release-notes
+sla: null
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No formal deprecation/Sunset-header policy located; account/feature availability varies per account
+    and region.
+deprecated_operations: []

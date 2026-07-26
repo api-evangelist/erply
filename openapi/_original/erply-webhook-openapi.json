@@ -1,0 +1,585 @@
+{
+ "schemes": [],
+ "swagger": "2.0",
+ "info": {
+  "description": "API endpoints to manager webhook configurations. In order to start receiving the webhooks you need to configure the specific events using this API.",
+  "title": "Webhook Manager API",
+  "contact": {},
+  "version": "v1.18.3"
+ },
+ "host": "",
+ "basePath": "",
+ "paths": {
+  "/v1/event": {
+   "get": {
+    "security": [
+     {
+      "ClientCode": []
+     },
+     {
+      "SessionKey": []
+     }
+    ],
+    "description": "# Get recorded events\nReturns events that have been recently recorded for the account.\nNote that event list is constantly purged, historic events are not stored.\nEvents are only stored if the account has a corresponding webhook configuration.",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "webhook"
+    ],
+    "summary": "Get recorded events",
+    "operationId": "getEvents",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "Name of the table for the event",
+      "name": "table",
+      "in": "query",
+      "required": true
+     },
+     {
+      "type": "string",
+      "description": "Name of the action for the event",
+      "name": "action",
+      "in": "query",
+      "required": true
+     },
+     {
+      "type": "integer",
+      "description": "Limit the results. Default is 20 and max is 100.",
+      "name": "limit",
+      "in": "query"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/models.OutputEvent"
+       }
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     },
+     "401": {
+      "description": "Unauthorized",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     }
+    }
+   }
+  },
+  "/v1/webhook": {
+   "get": {
+    "security": [
+     {
+      "ClientCode": []
+     },
+     {
+      "SessionKey": []
+     }
+    ],
+    "description": "# Get recently sent webhooks\nGet current authenticated users recently sent webhooks.\nNote that this list only includes webhooks that have been attempted to be sent in the last hour (or less).\nAny webhooks that were supposed to be sent longer than 1 hour ago are not guaranteed to be returned with this request.",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "webhook"
+    ],
+    "summary": "Get recently sent webhooks",
+    "operationId": "getWebhooks",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "Name of the table for the webhook",
+      "name": "table",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "Name of the action for the webhook",
+      "name": "action",
+      "in": "query"
+     },
+     {
+      "type": "integer",
+      "description": "Limit the results. Default is 20 and max is 100.",
+      "name": "limit",
+      "in": "query"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/models.OutputWebhook"
+       }
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     },
+     "401": {
+      "description": "Unauthorized",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     }
+    }
+   }
+  },
+  "/v1/webhook-configuration": {
+   "get": {
+    "security": [
+     {
+      "ClientCode": []
+     },
+     {
+      "SessionKey": []
+     }
+    ],
+    "description": "# Get webhook configurations\nGet current authenticated users existing webhook configurations",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "webhook-configuration"
+    ],
+    "summary": "Get webhook configurations",
+    "operationId": "getWebhookConfigurations",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/models.WebhookConfiguration"
+       }
+      }
+     },
+     "401": {
+      "description": "Unauthorized",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     }
+    }
+   },
+   "post": {
+    "security": [
+     {
+      "ClientCode": []
+     },
+     {
+      "SessionKey": []
+     }
+    ],
+    "description": "# Add new webhook configuration\nIn action field use: insert, update, delete or confirm (only usable on items that support it)",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "webhook-configuration"
+    ],
+    "summary": "Add webhook configuration",
+    "operationId": "addWebhookConfiguration",
+    "parameters": [
+     {
+      "description": "New webhook configuration data",
+      "name": "json",
+      "in": "body",
+      "required": true,
+      "schema": {
+       "$ref": "#/definitions/models.InputWebhookConfiguration"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "$ref": "#/definitions/models.WebhookConfiguration"
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     },
+     "401": {
+      "description": "Unauthorized",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     }
+    }
+   }
+  },
+  "/v1/webhook-configuration/{id}": {
+   "put": {
+    "security": [
+     {
+      "ClientCode": []
+     },
+     {
+      "SessionKey": []
+     }
+    ],
+    "description": "# Update existing webhook configuration\nUpdates an existing webhook configuration by its id",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "webhook-configuration"
+    ],
+    "summary": "Update existing webhook configuration",
+    "operationId": "updateWebhookConfiguration",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "ID of the webhook configuration",
+      "name": "id",
+      "in": "path",
+      "required": true
+     },
+     {
+      "description": "Edit webhook configuration data",
+      "name": "json",
+      "in": "body",
+      "required": true,
+      "schema": {
+       "$ref": "#/definitions/models.InputWebhookConfiguration"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "$ref": "#/definitions/models.WebhookConfiguration"
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     },
+     "401": {
+      "description": "Unauthorized",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "ClientCode": []
+     },
+     {
+      "SessionKey": []
+     }
+    ],
+    "description": "# Remove existing webhook configuration\nRemoves an existing webhook configuration by its id",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "webhook-configuration"
+    ],
+    "summary": "Remove existing webhook configuration",
+    "operationId": "removeWebhookConfiguration",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "ID of the webhook configuration",
+      "name": "id",
+      "in": "path",
+      "required": true
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "$ref": "#/definitions/models.OutputOK"
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     },
+     "401": {
+      "description": "Unauthorized",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     },
+     "503": {
+      "description": "Service Unavailable",
+      "schema": {
+       "$ref": "#/definitions/models.OutputError"
+      }
+     }
+    }
+   }
+  }
+ },
+ "definitions": {
+  "models.InputWebhookConfiguration": {
+   "type": "object",
+   "required": [
+    "action",
+    "endpoint",
+    "secret",
+    "table"
+   ],
+   "properties": {
+    "action": {
+     "description": "Action of the event insert, update, delete or confirm (only usable on items that support it)",
+     "type": "string",
+     "example": "insert"
+    },
+    "disabled": {
+     "description": "Disabled optional input, can be used to create inactive configurations for later use - false by default",
+     "type": "boolean",
+     "example": false
+    },
+    "endpoint": {
+     "description": "Endpoint full url of the server where the webhook will be sent to",
+     "type": "string",
+     "example": "https://my.receiver"
+    },
+    "secret": {
+     "description": "Secret optional secret that can be used to authenticate the webhooks",
+     "type": "string",
+     "example": "mySecretWord"
+    },
+    "table": {
+     "description": "Table references a database table or a custom event name",
+     "type": "string",
+     "example": "product"
+    }
+   }
+  },
+  "models.OutputError": {
+   "type": "object",
+   "properties": {
+    "error": {
+     "type": "string",
+     "example": "Description of the failure"
+    }
+   }
+  },
+  "models.OutputEvent": {
+   "type": "object",
+   "properties": {
+    "action": {
+     "description": "action the webhook was registered for",
+     "type": "string"
+    },
+    "createdAt": {
+     "description": "time when the event was created into the process queue",
+     "type": "string"
+    },
+    "eventDate": {
+     "description": "date when the event was created in the stream",
+     "type": "string"
+    },
+    "id": {
+     "description": "ID of the event",
+     "type": "string"
+    },
+    "processedAt": {
+     "description": "time when the event was processed",
+     "type": "string"
+    },
+    "rowID": {
+     "description": "id of the row, when it exists",
+     "type": "integer",
+     "format": "int64"
+    },
+    "status": {
+     "description": "if the event has been processed to a webhook",
+     "type": "string"
+    },
+    "table": {
+     "description": "Table the webhook was registered for",
+     "type": "string"
+    }
+   }
+  },
+  "models.OutputOK": {
+   "type": "object",
+   "properties": {
+    "message": {
+     "type": "string",
+     "example": "configuration removed"
+    }
+   }
+  },
+  "models.OutputWebhook": {
+   "type": "object",
+   "properties": {
+    "action": {
+     "description": "Action the action the webhook was registered for",
+     "type": "string"
+    },
+    "createdAt": {
+     "description": "CreatedAt time when the webhook was created",
+     "type": "string"
+    },
+    "endpoint": {
+     "description": "Endpoint the endpoint where the webhook is sent",
+     "type": "string"
+    },
+    "eventCount": {
+     "description": "EventCount number of events in the webhook",
+     "type": "integer"
+    },
+    "id": {
+     "description": "ID id of the webhook",
+     "type": "string"
+    },
+    "lastFailure": {
+     "description": "LastFailure contains the last error message if the hook send has failed",
+     "type": "string"
+    },
+    "processedAt": {
+     "description": "ProcessedAt time whe the webhook was last processed",
+     "type": "string"
+    },
+    "status": {
+     "description": "Status status of the webhook",
+     "type": "string"
+    },
+    "table": {
+     "description": "Table the table the webhook was registered for",
+     "type": "string"
+    },
+    "tries": {
+     "description": "Tries number of times the webhook was tried",
+     "type": "integer"
+    }
+   }
+  },
+  "models.WebhookConfiguration": {
+   "type": "object",
+   "properties": {
+    "action": {
+     "type": "string",
+     "example": "insert"
+    },
+    "clientcode": {
+     "type": "string",
+     "example": "000000"
+    },
+    "createdat": {
+     "type": "string",
+     "example": "2019-11-21T14:01:13.471Z"
+    },
+    "disabled": {
+     "type": "boolean",
+     "example": false
+    },
+    "endpoint": {
+     "type": "string",
+     "example": "https://test.receiver"
+    },
+    "id": {
+     "type": "string",
+     "example": "5dd63cc81810fd18722e23df"
+    },
+    "secret": {
+     "type": "string",
+     "example": "mySecretWord"
+    },
+    "table": {
+     "type": "string",
+     "example": "product"
+    },
+    "updatedat": {
+     "type": "string",
+     "example": "2019-11-21T14:01:13.471Z"
+    }
+   }
+  }
+ },
+ "securityDefinitions": {
+  "ClientCode": {
+   "type": "apiKey",
+   "name": "clientCode",
+   "in": "header"
+  },
+  "SessionKey": {
+   "type": "apiKey",
+   "name": "sessionKey",
+   "in": "header"
+  }
+ }
+}

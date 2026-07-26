@@ -1,0 +1,1186 @@
+{
+ "schemes": [],
+ "swagger": "2.0",
+ "info": {
+  "description": "### Configuration API with a tree-like hierarchy.\nThe API enables storing and retrieving JSON, JSON array or string configurations persistently.\n* ***[GraphQL Playground](/graph)*** - make more powerful queries with GraphQL.\n* ***[Golang SDK](https://gl.nimi24.com/back-office/cafa-go-wrapper)*** - make the API requests from your Go application easily.\n\n\n<details><summary>Authentication</summary> \n\nThere are 4 methods:\n 1. ```sessionKey``` + ```clientCode``` HTTP headers,\n 2. ```apisession_<yourClientCode>``` cookie  + ```clientCode``` HTTP header,\n 3. ```JWT```(identity token) HTTP header ,\n 4. ```hmac-auth``` + ```clientCode``` HTTP headers + timestamps in every request for the master access.\n</details>\n\n\n<details><summary>Configurations hierarchy</summary>\nConfiguration declared on a level will propagate down to all the sub-levels underneath.\n\n#### Levels of configurations \n There are 4 levels of configurations: \n 1. **Company** (highest),\n 2. **Warehouse**,   \n 3. **Pos**, \n 4. **User** (deepest).\n \n#### Relationships\n1. **Companies** and **warehouses** have **one-to-many** relationship. \n2. **Warehouses** and **POSes** have **many-to-many** relationship. \n3. **POSes** and **users** have **one-to-many** relationship. \n</details>\n\n<details><summary>Request parameter descriptions</summary>\nPlease read descriptions for parameters, request bodies in the requests and request models.\n</details>",
+  "title": "CAFA API",
+  "contact": {
+   "email": "david.zingerman@erply.com"
+  },
+  "version": "4.19.2"
+ },
+ "host": "",
+ "basePath": "",
+ "paths": {
+  "/configuration": {
+   "get": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "description": "All those parameters work like filters. You can search for all configs by type or by level. Or get all configs of Pos 1.\nWith `Look-Deeper` header set to `true` you will get the following logic of the request:\nWhen you request a config at a User or Warehouse levels, if it is not there it will check Company level as well. When you request a config at a POS level, if it is not there it will check Warehouse (if request to ERPLY API was ok to get the Warehouse ID) and Company levels as well.",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "v1"
+    ],
+    "summary": "Get all configurations or a sub-list.",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     },
+     {
+      "type": "boolean",
+      "description": "look for configuration on deeper levels. if CAFA does not find any configuration with the query parameters, CAFA will use the level_id(PointOfSaleID), to find which Warehouse the Pos belongs to and check for configuration with the same name(and type if present)",
+      "name": "Look-Deeper",
+      "in": "header"
+     },
+     {
+      "type": "string",
+      "description": "Application name that uses CAFA to store configs",
+      "name": "application",
+      "in": "query"
+     },
+     {
+      "enum": [
+       "Company",
+       "Warehouse",
+       "Pos",
+       "User",
+       "Device"
+      ],
+      "type": "string",
+      "description": "Level is the operating level where the config is stored",
+      "name": "level",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "LevelID is a unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  `Company level does not need level_id.`",
+      "name": "level_id",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations",
+      "name": "type",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "Name of the configuration",
+      "name": "name",
+      "in": "query"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/configuration"
+       }
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "description": "`level`, `level_id` and `type` are optional fields.",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "v1"
+    ],
+    "summary": "Update `value` only",
+    "deprecated": true,
+    "parameters": [
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     },
+     {
+      "description": "ConfigurationDbRecord",
+      "name": "config",
+      "in": "body",
+      "required": true,
+      "schema": {
+       "$ref": "#/definitions/configurationRequest"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Created",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   },
+   "post": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "description": "`NB`: You cannot have 2 configurations with the same level,level_id, type, name and application\nlevel, level_id and type are optional fields.",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "v1"
+    ],
+    "summary": "Save",
+    "deprecated": true,
+    "parameters": [
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     },
+     {
+      "description": "ConfigurationDbRecord",
+      "name": "config",
+      "in": "body",
+      "required": true,
+      "schema": {
+       "$ref": "#/definitions/configurationRequest"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Created",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "description": "Delete will delete the configuration by strict match of the following fields: level, application, levelID, type and name.",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "v1"
+    ],
+    "summary": "Delete",
+    "deprecated": true,
+    "parameters": [
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     },
+     {
+      "type": "string",
+      "description": "Application (s) name that uses CAFA to store configs",
+      "name": "application",
+      "in": "query",
+      "required": true
+     },
+     {
+      "type": "string",
+      "description": "Level is the operating level where the config is stored. Has to be one of Company, Warehouse, Pos, User",
+      "name": "level",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "LevelID is an unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  Company level does not need level_id.",
+      "name": "level_id",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations",
+      "name": "type",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "Name of the configuration",
+      "name": "name",
+      "in": "query"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   }
+  },
+  "/configuration/apps": {
+   "get": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "description": "Get a list of all application names that the user has configurations for.",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "v1"
+    ],
+    "summary": "Get a list of all application names that the user has configurations for.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/appsResponse"
+       }
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   }
+  },
+  "/configuration/{applicationName}": {
+   "get": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "description": "The endpoint allows you to get all the configurations in an application",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "v1"
+    ],
+    "summary": "Get all configurations for an application.",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     },
+     {
+      "type": "string",
+      "description": "Application name",
+      "name": "applicationName",
+      "in": "path",
+      "required": true
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/configuration"
+       }
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   }
+  },
+  "/configuration/{id}/move": {
+   "put": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "v1"
+    ],
+    "summary": "Moving means changing the level_id.",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     },
+     {
+      "description": "desired levelID",
+      "name": "moveRequest",
+      "in": "body",
+      "required": true,
+      "schema": {
+       "$ref": "#/definitions/moveRequest"
+      }
+     },
+     {
+      "type": "string",
+      "description": "ConfigurationDbRecord ID",
+      "name": "id",
+      "in": "path",
+      "required": true
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Created",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   }
+  },
+  "/configurations/export": {
+   "get": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "Import & Export"
+    ],
+    "summary": "Export configurations to files",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "Application name that uses CAFA to store configs",
+      "name": "application",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "Level is the operating level where the config is stored. Has to be one of Company, Warehouse, Pos, User. Default is Company",
+      "name": "level",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "LevelID is a unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  `Company level does not need level_id.`",
+      "name": "level_id",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations",
+      "name": "type",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "Name of the configuration",
+      "name": "name",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "binary .json file content",
+      "schema": {
+       "type": "string"
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   }
+  },
+  "/configurations/import": {
+   "post": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "consumes": [
+     "multipart/form-data"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "Import & Export"
+    ],
+    "summary": "Import configurations from file",
+    "parameters": [
+     {
+      "type": "file",
+      "description": "File that contains the data for the import (should be .json)",
+      "name": "file",
+      "in": "formData",
+      "required": true
+     },
+     {
+      "type": "boolean",
+      "description": "If true, existing configurations will not be updated, otherwise they will be updated with the imported data",
+      "name": "preserveExistingConfigurations",
+      "in": "query"
+     },
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/server.importResult"
+       }
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   }
+  },
+  "/configurations/sync": {
+   "get": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "description": "Request the configurations with the intention to sync some or all of the configurations created or modified since the lastModified timestamp.\nAt most, 5000 configurations will be returned from this endpoint in one request.\nContinue making requests with the same lastModified to get the remaining configurations. The API remembers itself where you left off.",
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "Sync"
+    ],
+    "summary": "Sync configurations",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     },
+     {
+      "type": "integer",
+      "description": "change since date for the configurations to sync",
+      "name": "lastModified",
+      "in": "query",
+      "required": true
+     },
+     {
+      "type": "integer",
+      "description": "the ID of the last configuration in the previous response. It is the responsibility of the API client to extract this value and use it for the next call.",
+      "name": "lastIdRetrieved",
+      "in": "query"
+     },
+     {
+      "type": "integer",
+      "description": "Number of records to return. If API client omits this parameter, the 20 is the default value.",
+      "name": "take",
+      "in": "query"
+     },
+     {
+      "type": "boolean",
+      "description": "optionally return total number of records in the X-Total-Count response header",
+      "name": "withTotalCount",
+      "in": "query"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/configuration"
+       }
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   }
+  },
+  "/v3/configuration": {
+   "put": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "description": "`NB`: You cannot have 2 configurations with the same level,level_id, type, name and application\nlevel, level_id and type are optional fields.",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "v3"
+    ],
+    "summary": "Save or update a configuration",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     },
+     {
+      "description": "ConfigurationDbRecord",
+      "name": "config",
+      "in": "body",
+      "required": true,
+      "schema": {
+       "$ref": "#/definitions/configurationRequest"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Created",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   }
+  },
+  "/v3/configuration/{id}": {
+   "get": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "v3"
+    ],
+    "summary": "Get by ID",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     },
+     {
+      "type": "string",
+      "description": "Configuration ID",
+      "name": "id",
+      "in": "path",
+      "required": true
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "type": "array",
+       "items": {
+        "$ref": "#/definitions/configuration"
+       }
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   },
+   "put": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "description": "Update `value` by ID",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "v3"
+    ],
+    "summary": "Update `value` by ID",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     },
+     {
+      "type": "string",
+      "description": "Configuration ID",
+      "name": "id",
+      "in": "path",
+      "required": true
+     },
+     {
+      "description": "new configuration value",
+      "name": "value",
+      "in": "body",
+      "required": true,
+      "schema": {
+       "$ref": "#/definitions/valueRequest"
+      }
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Created",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   },
+   "delete": {
+    "security": [
+     {
+      "sk": []
+     },
+     {
+      "cc": []
+     },
+     {
+      "hmac-auth": []
+     },
+     {
+      "jwt": []
+     }
+    ],
+    "description": "Delete By ID",
+    "consumes": [
+     "application/json"
+    ],
+    "produces": [
+     "application/json"
+    ],
+    "tags": [
+     "v3"
+    ],
+    "summary": "Delete By ID",
+    "parameters": [
+     {
+      "type": "string",
+      "description": "UNIX timestamp used for the HMAC Auth method only",
+      "name": "timestamp",
+      "in": "header"
+     },
+     {
+      "type": "integer",
+      "description": "configuration ID",
+      "name": "id",
+      "in": "path",
+      "required": true
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "400": {
+      "description": "Bad Request",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     },
+     "500": {
+      "description": "Internal Server Error",
+      "schema": {
+       "$ref": "#/definitions/response"
+      }
+     }
+    }
+   }
+  }
+ },
+ "definitions": {
+  "appsResponse": {
+   "type": "object",
+   "properties": {
+    "applications": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "configuration": {
+   "type": "object",
+   "properties": {
+    "added": {
+     "type": "integer"
+    },
+    "addedby_id": {
+     "type": "integer"
+    },
+    "application": {
+     "type": "string",
+     "example": "erply-to-woo-sync"
+    },
+    "changed": {
+     "type": "integer"
+    },
+    "changedby_id": {
+     "type": "integer"
+    },
+    "id": {
+     "type": "string"
+    },
+    "level": {
+     "description": "Level is optional",
+     "type": "string",
+     "example": "Pos"
+    },
+    "level_id": {
+     "description": "LevelID is optional",
+     "type": "string",
+     "example": "1"
+    },
+    "name": {
+     "type": "string",
+     "example": "adyen"
+    },
+    "type": {
+     "description": "Type is optional",
+     "type": "string",
+     "example": "payment"
+    },
+    "value": {}
+   }
+  },
+  "configurationRequest": {
+   "type": "object",
+   "properties": {
+    "application": {
+     "description": "Application (s) name that uses CAFA to store configs, application name has to be generated manually before it can be used in Identity Admin.",
+     "type": "string",
+     "example": "woo-comm"
+    },
+    "level": {
+     "description": "Level is the operating level where the config will be stored. Has to be one of Company, Warehouse, Pos, User",
+     "type": "string",
+     "example": "Pos"
+    },
+    "level_id": {
+     "description": "LevelID is a unique value, used to identify the instance of the level.\nfor User level, user id\nfor Pos - Point of Sale ID. Each Pos belongs to Warehouse. When we query CAFA for configuration on level: 'Pos', and add 'Look-Deeper: true' header, if CAFA dooes not find any configuration with the query parameters, CAFA will use the level_id(PointOfSaleID), to find which Warehouse the Pos belongs to and check for configuration with the same name(and type if present)\nWarehouse can use any unique string to identify the instance of its level, because the higher level for each Warehouse is Company level, which can only be one instance per account\nCompany level does not need level_id because there can only be one company per account in Erply.",
+     "type": "string",
+     "example": "1"
+    },
+    "name": {
+     "description": "Name of the configuration",
+     "type": "string",
+     "example": "adyen"
+    },
+    "type": {
+     "description": "Type is an optional grouping property, in this case its 'payment',\nindicating that this configuration belongs to payment integrations group\nused to query groups of related configurations",
+     "type": "string",
+     "example": "payment"
+    },
+    "value": {
+     "description": "Value stored by the configuration. Supported types: JSON, JSON array, string"
+    }
+   }
+  },
+  "moveRequest": {
+   "type": "object",
+   "properties": {
+    "level_id": {
+     "description": "LevelID is new level_id to set for the config",
+     "type": "string"
+    }
+   }
+  },
+  "response": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "integer"
+    },
+    "message": {
+     "type": "string"
+    },
+    "statusCode": {
+     "type": "string"
+    }
+   }
+  },
+  "server.importResult": {
+   "type": "object",
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    }
+   }
+  },
+  "valueRequest": {
+   "type": "object",
+   "properties": {
+    "value": {
+     "description": "Value stored by the configuration. Supported types: JSON, JSON array, string"
+    }
+   }
+  }
+ },
+ "securityDefinitions": {
+  "cc": {
+   "type": "apiKey",
+   "name": "clientCode",
+   "in": "header"
+  },
+  "hmac-auth": {
+   "type": "apiKey",
+   "name": "hmac-auth",
+   "in": "header"
+  },
+  "jwt": {
+   "type": "apiKey",
+   "name": "jwt",
+   "in": "header"
+  },
+  "sk": {
+   "type": "apiKey",
+   "name": "sessionKey",
+   "in": "header"
+  }
+ }
+}

@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: generated
+skills:
+- file: erply-sync-products.md
+  name: Sync products from Erply PIM
+  api: openapi/erply-pim-openapi.json
+  operations:
+  - GET /v1/product
+  - GET /v1/product/{ids}
+  - GET /v1/product/category
+  - GET /v1/product/group
+- file: erply-manage-webhooks.md
+  name: Manage Erply webhooks
+  api: openapi/erply-webhook-openapi.json
+  operations:
+  - getWebhookConfigurations
+  - addWebhookConfiguration
+  - updateWebhookConfiguration
+  - removeWebhookConfiguration
+  - getEvents

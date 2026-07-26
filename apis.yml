@@ -1,21 +1,1205 @@
 aid: erply
 name: Erply
-description: Erply is a company surfaced as a portfolio company of 500-global, seedcamp and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Erply is a cloud-based retail management platform providing point-of-sale (POS), inventory and warehouse management, product information management (PIM), CRM, sales reporting and ecommerce integrations for retailers running one or more stores, warehouses and online sales channels. Erply exposes a general-purpose classic API plus a growing set of purpose-built JSON REST APIs (PIM, Account/Assignments, CAFA app configuration, Reports, CDN, WMS) documented with Swagger, and a Webhook Manager for real-time POS and sales-order events. Authentication is session-key based (verifyUser -> sessionKey with a per-account clientCode). Surfaced as a portfolio company of 500 Global and Seedcamp and enriched into the API Evangelist network with its real developer surface.
 url: https://raw.githubusercontent.com/api-evangelist/erply/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 500-global
 - seedcamp
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: public-developer-surface
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://cdn.erply.com/images/533252/erplyIcon-1.webp
 tags:
+- Retail
+- Point of Sale
+- Inventory
+- Product Information Management
+- CRM
+- Ecommerce
+- Warehouse Management
+- Webhooks
 - Company
-apis: []
+apis:
+- aid: erply:erply-assortment-api
+  name: Erply Assortment API
+  description: The Assortment API from Erply — 3 operation(s) for assortment.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Assortment
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-assortment-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-assortment-to-product-linking-api
+  name: Erply Assortment To Product Linking API
+  description: >-
+    The Assortment To Product Linking API from Erply — 9 operation(s) for assortment to product linking.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Assortment To Product Linking
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-assortment-to-product-linking-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-attributes-api
+  name: Erply Attributes API
+  description: >-
+    Attributes are attached to entities. The possible entities are: product, recipe, warehouse location,
+    assortment, brand, matrix dimension, matrix dimension value, category, country, family, group, package,
+    parameter, parameter option, parameter set, parameter validation rule, parameter value, unit, supplier
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Attributes
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-attributes-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-auth-api
+  name: Erply auth API
+  description: The auth API from Erply — 1 operation(s) for auth.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - auth
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-auth-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-brand-api
+  name: Erply Brand API
+  description: The Brand API from Erply — 5 operation(s) for brand.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Brand
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-brand-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-clsf-api
+  name: Erply clsf API
+  description: The clsf API from Erply — 7 operation(s) for clsf.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - clsf
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-clsf-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-clsf-device-properties-api
+  name: Erply clsf-device-properties API
+  description: The clsf-device-properties API from Erply — 6 operation(s) for clsf-device-properties.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - clsf-device-properties
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-clsf-device-properties-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-clsf-events-api
+  name: Erply clsf-events API
+  description: The clsf-events API from Erply — 2 operation(s) for clsf-events.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - clsf-events
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-clsf-events-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-clsf-labels-api
+  name: Erply clsf-labels API
+  description: The clsf-labels API from Erply — 4 operation(s) for clsf-labels.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - clsf-labels
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-clsf-labels-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-country-api
+  name: Erply Country API
+  description: The Country API from Erply — 3 operation(s) for country.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Country
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-country-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-device-api
+  name: Erply device API
+  description: The device API from Erply — 4 operation(s) for device.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - device
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-device-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-event-api
+  name: Erply event API
+  description: The event API from Erply — 1 operation(s) for event.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - event
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-event-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-export-api
+  name: Erply Export API
+  description: The Export API from Erply — 3 operation(s) for export.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Export
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-export-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-external-ids-api
+  name: Erply External IDs API
+  description: The External IDs API from Erply — 4 operation(s) for external ids.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - External IDs
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-external-ids-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-form-api
+  name: Erply form API
+  description: The form API from Erply — 1 operation(s) for form.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - form
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-form-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-franchise-products-api
+  name: Erply Franchise Products API
+  description: The Franchise Products API from Erply — 2 operation(s) for franchise products.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Franchise Products
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-franchise-products-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-import-export-api
+  name: Erply Import & Export API
+  description: The Import & Export API from Erply — 2 operation(s) for import & export.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Import & Export
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-import-export-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-item-api
+  name: Erply item API
+  description: The item API from Erply — 4 operation(s) for item.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - item
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-item-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-label-api
+  name: Erply label API
+  description: The label API from Erply — 1 operation(s) for label.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - label
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-label-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-linked-products-api
+  name: Erply Linked Products API
+  description: Manage substitute and cross-sell products
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Linked Products
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-linked-products-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-locations-in-warehouse-api
+  name: Erply Locations in warehouse API
+  description: The Locations in warehouse API from Erply — 1 operation(s) for locations in warehouse.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Locations in warehouse
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-locations-in-warehouse-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-matrix-dimension-api
+  name: Erply Matrix Dimension API
+  description: The Matrix Dimension API from Erply — 6 operation(s) for matrix dimension.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Matrix Dimension
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-matrix-dimension-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-matrix-dimension-value-api
+  name: Erply Matrix Dimension Value API
+  description: The Matrix Dimension Value API from Erply — 6 operation(s) for matrix dimension value.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Matrix Dimension Value
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-matrix-dimension-value-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-matrix-product-api
+  name: Erply Matrix Product API
+  description: The Matrix Product API from Erply — 7 operation(s) for matrix product.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Matrix Product
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-matrix-product-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-matrix-product-variation-api
+  name: Erply Matrix Product Variation API
+  description: >-
+    The Matrix Product Variation API from Erply — 4 operation(s) for matrix product variation.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Matrix Product Variation
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-matrix-product-variation-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-note-api
+  name: Erply note API
+  description: The note API from Erply — 2 operation(s) for note.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - note
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-note-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-parameter-set-to-group-linking-api
+  name: Erply Parameter Set to Group Linking API
+  description: >-
+    The Parameter Set to Group Linking API from Erply — 2 operation(s) for parameter set to group linking.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Parameter Set to Group Linking
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-parameter-set-to-group-linking-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-parameter-set-to-product-linking-api
+  name: Erply Parameter Set To Product Linking API
+  description: >-
+    The Parameter Set To Product Linking API from Erply — 1 operation(s) for parameter set to product
+    linking.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Parameter Set To Product Linking
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-parameter-set-to-product-linking-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-permissions-api
+  name: Erply Permissions API
+  description: The Permissions API from Erply — 2 operation(s) for permissions.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-permissions-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-printout-api
+  name: Erply printout API
+  description: The printout API from Erply — 3 operation(s) for printout.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - printout
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-printout-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-category-api
+  name: Erply Product Category API
+  description: The Product Category API from Erply — 8 operation(s) for product category.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Category
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-category-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-extra-field-1-api
+  name: Erply Product Extra Field 1 API
+  description: The Product Extra Field 1 API from Erply — 6 operation(s) for product extra field 1.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Extra Field 1
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-extra-field-1-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-extra-field-2-api
+  name: Erply Product Extra Field 2 API
+  description: The Product Extra Field 2 API from Erply — 6 operation(s) for product extra field 2.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Extra Field 2
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-extra-field-2-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-extra-field-3-api
+  name: Erply Product Extra Field 3 API
+  description: The Product Extra Field 3 API from Erply — 6 operation(s) for product extra field 3.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Extra Field 3
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-extra-field-3-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-extra-field-4-api
+  name: Erply Product Extra Field 4 API
+  description: The Product Extra Field 4 API from Erply — 6 operation(s) for product extra field 4.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Extra Field 4
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-extra-field-4-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-family-api
+  name: Erply Product Family API
+  description: The Product Family API from Erply — 4 operation(s) for product family.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Family
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-family-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-fields-api
+  name: Erply Product Fields API
+  description: The Product Fields API from Erply — 2 operation(s) for product fields.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-fields-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-group-api
+  name: Erply Product Group API
+  description: The Product Group API from Erply — 15 operation(s) for product group.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Group
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-group-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-package-api
+  name: Erply Product Package API
+  description: The Product Package API from Erply — 4 operation(s) for product package.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Package
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-package-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-parameter-api
+  name: Erply Product Parameter API
+  description: The Product Parameter API from Erply — 5 operation(s) for product parameter.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Parameter
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-parameter-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-parameter-option-api
+  name: Erply Product Parameter Option API
+  description: >-
+    The Product Parameter Option API from Erply — 5 operation(s) for product parameter option.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Parameter Option
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-parameter-option-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-parameter-set-api
+  name: Erply Product Parameter Set API
+  description: The Product Parameter Set API from Erply — 3 operation(s) for product parameter set.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Parameter Set
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-parameter-set-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-parameter-validation-rule-api
+  name: Erply Product Parameter Validation Rule API
+  description: >-
+    The Product Parameter Validation Rule API from Erply — 4 operation(s) for product parameter validation
+    rule.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Parameter Validation Rule
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-parameter-validation-rule-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-parameter-value-api
+  name: Erply Product Parameter Value API
+  description: The Product Parameter Value API from Erply — 4 operation(s) for product parameter value.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Parameter Value
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-parameter-value-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-priority-groups-api
+  name: Erply Product Priority Groups API
+  description: The Product Priority Groups API from Erply — 6 operation(s) for product priority groups.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Priority Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-priority-groups-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-recipes-api
+  name: Erply Product Recipes API
+  description: The Product Recipes API from Erply — 4 operation(s) for product recipes.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Recipes
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-recipes-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-replacement-api
+  name: Erply Product Replacement API
+  description: The Product Replacement API from Erply — 2 operation(s) for product replacement.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Replacement
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-replacement-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-product-units-api
+  name: Erply Product Units API
+  description: The Product Units API from Erply — 6 operation(s) for product units.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Product Units
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-product-units-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-products-api
+  name: Erply Products API
+  description: >-
+    NB: Product picture management is done with CDN API: https://learn-api.erply.com/new-apis/cdn-api
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-products-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-report-api
+  name: Erply report API
+  description: The report API from Erply — 4 operation(s) for report.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - report
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-report-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-resource-api
+  name: Erply resource API
+  description: The resource API from Erply — 3 operation(s) for resource.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - resource
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-resource-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-row-api
+  name: Erply row API
+  description: The row API from Erply — 4 operation(s) for row.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - row
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-row-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-special-endpoints-api
+  name: Erply Special Endpoints API
+  description: The Special Endpoints API from Erply — 3 operation(s) for special endpoints.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Special Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-special-endpoints-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-supplier-api
+  name: Erply Supplier API
+  description: The Supplier API from Erply — 6 operation(s) for supplier.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Supplier
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-supplier-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-sync-api
+  name: Erply sync API
+  description: The sync API from Erply — 3 operation(s) for sync.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - sync
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-sync-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-task-api
+  name: Erply task API
+  description: The task API from Erply — 4 operation(s) for task.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - task
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-task-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-tasks-api
+  name: Erply Tasks API
+  description: The Tasks API from Erply — 2 operation(s) for tasks.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-tasks-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-template-api
+  name: Erply template API
+  description: The template API from Erply — 3 operation(s) for template.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - template
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-template-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-v1-api
+  name: Erply v1 API
+  description: The v1 API from Erply — 4 operation(s) for v1.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - v1
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-v1-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-v3-api
+  name: Erply v3 API
+  description: The v3 API from Erply — 2 operation(s) for v3.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - v3
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-v3-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-warehouse-locations-api
+  name: Erply Warehouse Locations API
+  description: The Warehouse Locations API from Erply — 3 operation(s) for warehouse locations.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Warehouse Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-warehouse-locations-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-webhook-api
+  name: Erply webhook API
+  description: The webhook API from Erply — 2 operation(s) for webhook.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - webhook
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-webhook-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-webhook-configuration-api
+  name: Erply webhook-configuration API
+  description: The webhook-configuration API from Erply — 2 operation(s) for webhook-configuration.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - webhook-configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-webhook-configuration-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-workorder-api
+  name: Erply workorder API
+  description: The workorder API from Erply — 14 operation(s) for workorder.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - workorder
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-workorder-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -24,3 +1208,68 @@ maintainers:
 common:
 - type: Website
   url: https://erply.com
+- type: DeveloperPortal
+  url: https://learn-api.erply.com/
+- type: Documentation
+  url: https://learn-api.erply.com/
+- type: APIReference
+  url: https://learn-api.erply.com/requests
+- type: GettingStarted
+  url: https://learn-api.erply.com/getting-started
+- type: Support
+  url: mailto:support@erply.com
+- type: Blog
+  url: https://erply.com/blog
+- type: Pricing
+  url: https://erply.com/pricing
+- type: SignUp
+  url: https://erply.com/sign-up/
+- type: Login
+  url: https://go.erply.com/login
+- type: TermsOfService
+  url: https://erply.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://erply.com/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/erply
+- type: StatusPage
+  url: https://status.erply.com/
+- type: ChangeLog
+  url: https://erply.com/release-notes
+- type: ChangeLog
+  url: changelog/erply-changelog.yml
+- type: Authentication
+  url: authentication/erply-authentication.yml
+- type: DomainSecurity
+  url: security/erply-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/erply-agentic-access.yml
+- type: Packages
+  url: packages/erply-packages.yml
+- type: SDKs
+  url: packages/erply-packages.yml
+- type: LLMsTxt
+  url: llms/erply-llms.txt
+- type: MCPServer
+  url: mcp/erply-mcp.yml
+- type: Conventions
+  url: conventions/erply-conventions.yml
+- type: ErrorCatalog
+  url: errors/erply-error-codes.yml
+- type: RateLimits
+  url: rate-limits/erply-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/erply-lifecycle.yml
+- type: Conformance
+  url: conformance/erply-conformance.yml
+- type: DataModel
+  url: data-model/erply-data-model.yml
+- type: Webhooks
+  url: asyncapi/erply-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

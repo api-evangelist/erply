@@ -1,0 +1,19 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/erply-pim-openapi.json, openapi/erply-assignments-openapi.json, openapi/erply-cafa-openapi.json
+format: custom-message-response
+note: Derived from the REST specs' 4xx/5xx responses. These APIs do not use RFC 9457 application/problem+json;
+  failures return the MessageResponse schema.
+problems:
+- status: 400
+  title: Bad Request
+  schema: responses.MessageResponse
+  evidence: 184 PIM operations declare a 400 MessageResponse
+- status: 404
+  title: Not Found
+  schema: responses.MessageResponse
+  evidence: PIM/Assignments getById operations declare 404
+- status: 500
+  title: Internal Server Error
+  schema: responses.MessageResponse
+  evidence: 184 PIM operations declare a 500 MessageResponse

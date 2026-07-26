@@ -1,0 +1,30 @@
+generated: '2026-07-19'
+method: searched
+source: https://webhook.erply.com/api/docs/index.html, https://wiki.erply.com/article/1540-enriched-events
+spec_type: Webhooks
+management_api: openapi/erply-webhook-openapi.json
+delivery:
+  transport: HTTP POST to configured URLs
+  signing: HMAC; a per-configuration secret is used as salt for an hmac key on each delivery
+  batching: up to 100 database events per webhook
+  retry: expects HTTP 200 within 5s; failed deliveries retried a configurable number of times (default
+    1), then dropped
+  semantics: fire-and-forget notification service, not an authoritative data source
+events:
+- name: posTransactionConfirmed
+  description: A POS transaction was confirmed
+- name: salesOrderCreated
+  description: A sales order was created
+- name: salesOrderConfirmed
+  description: A sales order was confirmed
+database_events:
+  actions:
+  - insert
+  - update
+  - delete
+  tables_example:
+  - product
+  - invoice
+  - user
+  notes: Configurations subscribe to a specific action + table; the delivery payload carries the action,
+    table and a timestamp.

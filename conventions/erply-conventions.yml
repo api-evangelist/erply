@@ -1,0 +1,59 @@
+generated: '2026-07-19'
+method: searched
+source: https://learn-api.erply.com/getting-started, https://learn-api.erply.com/concepts, openapi/
+authentication:
+  style: session key
+  flow: POST verifyUser with username + password + clientCode -> sessionKey; send clientCode + sessionKey
+    headers/params on subsequent calls.
+  session_ttl: ~1 hour (expiry signalled by error 1054/1055)
+  schemes:
+  - clientCode
+  - sessionKey
+  - jwt
+  - accessToken
+  - requestKey
+  - hmac (CAFA/webhooks)
+  ref: authentication/erply-authentication.yml
+idempotency:
+  supported: false
+  notes: No Idempotency-Key header is documented; bulk endpoints (/bulk) batch up to 100 sub-requests
+    but are not idempotent-keyed.
+pagination:
+  styles:
+  - api: PIM
+    params:
+    - take
+    - skip
+    total: withTotalCount
+    response_total_header: X-Total-Count (when withTotalCount=1)
+  - api: Assignments
+    params:
+    - pageSize
+    - pageNr
+    total: withTotalCount
+  - api: classic
+    params:
+    - recordsOnPage
+    - pageNo
+    total: records / totalRecords in status
+sorting_filtering:
+  params:
+  - sort
+  - filter
+  notes: PIM REST APIs accept sort and filter query params.
+request_format:
+  classic: HTTP POST form-encoded (parameter1=value1&...), JSON or XML response; add sendContentType=1
+    for correct Content-Type.
+  rest: JSON request/response over /v1 paths.
+rate_limit_signal:
+  limit: 2000/hour/account
+  error_code: 1002
+  ref: rate-limits/erply-rate-limits.yml
+error_envelope:
+  classic: status object with errorCode (0 = success, 1xxx = failure)
+  rest: responses.MessageResponse schema on 4xx/5xx
+  ref: errors/erply-error-codes.yml
+service_discovery:
+  notes: Use getServiceEndpoints (classic API) to resolve the correct account-specific REST host before
+    calling PIM/Assignments/etc.
+versioning_ref: lifecycle/erply-lifecycle.yml
