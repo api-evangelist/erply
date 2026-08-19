@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Tasks API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update tax rate for recurring bills",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/tasks/recurring-billing-update-tax-rate"
+          },
+          "docs": "Update tax rate for recurring bills"
+        },
+        {
+          "info": {
+            "name": "Update tax rate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/tasks/update-tax-rate"
+          },
+          "docs": "Update tax rate"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Country API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Country",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/country",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of countries. Country is a classifier for organizing products and customers."
+        },
+        {
+          "info": {
+            "name": "Create a Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/country"
+          },
+          "docs": "Create a Country"
+        },
+        {
+          "info": {
+            "name": "Delete countries by IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/country/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited country IDs"
+              }
+            ]
+          },
+          "docs": "Country can be deleted if it's not linked to any products or customers"
+        },
+        {
+          "info": {
+            "name": "Update a Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/country/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "country ID"
+              }
+            ]
+          },
+          "docs": "Update a Country"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

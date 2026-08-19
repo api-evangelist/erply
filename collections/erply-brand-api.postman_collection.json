@@ -1,0 +1,1034 @@
+{
+  "item": [
+    {
+      "id": "38ed8511-0c02-46f1-908d-bae6ded8171a",
+      "name": "Brand",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ec3062ec-7412-4060-86ea-ff6ed54aba47",
+          "name": "Get brands",
+          "request": {
+            "name": "Get brands",
+            "description": {
+              "content": "Get brands",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "brand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "optionally return total number of records in the X-Total-Count response header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "6d432518-e461-4739-b350-6e1cf459192b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "total number of records (ignores skip & take parameters)",
+                  "key": "X-Total-Count",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"changed\": 1595230999,\n    \"changedby\": \"k@erp.xyz\",\n    \"description\": {\n      \"en\": \"string\"\n    },\n    \"id\": 7766,\n    \"name\": \"string\"\n  },\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"changed\": 1595230999,\n    \"changedby\": \"k@erp.xyz\",\n    \"description\": {\n      \"en\": \"string\"\n    },\n    \"id\": 5212,\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f5ec4b5-70f1-4ce3-b052-21f970c4fd4c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "acc89886-3f40-42e0-ba42-daf3eecea376",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67fd0204-e320-45bf-8cef-8cd380e03893",
+          "name": "Create brand",
+          "request": {
+            "name": "Create brand",
+            "description": {
+              "content": "Create brand",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "brand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": {\n    \"en\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc2753a3-285b-4566-9799-9561cecb7977",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": {\n    \"en\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5768a5d-922c-4623-a610-1d9a0bb051a8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": {\n    \"en\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57ea077e-9ed0-4acd-a2dd-e83adad911e2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": {\n    \"en\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d622dd0-d2b3-4301-ade7-e0343e380cd8",
+          "name": "Create brands in bulk",
+          "request": {
+            "name": "Create brands in bulk",
+            "description": {
+              "content": "each request contains only the brand's name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "brand",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"description\": {\n        \"en\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    {\n      \"description\": {\n        \"en\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4d252f65-f84b-472f-a4a7-f0ff21f64973",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"description\": {\n        \"en\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    },\n    {\n      \"description\": {\n        \"en\": \"<string>\"\n      },\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    },\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5adc220-76fe-4eab-9d76-bf6b6c309384",
+          "name": "Get brands in bulk",
+          "request": {
+            "name": "Get brands in bulk",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "brand",
+                "bulk",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"<string>\",\n        \"selector\": \"<string>\"\n      }\n    },\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"<string>\",\n        \"selector\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c0d8ab5f-2b61-483f-8479-0d814cc338dd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand",
+                    "bulk",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"en\",\n        \"selector\": \"name\"\n      }\n    },\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"en\",\n        \"selector\": \"name\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"brands\": [\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"description\": {\n            \"en\": \"<string>\"\n          },\n          \"id\": 3038,\n          \"name\": \"string\"\n        },\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"description\": {\n            \"en\": \"<string>\"\n          },\n          \"id\": 2207,\n          \"name\": \"string\"\n        }\n      ],\n      \"message\": \"some message\",\n      \"resultId\": 1992\n    },\n    {\n      \"brands\": [\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"description\": {\n            \"en\": \"<string>\"\n          },\n          \"id\": 7259,\n          \"name\": \"string\"\n        },\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"description\": {\n            \"en\": \"<string>\"\n          },\n          \"id\": 693,\n          \"name\": \"string\"\n        }\n      ],\n      \"message\": \"some message\",\n      \"resultId\": 7223\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51ab3165-644d-4319-9195-543062559cf6",
+          "name": "Delete brands",
+          "request": {
+            "name": "Delete brands",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "brand",
+                ":ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) up to 100 semicolon delimited brand IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "f32dc896-35a7-483e-bd07-328bada37ffa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited brand IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d3aa11a-4311-4493-b528-99f8bccbf1c6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited brand IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6fa6832-a5dc-4f1d-880d-7c8731e8e841",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited brand IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "899dc5f6-51ab-424f-8b50-299b9b4152ff",
+          "name": "Update brand",
+          "request": {
+            "name": "Update brand",
+            "description": {
+              "content": "Update brand",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "brand",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) brand ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": {\n    \"en\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7b1d19d8-1bf6-4773-9f3a-cab99fcc5407",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) brand ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": {\n    \"en\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7daa8cf6-2855-4668-95a1-61688db99f05",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) brand ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": {\n    \"en\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7980a8c-d123-46e8-9182-a43b1ba81023",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "brand",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) brand ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": {\n    \"en\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cd776054-c12b-4783-97ad-5b2e5058d494",
+    "name": "assignments Assortment Brand API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

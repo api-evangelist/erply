@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment resource API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/resource",
+            "params": [
+              {
+                "name": "warehouseId",
+                "value": "",
+                "type": "query",
+                "description": "Warehouse ID-s"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `order`"
+              }
+            ]
+          },
+          "docs": "Look up resources"
+        },
+        {
+          "info": {
+            "name": "Add a new resource record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/resource"
+          },
+          "docs": "Add a new resource record"
+        },
+        {
+          "info": {
+            "name": "Update resource record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/resource/:resourceId",
+            "params": [
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update resource record"
+        },
+        {
+          "info": {
+            "name": "Delete one resource record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/resource/:resourceId",
+            "params": [
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one resource record"
+        },
+        {
+          "info": {
+            "name": "Change the order of one resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/resource/:resourceId/order",
+            "params": [
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "path",
+                "description": "Resource id that must be moved to new position"
+              }
+            ]
+          },
+          "docs": "Allows changing the order of resources. A single record can be moved either in front of any other resource in the same warehouse, or to the end of the resource list"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

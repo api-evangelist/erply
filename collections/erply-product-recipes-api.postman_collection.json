@@ -1,0 +1,852 @@
+{
+  "item": [
+    {
+      "id": "99428f71-20cb-471d-97db-cf4e0597f209",
+      "name": "Product Recipes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b321ba9e-ac89-4686-a5e7-3e45662e5168",
+          "name": "Get Product Recipes",
+          "request": {
+            "name": "Get Product Recipes",
+            "description": {
+              "content": "Get Product Recipes. Filtering & Sorting by child product objects is not supported.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "recipe"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "productIDs",
+                  "value": "<integer>,<integer>",
+                  "description": "API client specifies one or more product IDs and wants components for these products. Can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "optionally return total number of records in the X-Total-Count response header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "42a090e5-4146-45b6-9ec5-b512b6c132e5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "recipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "productIDs",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "total number of records (ignores skip & take parameters)",
+                  "key": "X-Total-Count",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"amount\": 5,\n    \"changed\": 1595230999,\n    \"changedby\": \"k@erp.xyz\",\n    \"component_product\": {\n      \"added\": 1595230999,\n      \"addedby\": \"k@erp.xyz\",\n      \"age_restriction\": 7417,\n      \"alcohol_percentage\": \"string\",\n      \"alcohol_registry_number\": \"string\",\n      \"batches\": \"string\",\n      \"brand_id\": 9094,\n      \"cashier_must_enter_price\": 9384,\n      \"category_id\": 4616,\n      \"changed\": 1595230999,\n      \"changedby\": \"k@erp.xyz\",\n      \"code\": \"string\",\n      \"code2\": \"string\",\n      \"code3\": \"string\",\n      \"code5\": \"string\",\n      \"code6\": \"string\",\n      \"code7\": \"string\",\n      \"code8\": \"string\",\n      \"cost\": 2670.278609574185,\n      \"country_of_origin_id\": 6331,\n      \"delivery_time\": \"string\",\n      \"deposit_fee_amount\": 6264,\n      \"deposit_fee_id\": 3737,\n      \"description\": {\n        \"en\": {\n          \"html\": \"<b>Very good product!</b>\",\n          \"plain_text\": \"Very good product!\"\n        }\n      },\n      \"displayed_in_webshop\": 7868,\n      \"excise_declaration_number\": \"string\",\n      \"extra_field1_id\": 6980,\n      \"extra_field2_id\": 4418,\n      \"extra_field3_id\": 2205,\n      \"extra_field4_id\": 5850,\n      \"family_id\": 7697,\n      \"formula_identifier\": \"string\",\n      \"gross_weight\": 5913.4513970204725,\n      \"group_id\": 8202,\n      \"group_package_ferrous_metal\": 5728.872958052813,\n      \"group_package_metal\": 7671.27631876119,\n      \"group_package_non_ferrous_metal\": 7756.5985799329555,\n      \"group_package_paper\": 8515.078244905806,\n      \"group_package_plastic\": 4045.336798568986,\n      \"group_package_wood\": 4922.234177228175,\n      \"has_serial_numbers\": 5854,\n      \"height\": 9498.639247388257,\n      \"id\": 7731,\n      \"is_gift_card\": 4306,\n      \"is_lot_product\": false,\n      \"is_regular_gift_card\": 301,\n      \"is_used_product\": true,\n      \"labels_not_needed\": 7173,\n      \"length\": 3687.786885650658,\n      \"location_in_warehouse_id\": 826,\n      \"location_in_warehouse_text\": \"string\",\n      \"manufacturer_name\": \"string\",\n      \"name\": {\n        \"en\": \"string\"\n      },\n      \"net_weight\": 2783.4157031626237,\n      \"non_discountable\": 4642,\n      \"non_refundable\": 6739,\n      \"non_stock_product\": 9105,\n      \"packaging_type\": \"string\",\n      \"packing_not_required\": 5408,\n      \"parent_product_id\": 1022,\n      \"price\": 6901.912673273519,\n      \"price_with_tax\": 1080.6211947176726,\n      \"priority_group_id\": 5140,\n      \"product_item_level_promotions_disabled\": 428,\n      \"product_reorder_multiples\": 4733,\n      \"revenue_account\": \"string\",\n      \"reward_points_not_allowed\": 3367,\n      \"sales_package_cardboard\": 8962.988453005033,\n      \"sales_package_clear_brown_glass\": 8569.391311918418,\n      \"sales_package_green_other_glass\": 726.5325617701102,\n      \"sales_package_metal_al\": 9894.660702328207,\n      \"sales_package_metal_fe\": 4789.019766748163,\n      \"sales_package_other_metal\": 5051.861352727148,\n      \"sales_package_paper_and_cardboard_mono\": 7861.765453178089,\n      \"sales_package_plastic_pet\": 9203.20272277759,\n      \"sales_package_plastic_pp_pe\": 3265.478008518894,\n      \"sales_package_wood\": 5053.093587711971,\n      \"serial_number\": \"string\",\n      \"shelf_life_days\": 603,\n      \"sold_in_packages\": 3221,\n      \"status\": \"ACTIVE\",\n      \"suggested_retail_price\": 5773.262379723172,\n      \"supplier_code\": \"string\",\n      \"supplier_id\": 7138,\n      \"tax_free\": 5769,\n      \"tax_rate_id\": 9503,\n      \"transport_package_cardboard\": 9606.251540607569,\n      \"transport_package_ferrous_metal\": 6559.8773951782205,\n      \"transport_package_non_ferrous_metal\": 1914.5434580644871,\n      \"transport_package_plastic\": 4204.346793638608,\n      \"transport_package_wood\": 8899.738582723658,\n      \"type\": \"string\",\n      \"unit_id\": 3915,\n      \"volume\": 7918.299959138008,\n      \"webshop_description\": \"string\",\n      \"webshop_keywords\": \"string\",\n      \"webshop_title\": \"string\",\n      \"webshop_url_slug\": \"string\",\n      \"width\": 7327.0739929987285\n    },\n    \"id\": 1234,\n    \"order\": 15,\n    \"product\": {\n      \"added\": 1595230999,\n      \"addedby\": \"k@erp.xyz\",\n      \"age_restriction\": 1255,\n      \"alcohol_percentage\": \"string\",\n      \"alcohol_registry_number\": \"string\",\n      \"batches\": \"string\",\n      \"brand_id\": 707,\n      \"cashier_must_enter_price\": 9583,\n      \"category_id\": 6913,\n      \"changed\": 1595230999,\n      \"changedby\": \"k@erp.xyz\",\n      \"code\": \"string\",\n      \"code2\": \"string\",\n      \"code3\": \"string\",\n      \"code5\": \"string\",\n      \"code6\": \"string\",\n      \"code7\": \"string\",\n      \"code8\": \"string\",\n      \"cost\": 4042.8728903136703,\n      \"country_of_origin_id\": 3440,\n      \"delivery_time\": \"string\",\n      \"deposit_fee_amount\": 6495,\n      \"deposit_fee_id\": 3925,\n      \"description\": {\n        \"en\": {\n          \"html\": \"<b>Very good product!</b>\",\n          \"plain_text\": \"Very good product!\"\n        }\n      },\n      \"displayed_in_webshop\": 640,\n      \"excise_declaration_number\": \"string\",\n      \"extra_field1_id\": 3317,\n      \"extra_field2_id\": 1986,\n      \"extra_field3_id\": 5666,\n      \"extra_field4_id\": 6937,\n      \"family_id\": 3815,\n      \"formula_identifier\": \"string\",\n      \"gross_weight\": 886.4815761236944,\n      \"group_id\": 6779,\n      \"group_package_ferrous_metal\": 7925.955587494499,\n      \"group_package_metal\": 7579.8030138118975,\n      \"group_package_non_ferrous_metal\": 9210.043908909038,\n      \"group_package_paper\": 6273.779291787166,\n      \"group_package_plastic\": 669.5602419989433,\n      \"group_package_wood\": 2868.7943350088153,\n      \"has_serial_numbers\": 7911,\n      \"height\": 451.8323123257706,\n      \"id\": 8257,\n      \"is_gift_card\": 3815,\n      \"is_lot_product\": false,\n      \"is_regular_gift_card\": 2111,\n      \"is_used_product\": false,\n      \"labels_not_needed\": 6450,\n      \"length\": 3630.284231639004,\n      \"location_in_warehouse_id\": 3718,\n      \"location_in_warehouse_text\": \"string\",\n      \"manufacturer_name\": \"string\",\n      \"name\": {\n        \"en\": \"string\"\n      },\n      \"net_weight\": 7937.90315293841,\n      \"non_discountable\": 1305,\n      \"non_refundable\": 8774,\n      \"non_stock_product\": 4276,\n      \"packaging_type\": \"string\",\n      \"packing_not_required\": 848,\n      \"parent_product_id\": 7134,\n      \"price\": 6821.457195172821,\n      \"price_with_tax\": 3402.4871692348856,\n      \"priority_group_id\": 9267,\n      \"product_item_level_promotions_disabled\": 1993,\n      \"product_reorder_multiples\": 4840,\n      \"revenue_account\": \"string\",\n      \"reward_points_not_allowed\": 4170,\n      \"sales_package_cardboard\": 6868.9163263070795,\n      \"sales_package_clear_brown_glass\": 7718.752712983237,\n      \"sales_package_green_other_glass\": 7195.851544513532,\n      \"sales_package_metal_al\": 7127.455315605537,\n      \"sales_package_metal_fe\": 5427.283067235145,\n      \"sales_package_other_metal\": 9828.823190847965,\n      \"sales_package_paper_and_cardboard_mono\": 6007.297192042762,\n      \"sales_package_plastic_pet\": 4104.679176671349,\n      \"sales_package_plastic_pp_pe\": 7384.235019733002,\n      \"sales_package_wood\": 2571.246540729162,\n      \"serial_number\": \"string\",\n      \"shelf_life_days\": 6317,\n      \"sold_in_packages\": 4329,\n      \"status\": \"ACTIVE\",\n      \"suggested_retail_price\": 5374.9509908272275,\n      \"supplier_code\": \"string\",\n      \"supplier_id\": 2506,\n      \"tax_free\": 2104,\n      \"tax_rate_id\": 2975,\n      \"transport_package_cardboard\": 4817.33068902312,\n      \"transport_package_ferrous_metal\": 9906.64102800167,\n      \"transport_package_non_ferrous_metal\": 2598.264401401392,\n      \"transport_package_plastic\": 3167.4961663312006,\n      \"transport_package_wood\": 4153.792376776808,\n      \"type\": \"string\",\n      \"unit_id\": 8368,\n      \"volume\": 1562.49561878259,\n      \"webshop_description\": \"string\",\n      \"webshop_keywords\": \"string\",\n      \"webshop_title\": \"string\",\n      \"webshop_url_slug\": \"string\",\n      \"width\": 3509.2890299950195\n    },\n    \"product_id\": 77,\n    \"product_id_component\": 79\n  },\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"amount\": 5,\n    \"changed\": 1595230999,\n    \"changedby\": \"k@erp.xyz\",\n    \"component_product\": {\n      \"added\": 1595230999,\n      \"addedby\": \"k@erp.xyz\",\n      \"age_restriction\": 3658,\n      \"alcohol_percentage\": \"string\",\n      \"alcohol_registry_number\": \"string\",\n      \"batches\": \"string\",\n      \"brand_id\": 505,\n      \"cashier_must_enter_price\": 8863,\n      \"category_id\": 524,\n      \"changed\": 1595230999,\n      \"changedby\": \"k@erp.xyz\",\n      \"code\": \"string\",\n      \"code2\": \"string\",\n      \"code3\": \"string\",\n      \"code5\": \"string\",\n      \"code6\": \"string\",\n      \"code7\": \"string\",\n      \"code8\": \"string\",\n      \"cost\": 5409.1141831492105,\n      \"country_of_origin_id\": 1483,\n      \"delivery_time\": \"string\",\n      \"deposit_fee_amount\": 792,\n      \"deposit_fee_id\": 1875,\n      \"description\": {\n        \"en\": {\n          \"html\": \"<b>Very good product!</b>\",\n          \"plain_text\": \"Very good product!\"\n        }\n      },\n      \"displayed_in_webshop\": 839,\n      \"excise_declaration_number\": \"string\",\n      \"extra_field1_id\": 3216,\n      \"extra_field2_id\": 2781,\n      \"extra_field3_id\": 9389,\n      \"extra_field4_id\": 8362,\n      \"family_id\": 5773,\n      \"formula_identifier\": \"string\",\n      \"gross_weight\": 5074.314429137747,\n      \"group_id\": 1104,\n      \"group_package_ferrous_metal\": 8204.146497058957,\n      \"group_package_metal\": 3940.627708135711,\n      \"group_package_non_ferrous_metal\": 1765.0275308303965,\n      \"group_package_paper\": 5369.335118729685,\n      \"group_package_plastic\": 2194.162714287733,\n      \"group_package_wood\": 8166.242308515553,\n      \"has_serial_numbers\": 7422,\n      \"height\": 984.8619973629902,\n      \"id\": 7265,\n      \"is_gift_card\": 1867,\n      \"is_lot_product\": false,\n      \"is_regular_gift_card\": 5256,\n      \"is_used_product\": false,\n      \"labels_not_needed\": 2386,\n      \"length\": 7401.967066915255,\n      \"location_in_warehouse_id\": 2801,\n      \"location_in_warehouse_text\": \"string\",\n      \"manufacturer_name\": \"string\",\n      \"name\": {\n        \"en\": \"string\"\n      },\n      \"net_weight\": 536.8665823156526,\n      \"non_discountable\": 5119,\n      \"non_refundable\": 5021,\n      \"non_stock_product\": 5223,\n      \"packaging_type\": \"string\",\n      \"packing_not_required\": 6538,\n      \"parent_product_id\": 6171,\n      \"price\": 3313.0819981794257,\n      \"price_with_tax\": 4275.057291492931,\n      \"priority_group_id\": 9224,\n      \"product_item_level_promotions_disabled\": 1277,\n      \"product_reorder_multiples\": 6361,\n      \"revenue_account\": \"string\",\n      \"reward_points_not_allowed\": 5730,\n      \"sales_package_cardboard\": 8582.882872765469,\n      \"sales_package_clear_brown_glass\": 6076.862770367183,\n      \"sales_package_green_other_glass\": 47.00961971603523,\n      \"sales_package_metal_al\": 5652.207527224497,\n      \"sales_package_metal_fe\": 5663.411804241065,\n      \"sales_package_other_metal\": 642.7927083737195,\n      \"sales_package_paper_and_cardboard_mono\": 4957.297246469371,\n      \"sales_package_plastic_pet\": 8967.92253944651,\n      \"sales_package_plastic_pp_pe\": 1247.268898464482,\n      \"sales_package_wood\": 7078.245557708952,\n      \"serial_number\": \"string\",\n      \"shelf_life_days\": 1387,\n      \"sold_in_packages\": 4105,\n      \"status\": \"ACTIVE\",\n      \"suggested_retail_price\": 8973.729760420005,\n      \"supplier_code\": \"string\",\n      \"supplier_id\": 11,\n      \"tax_free\": 503,\n      \"tax_rate_id\": 9152,\n      \"transport_package_cardboard\": 9866.682378248379,\n      \"transport_package_ferrous_metal\": 4449.269858222019,\n      \"transport_package_non_ferrous_metal\": 4283.201575843408,\n      \"transport_package_plastic\": 1533.999289232677,\n      \"transport_package_wood\": 9420.399917227736,\n      \"type\": \"string\",\n      \"unit_id\": 4684,\n      \"volume\": 9575.114923022631,\n      \"webshop_description\": \"string\",\n      \"webshop_keywords\": \"string\",\n      \"webshop_title\": \"string\",\n      \"webshop_url_slug\": \"string\",\n      \"width\": 2673.0762774461014\n    },\n    \"id\": 1234,\n    \"order\": 15,\n    \"product\": {\n      \"added\": 1595230999,\n      \"addedby\": \"k@erp.xyz\",\n      \"age_restriction\": 8144,\n      \"alcohol_percentage\": \"string\",\n      \"alcohol_registry_number\": \"string\",\n      \"batches\": \"string\",\n      \"brand_id\": 9217,\n      \"cashier_must_enter_price\": 5736,\n      \"category_id\": 1077,\n      \"changed\": 1595230999,\n      \"changedby\": \"k@erp.xyz\",\n      \"code\": \"string\",\n      \"code2\": \"string\",\n      \"code3\": \"string\",\n      \"code5\": \"string\",\n      \"code6\": \"string\",\n      \"code7\": \"string\",\n      \"code8\": \"string\",\n      \"cost\": 9266.674654772354,\n      \"country_of_origin_id\": 3764,\n      \"delivery_time\": \"string\",\n      \"deposit_fee_amount\": 8146,\n      \"deposit_fee_id\": 474,\n      \"description\": {\n        \"en\": {\n          \"html\": \"<b>Very good product!</b>\",\n          \"plain_text\": \"Very good product!\"\n        }\n      },\n      \"displayed_in_webshop\": 5147,\n      \"excise_declaration_number\": \"string\",\n      \"extra_field1_id\": 2995,\n      \"extra_field2_id\": 3903,\n      \"extra_field3_id\": 1564,\n      \"extra_field4_id\": 8141,\n      \"family_id\": 2089,\n      \"formula_identifier\": \"string\",\n      \"gross_weight\": 4047.716772723712,\n      \"group_id\": 4001,\n      \"group_package_ferrous_metal\": 4523.909602723945,\n      \"group_package_metal\": 8471.410972543583,\n      \"group_package_non_ferrous_metal\": 6114.725885450163,\n      \"group_package_paper\": 7484.993438356655,\n      \"group_package_plastic\": 8178.051045973964,\n      \"group_package_wood\": 6012.162339430257,\n      \"has_serial_numbers\": 1549,\n      \"height\": 9105.095367769207,\n      \"id\": 7860,\n      \"is_gift_card\": 7151,\n      \"is_lot_product\": true,\n      \"is_regular_gift_card\": 2402,\n      \"is_used_product\": true,\n      \"labels_not_needed\": 6753,\n      \"length\": 655.1303143569254,\n      \"location_in_warehouse_id\": 1468,\n      \"location_in_warehouse_text\": \"string\",\n      \"manufacturer_name\": \"string\",\n      \"name\": {\n        \"en\": \"string\"\n      },\n      \"net_weight\": 4968.631526879926,\n      \"non_discountable\": 3010,\n      \"non_refundable\": 6888,\n      \"non_stock_product\": 3118,\n      \"packaging_type\": \"string\",\n      \"packing_not_required\": 765,\n      \"parent_product_id\": 7556,\n      \"price\": 3303.1829537205026,\n      \"price_with_tax\": 2867.9265776895913,\n      \"priority_group_id\": 2594,\n      \"product_item_level_promotions_disabled\": 128,\n      \"product_reorder_multiples\": 4334,\n      \"revenue_account\": \"string\",\n      \"reward_points_not_allowed\": 8192,\n      \"sales_package_cardboard\": 6752.474706371029,\n      \"sales_package_clear_brown_glass\": 7733.601948422798,\n      \"sales_package_green_other_glass\": 8303.043283103543,\n      \"sales_package_metal_al\": 5899.049579262297,\n      \"sales_package_metal_fe\": 1146.4354521073506,\n      \"sales_package_other_metal\": 7268.58335048555,\n      \"sales_package_paper_and_cardboard_mono\": 3824.6695913922945,\n      \"sales_package_plastic_pet\": 6241.5129058058665,\n      \"sales_package_plastic_pp_pe\": 8301.366411292232,\n      \"sales_package_wood\": 6684.008441806035,\n      \"serial_number\": \"string\",\n      \"shelf_life_days\": 2670,\n      \"sold_in_packages\": 4208,\n      \"status\": \"ACTIVE\",\n      \"suggested_retail_price\": 5448.885784050356,\n      \"supplier_code\": \"string\",\n      \"supplier_id\": 6347,\n      \"tax_free\": 6271,\n      \"tax_rate_id\": 5728,\n      \"transport_package_cardboard\": 2651.8877051949476,\n      \"transport_package_ferrous_metal\": 8169.559462952758,\n      \"transport_package_non_ferrous_metal\": 8714.550607805715,\n      \"transport_package_plastic\": 3029.3705368456604,\n      \"transport_package_wood\": 6655.2222908411295,\n      \"type\": \"string\",\n      \"unit_id\": 4086,\n      \"volume\": 255.39594437057335,\n      \"webshop_description\": \"string\",\n      \"webshop_keywords\": \"string\",\n      \"webshop_title\": \"string\",\n      \"webshop_url_slug\": \"string\",\n      \"width\": 2090.011608412472\n    },\n    \"product_id\": 77,\n    \"product_id_component\": 79\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45c9c235-dcbc-49f7-9405-48f367759ce3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "recipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "productIDs",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92789804-d746-4326-975a-acbf52775a8d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "recipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "productIDs",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8d6ffa1-2f9b-407f-befc-d6ec75d2153b",
+          "name": "Create a Product Recipe",
+          "request": {
+            "name": "Create a Product Recipe",
+            "description": {
+              "content": "Components can only be added to a product with type BUNDLE or ASSEMBLY. Amount must be a positive decimal quantity. Products with type BUNDLE and MATRIX are not allowed to be components. (ASSEMBLY products can.)\nA product is not allowed to be its own component.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "recipe"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"product_id\": \"<integer>\",\n  \"product_id_component\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ae914fb-d0b8-4dfd-94c7-8681fdc65ab0",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "recipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 5,\n  \"product_id\": 77,\n  \"product_id_component\": 79\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce481a3a-8339-41c2-9fd5-d4cb8f74bbeb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "recipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 5,\n  \"product_id\": 77,\n  \"product_id_component\": 79\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6eed654c-e530-4e52-8e40-3379c07173bd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "recipe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 5,\n  \"product_id\": 77,\n  \"product_id_component\": 79\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec42d9eb-e862-49e5-ad79-b0336eff0725",
+          "name": "Create recipes in bulk",
+          "request": {
+            "name": "Create recipes in bulk",
+            "description": {
+              "content": "each request contains the created resource data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "recipe",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"amount\": \"<number>\",\n      \"product_id\": \"<integer>\",\n      \"product_id_component\": \"<integer>\"\n    },\n    {\n      \"amount\": \"<number>\",\n      \"product_id\": \"<integer>\",\n      \"product_id_component\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d3eb058-2d36-4e01-ac81-8c3229817f1b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "recipe",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"amount\": 5,\n      \"product_id\": 77,\n      \"product_id_component\": 79\n    },\n    {\n      \"amount\": 5,\n      \"product_id\": 77,\n      \"product_id_component\": 79\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    },\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "869e37ca-5ebf-4938-a960-35dcc87b4146",
+          "name": "Get recipes in bulk",
+          "request": {
+            "name": "Get recipes in bulk",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "recipe",
+                "bulk",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"<string>\",\n        \"selector\": \"<string>\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    },\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"<string>\",\n        \"selector\": \"<string>\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4679436c-dbbb-4835-95ec-5d5a4db43cd9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "recipe",
+                    "bulk",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"en\",\n        \"selector\": \"name\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    },\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"en\",\n        \"selector\": \"name\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"recipes\": [\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"amount\": 5,\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"component_product\": {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 6515,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 1911,\n            \"cashier_must_enter_price\": 9949,\n            \"category_id\": 2489,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 9978.814045617717,\n            \"country_of_origin_id\": 4194,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 9036,\n            \"deposit_fee_id\": 3493,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 6825,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 4708,\n            \"extra_field2_id\": 1732,\n            \"extra_field3_id\": 2472,\n            \"extra_field4_id\": 4707,\n            \"family_id\": 8865,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 9387.3653674431,\n            \"group_id\": 8428,\n            \"group_package_ferrous_metal\": 5262.124712704452,\n            \"group_package_metal\": 4505.714199908332,\n            \"group_package_non_ferrous_metal\": 3815.7775845300303,\n            \"group_package_paper\": 7735.794774595888,\n            \"group_package_plastic\": 9003.487063758626,\n            \"group_package_wood\": 9479.541591531639,\n            \"has_serial_numbers\": 1195,\n            \"height\": 7125.6735594131615,\n            \"id\": 9465,\n            \"is_gift_card\": 1039,\n            \"is_lot_product\": false,\n            \"is_regular_gift_card\": 3823,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 3311,\n            \"length\": 143.2815922372832,\n            \"location_in_warehouse_id\": 336,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 5813.717901032142,\n            \"non_discountable\": 8754,\n            \"non_refundable\": 5246,\n            \"non_stock_product\": 8022,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 7055,\n            \"parent_product_id\": 2568,\n            \"price\": 8411.123973934311,\n            \"price_with_tax\": 6546.887078015033,\n            \"priority_group_id\": 940,\n            \"product_item_level_promotions_disabled\": 2527,\n            \"product_reorder_multiples\": 5037,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 5926,\n            \"sales_package_cardboard\": 9218.805527167451,\n            \"sales_package_clear_brown_glass\": 1920.425421023806,\n            \"sales_package_green_other_glass\": 1227.2748381750175,\n            \"sales_package_metal_al\": 3070.9273606613287,\n            \"sales_package_metal_fe\": 566.3243799826568,\n            \"sales_package_other_metal\": 7896.831622162696,\n            \"sales_package_paper_and_cardboard_mono\": 8053.626378686463,\n            \"sales_package_plastic_pet\": 3587.718089543157,\n            \"sales_package_plastic_pp_pe\": 6734.6763036586,\n            \"sales_package_wood\": 4154.421385920095,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 4141,\n            \"sold_in_packages\": 8274,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 3457.6293390963087,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 8091,\n            \"tax_free\": 2391,\n            \"tax_rate_id\": 6409,\n            \"transport_package_cardboard\": 9240.545429433294,\n            \"transport_package_ferrous_metal\": 3845.1333149661014,\n            \"transport_package_non_ferrous_metal\": 409.3877241234667,\n            \"transport_package_plastic\": 98.22416009693468,\n            \"transport_package_wood\": 3622.220934919631,\n            \"type\": \"string\",\n            \"unit_id\": 7598,\n            \"volume\": 1880.620786553917,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 1690.1062540833257\n          },\n          \"id\": 1234,\n          \"order\": 15,\n          \"product\": {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 1523,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 6462,\n            \"cashier_must_enter_price\": 8860,\n            \"category_id\": 5970,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 7788.423890430657,\n            \"country_of_origin_id\": 3775,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 3788,\n            \"deposit_fee_id\": 874,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 2957,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 6256,\n            \"extra_field2_id\": 9016,\n            \"extra_field3_id\": 1334,\n            \"extra_field4_id\": 4035,\n            \"family_id\": 4458,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 5876.685456367968,\n            \"group_id\": 2085,\n            \"group_package_ferrous_metal\": 3277.717058367612,\n            \"group_package_metal\": 8499.634128164751,\n            \"group_package_non_ferrous_metal\": 8588.28688570354,\n            \"group_package_paper\": 1418.659275447548,\n            \"group_package_plastic\": 6222.723676908147,\n            \"group_package_wood\": 7717.807711677605,\n            \"has_serial_numbers\": 8066,\n            \"height\": 1923.5168924177003,\n            \"id\": 8463,\n            \"is_gift_card\": 7739,\n            \"is_lot_product\": false,\n            \"is_regular_gift_card\": 8113,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 5618,\n            \"length\": 3655.3034666794438,\n            \"location_in_warehouse_id\": 47,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 7508.800216162143,\n            \"non_discountable\": 8625,\n            \"non_refundable\": 2615,\n            \"non_stock_product\": 3939,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 3272,\n            \"parent_product_id\": 5136,\n            \"price\": 1352.2066751712202,\n            \"price_with_tax\": 3299.2594735142457,\n            \"priority_group_id\": 7634,\n            \"product_item_level_promotions_disabled\": 2360,\n            \"product_reorder_multiples\": 7695,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 6711,\n            \"sales_package_cardboard\": 3403.5065283169984,\n            \"sales_package_clear_brown_glass\": 9026.153289802904,\n            \"sales_package_green_other_glass\": 420.02003122869394,\n            \"sales_package_metal_al\": 2380.576672899236,\n            \"sales_package_metal_fe\": 7836.788028509621,\n            \"sales_package_other_metal\": 5556.372498637632,\n            \"sales_package_paper_and_cardboard_mono\": 7082.535851219746,\n            \"sales_package_plastic_pet\": 1828.6667018188507,\n            \"sales_package_plastic_pp_pe\": 5596.885347789831,\n            \"sales_package_wood\": 9893.78916342705,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 647,\n            \"sold_in_packages\": 9659,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 2245.4255748861497,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 4712,\n            \"tax_free\": 1790,\n            \"tax_rate_id\": 5890,\n            \"transport_package_cardboard\": 5176.760794954002,\n            \"transport_package_ferrous_metal\": 9917.976345839616,\n            \"transport_package_non_ferrous_metal\": 6026.219164689282,\n            \"transport_package_plastic\": 7933.962290783173,\n            \"transport_package_wood\": 1291.9256504046962,\n            \"type\": \"string\",\n            \"unit_id\": 4715,\n            \"volume\": 7598.129202579567,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 9252.520230201528\n          },\n          \"product_id\": 77,\n          \"product_id_component\": 79\n        },\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"amount\": 5,\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"component_product\": {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 7805,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 4445,\n            \"cashier_must_enter_price\": 771,\n            \"category_id\": 4514,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 7139.528243908208,\n            \"country_of_origin_id\": 4695,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 667,\n            \"deposit_fee_id\": 550,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 9956,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 8772,\n            \"extra_field2_id\": 1990,\n            \"extra_field3_id\": 8597,\n            \"extra_field4_id\": 7186,\n            \"family_id\": 4498,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 2036.1979870534253,\n            \"group_id\": 3269,\n            \"group_package_ferrous_metal\": 3200.3284083595563,\n            \"group_package_metal\": 8799.816288107413,\n            \"group_package_non_ferrous_metal\": 9430.793461650022,\n            \"group_package_paper\": 116.74694041561074,\n            \"group_package_plastic\": 6624.95392447989,\n            \"group_package_wood\": 4116.451314501247,\n            \"has_serial_numbers\": 6167,\n            \"height\": 3245.8506928680185,\n            \"id\": 5643,\n            \"is_gift_card\": 7420,\n            \"is_lot_product\": true,\n            \"is_regular_gift_card\": 2018,\n            \"is_used_product\": true,\n            \"labels_not_needed\": 9607,\n            \"length\": 117.33628194209422,\n            \"location_in_warehouse_id\": 1183,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 1021.0466514442973,\n            \"non_discountable\": 1378,\n            \"non_refundable\": 2262,\n            \"non_stock_product\": 1414,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 6762,\n            \"parent_product_id\": 6043,\n            \"price\": 6926.00760586972,\n            \"price_with_tax\": 4206.412853761231,\n            \"priority_group_id\": 1410,\n            \"product_item_level_promotions_disabled\": 609,\n            \"product_reorder_multiples\": 4809,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 6400,\n            \"sales_package_cardboard\": 6354.498871570021,\n            \"sales_package_clear_brown_glass\": 159.2067035171596,\n            \"sales_package_green_other_glass\": 4238.505426638924,\n            \"sales_package_metal_al\": 5935.789273475943,\n            \"sales_package_metal_fe\": 1738.1464195912033,\n            \"sales_package_other_metal\": 6324.539087233584,\n            \"sales_package_paper_and_cardboard_mono\": 1303.2782390769548,\n            \"sales_package_plastic_pet\": 4488.744747815601,\n            \"sales_package_plastic_pp_pe\": 3958.4712183992433,\n            \"sales_package_wood\": 8150.546985299719,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 1306,\n            \"sold_in_packages\": 5157,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 9630.359457414163,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 8914,\n            \"tax_free\": 2137,\n            \"tax_rate_id\": 283,\n            \"transport_package_cardboard\": 1070.3316103452476,\n            \"transport_package_ferrous_metal\": 3039.606038965904,\n            \"transport_package_non_ferrous_metal\": 9485.927746085705,\n            \"transport_package_plastic\": 9470.8919744626,\n            \"transport_package_wood\": 1279.9285665283433,\n            \"type\": \"string\",\n            \"unit_id\": 3950,\n            \"volume\": 3738.026787261465,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 3031.937206291856\n          },\n          \"id\": 1234,\n          \"order\": 15,\n          \"product\": {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 5068,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 9469,\n            \"cashier_must_enter_price\": 6892,\n            \"category_id\": 8036,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 4612.755433684272,\n            \"country_of_origin_id\": 4862,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 8729,\n            \"deposit_fee_id\": 9506,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 6585,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 9468,\n            \"extra_field2_id\": 2135,\n            \"extra_field3_id\": 992,\n            \"extra_field4_id\": 8437,\n            \"family_id\": 3184,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 4741.265533971741,\n            \"group_id\": 8331,\n            \"group_package_ferrous_metal\": 4826.287495604441,\n            \"group_package_metal\": 8084.522903534673,\n            \"group_package_non_ferrous_metal\": 2664.5371110669334,\n            \"group_package_paper\": 4087.4677238781087,\n            \"group_package_plastic\": 2623.49847627154,\n            \"group_package_wood\": 7335.708283589051,\n            \"has_serial_numbers\": 2636,\n            \"height\": 6708.68009537765,\n            \"id\": 5460,\n            \"is_gift_card\": 4955,\n            \"is_lot_product\": true,\n            \"is_regular_gift_card\": 4035,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 3126,\n            \"length\": 1592.190498681082,\n            \"location_in_warehouse_id\": 8736,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 9482.846966826666,\n            \"non_discountable\": 1055,\n            \"non_refundable\": 4376,\n            \"non_stock_product\": 91,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 6066,\n            \"parent_product_id\": 8962,\n            \"price\": 8450.742136530702,\n            \"price_with_tax\": 4584.601943380266,\n            \"priority_group_id\": 1835,\n            \"product_item_level_promotions_disabled\": 5743,\n            \"product_reorder_multiples\": 7448,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 717,\n            \"sales_package_cardboard\": 2389.5207936650077,\n            \"sales_package_clear_brown_glass\": 5290.103102864926,\n            \"sales_package_green_other_glass\": 5211.016717672224,\n            \"sales_package_metal_al\": 2974.0129329318834,\n            \"sales_package_metal_fe\": 8375.273211529351,\n            \"sales_package_other_metal\": 7980.711374998066,\n            \"sales_package_paper_and_cardboard_mono\": 4502.519017546497,\n            \"sales_package_plastic_pet\": 5955.400135547821,\n            \"sales_package_plastic_pp_pe\": 643.4216243445135,\n            \"sales_package_wood\": 1173.4137421435664,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 4902,\n            \"sold_in_packages\": 5984,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 3166.253259149251,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 7199,\n            \"tax_free\": 2828,\n            \"tax_rate_id\": 8747,\n            \"transport_package_cardboard\": 5563.296542310542,\n            \"transport_package_ferrous_metal\": 3443.2827833330925,\n            \"transport_package_non_ferrous_metal\": 297.37614958599835,\n            \"transport_package_plastic\": 2270.8309762848435,\n            \"transport_package_wood\": 8757.567340272439,\n            \"type\": \"string\",\n            \"unit_id\": 1663,\n            \"volume\": 4334.112898642133,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 9106.984941392955\n          },\n          \"product_id\": 77,\n          \"product_id_component\": 79\n        }\n      ],\n      \"resultId\": 2179,\n      \"totalCount\": 1501\n    },\n    {\n      \"message\": \"some message\",\n      \"recipes\": [\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"amount\": 5,\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"component_product\": {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 4922,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 3779,\n            \"cashier_must_enter_price\": 7359,\n            \"category_id\": 6735,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 7994.988057873329,\n            \"country_of_origin_id\": 8097,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 4007,\n            \"deposit_fee_id\": 6349,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 5865,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 9923,\n            \"extra_field2_id\": 9668,\n            \"extra_field3_id\": 4115,\n            \"extra_field4_id\": 874,\n            \"family_id\": 5454,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 9922.559549940697,\n            \"group_id\": 8974,\n            \"group_package_ferrous_metal\": 5192.34177874909,\n            \"group_package_metal\": 2020.9142270733814,\n            \"group_package_non_ferrous_metal\": 4425.405914089053,\n            \"group_package_paper\": 6306.324781601818,\n            \"group_package_plastic\": 5793.325317210347,\n            \"group_package_wood\": 551.0014658643025,\n            \"has_serial_numbers\": 4067,\n            \"height\": 6839.979467478439,\n            \"id\": 2804,\n            \"is_gift_card\": 2217,\n            \"is_lot_product\": false,\n            \"is_regular_gift_card\": 7296,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 218,\n            \"length\": 2566.5170547371754,\n            \"location_in_warehouse_id\": 38,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 3069.91312308691,\n            \"non_discountable\": 7686,\n            \"non_refundable\": 8725,\n            \"non_stock_product\": 5422,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 5964,\n            \"parent_product_id\": 7816,\n            \"price\": 3673.8012045888745,\n            \"price_with_tax\": 9102.44485449683,\n            \"priority_group_id\": 5684,\n            \"product_item_level_promotions_disabled\": 1142,\n            \"product_reorder_multiples\": 9297,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 3613,\n            \"sales_package_cardboard\": 3228.9680161251113,\n            \"sales_package_clear_brown_glass\": 7402.070762458649,\n            \"sales_package_green_other_glass\": 9489.701542788898,\n            \"sales_package_metal_al\": 3323.385882214003,\n            \"sales_package_metal_fe\": 8129.064470545147,\n            \"sales_package_other_metal\": 4591.9385264153225,\n            \"sales_package_paper_and_cardboard_mono\": 4178.028038516713,\n            \"sales_package_plastic_pet\": 8426.580068228946,\n            \"sales_package_plastic_pp_pe\": 2272.339258738344,\n            \"sales_package_wood\": 195.15438348008064,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 6303,\n            \"sold_in_packages\": 9864,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 65.27993466554749,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 5553,\n            \"tax_free\": 2563,\n            \"tax_rate_id\": 5536,\n            \"transport_package_cardboard\": 1504.572407275092,\n            \"transport_package_ferrous_metal\": 4966.324131697573,\n            \"transport_package_non_ferrous_metal\": 6242.350636724403,\n            \"transport_package_plastic\": 6819.20801827874,\n            \"transport_package_wood\": 7321.784832222893,\n            \"type\": \"string\",\n            \"unit_id\": 6569,\n            \"volume\": 1745.681860940257,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 3096.314170071013\n          },\n          \"id\": 1234,\n          \"order\": 15,\n          \"product\": {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 3342,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 8108,\n            \"cashier_must_enter_price\": 8560,\n            \"category_id\": 3127,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 3670.406450174141,\n            \"country_of_origin_id\": 2292,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 5958,\n            \"deposit_fee_id\": 346,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 1374,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 3205,\n            \"extra_field2_id\": 5592,\n            \"extra_field3_id\": 3403,\n            \"extra_field4_id\": 210,\n            \"family_id\": 7269,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 8420.19199508832,\n            \"group_id\": 1933,\n            \"group_package_ferrous_metal\": 7747.922164043,\n            \"group_package_metal\": 6348.687438762609,\n            \"group_package_non_ferrous_metal\": 2053.1531310922537,\n            \"group_package_paper\": 8891.157299999482,\n            \"group_package_plastic\": 1097.576328716875,\n            \"group_package_wood\": 8912.799667066136,\n            \"has_serial_numbers\": 1326,\n            \"height\": 4514.341026905433,\n            \"id\": 1900,\n            \"is_gift_card\": 8398,\n            \"is_lot_product\": true,\n            \"is_regular_gift_card\": 2738,\n            \"is_used_product\": true,\n            \"labels_not_needed\": 2391,\n            \"length\": 7347.737564703999,\n            \"location_in_warehouse_id\": 5688,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 9710.14068879837,\n            \"non_discountable\": 2840,\n            \"non_refundable\": 7096,\n            \"non_stock_product\": 3060,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 4,\n            \"parent_product_id\": 1128,\n            \"price\": 7745.1518594383215,\n            \"price_with_tax\": 7186.551205684051,\n            \"priority_group_id\": 7276,\n            \"product_item_level_promotions_disabled\": 374,\n            \"product_reorder_multiples\": 1920,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 8801,\n            \"sales_package_cardboard\": 3523.485867769228,\n            \"sales_package_clear_brown_glass\": 7470.405215688314,\n            \"sales_package_green_other_glass\": 964.4454444539374,\n            \"sales_package_metal_al\": 9099.985289739343,\n            \"sales_package_metal_fe\": 4955.979745704258,\n            \"sales_package_other_metal\": 5874.632299319785,\n            \"sales_package_paper_and_cardboard_mono\": 9404.742424914257,\n            \"sales_package_plastic_pet\": 1020.2673165878462,\n            \"sales_package_plastic_pp_pe\": 9837.167119598811,\n            \"sales_package_wood\": 5252.58641981733,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 116,\n            \"sold_in_packages\": 3363,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 2452.3780081343384,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 7501,\n            \"tax_free\": 1968,\n            \"tax_rate_id\": 6912,\n            \"transport_package_cardboard\": 3061.787305620819,\n            \"transport_package_ferrous_metal\": 3340.5439548610902,\n            \"transport_package_non_ferrous_metal\": 9959.820489259759,\n            \"transport_package_plastic\": 4838.668025543274,\n            \"transport_package_wood\": 469.31271188751845,\n            \"type\": \"string\",\n            \"unit_id\": 3074,\n            \"volume\": 6343.058243446011,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 1698.3136789391817\n          },\n          \"product_id\": 77,\n          \"product_id_component\": 79\n        },\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"amount\": 5,\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"component_product\": {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 462,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 8481,\n            \"cashier_must_enter_price\": 122,\n            \"category_id\": 1578,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 1782.9679074246496,\n            \"country_of_origin_id\": 1729,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 8079,\n            \"deposit_fee_id\": 2510,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 6033,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 7538,\n            \"extra_field2_id\": 9874,\n            \"extra_field3_id\": 4154,\n            \"extra_field4_id\": 4624,\n            \"family_id\": 9278,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 6754.766126148151,\n            \"group_id\": 3750,\n            \"group_package_ferrous_metal\": 1940.9299379138379,\n            \"group_package_metal\": 6259.78409475812,\n            \"group_package_non_ferrous_metal\": 8674.527631849547,\n            \"group_package_paper\": 4495.2473495537015,\n            \"group_package_plastic\": 1633.6619158978217,\n            \"group_package_wood\": 9629.118342793628,\n            \"has_serial_numbers\": 5881,\n            \"height\": 1191.5280934908367,\n            \"id\": 6878,\n            \"is_gift_card\": 2634,\n            \"is_lot_product\": false,\n            \"is_regular_gift_card\": 2753,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 3058,\n            \"length\": 9835.372724808605,\n            \"location_in_warehouse_id\": 3582,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 557.3535266195928,\n            \"non_discountable\": 4870,\n            \"non_refundable\": 5988,\n            \"non_stock_product\": 7216,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 9742,\n            \"parent_product_id\": 1834,\n            \"price\": 1477.7448474852251,\n            \"price_with_tax\": 947.5821891516722,\n            \"priority_group_id\": 2580,\n            \"product_item_level_promotions_disabled\": 8576,\n            \"product_reorder_multiples\": 6073,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 8190,\n            \"sales_package_cardboard\": 1960.726840243987,\n            \"sales_package_clear_brown_glass\": 2986.766740393393,\n            \"sales_package_green_other_glass\": 4456.318671255331,\n            \"sales_package_metal_al\": 8368.055043535376,\n            \"sales_package_metal_fe\": 7198.259637493396,\n            \"sales_package_other_metal\": 5086.857783645614,\n            \"sales_package_paper_and_cardboard_mono\": 4348.058723442794,\n            \"sales_package_plastic_pet\": 7320.688114333355,\n            \"sales_package_plastic_pp_pe\": 1419.7691829306036,\n            \"sales_package_wood\": 1781.9999343983584,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 150,\n            \"sold_in_packages\": 2844,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 2375.295500318376,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 5880,\n            \"tax_free\": 37,\n            \"tax_rate_id\": 5484,\n            \"transport_package_cardboard\": 8729.514036884286,\n            \"transport_package_ferrous_metal\": 2195.4779110755353,\n            \"transport_package_non_ferrous_metal\": 4617.217235950594,\n            \"transport_package_plastic\": 1827.5910677503205,\n            \"transport_package_wood\": 9392.535278778474,\n            \"type\": \"string\",\n            \"unit_id\": 2731,\n            \"volume\": 5375.685735351093,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 5131.1703116370645\n          },\n          \"id\": 1234,\n          \"order\": 15,\n          \"product\": {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 2087,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 8664,\n            \"cashier_must_enter_price\": 2881,\n            \"category_id\": 765,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 6676.843554687893,\n            \"country_of_origin_id\": 3648,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 9061,\n            \"deposit_fee_id\": 1635,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 3512,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 1952,\n            \"extra_field2_id\": 1135,\n            \"extra_field3_id\": 5115,\n            \"extra_field4_id\": 5636,\n            \"family_id\": 870,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 9411.87226002128,\n            \"group_id\": 2008,\n            \"group_package_ferrous_metal\": 225.17766585250732,\n            \"group_package_metal\": 8740.670050411018,\n            \"group_package_non_ferrous_metal\": 49.5048459070313,\n            \"group_package_paper\": 8922.36142367299,\n            \"group_package_plastic\": 5191.110133486688,\n            \"group_package_wood\": 3448.255851715808,\n            \"has_serial_numbers\": 813,\n            \"height\": 8079.349127409377,\n            \"id\": 6697,\n            \"is_gift_card\": 7542,\n            \"is_lot_product\": false,\n            \"is_regular_gift_card\": 8978,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 1178,\n            \"length\": 5327.311023697289,\n            \"location_in_warehouse_id\": 8426,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 5776.603224826788,\n            \"non_discountable\": 1672,\n            \"non_refundable\": 2375,\n            \"non_stock_product\": 9751,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 2773,\n            \"parent_product_id\": 3697,\n            \"price\": 3966.330043543532,\n            \"price_with_tax\": 8324.505398701269,\n            \"priority_group_id\": 1077,\n            \"product_item_level_promotions_disabled\": 4200,\n            \"product_reorder_multiples\": 1188,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 1344,\n            \"sales_package_cardboard\": 9432.25558941503,\n            \"sales_package_clear_brown_glass\": 1440.6207258424197,\n            \"sales_package_green_other_glass\": 3496.8538902972036,\n            \"sales_package_metal_al\": 1961.0501602527108,\n            \"sales_package_metal_fe\": 2388.4860351005777,\n            \"sales_package_other_metal\": 9054.95440273979,\n            \"sales_package_paper_and_cardboard_mono\": 8505.449553321638,\n            \"sales_package_plastic_pet\": 4293.845583687577,\n            \"sales_package_plastic_pp_pe\": 5389.754877885471,\n            \"sales_package_wood\": 3244.2969505069973,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 6914,\n            \"sold_in_packages\": 1476,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 4898.5134269837945,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 5079,\n            \"tax_free\": 7381,\n            \"tax_rate_id\": 6479,\n            \"transport_package_cardboard\": 2042.4929421531556,\n            \"transport_package_ferrous_metal\": 4551.39035961544,\n            \"transport_package_non_ferrous_metal\": 1430.7851577980668,\n            \"transport_package_plastic\": 8281.480934388092,\n            \"transport_package_wood\": 7005.221090128814,\n            \"type\": \"string\",\n            \"unit_id\": 6340,\n            \"volume\": 9735.303987327503,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 8823.088594552484\n          },\n          \"product_id\": 77,\n          \"product_id_component\": 79\n        }\n      ],\n      \"resultId\": 9954,\n      \"totalCount\": 9212\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09b8c8a9-337d-4eea-a99c-3840a91d2e34",
+          "name": "Delete Product Recipes",
+          "request": {
+            "name": "Delete Product Recipes",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "recipe",
+                ":ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) up to 100 semicolon delimited recipe IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "353a2fd1-8f37-4a3f-9dac-b16abc964905",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "recipe",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited recipe IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a946e15-4715-43a2-a2da-4c230f391ed6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "recipe",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited recipe IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99d1ff5c-db13-43dc-9da8-ffb5a0cffa56",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "recipe",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited recipe IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7abb4266-1439-40c0-9676-25f3246560e0",
+    "name": "assignments Assortment Product Recipes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

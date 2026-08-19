@@ -1,0 +1,213 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Export API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Assortments Export",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/export/assortments",
+            "params": [
+              {
+                "name": "assortmentID",
+                "value": "",
+                "type": "query",
+                "description": "export by assortment IDs. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "warehouseIds",
+                "value": "",
+                "type": "query",
+                "description": "Supply the warehouse IDs to get the values for stock, price and warehousePrice. The parameter can contain semicolon delimited IDs. To get a list of warehouse IDs, make an Account Admin API call GET /v1/warehouse, using corresponding endpoint for your account. https://api-am-eu10.erply.com/documentation/index.html#/warehouse/get_v1_warehouse"
+              }
+            ]
+          },
+          "docs": "You can export all the assortments, as well as filter by the ids."
+        },
+        {
+          "info": {
+            "name": "Get Matrix Products Export",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/export/matrix-products",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "filter by the matrix product ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "filter by the status. By default all records except archived are returned"
+              },
+              {
+                "name": "groupIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the group ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "categoryIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the category ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "brandIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the brand ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "supplierIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the supplier ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "priorityGroupIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the priority group ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "familyIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the family ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "warehouseIds",
+                "value": "",
+                "type": "query",
+                "description": "Supply the warehouse IDs to get the values for stock, price and warehousePrice. The parameter can contain semicolon delimited IDs. To get a list of warehouse IDs, make an Account Admin API call GET /v1/warehouse, using corresponding endpoint for your account. https://api-am-eu10.erply.com/documentation/index.html#/warehouse/get_v1_warehouse"
+              }
+            ]
+          },
+          "docs": "Get Matrix Products Export"
+        },
+        {
+          "info": {
+            "name": "Get Products Export",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/export/products",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "export only selected product IDs. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "filter by the status. By default all records except archived are returned"
+              },
+              {
+                "name": "groupIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the group ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "unitIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the unit ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "taxRateIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the tax rate ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "categoryIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the category ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "brandIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the brand ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "supplierIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the supplier ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "priorityGroupIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the priority group ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "countryIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the country ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "warehouseIds",
+                "value": "",
+                "type": "query",
+                "description": "Supply the warehouse IDs to get the values for stock, price and warehousePrice. The parameter can contain semicolon delimited IDs. To get a list of warehouse IDs, make an Account Admin API call GET /v1/warehouse, using corresponding endpoint for your account. https://api-am-eu10.erply.com/documentation/index.html#/warehouse/get_v1_warehouse"
+              },
+              {
+                "name": "warehouseLocationIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the warehouse location ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "parentProductIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the parent product ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "depositFeeIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the deposit fee ids. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "familyIds",
+                "value": "",
+                "type": "query",
+                "description": "filter by the family ids. The parameter can contain semicolon delimited IDs."
+              }
+            ]
+          },
+          "docs": "By default the endpoint exports all the products, but you can apply filtering with the parameters below"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

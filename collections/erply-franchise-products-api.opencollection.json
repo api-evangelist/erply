@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Franchise Products API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Franchise Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Copies the hq product to the store",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/franchise-product/hq-to-store/:hqProductId",
+            "params": [
+              {
+                "name": "hqProductId",
+                "value": "",
+                "type": "path",
+                "description": "hq product ID"
+              }
+            ]
+          },
+          "docs": "Takes an id of the hq product and creates a copy of it to the store."
+        },
+        {
+          "info": {
+            "name": "Search product with special franchise rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/franchise-product/search",
+            "params": [
+              {
+                "name": "warehouseId",
+                "value": "",
+                "type": "query",
+                "description": "Supply the warehouse ID to get the pricing api price for."
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Customer ID. Used to calculate the pricing api price when provided."
+              },
+              {
+                "name": "nonStockProducts",
+                "value": "",
+                "type": "query",
+                "description": "Include or exclude non-stock products. Both will be returned by default."
+              },
+              {
+                "name": "isInStock",
+                "value": "",
+                "type": "query",
+                "description": "Return only products that are in stock."
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 200"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              }
+            ]
+          },
+          "docs": "Searches for products in both current store and its hq.\nIf the desired product does not have store id then before it can be used in the store\nit needs to be moved there with the _/v1/franchise-product/hq-to-store/{hqProductId}_ call.\nNote that the results here cannot be paginated or sorted and the amount of records returned is limited."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

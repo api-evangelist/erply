@@ -1,0 +1,529 @@
+{
+  "item": [
+    {
+      "id": "838a59e0-9a08-41a3-b3ba-5a0be5219e63",
+      "name": "Import & Export",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "911b7aa6-1fcc-4dd2-87da-c4819494fc83",
+          "name": "Export configurations to files",
+          "request": {
+            "name": "Export configurations to files",
+            "description": {},
+            "url": {
+              "path": [
+                "configurations",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "application",
+                  "value": "<string>",
+                  "description": "Application name that uses CAFA to store configs"
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "Level is the operating level where the config is stored. Has to be one of Company, Warehouse, Pos, User. Default is Company"
+                },
+                {
+                  "disabled": false,
+                  "key": "level_id",
+                  "value": "<string>",
+                  "description": "LevelID is a unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  `Company level does not need level_id.`"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name of the configuration"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "UNIX timestamp used for the HMAC Auth method only",
+                "key": "timestamp",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "751fabca-1a0a-4643-b7cc-f9b71ac8a026",
+              "name": "binary .json file content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configurations",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "application",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c767aa01-8b8a-4ac8-b92f-e57730174d43",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configurations",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "application",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5647,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62060a06-37a7-479f-b990-61e1623f5fe1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configurations",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "application",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5647,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3569e64-2e2e-444f-ba01-e6f78fe60364",
+          "name": "Import configurations from file",
+          "request": {
+            "name": "Import configurations from file",
+            "description": {},
+            "url": {
+              "path": [
+                "configurations",
+                "import"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "preserveExistingConfigurations",
+                  "value": "<boolean>",
+                  "description": "If true, existing configurations will not be updated, otherwise they will be updated with the imported data"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "UNIX timestamp used for the HMAC Auth method only",
+                "key": "timestamp",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) File that contains the data for the import (should be .json)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "68f4a6c2-1500-4a3d-aaae-50b87de62279",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configurations",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "preserveExistingConfigurations",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) File that contains the data for the import (should be .json)",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"error\": \"string\",\n    \"id\": \"string\"\n  },\n  {\n    \"error\": \"string\",\n    \"id\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "025807a6-c783-4121-b245-49e092c084b1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configurations",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "preserveExistingConfigurations",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) File that contains the data for the import (should be .json)",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5647,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a8a14ff-93d1-4196-afeb-862a3dece6fd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configurations",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "preserveExistingConfigurations",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) File that contains the data for the import (should be .json)",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5647,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "eebceaff-8455-412d-ab3a-36dde33bb835",
+    "name": "assignments Assortment Import & Export API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

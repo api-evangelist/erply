@@ -1,0 +1,789 @@
+{
+  "item": [
+    {
+      "id": "60759f2d-1477-40c8-b2c6-018cdc91fb49",
+      "name": "sync",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "215f449d-6d40-4300-af08-fc7ed1d33978",
+          "name": "Sync devices",
+          "request": {
+            "name": "Sync devices",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sync",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lastIdRetrieved",
+                  "value": "<integer>",
+                  "description": "Last record ID from previous page"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastModified",
+                  "value": "<integer>",
+                  "description": "Last modification time of records (unix timestamp)"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "68a8ac79-da48-4e5c-82ed-8a92ba08cbe2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sync",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastIdRetrieved",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"identity\": 9521,\n    \"records\": [\n      {\n        \"brand\": \"Volvo\",\n        \"callerAccess\": false,\n        \"color\": \"yellow\",\n        \"createdAt\": \"2022-01-01T00:00:00Z\",\n        \"createdById\": 1,\n        \"customerId\": 1,\n        \"data\": {},\n        \"dateSoldAt\": \"2022-01-01T00:00:00Z\",\n        \"hidden\": false,\n        \"id\": 1,\n        \"invoiceId\": 1,\n        \"limitedAccess\": false,\n        \"model\": \"S90\",\n        \"notes\": \"Some notes\",\n        \"productId\": 1,\n        \"productName\": \"Some product\",\n        \"registration\": \"123 abc\",\n        \"relevance\": 0.5,\n        \"serial\": \"123\",\n        \"updatedAt\": \"2022-01-01T00:00:00Z\",\n        \"updatedById\": 1,\n        \"version\": \"1\",\n        \"warrantyEndAt\": \"2022-01-01T00:00:00Z\",\n        \"warrantyStartAt\": \"2022-01-01T00:00:00Z\",\n        \"year\": \"2020\"\n      },\n      {\n        \"brand\": \"Volvo\",\n        \"callerAccess\": false,\n        \"color\": \"yellow\",\n        \"createdAt\": \"2022-01-01T00:00:00Z\",\n        \"createdById\": 1,\n        \"customerId\": 1,\n        \"data\": {},\n        \"dateSoldAt\": \"2022-01-01T00:00:00Z\",\n        \"hidden\": false,\n        \"id\": 1,\n        \"invoiceId\": 1,\n        \"limitedAccess\": false,\n        \"model\": \"S90\",\n        \"notes\": \"Some notes\",\n        \"productId\": 1,\n        \"productName\": \"Some product\",\n        \"registration\": \"123 abc\",\n        \"relevance\": 0.5,\n        \"serial\": \"123\",\n        \"updatedAt\": \"2022-01-01T00:00:00Z\",\n        \"updatedById\": 1,\n        \"version\": \"1\",\n        \"warrantyEndAt\": \"2022-01-01T00:00:00Z\",\n        \"warrantyStartAt\": \"2022-01-01T00:00:00Z\",\n        \"year\": \"2020\"\n      }\n    ],\n    \"totalCount\": 7800\n  },\n  {\n    \"identity\": 7420,\n    \"records\": [\n      {\n        \"brand\": \"Volvo\",\n        \"callerAccess\": false,\n        \"color\": \"yellow\",\n        \"createdAt\": \"2022-01-01T00:00:00Z\",\n        \"createdById\": 1,\n        \"customerId\": 1,\n        \"data\": {},\n        \"dateSoldAt\": \"2022-01-01T00:00:00Z\",\n        \"hidden\": false,\n        \"id\": 1,\n        \"invoiceId\": 1,\n        \"limitedAccess\": false,\n        \"model\": \"S90\",\n        \"notes\": \"Some notes\",\n        \"productId\": 1,\n        \"productName\": \"Some product\",\n        \"registration\": \"123 abc\",\n        \"relevance\": 0.5,\n        \"serial\": \"123\",\n        \"updatedAt\": \"2022-01-01T00:00:00Z\",\n        \"updatedById\": 1,\n        \"version\": \"1\",\n        \"warrantyEndAt\": \"2022-01-01T00:00:00Z\",\n        \"warrantyStartAt\": \"2022-01-01T00:00:00Z\",\n        \"year\": \"2020\"\n      },\n      {\n        \"brand\": \"Volvo\",\n        \"callerAccess\": false,\n        \"color\": \"yellow\",\n        \"createdAt\": \"2022-01-01T00:00:00Z\",\n        \"createdById\": 1,\n        \"customerId\": 1,\n        \"data\": {},\n        \"dateSoldAt\": \"2022-01-01T00:00:00Z\",\n        \"hidden\": false,\n        \"id\": 1,\n        \"invoiceId\": 1,\n        \"limitedAccess\": false,\n        \"model\": \"S90\",\n        \"notes\": \"Some notes\",\n        \"productId\": 1,\n        \"productName\": \"Some product\",\n        \"registration\": \"123 abc\",\n        \"relevance\": 0.5,\n        \"serial\": \"123\",\n        \"updatedAt\": \"2022-01-01T00:00:00Z\",\n        \"updatedById\": 1,\n        \"version\": \"1\",\n        \"warrantyEndAt\": \"2022-01-01T00:00:00Z\",\n        \"warrantyStartAt\": \"2022-01-01T00:00:00Z\",\n        \"year\": \"2020\"\n      }\n    ],\n    \"totalCount\": 65\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba58a4a9-b288-44e1-9d1d-e7ca2602273e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sync",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastIdRetrieved",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d1560219-d90a-4248-bc57-77f4e40ef31a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sync",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastIdRetrieved",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f54245ec-cc78-408c-a029-1e5fdb879b7f",
+          "name": "Sync workorders",
+          "request": {
+            "name": "Sync workorders",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "sync",
+                "workorder"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lastIdRetrieved",
+                  "value": "<integer>",
+                  "description": "Last record ID from previous page"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastModified",
+                  "value": "<integer>",
+                  "description": "Last modification time of records (unix timestamp)"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ac957ea4-e179-4904-ab9e-a70741350cf1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sync",
+                    "workorder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastIdRetrieved",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"cancelledAt\": \"string\",\n    \"cancelledById\": 102,\n    \"confirmedAt\": \"string\",\n    \"confirmedById\": 8920,\n    \"contactId\": 7842,\n    \"createdAt\": \"string\",\n    \"createdById\": 38,\n    \"customerId\": 1517,\n    \"data\": {},\n    \"deviceId\": 6913,\n    \"deviceUse\": 5018,\n    \"emsThreadId\": 5705,\n    \"entity\": \"string\",\n    \"hasDocCredit\": false,\n    \"id\": 9338,\n    \"items\": [\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 8208,\n        \"data\": {},\n        \"id\": 2137,\n        \"templateId\": 166,\n        \"templateSourceId\": 8065,\n        \"text\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 9479,\n        \"workorderId\": 5185\n      },\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 3623,\n        \"data\": {},\n        \"id\": 3478,\n        \"templateId\": 2265,\n        \"templateSourceId\": 7794,\n        \"text\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 5209,\n        \"workorderId\": 2391\n      }\n    ],\n    \"labels\": [\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 657,\n        \"label\": \"string\",\n        \"labelType\": \"string\",\n        \"taskId\": 3808,\n        \"workorderId\": 1336\n      },\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 5985,\n        \"label\": \"string\",\n        \"labelType\": \"string\",\n        \"taskId\": 9075,\n        \"workorderId\": 5685\n      }\n    ],\n    \"netTotal\": 4139.313225949875,\n    \"noteCount\": 5084,\n    \"notes\": [\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 6444,\n        \"data\": {},\n        \"id\": 6868,\n        \"itemId\": 3497,\n        \"rowId\": 9184,\n        \"taskId\": 3188,\n        \"text\": \"string\",\n        \"type\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 391,\n        \"workorderId\": 4721\n      },\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 3452,\n        \"data\": {},\n        \"id\": 7797,\n        \"itemId\": 927,\n        \"rowId\": 5637,\n        \"taskId\": 3233,\n        \"text\": \"string\",\n        \"type\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 7013,\n        \"workorderId\": 1577\n      }\n    ],\n    \"order\": 4131,\n    \"paid\": 9653.122538793677,\n    \"parentId\": 2589,\n    \"priority\": \"string\",\n    \"productStockState\": \"string\",\n    \"progress\": 224.85961565293144,\n    \"receivedAt\": \"string\",\n    \"receivedById\": 7450,\n    \"referenceNo\": \"string\",\n    \"returnedAt\": \"string\",\n    \"returnedById\": 5334,\n    \"rows\": [\n      {\n        \"amount\": 8421.445696417464,\n        \"confirmedAt\": \"string\",\n        \"confirmedById\": 9437,\n        \"createdAt\": \"string\",\n        \"createdById\": 9007,\n        \"data\": {},\n        \"discount\": 7733.152986334272,\n        \"id\": 4143,\n        \"isLinked\": true,\n        \"itemId\": 6972,\n        \"netTotal\": 8837.654966647804,\n        \"nonStockProduct\": true,\n        \"order\": 1243,\n        \"parentLinkId\": 7160,\n        \"price\": 1132.598068585695,\n        \"productCode\": \"string\",\n        \"productId\": 8547,\n        \"productName\": \"string\",\n        \"productOriginalPrice\": 541.2667050786147,\n        \"productUnitId\": 6539,\n        \"productUpcEan\": \"string\",\n        \"purchaseOrderRowId\": 4215,\n        \"state\": \"string\",\n        \"taxExempt\": false,\n        \"title\": \"string\",\n        \"total\": 2794.0643740858295,\n        \"updatedAt\": \"string\",\n        \"updatedById\": 6340,\n        \"vatRateId\": 5577,\n        \"vatTotal\": 366.9485838940123,\n        \"workorderId\": 7868\n      },\n      {\n        \"amount\": 6515.707935378182,\n        \"confirmedAt\": \"string\",\n        \"confirmedById\": 4854,\n        \"createdAt\": \"string\",\n        \"createdById\": 8333,\n        \"data\": {},\n        \"discount\": 1099.926565434579,\n        \"id\": 9964,\n        \"isLinked\": true,\n        \"itemId\": 9724,\n        \"netTotal\": 9205.244355408186,\n        \"nonStockProduct\": false,\n        \"order\": 6799,\n        \"parentLinkId\": 5463,\n        \"price\": 526.4811235935618,\n        \"productCode\": \"string\",\n        \"productId\": 5397,\n        \"productName\": \"string\",\n        \"productOriginalPrice\": 5064.3345324681095,\n        \"productUnitId\": 4032,\n        \"productUpcEan\": \"string\",\n        \"purchaseOrderRowId\": 5888,\n        \"state\": \"string\",\n        \"taxExempt\": true,\n        \"title\": \"string\",\n        \"total\": 552.7478382802565,\n        \"updatedAt\": \"string\",\n        \"updatedById\": 6623,\n        \"vatRateId\": 107,\n        \"vatTotal\": 8102.307639990813,\n        \"workorderId\": 6917\n      }\n    ],\n    \"salepointId\": 5511,\n    \"state\": \"string\",\n    \"taskScheduledState\": \"string\",\n    \"tasks\": [\n      {\n        \"assignedToId\": 1,\n        \"createdAt\": \"2022-01-01T00:00:00Z\",\n        \"createdById\": 1,\n        \"data\": {},\n        \"duration\": 1,\n        \"endAt\": \"2022-01-01T00:00:00Z\",\n        \"id\": 1,\n        \"itemId\": 1,\n        \"labels\": [\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 6967,\n            \"label\": \"string\",\n            \"labelType\": \"string\",\n            \"taskId\": 5997,\n            \"workorderId\": 8356\n          },\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 8763,\n            \"label\": \"string\",\n            \"labelType\": \"string\",\n            \"taskId\": 6457,\n            \"workorderId\": 6762\n          }\n        ],\n        \"repeatEndAt\": \"2022-01-01T00:00:00Z\",\n        \"repeatId\": 1,\n        \"repeatStartAt\": \"2022-01-01T00:00:00Z\",\n        \"resourceId\": 1,\n        \"rowId\": 1,\n        \"rowNotes\": [\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 2167,\n            \"data\": {},\n            \"id\": 2009,\n            \"itemId\": 6086,\n            \"rowId\": 6652,\n            \"taskId\": 4160,\n            \"text\": \"string\",\n            \"type\": \"string\",\n            \"updatedAt\": \"string\",\n            \"updatedById\": 5768,\n            \"workorderId\": 127\n          },\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 7337,\n            \"data\": {},\n            \"id\": 3963,\n            \"itemId\": 6988,\n            \"rowId\": 1309,\n            \"taskId\": 3308,\n            \"text\": \"string\",\n            \"type\": \"string\",\n            \"updatedAt\": \"string\",\n            \"updatedById\": 9212,\n            \"workorderId\": 5906\n          }\n        ],\n        \"rrule\": \"RRULE:FREQ=DAILY;UNTIL=20220919T063000Z\",\n        \"startAt\": \"2022-01-01T00:00:00Z\",\n        \"title\": \"Row A;Row B\",\n        \"type\": \"default\",\n        \"updatedAt\": \"2022-01-01T00:00:00Z\",\n        \"updatedById\": 1,\n        \"userDuration\": 1,\n        \"warehouseId\": 1,\n        \"workorderId\": 1\n      },\n      {\n        \"assignedToId\": 1,\n        \"createdAt\": \"2022-01-01T00:00:00Z\",\n        \"createdById\": 1,\n        \"data\": {},\n        \"duration\": 1,\n        \"endAt\": \"2022-01-01T00:00:00Z\",\n        \"id\": 1,\n        \"itemId\": 1,\n        \"labels\": [\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 4838,\n            \"label\": \"string\",\n            \"labelType\": \"string\",\n            \"taskId\": 1004,\n            \"workorderId\": 2144\n          },\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 875,\n            \"label\": \"string\",\n            \"labelType\": \"string\",\n            \"taskId\": 2774,\n            \"workorderId\": 2629\n          }\n        ],\n        \"repeatEndAt\": \"2022-01-01T00:00:00Z\",\n        \"repeatId\": 1,\n        \"repeatStartAt\": \"2022-01-01T00:00:00Z\",\n        \"resourceId\": 1,\n        \"rowId\": 1,\n        \"rowNotes\": [\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 2508,\n            \"data\": {},\n            \"id\": 1532,\n            \"itemId\": 4115,\n            \"rowId\": 2677,\n            \"taskId\": 2553,\n            \"text\": \"string\",\n            \"type\": \"string\",\n            \"updatedAt\": \"string\",\n            \"updatedById\": 5478,\n            \"workorderId\": 7047\n          },\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 4878,\n            \"data\": {},\n            \"id\": 1483,\n            \"itemId\": 5641,\n            \"rowId\": 8629,\n            \"taskId\": 6424,\n            \"text\": \"string\",\n            \"type\": \"string\",\n            \"updatedAt\": \"string\",\n            \"updatedById\": 6438,\n            \"workorderId\": 6135\n          }\n        ],\n        \"rrule\": \"RRULE:FREQ=DAILY;UNTIL=20220919T063000Z\",\n        \"startAt\": \"2022-01-01T00:00:00Z\",\n        \"title\": \"Row A;Row B\",\n        \"type\": \"default\",\n        \"updatedAt\": \"2022-01-01T00:00:00Z\",\n        \"updatedById\": 1,\n        \"userDuration\": 1,\n        \"warehouseId\": 1,\n        \"workorderId\": 1\n      }\n    ],\n    \"taxExempt\": false,\n    \"templateId\": 2448,\n    \"title\": \"string\",\n    \"total\": 5147.200466736229,\n    \"transactionalState\": \"string\",\n    \"type\": \"string\",\n    \"updatedAt\": \"string\",\n    \"updatedById\": 9775,\n    \"vatTotal\": 3768.265545752063,\n    \"warehouseId\": 2444,\n    \"workorderGroupId\": 6321,\n    \"workorderNo\": \"string\"\n  },\n  {\n    \"cancelledAt\": \"string\",\n    \"cancelledById\": 5544,\n    \"confirmedAt\": \"string\",\n    \"confirmedById\": 7508,\n    \"contactId\": 2774,\n    \"createdAt\": \"string\",\n    \"createdById\": 2636,\n    \"customerId\": 4106,\n    \"data\": {},\n    \"deviceId\": 427,\n    \"deviceUse\": 9205,\n    \"emsThreadId\": 7172,\n    \"entity\": \"string\",\n    \"hasDocCredit\": false,\n    \"id\": 171,\n    \"items\": [\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 4225,\n        \"data\": {},\n        \"id\": 85,\n        \"templateId\": 942,\n        \"templateSourceId\": 5927,\n        \"text\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 1928,\n        \"workorderId\": 60\n      },\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 1262,\n        \"data\": {},\n        \"id\": 9755,\n        \"templateId\": 5328,\n        \"templateSourceId\": 4301,\n        \"text\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 2387,\n        \"workorderId\": 4219\n      }\n    ],\n    \"labels\": [\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 4582,\n        \"label\": \"string\",\n        \"labelType\": \"string\",\n        \"taskId\": 8587,\n        \"workorderId\": 1113\n      },\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 1952,\n        \"label\": \"string\",\n        \"labelType\": \"string\",\n        \"taskId\": 2425,\n        \"workorderId\": 1495\n      }\n    ],\n    \"netTotal\": 1839.446223262351,\n    \"noteCount\": 3303,\n    \"notes\": [\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 7668,\n        \"data\": {},\n        \"id\": 9636,\n        \"itemId\": 3869,\n        \"rowId\": 5271,\n        \"taskId\": 4514,\n        \"text\": \"string\",\n        \"type\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 9575,\n        \"workorderId\": 7524\n      },\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 1731,\n        \"data\": {},\n        \"id\": 5651,\n        \"itemId\": 2492,\n        \"rowId\": 4866,\n        \"taskId\": 1447,\n        \"text\": \"string\",\n        \"type\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 3782,\n        \"workorderId\": 682\n      }\n    ],\n    \"order\": 5645,\n    \"paid\": 7598.066386030796,\n    \"parentId\": 4181,\n    \"priority\": \"string\",\n    \"productStockState\": \"string\",\n    \"progress\": 8598.388932096048,\n    \"receivedAt\": \"string\",\n    \"receivedById\": 1436,\n    \"referenceNo\": \"string\",\n    \"returnedAt\": \"string\",\n    \"returnedById\": 1588,\n    \"rows\": [\n      {\n        \"amount\": 8038.390083636774,\n        \"confirmedAt\": \"string\",\n        \"confirmedById\": 8506,\n        \"createdAt\": \"string\",\n        \"createdById\": 4879,\n        \"data\": {},\n        \"discount\": 7197.794008641344,\n        \"id\": 6377,\n        \"isLinked\": true,\n        \"itemId\": 3835,\n        \"netTotal\": 7482.631355652183,\n        \"nonStockProduct\": false,\n        \"order\": 2440,\n        \"parentLinkId\": 7115,\n        \"price\": 2026.2764074189554,\n        \"productCode\": \"string\",\n        \"productId\": 8594,\n        \"productName\": \"string\",\n        \"productOriginalPrice\": 664.2161050307737,\n        \"productUnitId\": 8586,\n        \"productUpcEan\": \"string\",\n        \"purchaseOrderRowId\": 2769,\n        \"state\": \"string\",\n        \"taxExempt\": true,\n        \"title\": \"string\",\n        \"total\": 6926.547658894941,\n        \"updatedAt\": \"string\",\n        \"updatedById\": 6387,\n        \"vatRateId\": 2500,\n        \"vatTotal\": 9092.481591668831,\n        \"workorderId\": 46\n      },\n      {\n        \"amount\": 3718.090274381737,\n        \"confirmedAt\": \"string\",\n        \"confirmedById\": 5346,\n        \"createdAt\": \"string\",\n        \"createdById\": 8123,\n        \"data\": {},\n        \"discount\": 4079.142706560248,\n        \"id\": 2074,\n        \"isLinked\": false,\n        \"itemId\": 7864,\n        \"netTotal\": 1884.4721823396371,\n        \"nonStockProduct\": false,\n        \"order\": 5334,\n        \"parentLinkId\": 8958,\n        \"price\": 5736.45963663934,\n        \"productCode\": \"string\",\n        \"productId\": 6294,\n        \"productName\": \"string\",\n        \"productOriginalPrice\": 1681.5642733078973,\n        \"productUnitId\": 4542,\n        \"productUpcEan\": \"string\",\n        \"purchaseOrderRowId\": 1993,\n        \"state\": \"string\",\n        \"taxExempt\": true,\n        \"title\": \"string\",\n        \"total\": 8040.051486091368,\n        \"updatedAt\": \"string\",\n        \"updatedById\": 1290,\n        \"vatRateId\": 9994,\n        \"vatTotal\": 5995.105143634249,\n        \"workorderId\": 8937\n      }\n    ],\n    \"salepointId\": 8293,\n    \"state\": \"string\",\n    \"taskScheduledState\": \"string\",\n    \"tasks\": [\n      {\n        \"assignedToId\": 1,\n        \"createdAt\": \"2022-01-01T00:00:00Z\",\n        \"createdById\": 1,\n        \"data\": {},\n        \"duration\": 1,\n        \"endAt\": \"2022-01-01T00:00:00Z\",\n        \"id\": 1,\n        \"itemId\": 1,\n        \"labels\": [\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 7637,\n            \"label\": \"string\",\n            \"labelType\": \"string\",\n            \"taskId\": 2286,\n            \"workorderId\": 2527\n          },\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 7574,\n            \"label\": \"string\",\n            \"labelType\": \"string\",\n            \"taskId\": 7882,\n            \"workorderId\": 7911\n          }\n        ],\n        \"repeatEndAt\": \"2022-01-01T00:00:00Z\",\n        \"repeatId\": 1,\n        \"repeatStartAt\": \"2022-01-01T00:00:00Z\",\n        \"resourceId\": 1,\n        \"rowId\": 1,\n        \"rowNotes\": [\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 3859,\n            \"data\": {},\n            \"id\": 5173,\n            \"itemId\": 5721,\n            \"rowId\": 2069,\n            \"taskId\": 9627,\n            \"text\": \"string\",\n            \"type\": \"string\",\n            \"updatedAt\": \"string\",\n            \"updatedById\": 6745,\n            \"workorderId\": 5790\n          },\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 429,\n            \"data\": {},\n            \"id\": 8084,\n            \"itemId\": 5161,\n            \"rowId\": 9737,\n            \"taskId\": 6543,\n            \"text\": \"string\",\n            \"type\": \"string\",\n            \"updatedAt\": \"string\",\n            \"updatedById\": 3857,\n            \"workorderId\": 2733\n          }\n        ],\n        \"rrule\": \"RRULE:FREQ=DAILY;UNTIL=20220919T063000Z\",\n        \"startAt\": \"2022-01-01T00:00:00Z\",\n        \"title\": \"Row A;Row B\",\n        \"type\": \"default\",\n        \"updatedAt\": \"2022-01-01T00:00:00Z\",\n        \"updatedById\": 1,\n        \"userDuration\": 1,\n        \"warehouseId\": 1,\n        \"workorderId\": 1\n      },\n      {\n        \"assignedToId\": 1,\n        \"createdAt\": \"2022-01-01T00:00:00Z\",\n        \"createdById\": 1,\n        \"data\": {},\n        \"duration\": 1,\n        \"endAt\": \"2022-01-01T00:00:00Z\",\n        \"id\": 1,\n        \"itemId\": 1,\n        \"labels\": [\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 7918,\n            \"label\": \"string\",\n            \"labelType\": \"string\",\n            \"taskId\": 3239,\n            \"workorderId\": 46\n          },\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 1185,\n            \"label\": \"string\",\n            \"labelType\": \"string\",\n            \"taskId\": 6219,\n            \"workorderId\": 5060\n          }\n        ],\n        \"repeatEndAt\": \"2022-01-01T00:00:00Z\",\n        \"repeatId\": 1,\n        \"repeatStartAt\": \"2022-01-01T00:00:00Z\",\n        \"resourceId\": 1,\n        \"rowId\": 1,\n        \"rowNotes\": [\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 4166,\n            \"data\": {},\n            \"id\": 1734,\n            \"itemId\": 680,\n            \"rowId\": 7014,\n            \"taskId\": 1691,\n            \"text\": \"string\",\n            \"type\": \"string\",\n            \"updatedAt\": \"string\",\n            \"updatedById\": 5416,\n            \"workorderId\": 361\n          },\n          {\n            \"createdAt\": \"string\",\n            \"createdById\": 5617,\n            \"data\": {},\n            \"id\": 7863,\n            \"itemId\": 7962,\n            \"rowId\": 460,\n            \"taskId\": 8191,\n            \"text\": \"string\",\n            \"type\": \"string\",\n            \"updatedAt\": \"string\",\n            \"updatedById\": 612,\n            \"workorderId\": 4337\n          }\n        ],\n        \"rrule\": \"RRULE:FREQ=DAILY;UNTIL=20220919T063000Z\",\n        \"startAt\": \"2022-01-01T00:00:00Z\",\n        \"title\": \"Row A;Row B\",\n        \"type\": \"default\",\n        \"updatedAt\": \"2022-01-01T00:00:00Z\",\n        \"updatedById\": 1,\n        \"userDuration\": 1,\n        \"warehouseId\": 1,\n        \"workorderId\": 1\n      }\n    ],\n    \"taxExempt\": false,\n    \"templateId\": 408,\n    \"title\": \"string\",\n    \"total\": 7411.5601682794695,\n    \"transactionalState\": \"string\",\n    \"type\": \"string\",\n    \"updatedAt\": \"string\",\n    \"updatedById\": 5035,\n    \"vatTotal\": 9792.52312318436,\n    \"warehouseId\": 1053,\n    \"workorderGroupId\": 2589,\n    \"workorderNo\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac37efc9-224d-4777-aa23-b234457b572e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sync",
+                    "workorder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastIdRetrieved",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "42198a58-ac92-45c4-99e2-c6ac08c0da38",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "sync",
+                    "workorder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastIdRetrieved",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ce92d3e-e50b-4987-854e-c65f37230cda",
+          "name": "Sync configurations",
+          "request": {
+            "name": "Sync configurations",
+            "description": {
+              "content": "Request the configurations with the intention to sync some or all of the configurations created or modified since the lastModified timestamp.\nAt most, 5000 configurations will be returned from this endpoint in one request.\nContinue making requests with the same lastModified to get the remaining configurations. The API remembers itself where you left off.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "configurations",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lastModified",
+                  "value": "<integer>",
+                  "description": "(Required) change since date for the configurations to sync"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastIdRetrieved",
+                  "value": "<integer>",
+                  "description": "the ID of the last configuration in the previous response. It is the responsibility of the API client to extract this value and use it for the next call."
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "Number of records to return. If API client omits this parameter, the 20 is the default value."
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "optionally return total number of records in the X-Total-Count response header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "UNIX timestamp used for the HMAC Auth method only",
+                "key": "timestamp",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "59fbee5a-de0d-4100-a38b-b8f79bcae128",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configurations",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lastIdRetrieved",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"added\": 7315,\n    \"addedby_id\": 234,\n    \"application\": \"erply-to-woo-sync\",\n    \"changed\": 9487,\n    \"changedby_id\": 2392,\n    \"id\": \"string\",\n    \"level\": \"Pos\",\n    \"level_id\": \"1\",\n    \"name\": \"adyen\",\n    \"type\": \"payment\",\n    \"value\": \"\"\n  },\n  {\n    \"added\": 1528,\n    \"addedby_id\": 848,\n    \"application\": \"erply-to-woo-sync\",\n    \"changed\": 8744,\n    \"changedby_id\": 3330,\n    \"id\": \"string\",\n    \"level\": \"Pos\",\n    \"level_id\": \"1\",\n    \"name\": \"adyen\",\n    \"type\": \"payment\",\n    \"value\": \"\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69fa749c-11ee-4d19-a2dc-1a581f9a9b10",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configurations",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lastIdRetrieved",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4664,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebdd43ed-4500-45ba-98a2-dc0f484f48f8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configurations",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lastIdRetrieved",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4664,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f2db4e42-2102-46c9-ac77-013c4a6a4f9f",
+    "name": "assignments Assortment sync API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

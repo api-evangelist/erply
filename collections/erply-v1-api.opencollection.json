@@ -1,0 +1,215 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment v1 API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "v1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all configurations or a sub-list.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/configuration",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              },
+              {
+                "name": "Look-Deeper",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "application",
+                "value": "",
+                "type": "query",
+                "description": "Application name that uses CAFA to store configs"
+              },
+              {
+                "name": "level",
+                "value": "",
+                "type": "query",
+                "description": "Level is the operating level where the config is stored"
+              },
+              {
+                "name": "level_id",
+                "value": "",
+                "type": "query",
+                "description": "LevelID is a unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  `Company level does not need level_id.`"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name of the configuration"
+              }
+            ]
+          },
+          "docs": "All those parameters work like filters. You can search for all configs by type or by level. Or get all configs of Pos 1.\nWith `Look-Deeper` header set to `true` you will get the following logic of the request:\nWhen you request a config at a User or Warehouse levels, if it is not there it will check Company level as well. When you request a config at a POS level, if it is not there it will check Warehouse (if request to ERPLY API was ok to get the Warehouse ID) and Company levels as well."
+        },
+        {
+          "info": {
+            "name": "Save",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/configuration",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "`NB`: You cannot have 2 configurations with the same level,level_id, type, name and application\nlevel, level_id and type are optional fields."
+        },
+        {
+          "info": {
+            "name": "Update `value` only",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/configuration",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "`level`, `level_id` and `type` are optional fields."
+        },
+        {
+          "info": {
+            "name": "Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/configuration",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "application",
+                "value": "",
+                "type": "query",
+                "description": "Application (s) name that uses CAFA to store configs"
+              },
+              {
+                "name": "level",
+                "value": "",
+                "type": "query",
+                "description": "Level is the operating level where the config is stored. Has to be one of Company, Warehouse, Pos, User"
+              },
+              {
+                "name": "level_id",
+                "value": "",
+                "type": "query",
+                "description": "LevelID is an unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  Company level does not need level_id."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name of the configuration"
+              }
+            ]
+          },
+          "docs": "Delete will delete the configuration by strict match of the following fields: level, application, levelID, type and name."
+        },
+        {
+          "info": {
+            "name": "Get a list of all application names that the user has configurations for.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/configuration/apps"
+          },
+          "docs": "Get a list of all application names that the user has configurations for."
+        },
+        {
+          "info": {
+            "name": "Get all configurations for an application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/configuration/:applicationName",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "applicationName",
+                "value": "",
+                "type": "path",
+                "description": "Application name"
+              }
+            ]
+          },
+          "docs": "The endpoint allows you to get all the configurations in an application"
+        },
+        {
+          "info": {
+            "name": "Moving means changing the level_id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/configuration/:id/move",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ConfigurationDbRecord ID"
+              }
+            ]
+          },
+          "docs": "Moving means changing the level_id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

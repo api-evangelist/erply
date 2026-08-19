@@ -1,0 +1,165 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment template API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "template",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/template",
+            "params": [
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "onlyTemplateGroups",
+                "value": "",
+                "type": "query",
+                "description": "When set to `true` returns workorder templates, `false` returns item templates and if missing, both template types are returned"
+              },
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "query",
+                "description": "ID of workorder for which matching templates should be found"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Search for templates by name. Supports partial matches"
+              },
+              {
+                "name": "deviceBrand",
+                "value": "",
+                "type": "query",
+                "description": "Search for templates by device brand"
+              },
+              {
+                "name": "deviceModel",
+                "value": "",
+                "type": "query",
+                "description": "Search for templates by device model"
+              },
+              {
+                "name": "deviceVersion",
+                "value": "",
+                "type": "query",
+                "description": "Search for templates by device version"
+              },
+              {
+                "name": "deviceSoldAt",
+                "value": "",
+                "type": "query",
+                "description": "Search for templates by device soldAt date"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `name`, `usedCount`, `relevance`. Defaults to `-usedCount, -relevance`"
+              }
+            ]
+          },
+          "docs": "Allows searching for templates matching specific criteria. To find templates for a specific workorder, just specify the workorderId as a filter but detailed filtering by fields is also supported.\r\n\r\n> Param           | Default&nbsp;          | Example&nbsp; | Description\r\n> ----------------|------------------------|---------------|----\r\n> `onlyTemplateGroups` | false                  | true          | Search for templates created from entire workorders, not individual item templates. Such workor"
+        },
+        {
+          "info": {
+            "name": "Create a new template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/template"
+          },
+          "docs": "Create a new template. Templates are used to modify existing workorders to fill them with pre-defined items, rows and tasks. They can be based either on a workorder or an individual item. A template based on a workorder can contain multiple items. Once a template is created, the associated workorderId and itemId cannot be changed.\r\n\r\nA template must be assigned a name which can be used for looking it up.\r\n\r\nTemplate definition can also contain a number of scope fields. These determine what kind "
+        },
+        {
+          "info": {
+            "name": "Update template record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/template/:templateId",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update a template. It is possible to update its name and scopes. Changing the associated workorderId and itemId-s is not supported."
+        },
+        {
+          "info": {
+            "name": "Delete one template record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/template/:templateId",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one template record"
+        },
+        {
+          "info": {
+            "name": "Applies a template to a workorder. If the workorderId is not specified, creates a new workorder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/template/:templateId/apply",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "path",
+                "description": "Template id"
+              }
+            ]
+          },
+          "docs": "Applies a template to a workorder. If the workorderId is not specified, creates a new workorder"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

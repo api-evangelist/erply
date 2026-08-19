@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Replacement API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Replacement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get products replacement information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/replacements/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "product IDs"
+              }
+            ]
+          },
+          "docs": "Not to be mistaken with the product substituting feature. This feature is meant for complete replacement\nof old products (discontinued etc).\nA product cannot replace multiple products. Api can still return multiple replacements however since\napi also returns inherited replacements from the replaced products."
+        },
+        {
+          "info": {
+            "name": "Create a new product replacement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/:newProductId/replace/:oldProductId",
+            "params": [
+              {
+                "name": "newProductId",
+                "value": "",
+                "type": "path",
+                "description": "product ID - product that replaces the other product"
+              },
+              {
+                "name": "oldProductId",
+                "value": "",
+                "type": "path",
+                "description": "product ID - product that will be replaced"
+              }
+            ]
+          },
+          "docs": "Not to be mistaken with the product substituting feature. This feature is meant for complete replacement\nof old products (discontinued etc).\nIf the replaced product has replacements on its own then the new product will also inherit all of them."
+        },
+        {
+          "info": {
+            "name": "Delete an existing product replacement",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/:newProductId/replace/:oldProductId",
+            "params": [
+              {
+                "name": "newProductId",
+                "value": "",
+                "type": "path",
+                "description": "product ID - product that replaces the other product"
+              },
+              {
+                "name": "oldProductId",
+                "value": "",
+                "type": "path",
+                "description": "product ID - product that will be replaced"
+              }
+            ]
+          },
+          "docs": "Not to be mistaken with the product substituting feature. This feature is meant for complete replacement\nof old products (discontinued etc).\nCall only removes the requested replacement, it will not remove replacements that might have been inherited when the replacement was added."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

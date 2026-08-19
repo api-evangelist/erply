@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Recipes API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Recipes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Product Recipes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/recipe",
+            "params": [
+              {
+                "name": "productIDs",
+                "value": "",
+                "type": "query",
+                "description": "API client specifies one or more product IDs and wants components for these products. Can contain semicolon delimited IDs."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              }
+            ]
+          },
+          "docs": "Get Product Recipes. Filtering & Sorting by child product objects is not supported."
+        },
+        {
+          "info": {
+            "name": "Create a Product Recipe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/recipe"
+          },
+          "docs": "Components can only be added to a product with type BUNDLE or ASSEMBLY. Amount must be a positive decimal quantity. Products with type BUNDLE and MATRIX are not allowed to be components. (ASSEMBLY products can.)\nA product is not allowed to be its own component."
+        },
+        {
+          "info": {
+            "name": "Create recipes in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/recipe/bulk"
+          },
+          "docs": "each request contains the created resource data"
+        },
+        {
+          "info": {
+            "name": "Get recipes in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/recipe/bulk/get"
+          },
+          "docs": "Get recipes in bulk"
+        },
+        {
+          "info": {
+            "name": "Delete Product Recipes",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/recipe/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited recipe IDs"
+              }
+            ]
+          },
+          "docs": "Delete Product Recipes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Special Endpoints API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Special Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Pricelist Prices for Offline DB to sync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/offline-db/sync/pricelist-prices",
+            "params": [
+              {
+                "name": "lastModified",
+                "value": "",
+                "type": "query",
+                "description": "Last modification time (create/update)"
+              },
+              {
+                "name": "pricelistID",
+                "value": "",
+                "type": "query",
+                "description": "price list ID"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000 for this special endpoint"
+              }
+            ]
+          },
+          "docs": "Get products that have been added or modified since the specified timestamp. Fetches only the columns that are actually needed for ODB (Offline Database)."
+        },
+        {
+          "info": {
+            "name": "Get Products for Offline DB to sync, Product pictures: CDN API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/offline-db/sync/product",
+            "params": [
+              {
+                "name": "lastModified",
+                "value": "",
+                "type": "query",
+                "description": "Last modification time (create/update)"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 8000 for this special endpoint"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              }
+            ]
+          },
+          "docs": "Get products that have been added or modified since the specified timestamp. Fetches only the columns that are actually needed for ODB (Offline Database)."
+        },
+        {
+          "info": {
+            "name": "Get Products for UI, Product pictures: CDN API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/ui/product",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 1000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "createdDate",
+                "value": "",
+                "type": "query",
+                "description": "this is an alternative for the added field filter, the format is ISO 'yyyy-mm-dd'."
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              }
+            ]
+          },
+          "docs": "Getting the products for the UI involves additional steps and the query is slower than the regular get products.\nNB: Filtering & sorting is not supported for the following fields: length, delivery_time, packaging_type, alcohol_registry_number, alcohol_percentage\nbatches, excise_declaration_number, tax_free, is_regular_gift_card, reward_points_not_allowed, non_stock_product, cashier_must_enter_price, labels_not_needed, deposit_fee_amount"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

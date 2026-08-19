@@ -1,0 +1,1076 @@
+{
+  "item": [
+    {
+      "id": "b46777e2-063f-4178-8fdd-6a268a1faba8",
+      "name": "Matrix Product Variation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2be2dbe8-d34d-4484-9692-0389b7e96192",
+          "name": "Create variations in bulk",
+          "request": {
+            "name": "Create variations in bulk",
+            "description": {
+              "content": "Each request body is a variation to create. The parameters to generate the product code/code2 automatically is embedded into the request body as the `generateCodeAutomatically` & `generateCode2Automatically` fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                "variation",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"dimension_value_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"generateCode2Automatically\": \"<boolean>\",\n      \"generateCodeAutomatically\": \"<boolean>\",\n      \"matrixProductID\": \"<integer>\",\n      \"variation_product\": {\n        \"age_restriction\": \"<integer>\",\n        \"alcohol_percentage\": \"<string>\",\n        \"alcohol_registry_number\": \"<string>\",\n        \"backup_id\": \"<integer>\",\n        \"batches\": \"<string>\",\n        \"brand_id\": \"<integer>\",\n        \"cashier_must_enter_price\": \"<integer>\",\n        \"category_id\": \"<integer>\",\n        \"code\": \"<string>\",\n        \"code2\": \"<string>\",\n        \"code3\": \"<string>\",\n        \"code5\": \"<string>\",\n        \"code6\": \"<string>\",\n        \"code7\": \"<string>\",\n        \"code8\": \"<string>\",\n        \"cost\": \"<number>\",\n        \"country_of_origin_id\": \"<integer>\",\n        \"delivery_time\": \"<string>\",\n        \"deposit_fee_amount\": \"<integer>\",\n        \"deposit_fee_id\": \"<integer>\",\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": \"<integer>\",\n        \"excise_declaration_number\": \"<string>\",\n        \"extra_field1_id\": \"<integer>\",\n        \"extra_field2_id\": \"<integer>\",\n        \"extra_field3_id\": \"<integer>\",\n        \"extra_field4_id\": \"<integer>\",\n        \"family_id\": \"<integer>\",\n        \"formula_identifier\": \"<string>\",\n        \"gross_weight\": \"<number>\",\n        \"group_id\": \"<integer>\",\n        \"group_package_ferrous_metal\": \"<number>\",\n        \"group_package_metal\": \"<number>\",\n        \"group_package_non_ferrous_metal\": \"<number>\",\n        \"group_package_paper\": \"<number>\",\n        \"group_package_plastic\": \"<number>\",\n        \"group_package_wood\": \"<number>\",\n        \"has_serial_numbers\": \"<integer>\",\n        \"height\": \"<number>\",\n        \"is_gift_card\": \"<integer>\",\n        \"is_lot_product\": \"<boolean>\",\n        \"is_regular_gift_card\": \"<integer>\",\n        \"is_used_product\": \"<boolean>\",\n        \"labels_not_needed\": \"<integer>\",\n        \"length\": \"<number>\",\n        \"location_in_warehouse_id\": \"<integer>\",\n        \"location_in_warehouse_text\": \"<string>\",\n        \"manufacturer_name\": \"<string>\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": \"<number>\",\n        \"non_discountable\": \"<integer>\",\n        \"non_refundable\": \"<integer>\",\n        \"non_stock_product\": \"<integer>\",\n        \"packaging_type\": \"<string>\",\n        \"packing_not_required\": \"<integer>\",\n        \"parent_product_id\": \"<integer>\",\n        \"price\": \"<number>\",\n        \"priority_group_id\": \"<integer>\",\n        \"product_item_level_promotions_disabled\": \"<integer>\",\n        \"product_reorder_multiples\": \"<integer>\",\n        \"revenue_account\": \"<string>\",\n        \"reward_points_not_allowed\": \"<integer>\",\n        \"sales_package_cardboard\": \"<number>\",\n        \"sales_package_clear_brown_glass\": \"<number>\",\n        \"sales_package_green_other_glass\": \"<number>\",\n        \"sales_package_metal_al\": \"<number>\",\n        \"sales_package_metal_fe\": \"<number>\",\n        \"sales_package_other_metal\": \"<number>\",\n        \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n        \"sales_package_plastic_pet\": \"<number>\",\n        \"sales_package_plastic_pp_pe\": \"<number>\",\n        \"sales_package_wood\": \"<number>\",\n        \"serial_number\": \"<string>\",\n        \"shelf_life_days\": \"<integer>\",\n        \"sold_in_packages\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"suggested_retail_price\": \"<number>\",\n        \"supplier_code\": \"<string>\",\n        \"supplier_id\": \"<integer>\",\n        \"tax_free\": \"<integer>\",\n        \"tax_rate_id\": \"<integer>\",\n        \"transport_package_cardboard\": \"<number>\",\n        \"transport_package_ferrous_metal\": \"<number>\",\n        \"transport_package_non_ferrous_metal\": \"<number>\",\n        \"transport_package_plastic\": \"<number>\",\n        \"transport_package_wood\": \"<number>\",\n        \"type\": \"<string>\",\n        \"unit_id\": \"<integer>\",\n        \"volume\": \"<number>\",\n        \"webshop_description\": \"<string>\",\n        \"webshop_keywords\": \"<string>\",\n        \"webshop_title\": \"<string>\",\n        \"webshop_url_slug\": \"<string>\",\n        \"width\": \"<number>\"\n      }\n    },\n    {\n      \"dimension_value_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"generateCode2Automatically\": \"<boolean>\",\n      \"generateCodeAutomatically\": \"<boolean>\",\n      \"matrixProductID\": \"<integer>\",\n      \"variation_product\": {\n        \"age_restriction\": \"<integer>\",\n        \"alcohol_percentage\": \"<string>\",\n        \"alcohol_registry_number\": \"<string>\",\n        \"backup_id\": \"<integer>\",\n        \"batches\": \"<string>\",\n        \"brand_id\": \"<integer>\",\n        \"cashier_must_enter_price\": \"<integer>\",\n        \"category_id\": \"<integer>\",\n        \"code\": \"<string>\",\n        \"code2\": \"<string>\",\n        \"code3\": \"<string>\",\n        \"code5\": \"<string>\",\n        \"code6\": \"<string>\",\n        \"code7\": \"<string>\",\n        \"code8\": \"<string>\",\n        \"cost\": \"<number>\",\n        \"country_of_origin_id\": \"<integer>\",\n        \"delivery_time\": \"<string>\",\n        \"deposit_fee_amount\": \"<integer>\",\n        \"deposit_fee_id\": \"<integer>\",\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": \"<integer>\",\n        \"excise_declaration_number\": \"<string>\",\n        \"extra_field1_id\": \"<integer>\",\n        \"extra_field2_id\": \"<integer>\",\n        \"extra_field3_id\": \"<integer>\",\n        \"extra_field4_id\": \"<integer>\",\n        \"family_id\": \"<integer>\",\n        \"formula_identifier\": \"<string>\",\n        \"gross_weight\": \"<number>\",\n        \"group_id\": \"<integer>\",\n        \"group_package_ferrous_metal\": \"<number>\",\n        \"group_package_metal\": \"<number>\",\n        \"group_package_non_ferrous_metal\": \"<number>\",\n        \"group_package_paper\": \"<number>\",\n        \"group_package_plastic\": \"<number>\",\n        \"group_package_wood\": \"<number>\",\n        \"has_serial_numbers\": \"<integer>\",\n        \"height\": \"<number>\",\n        \"is_gift_card\": \"<integer>\",\n        \"is_lot_product\": \"<boolean>\",\n        \"is_regular_gift_card\": \"<integer>\",\n        \"is_used_product\": \"<boolean>\",\n        \"labels_not_needed\": \"<integer>\",\n        \"length\": \"<number>\",\n        \"location_in_warehouse_id\": \"<integer>\",\n        \"location_in_warehouse_text\": \"<string>\",\n        \"manufacturer_name\": \"<string>\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": \"<number>\",\n        \"non_discountable\": \"<integer>\",\n        \"non_refundable\": \"<integer>\",\n        \"non_stock_product\": \"<integer>\",\n        \"packaging_type\": \"<string>\",\n        \"packing_not_required\": \"<integer>\",\n        \"parent_product_id\": \"<integer>\",\n        \"price\": \"<number>\",\n        \"priority_group_id\": \"<integer>\",\n        \"product_item_level_promotions_disabled\": \"<integer>\",\n        \"product_reorder_multiples\": \"<integer>\",\n        \"revenue_account\": \"<string>\",\n        \"reward_points_not_allowed\": \"<integer>\",\n        \"sales_package_cardboard\": \"<number>\",\n        \"sales_package_clear_brown_glass\": \"<number>\",\n        \"sales_package_green_other_glass\": \"<number>\",\n        \"sales_package_metal_al\": \"<number>\",\n        \"sales_package_metal_fe\": \"<number>\",\n        \"sales_package_other_metal\": \"<number>\",\n        \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n        \"sales_package_plastic_pet\": \"<number>\",\n        \"sales_package_plastic_pp_pe\": \"<number>\",\n        \"sales_package_wood\": \"<number>\",\n        \"serial_number\": \"<string>\",\n        \"shelf_life_days\": \"<integer>\",\n        \"sold_in_packages\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"suggested_retail_price\": \"<number>\",\n        \"supplier_code\": \"<string>\",\n        \"supplier_id\": \"<integer>\",\n        \"tax_free\": \"<integer>\",\n        \"tax_rate_id\": \"<integer>\",\n        \"transport_package_cardboard\": \"<number>\",\n        \"transport_package_ferrous_metal\": \"<number>\",\n        \"transport_package_non_ferrous_metal\": \"<number>\",\n        \"transport_package_plastic\": \"<number>\",\n        \"transport_package_wood\": \"<number>\",\n        \"type\": \"<string>\",\n        \"unit_id\": \"<integer>\",\n        \"volume\": \"<number>\",\n        \"webshop_description\": \"<string>\",\n        \"webshop_keywords\": \"<string>\",\n        \"webshop_title\": \"<string>\",\n        \"webshop_url_slug\": \"<string>\",\n        \"width\": \"<number>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d6781c52-0e84-4153-8cad-a6a7b8dea578",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    "variation",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"dimension_value_ids\": [\n        1,\n        2,\n        3\n      ],\n      \"generateCode2Automatically\": \"<boolean>\",\n      \"generateCodeAutomatically\": \"<boolean>\",\n      \"matrixProductID\": \"<integer>\",\n      \"variation_product\": {\n        \"age_restriction\": \"<integer>\",\n        \"alcohol_percentage\": \"<string>\",\n        \"alcohol_registry_number\": \"<string>\",\n        \"backup_id\": \"<integer>\",\n        \"batches\": \"<string>\",\n        \"brand_id\": \"<integer>\",\n        \"cashier_must_enter_price\": \"<integer>\",\n        \"category_id\": \"<integer>\",\n        \"code\": \"<string>\",\n        \"code2\": \"<string>\",\n        \"code3\": \"<string>\",\n        \"code5\": \"<string>\",\n        \"code6\": \"<string>\",\n        \"code7\": \"<string>\",\n        \"code8\": \"<string>\",\n        \"cost\": \"<number>\",\n        \"country_of_origin_id\": \"<integer>\",\n        \"delivery_time\": \"<string>\",\n        \"deposit_fee_amount\": \"<integer>\",\n        \"deposit_fee_id\": \"<integer>\",\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": \"<integer>\",\n        \"excise_declaration_number\": \"<string>\",\n        \"extra_field1_id\": \"<integer>\",\n        \"extra_field2_id\": \"<integer>\",\n        \"extra_field3_id\": \"<integer>\",\n        \"extra_field4_id\": \"<integer>\",\n        \"family_id\": \"<integer>\",\n        \"formula_identifier\": \"<string>\",\n        \"gross_weight\": \"<number>\",\n        \"group_id\": \"<integer>\",\n        \"group_package_ferrous_metal\": \"<number>\",\n        \"group_package_metal\": \"<number>\",\n        \"group_package_non_ferrous_metal\": \"<number>\",\n        \"group_package_paper\": \"<number>\",\n        \"group_package_plastic\": \"<number>\",\n        \"group_package_wood\": \"<number>\",\n        \"has_serial_numbers\": \"<integer>\",\n        \"height\": \"<number>\",\n        \"is_gift_card\": \"<integer>\",\n        \"is_lot_product\": \"<boolean>\",\n        \"is_regular_gift_card\": \"<integer>\",\n        \"is_used_product\": \"<boolean>\",\n        \"labels_not_needed\": \"<integer>\",\n        \"length\": \"<number>\",\n        \"location_in_warehouse_id\": \"<integer>\",\n        \"location_in_warehouse_text\": \"<string>\",\n        \"manufacturer_name\": \"<string>\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": \"<number>\",\n        \"non_discountable\": \"<integer>\",\n        \"non_refundable\": \"<integer>\",\n        \"non_stock_product\": \"<integer>\",\n        \"packaging_type\": \"<string>\",\n        \"packing_not_required\": \"<integer>\",\n        \"parent_product_id\": \"<integer>\",\n        \"price\": \"<number>\",\n        \"priority_group_id\": \"<integer>\",\n        \"product_item_level_promotions_disabled\": \"<integer>\",\n        \"product_reorder_multiples\": \"<integer>\",\n        \"revenue_account\": \"<string>\",\n        \"reward_points_not_allowed\": \"<integer>\",\n        \"sales_package_cardboard\": \"<number>\",\n        \"sales_package_clear_brown_glass\": \"<number>\",\n        \"sales_package_green_other_glass\": \"<number>\",\n        \"sales_package_metal_al\": \"<number>\",\n        \"sales_package_metal_fe\": \"<number>\",\n        \"sales_package_other_metal\": \"<number>\",\n        \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n        \"sales_package_plastic_pet\": \"<number>\",\n        \"sales_package_plastic_pp_pe\": \"<number>\",\n        \"sales_package_wood\": \"<number>\",\n        \"serial_number\": \"<string>\",\n        \"shelf_life_days\": \"<integer>\",\n        \"sold_in_packages\": \"<integer>\",\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": \"<number>\",\n        \"supplier_code\": \"<string>\",\n        \"supplier_id\": \"<integer>\",\n        \"tax_free\": \"<integer>\",\n        \"tax_rate_id\": \"<integer>\",\n        \"transport_package_cardboard\": \"<number>\",\n        \"transport_package_ferrous_metal\": \"<number>\",\n        \"transport_package_non_ferrous_metal\": \"<number>\",\n        \"transport_package_plastic\": \"<number>\",\n        \"transport_package_wood\": \"<number>\",\n        \"type\": \"<string>\",\n        \"unit_id\": \"<integer>\",\n        \"volume\": \"<number>\",\n        \"webshop_description\": \"<string>\",\n        \"webshop_keywords\": \"<string>\",\n        \"webshop_title\": \"<string>\",\n        \"webshop_url_slug\": \"<string>\",\n        \"width\": \"<number>\"\n      }\n    },\n    {\n      \"dimension_value_ids\": [\n        1,\n        2,\n        3\n      ],\n      \"generateCode2Automatically\": \"<boolean>\",\n      \"generateCodeAutomatically\": \"<boolean>\",\n      \"matrixProductID\": \"<integer>\",\n      \"variation_product\": {\n        \"age_restriction\": \"<integer>\",\n        \"alcohol_percentage\": \"<string>\",\n        \"alcohol_registry_number\": \"<string>\",\n        \"backup_id\": \"<integer>\",\n        \"batches\": \"<string>\",\n        \"brand_id\": \"<integer>\",\n        \"cashier_must_enter_price\": \"<integer>\",\n        \"category_id\": \"<integer>\",\n        \"code\": \"<string>\",\n        \"code2\": \"<string>\",\n        \"code3\": \"<string>\",\n        \"code5\": \"<string>\",\n        \"code6\": \"<string>\",\n        \"code7\": \"<string>\",\n        \"code8\": \"<string>\",\n        \"cost\": \"<number>\",\n        \"country_of_origin_id\": \"<integer>\",\n        \"delivery_time\": \"<string>\",\n        \"deposit_fee_amount\": \"<integer>\",\n        \"deposit_fee_id\": \"<integer>\",\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": \"<integer>\",\n        \"excise_declaration_number\": \"<string>\",\n        \"extra_field1_id\": \"<integer>\",\n        \"extra_field2_id\": \"<integer>\",\n        \"extra_field3_id\": \"<integer>\",\n        \"extra_field4_id\": \"<integer>\",\n        \"family_id\": \"<integer>\",\n        \"formula_identifier\": \"<string>\",\n        \"gross_weight\": \"<number>\",\n        \"group_id\": \"<integer>\",\n        \"group_package_ferrous_metal\": \"<number>\",\n        \"group_package_metal\": \"<number>\",\n        \"group_package_non_ferrous_metal\": \"<number>\",\n        \"group_package_paper\": \"<number>\",\n        \"group_package_plastic\": \"<number>\",\n        \"group_package_wood\": \"<number>\",\n        \"has_serial_numbers\": \"<integer>\",\n        \"height\": \"<number>\",\n        \"is_gift_card\": \"<integer>\",\n        \"is_lot_product\": \"<boolean>\",\n        \"is_regular_gift_card\": \"<integer>\",\n        \"is_used_product\": \"<boolean>\",\n        \"labels_not_needed\": \"<integer>\",\n        \"length\": \"<number>\",\n        \"location_in_warehouse_id\": \"<integer>\",\n        \"location_in_warehouse_text\": \"<string>\",\n        \"manufacturer_name\": \"<string>\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": \"<number>\",\n        \"non_discountable\": \"<integer>\",\n        \"non_refundable\": \"<integer>\",\n        \"non_stock_product\": \"<integer>\",\n        \"packaging_type\": \"<string>\",\n        \"packing_not_required\": \"<integer>\",\n        \"parent_product_id\": \"<integer>\",\n        \"price\": \"<number>\",\n        \"priority_group_id\": \"<integer>\",\n        \"product_item_level_promotions_disabled\": \"<integer>\",\n        \"product_reorder_multiples\": \"<integer>\",\n        \"revenue_account\": \"<string>\",\n        \"reward_points_not_allowed\": \"<integer>\",\n        \"sales_package_cardboard\": \"<number>\",\n        \"sales_package_clear_brown_glass\": \"<number>\",\n        \"sales_package_green_other_glass\": \"<number>\",\n        \"sales_package_metal_al\": \"<number>\",\n        \"sales_package_metal_fe\": \"<number>\",\n        \"sales_package_other_metal\": \"<number>\",\n        \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n        \"sales_package_plastic_pet\": \"<number>\",\n        \"sales_package_plastic_pp_pe\": \"<number>\",\n        \"sales_package_wood\": \"<number>\",\n        \"serial_number\": \"<string>\",\n        \"shelf_life_days\": \"<integer>\",\n        \"sold_in_packages\": \"<integer>\",\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": \"<number>\",\n        \"supplier_code\": \"<string>\",\n        \"supplier_id\": \"<integer>\",\n        \"tax_free\": \"<integer>\",\n        \"tax_rate_id\": \"<integer>\",\n        \"transport_package_cardboard\": \"<number>\",\n        \"transport_package_ferrous_metal\": \"<number>\",\n        \"transport_package_non_ferrous_metal\": \"<number>\",\n        \"transport_package_plastic\": \"<number>\",\n        \"transport_package_wood\": \"<number>\",\n        \"type\": \"<string>\",\n        \"unit_id\": \"<integer>\",\n        \"volume\": \"<number>\",\n        \"webshop_description\": \"<string>\",\n        \"webshop_keywords\": \"<string>\",\n        \"webshop_title\": \"<string>\",\n        \"webshop_url_slug\": \"<string>\",\n        \"width\": \"<number>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    },\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf3aadb2-61b4-40a5-bcb3-ef521940d8ff",
+          "name": "Change variation parents in bulk",
+          "request": {
+            "name": "Change variation parents in bulk",
+            "description": {
+              "content": "each request item contains the updated resource data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                "variation",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"dimension_value_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"productID\": \"<integer>\",\n      \"variationID\": \"<integer>\"\n    },\n    {\n      \"dimension_value_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"productID\": \"<integer>\",\n      \"variationID\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b396be77-1040-411a-a9d7-6a40a7da8767",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    "variation",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"dimension_value_ids\": [\n        1,\n        2,\n        3\n      ],\n      \"productID\": \"<integer>\",\n      \"variationID\": \"<integer>\"\n    },\n    {\n      \"dimension_value_ids\": [\n        1,\n        2,\n        3\n      ],\n      \"productID\": \"<integer>\",\n      \"variationID\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    },\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1515d74e-18e2-49ee-bef1-2427deb9cf57",
+          "name": "Create Matrix Product Variation",
+          "request": {
+            "name": "Create Matrix Product Variation",
+            "description": {
+              "content": "Create specific variations (color/size combinations), each one as a separate product.\n`parent_product_id` field can be left empty on the variation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                ":id",
+                "variation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "generateCodeAutomatically",
+                  "value": "<boolean>",
+                  "description": "(Required) generate code automatically based on the preconfigured starting code or based on a generated code. If the code is not blank in the request, will override."
+                },
+                {
+                  "disabled": false,
+                  "key": "generateCode2Automatically",
+                  "value": "<boolean>",
+                  "description": "(Required) generate code2 (EAN/UPC) automatically based on the preconfigured starting code or based on a generated code. If the code is not blank in the request, will override."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) matrix product ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dimension_value_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"variation_product\": {\n    \"age_restriction\": \"<integer>\",\n    \"alcohol_percentage\": \"<string>\",\n    \"alcohol_registry_number\": \"<string>\",\n    \"backup_id\": \"<integer>\",\n    \"batches\": \"<string>\",\n    \"brand_id\": \"<integer>\",\n    \"cashier_must_enter_price\": \"<integer>\",\n    \"category_id\": \"<integer>\",\n    \"code\": \"<string>\",\n    \"code2\": \"<string>\",\n    \"code3\": \"<string>\",\n    \"code5\": \"<string>\",\n    \"code6\": \"<string>\",\n    \"code7\": \"<string>\",\n    \"code8\": \"<string>\",\n    \"cost\": \"<number>\",\n    \"country_of_origin_id\": \"<integer>\",\n    \"delivery_time\": \"<string>\",\n    \"deposit_fee_amount\": \"<integer>\",\n    \"deposit_fee_id\": \"<integer>\",\n    \"description\": {\n      \"en\": {\n        \"html\": \"<string>\",\n        \"plain_text\": \"<string>\"\n      }\n    },\n    \"displayed_in_webshop\": \"<integer>\",\n    \"excise_declaration_number\": \"<string>\",\n    \"extra_field1_id\": \"<integer>\",\n    \"extra_field2_id\": \"<integer>\",\n    \"extra_field3_id\": \"<integer>\",\n    \"extra_field4_id\": \"<integer>\",\n    \"family_id\": \"<integer>\",\n    \"formula_identifier\": \"<string>\",\n    \"gross_weight\": \"<number>\",\n    \"group_id\": \"<integer>\",\n    \"group_package_ferrous_metal\": \"<number>\",\n    \"group_package_metal\": \"<number>\",\n    \"group_package_non_ferrous_metal\": \"<number>\",\n    \"group_package_paper\": \"<number>\",\n    \"group_package_plastic\": \"<number>\",\n    \"group_package_wood\": \"<number>\",\n    \"has_serial_numbers\": \"<integer>\",\n    \"height\": \"<number>\",\n    \"is_gift_card\": \"<integer>\",\n    \"is_lot_product\": \"<boolean>\",\n    \"is_regular_gift_card\": \"<integer>\",\n    \"is_used_product\": \"<boolean>\",\n    \"labels_not_needed\": \"<integer>\",\n    \"length\": \"<number>\",\n    \"location_in_warehouse_id\": \"<integer>\",\n    \"location_in_warehouse_text\": \"<string>\",\n    \"manufacturer_name\": \"<string>\",\n    \"name\": {\n      \"en\": \"<string>\"\n    },\n    \"net_weight\": \"<number>\",\n    \"non_discountable\": \"<integer>\",\n    \"non_refundable\": \"<integer>\",\n    \"non_stock_product\": \"<integer>\",\n    \"packaging_type\": \"<string>\",\n    \"packing_not_required\": \"<integer>\",\n    \"parent_product_id\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"priority_group_id\": \"<integer>\",\n    \"product_item_level_promotions_disabled\": \"<integer>\",\n    \"product_reorder_multiples\": \"<integer>\",\n    \"revenue_account\": \"<string>\",\n    \"reward_points_not_allowed\": \"<integer>\",\n    \"sales_package_cardboard\": \"<number>\",\n    \"sales_package_clear_brown_glass\": \"<number>\",\n    \"sales_package_green_other_glass\": \"<number>\",\n    \"sales_package_metal_al\": \"<number>\",\n    \"sales_package_metal_fe\": \"<number>\",\n    \"sales_package_other_metal\": \"<number>\",\n    \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n    \"sales_package_plastic_pet\": \"<number>\",\n    \"sales_package_plastic_pp_pe\": \"<number>\",\n    \"sales_package_wood\": \"<number>\",\n    \"serial_number\": \"<string>\",\n    \"shelf_life_days\": \"<integer>\",\n    \"sold_in_packages\": \"<integer>\",\n    \"status\": \"<string>\",\n    \"suggested_retail_price\": \"<number>\",\n    \"supplier_code\": \"<string>\",\n    \"supplier_id\": \"<integer>\",\n    \"tax_free\": \"<integer>\",\n    \"tax_rate_id\": \"<integer>\",\n    \"transport_package_cardboard\": \"<number>\",\n    \"transport_package_ferrous_metal\": \"<number>\",\n    \"transport_package_non_ferrous_metal\": \"<number>\",\n    \"transport_package_plastic\": \"<number>\",\n    \"transport_package_wood\": \"<number>\",\n    \"type\": \"<string>\",\n    \"unit_id\": \"<integer>\",\n    \"volume\": \"<number>\",\n    \"webshop_description\": \"<string>\",\n    \"webshop_keywords\": \"<string>\",\n    \"webshop_title\": \"<string>\",\n    \"webshop_url_slug\": \"<string>\",\n    \"width\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cb878668-297e-4e7c-a875-1d750c4b5eb1",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":id",
+                    "variation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "generateCodeAutomatically",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "generateCode2Automatically",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) matrix product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_value_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"variation_product\": {\n    \"age_restriction\": \"<integer>\",\n    \"alcohol_percentage\": \"<string>\",\n    \"alcohol_registry_number\": \"<string>\",\n    \"backup_id\": \"<integer>\",\n    \"batches\": \"<string>\",\n    \"brand_id\": \"<integer>\",\n    \"cashier_must_enter_price\": \"<integer>\",\n    \"category_id\": \"<integer>\",\n    \"code\": \"<string>\",\n    \"code2\": \"<string>\",\n    \"code3\": \"<string>\",\n    \"code5\": \"<string>\",\n    \"code6\": \"<string>\",\n    \"code7\": \"<string>\",\n    \"code8\": \"<string>\",\n    \"cost\": \"<number>\",\n    \"country_of_origin_id\": \"<integer>\",\n    \"delivery_time\": \"<string>\",\n    \"deposit_fee_amount\": \"<integer>\",\n    \"deposit_fee_id\": \"<integer>\",\n    \"description\": {\n      \"en\": {\n        \"html\": \"<b>Very good product!</b>\",\n        \"plain_text\": \"Very good product!\"\n      }\n    },\n    \"displayed_in_webshop\": \"<integer>\",\n    \"excise_declaration_number\": \"<string>\",\n    \"extra_field1_id\": \"<integer>\",\n    \"extra_field2_id\": \"<integer>\",\n    \"extra_field3_id\": \"<integer>\",\n    \"extra_field4_id\": \"<integer>\",\n    \"family_id\": \"<integer>\",\n    \"formula_identifier\": \"<string>\",\n    \"gross_weight\": \"<number>\",\n    \"group_id\": \"<integer>\",\n    \"group_package_ferrous_metal\": \"<number>\",\n    \"group_package_metal\": \"<number>\",\n    \"group_package_non_ferrous_metal\": \"<number>\",\n    \"group_package_paper\": \"<number>\",\n    \"group_package_plastic\": \"<number>\",\n    \"group_package_wood\": \"<number>\",\n    \"has_serial_numbers\": \"<integer>\",\n    \"height\": \"<number>\",\n    \"is_gift_card\": \"<integer>\",\n    \"is_lot_product\": \"<boolean>\",\n    \"is_regular_gift_card\": \"<integer>\",\n    \"is_used_product\": \"<boolean>\",\n    \"labels_not_needed\": \"<integer>\",\n    \"length\": \"<number>\",\n    \"location_in_warehouse_id\": \"<integer>\",\n    \"location_in_warehouse_text\": \"<string>\",\n    \"manufacturer_name\": \"<string>\",\n    \"name\": {\n      \"en\": \"<string>\"\n    },\n    \"net_weight\": \"<number>\",\n    \"non_discountable\": \"<integer>\",\n    \"non_refundable\": \"<integer>\",\n    \"non_stock_product\": \"<integer>\",\n    \"packaging_type\": \"<string>\",\n    \"packing_not_required\": \"<integer>\",\n    \"parent_product_id\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"priority_group_id\": \"<integer>\",\n    \"product_item_level_promotions_disabled\": \"<integer>\",\n    \"product_reorder_multiples\": \"<integer>\",\n    \"revenue_account\": \"<string>\",\n    \"reward_points_not_allowed\": \"<integer>\",\n    \"sales_package_cardboard\": \"<number>\",\n    \"sales_package_clear_brown_glass\": \"<number>\",\n    \"sales_package_green_other_glass\": \"<number>\",\n    \"sales_package_metal_al\": \"<number>\",\n    \"sales_package_metal_fe\": \"<number>\",\n    \"sales_package_other_metal\": \"<number>\",\n    \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n    \"sales_package_plastic_pet\": \"<number>\",\n    \"sales_package_plastic_pp_pe\": \"<number>\",\n    \"sales_package_wood\": \"<number>\",\n    \"serial_number\": \"<string>\",\n    \"shelf_life_days\": \"<integer>\",\n    \"sold_in_packages\": \"<integer>\",\n    \"status\": \"ACTIVE\",\n    \"suggested_retail_price\": \"<number>\",\n    \"supplier_code\": \"<string>\",\n    \"supplier_id\": \"<integer>\",\n    \"tax_free\": \"<integer>\",\n    \"tax_rate_id\": \"<integer>\",\n    \"transport_package_cardboard\": \"<number>\",\n    \"transport_package_ferrous_metal\": \"<number>\",\n    \"transport_package_non_ferrous_metal\": \"<number>\",\n    \"transport_package_plastic\": \"<number>\",\n    \"transport_package_wood\": \"<number>\",\n    \"type\": \"<string>\",\n    \"unit_id\": \"<integer>\",\n    \"volume\": \"<number>\",\n    \"webshop_description\": \"<string>\",\n    \"webshop_keywords\": \"<string>\",\n    \"webshop_title\": \"<string>\",\n    \"webshop_url_slug\": \"<string>\",\n    \"width\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f75246f0-4fee-4aaf-bac5-23cfbffdc531",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":id",
+                    "variation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "generateCodeAutomatically",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "generateCode2Automatically",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) matrix product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_value_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"variation_product\": {\n    \"age_restriction\": \"<integer>\",\n    \"alcohol_percentage\": \"<string>\",\n    \"alcohol_registry_number\": \"<string>\",\n    \"backup_id\": \"<integer>\",\n    \"batches\": \"<string>\",\n    \"brand_id\": \"<integer>\",\n    \"cashier_must_enter_price\": \"<integer>\",\n    \"category_id\": \"<integer>\",\n    \"code\": \"<string>\",\n    \"code2\": \"<string>\",\n    \"code3\": \"<string>\",\n    \"code5\": \"<string>\",\n    \"code6\": \"<string>\",\n    \"code7\": \"<string>\",\n    \"code8\": \"<string>\",\n    \"cost\": \"<number>\",\n    \"country_of_origin_id\": \"<integer>\",\n    \"delivery_time\": \"<string>\",\n    \"deposit_fee_amount\": \"<integer>\",\n    \"deposit_fee_id\": \"<integer>\",\n    \"description\": {\n      \"en\": {\n        \"html\": \"<b>Very good product!</b>\",\n        \"plain_text\": \"Very good product!\"\n      }\n    },\n    \"displayed_in_webshop\": \"<integer>\",\n    \"excise_declaration_number\": \"<string>\",\n    \"extra_field1_id\": \"<integer>\",\n    \"extra_field2_id\": \"<integer>\",\n    \"extra_field3_id\": \"<integer>\",\n    \"extra_field4_id\": \"<integer>\",\n    \"family_id\": \"<integer>\",\n    \"formula_identifier\": \"<string>\",\n    \"gross_weight\": \"<number>\",\n    \"group_id\": \"<integer>\",\n    \"group_package_ferrous_metal\": \"<number>\",\n    \"group_package_metal\": \"<number>\",\n    \"group_package_non_ferrous_metal\": \"<number>\",\n    \"group_package_paper\": \"<number>\",\n    \"group_package_plastic\": \"<number>\",\n    \"group_package_wood\": \"<number>\",\n    \"has_serial_numbers\": \"<integer>\",\n    \"height\": \"<number>\",\n    \"is_gift_card\": \"<integer>\",\n    \"is_lot_product\": \"<boolean>\",\n    \"is_regular_gift_card\": \"<integer>\",\n    \"is_used_product\": \"<boolean>\",\n    \"labels_not_needed\": \"<integer>\",\n    \"length\": \"<number>\",\n    \"location_in_warehouse_id\": \"<integer>\",\n    \"location_in_warehouse_text\": \"<string>\",\n    \"manufacturer_name\": \"<string>\",\n    \"name\": {\n      \"en\": \"<string>\"\n    },\n    \"net_weight\": \"<number>\",\n    \"non_discountable\": \"<integer>\",\n    \"non_refundable\": \"<integer>\",\n    \"non_stock_product\": \"<integer>\",\n    \"packaging_type\": \"<string>\",\n    \"packing_not_required\": \"<integer>\",\n    \"parent_product_id\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"priority_group_id\": \"<integer>\",\n    \"product_item_level_promotions_disabled\": \"<integer>\",\n    \"product_reorder_multiples\": \"<integer>\",\n    \"revenue_account\": \"<string>\",\n    \"reward_points_not_allowed\": \"<integer>\",\n    \"sales_package_cardboard\": \"<number>\",\n    \"sales_package_clear_brown_glass\": \"<number>\",\n    \"sales_package_green_other_glass\": \"<number>\",\n    \"sales_package_metal_al\": \"<number>\",\n    \"sales_package_metal_fe\": \"<number>\",\n    \"sales_package_other_metal\": \"<number>\",\n    \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n    \"sales_package_plastic_pet\": \"<number>\",\n    \"sales_package_plastic_pp_pe\": \"<number>\",\n    \"sales_package_wood\": \"<number>\",\n    \"serial_number\": \"<string>\",\n    \"shelf_life_days\": \"<integer>\",\n    \"sold_in_packages\": \"<integer>\",\n    \"status\": \"ACTIVE\",\n    \"suggested_retail_price\": \"<number>\",\n    \"supplier_code\": \"<string>\",\n    \"supplier_id\": \"<integer>\",\n    \"tax_free\": \"<integer>\",\n    \"tax_rate_id\": \"<integer>\",\n    \"transport_package_cardboard\": \"<number>\",\n    \"transport_package_ferrous_metal\": \"<number>\",\n    \"transport_package_non_ferrous_metal\": \"<number>\",\n    \"transport_package_plastic\": \"<number>\",\n    \"transport_package_wood\": \"<number>\",\n    \"type\": \"<string>\",\n    \"unit_id\": \"<integer>\",\n    \"volume\": \"<number>\",\n    \"webshop_description\": \"<string>\",\n    \"webshop_keywords\": \"<string>\",\n    \"webshop_title\": \"<string>\",\n    \"webshop_url_slug\": \"<string>\",\n    \"width\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c17a628-1dc2-49aa-af54-086b2dac1366",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":id",
+                    "variation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "generateCodeAutomatically",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "generateCode2Automatically",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) matrix product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_value_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"variation_product\": {\n    \"age_restriction\": \"<integer>\",\n    \"alcohol_percentage\": \"<string>\",\n    \"alcohol_registry_number\": \"<string>\",\n    \"backup_id\": \"<integer>\",\n    \"batches\": \"<string>\",\n    \"brand_id\": \"<integer>\",\n    \"cashier_must_enter_price\": \"<integer>\",\n    \"category_id\": \"<integer>\",\n    \"code\": \"<string>\",\n    \"code2\": \"<string>\",\n    \"code3\": \"<string>\",\n    \"code5\": \"<string>\",\n    \"code6\": \"<string>\",\n    \"code7\": \"<string>\",\n    \"code8\": \"<string>\",\n    \"cost\": \"<number>\",\n    \"country_of_origin_id\": \"<integer>\",\n    \"delivery_time\": \"<string>\",\n    \"deposit_fee_amount\": \"<integer>\",\n    \"deposit_fee_id\": \"<integer>\",\n    \"description\": {\n      \"en\": {\n        \"html\": \"<b>Very good product!</b>\",\n        \"plain_text\": \"Very good product!\"\n      }\n    },\n    \"displayed_in_webshop\": \"<integer>\",\n    \"excise_declaration_number\": \"<string>\",\n    \"extra_field1_id\": \"<integer>\",\n    \"extra_field2_id\": \"<integer>\",\n    \"extra_field3_id\": \"<integer>\",\n    \"extra_field4_id\": \"<integer>\",\n    \"family_id\": \"<integer>\",\n    \"formula_identifier\": \"<string>\",\n    \"gross_weight\": \"<number>\",\n    \"group_id\": \"<integer>\",\n    \"group_package_ferrous_metal\": \"<number>\",\n    \"group_package_metal\": \"<number>\",\n    \"group_package_non_ferrous_metal\": \"<number>\",\n    \"group_package_paper\": \"<number>\",\n    \"group_package_plastic\": \"<number>\",\n    \"group_package_wood\": \"<number>\",\n    \"has_serial_numbers\": \"<integer>\",\n    \"height\": \"<number>\",\n    \"is_gift_card\": \"<integer>\",\n    \"is_lot_product\": \"<boolean>\",\n    \"is_regular_gift_card\": \"<integer>\",\n    \"is_used_product\": \"<boolean>\",\n    \"labels_not_needed\": \"<integer>\",\n    \"length\": \"<number>\",\n    \"location_in_warehouse_id\": \"<integer>\",\n    \"location_in_warehouse_text\": \"<string>\",\n    \"manufacturer_name\": \"<string>\",\n    \"name\": {\n      \"en\": \"<string>\"\n    },\n    \"net_weight\": \"<number>\",\n    \"non_discountable\": \"<integer>\",\n    \"non_refundable\": \"<integer>\",\n    \"non_stock_product\": \"<integer>\",\n    \"packaging_type\": \"<string>\",\n    \"packing_not_required\": \"<integer>\",\n    \"parent_product_id\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"priority_group_id\": \"<integer>\",\n    \"product_item_level_promotions_disabled\": \"<integer>\",\n    \"product_reorder_multiples\": \"<integer>\",\n    \"revenue_account\": \"<string>\",\n    \"reward_points_not_allowed\": \"<integer>\",\n    \"sales_package_cardboard\": \"<number>\",\n    \"sales_package_clear_brown_glass\": \"<number>\",\n    \"sales_package_green_other_glass\": \"<number>\",\n    \"sales_package_metal_al\": \"<number>\",\n    \"sales_package_metal_fe\": \"<number>\",\n    \"sales_package_other_metal\": \"<number>\",\n    \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n    \"sales_package_plastic_pet\": \"<number>\",\n    \"sales_package_plastic_pp_pe\": \"<number>\",\n    \"sales_package_wood\": \"<number>\",\n    \"serial_number\": \"<string>\",\n    \"shelf_life_days\": \"<integer>\",\n    \"sold_in_packages\": \"<integer>\",\n    \"status\": \"ACTIVE\",\n    \"suggested_retail_price\": \"<number>\",\n    \"supplier_code\": \"<string>\",\n    \"supplier_id\": \"<integer>\",\n    \"tax_free\": \"<integer>\",\n    \"tax_rate_id\": \"<integer>\",\n    \"transport_package_cardboard\": \"<number>\",\n    \"transport_package_ferrous_metal\": \"<number>\",\n    \"transport_package_non_ferrous_metal\": \"<number>\",\n    \"transport_package_plastic\": \"<number>\",\n    \"transport_package_wood\": \"<number>\",\n    \"type\": \"<string>\",\n    \"unit_id\": \"<integer>\",\n    \"volume\": \"<number>\",\n    \"webshop_description\": \"<string>\",\n    \"webshop_keywords\": \"<string>\",\n    \"webshop_title\": \"<string>\",\n    \"webshop_url_slug\": \"<string>\",\n    \"width\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52539827-c76f-4958-88dd-eb1c92ee939f",
+          "name": "Update a matrix product variation's dimension values",
+          "request": {
+            "name": "Update a matrix product variation's dimension values",
+            "description": {
+              "content": "Update variation's dimensions values",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                ":productID",
+                "variation",
+                ":variationID",
+                "dimension-values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "productID",
+                  "description": "(Required) matrix product ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "variationID",
+                  "description": "(Required) matrix product variation ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dimension_value_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8c7bc9a4-e14d-4980-bd6a-22fabcc5ee5a",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":productID",
+                    "variation",
+                    ":variationID",
+                    "dimension-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "productID",
+                      "description": "(Required) matrix product ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "variationID",
+                      "description": "(Required) matrix product variation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_value_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "032885ea-ffc6-4d9f-a547-365fca369202",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":productID",
+                    "variation",
+                    ":variationID",
+                    "dimension-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "productID",
+                      "description": "(Required) matrix product ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "variationID",
+                      "description": "(Required) matrix product variation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_value_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04315ab0-447f-414b-8a2a-8cf00b4058a0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":productID",
+                    "variation",
+                    ":variationID",
+                    "dimension-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "productID",
+                      "description": "(Required) matrix product ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "variationID",
+                      "description": "(Required) matrix product variation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_value_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c7e861e-bfd4-4d1d-9937-e1d3b9112d51",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":productID",
+                    "variation",
+                    ":variationID",
+                    "dimension-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "productID",
+                      "description": "(Required) matrix product ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "variationID",
+                      "description": "(Required) matrix product variation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_value_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe6eca9b-9e3d-4de6-8cee-fae4507890ae",
+          "name": "Change Matrix Product Variation Parent",
+          "request": {
+            "name": "Change Matrix Product Variation Parent",
+            "description": {
+              "content": "This endpoint solves 3 problems:\n1) the user can modify a variation product and REMOVE it's matrix product (set it to 0),\n2) the user can move the variation to different matrix product, in that case attach dimension values (same or new)\n3) the user can associate a regular product with a matrix one (turn it into a variation) - in this case attach dimension values",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                ":productID",
+                "variation",
+                ":variationID",
+                "parent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "productID",
+                  "description": "(Required) matrix product ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "variationID",
+                  "description": "(Required) matrix product variation ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dimension_value_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de4e1186-a280-4459-883c-31d940e35ae6",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":productID",
+                    "variation",
+                    ":variationID",
+                    "parent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "productID",
+                      "description": "(Required) matrix product ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "variationID",
+                      "description": "(Required) matrix product variation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_value_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3c0985c-7a3d-4980-bbf3-b252b8f66c12",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":productID",
+                    "variation",
+                    ":variationID",
+                    "parent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "productID",
+                      "description": "(Required) matrix product ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "variationID",
+                      "description": "(Required) matrix product variation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_value_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56ffbc29-2335-47b7-a85f-7f796b366110",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":productID",
+                    "variation",
+                    ":variationID",
+                    "parent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "productID",
+                      "description": "(Required) matrix product ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "variationID",
+                      "description": "(Required) matrix product variation ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_value_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2e9cf082-3b29-4dbe-aaac-e4eabf5877c3",
+    "name": "assignments Assortment Matrix Product Variation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

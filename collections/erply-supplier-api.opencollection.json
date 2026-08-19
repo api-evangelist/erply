@@ -1,0 +1,169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Supplier API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Supplier",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Suppliers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/supplier",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of active records in the X-Total-Count response header"
+              }
+            ]
+          },
+          "docs": "Get Suppliers"
+        },
+        {
+          "info": {
+            "name": "Create Supplier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/supplier"
+          },
+          "docs": "Create Supplier"
+        },
+        {
+          "info": {
+            "name": "Create suppliers in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/supplier/bulk"
+          },
+          "docs": "each request contains the created resource data"
+        },
+        {
+          "info": {
+            "name": "Get suppliers in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/supplier/bulk/get"
+          },
+          "docs": "Get suppliers in bulk"
+        },
+        {
+          "info": {
+            "name": "Get Supplier Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/supplier/type",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              }
+            ]
+          },
+          "docs": "Get Supplier Types"
+        },
+        {
+          "info": {
+            "name": "Delete suppliers",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/supplier/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited supplier IDs"
+              }
+            ]
+          },
+          "docs": "Delete suppliers"
+        },
+        {
+          "info": {
+            "name": "Update Supplier",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/supplier/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Supplier ID"
+              }
+            ]
+          },
+          "docs": "Update Supplier"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

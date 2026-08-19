@@ -1,0 +1,1200 @@
+{
+  "item": [
+    {
+      "id": "8506a88b-e99c-4707-9fda-f771a930adcb",
+      "name": "Supplier",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1d84030d-9adc-4f7b-b565-18bab8e7370e",
+          "name": "Get Suppliers",
+          "request": {
+            "name": "Get Suppliers",
+            "description": {
+              "content": "Get Suppliers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "supplier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "optionally return total number of active records in the X-Total-Count response header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "52f53c30-c1e0-4d54-b5a9-5cc5423c3fe2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "total number of records (ignores skip & take parameters)",
+                  "key": "X-Total-Count",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"bank_account_number\": \"string\",\n    \"bank_iban\": \"string\",\n    \"bank_name\": \"string\",\n    \"bank_swift\": \"string\",\n    \"channel_docura_edi_enabled\": false,\n    \"channel_email_enabled\": true,\n    \"code\": \"string\",\n    \"country_id\": 935,\n    \"currency_id\": 3429,\n    \"displayed_name\": \"string\",\n    \"displayed_name2\": \"string\",\n    \"edi_type\": \"string\",\n    \"employer_id\": 6162,\n    \"fax\": \"string\",\n    \"first_name\": \"string\",\n    \"gln\": \"string\",\n    \"id\": 2207,\n    \"mail\": \"string\",\n    \"mobile\": \"string\",\n    \"name\": \"string\",\n    \"notes\": \"string\",\n    \"phone\": \"string\",\n    \"skype\": \"string\",\n    \"supplier_manager_id\": 2073,\n    \"supplier_type_id\": 7128,\n    \"type\": 8552,\n    \"vat_number\": \"string\",\n    \"vatrate_id\": 9340,\n    \"website\": \"string\"\n  },\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"bank_account_number\": \"string\",\n    \"bank_iban\": \"string\",\n    \"bank_name\": \"string\",\n    \"bank_swift\": \"string\",\n    \"channel_docura_edi_enabled\": false,\n    \"channel_email_enabled\": false,\n    \"code\": \"string\",\n    \"country_id\": 6057,\n    \"currency_id\": 5337,\n    \"displayed_name\": \"string\",\n    \"displayed_name2\": \"string\",\n    \"edi_type\": \"string\",\n    \"employer_id\": 8865,\n    \"fax\": \"string\",\n    \"first_name\": \"string\",\n    \"gln\": \"string\",\n    \"id\": 9413,\n    \"mail\": \"string\",\n    \"mobile\": \"string\",\n    \"name\": \"string\",\n    \"notes\": \"string\",\n    \"phone\": \"string\",\n    \"skype\": \"string\",\n    \"supplier_manager_id\": 6120,\n    \"supplier_type_id\": 6198,\n    \"type\": 7745,\n    \"vat_number\": \"string\",\n    \"vatrate_id\": 5652,\n    \"website\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d15aae6f-fe83-43f3-b8fd-04376cea3ed7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5dd6f17-e668-4e49-935c-a7cd05ca1f50",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81e54ca3-1d80-457b-8712-6a53519e5ca5",
+          "name": "Create Supplier",
+          "request": {
+            "name": "Create Supplier",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "supplier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bank_account_number\": \"<string>\",\n  \"bank_iban\": \"<string>\",\n  \"bank_name\": \"<string>\",\n  \"bank_swift\": \"<string>\",\n  \"channel_docura_edi_enabled\": \"<boolean>\",\n  \"channel_email_enabled\": \"<boolean>\",\n  \"code\": \"<string>\",\n  \"country_id\": \"<integer>\",\n  \"currency_id\": \"<integer>\",\n  \"edi_type\": \"<string>\",\n  \"employer_id\": \"<integer>\",\n  \"fax\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"gln\": \"<string>\",\n  \"mail\": \"<string>\",\n  \"mobile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"skype\": \"<string>\",\n  \"supplier_manager_id\": \"<integer>\",\n  \"supplier_type_id\": \"<integer>\",\n  \"type\": \"<integer>\",\n  \"vat_number\": \"<string>\",\n  \"vatrate_id\": \"<integer>\",\n  \"website\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24a1cbbc-1ee6-4a6d-8aa5-2ea8bf4d17d9",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2bbed6a-8937-4622-9afd-618318255a17",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68c2a845-8eac-4cdf-90fa-d4ad93d07b97",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "298dd292-92dd-4145-bacf-d3d74883168e",
+          "name": "Create suppliers in bulk",
+          "request": {
+            "name": "Create suppliers in bulk",
+            "description": {
+              "content": "each request contains the created resource data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "supplier",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"bank_account_number\": \"<string>\",\n      \"bank_iban\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"bank_swift\": \"<string>\",\n      \"channel_docura_edi_enabled\": \"<boolean>\",\n      \"channel_email_enabled\": \"<boolean>\",\n      \"code\": \"<string>\",\n      \"country_id\": \"<integer>\",\n      \"currency_id\": \"<integer>\",\n      \"edi_type\": \"<string>\",\n      \"employer_id\": \"<integer>\",\n      \"fax\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"gln\": \"<string>\",\n      \"mail\": \"<string>\",\n      \"mobile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"skype\": \"<string>\",\n      \"supplier_manager_id\": \"<integer>\",\n      \"supplier_type_id\": \"<integer>\",\n      \"type\": \"<integer>\",\n      \"vat_number\": \"<string>\",\n      \"vatrate_id\": \"<integer>\",\n      \"website\": \"<string>\"\n    },\n    {\n      \"bank_account_number\": \"<string>\",\n      \"bank_iban\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"bank_swift\": \"<string>\",\n      \"channel_docura_edi_enabled\": \"<boolean>\",\n      \"channel_email_enabled\": \"<boolean>\",\n      \"code\": \"<string>\",\n      \"country_id\": \"<integer>\",\n      \"currency_id\": \"<integer>\",\n      \"edi_type\": \"<string>\",\n      \"employer_id\": \"<integer>\",\n      \"fax\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"gln\": \"<string>\",\n      \"mail\": \"<string>\",\n      \"mobile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"skype\": \"<string>\",\n      \"supplier_manager_id\": \"<integer>\",\n      \"supplier_type_id\": \"<integer>\",\n      \"type\": \"<integer>\",\n      \"vat_number\": \"<string>\",\n      \"vatrate_id\": \"<integer>\",\n      \"website\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6bc0ad9-92d1-497c-bac1-1a3717ecf69f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"bank_account_number\": \"<string>\",\n      \"bank_iban\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"bank_swift\": \"<string>\",\n      \"channel_docura_edi_enabled\": \"<boolean>\",\n      \"channel_email_enabled\": \"<boolean>\",\n      \"code\": \"<string>\",\n      \"country_id\": \"<integer>\",\n      \"currency_id\": \"<integer>\",\n      \"edi_type\": \"<string>\",\n      \"employer_id\": \"<integer>\",\n      \"fax\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"gln\": \"<string>\",\n      \"mail\": \"<string>\",\n      \"mobile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"skype\": \"<string>\",\n      \"supplier_manager_id\": \"<integer>\",\n      \"supplier_type_id\": 1,\n      \"type\": 1,\n      \"vat_number\": \"<string>\",\n      \"vatrate_id\": \"<integer>\",\n      \"website\": \"<string>\"\n    },\n    {\n      \"bank_account_number\": \"<string>\",\n      \"bank_iban\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"bank_swift\": \"<string>\",\n      \"channel_docura_edi_enabled\": \"<boolean>\",\n      \"channel_email_enabled\": \"<boolean>\",\n      \"code\": \"<string>\",\n      \"country_id\": \"<integer>\",\n      \"currency_id\": \"<integer>\",\n      \"edi_type\": \"<string>\",\n      \"employer_id\": \"<integer>\",\n      \"fax\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"gln\": \"<string>\",\n      \"mail\": \"<string>\",\n      \"mobile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"skype\": \"<string>\",\n      \"supplier_manager_id\": \"<integer>\",\n      \"supplier_type_id\": 1,\n      \"type\": 1,\n      \"vat_number\": \"<string>\",\n      \"vatrate_id\": \"<integer>\",\n      \"website\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    },\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91d93cee-0ba8-4f34-9ff8-ac46841cd3bf",
+          "name": "Get suppliers in bulk",
+          "request": {
+            "name": "Get suppliers in bulk",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "supplier",
+                "bulk",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"<string>\",\n        \"selector\": \"<string>\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    },\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"<string>\",\n        \"selector\": \"<string>\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c31f788f-8c01-4d2e-854d-265817de2f77",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier",
+                    "bulk",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"en\",\n        \"selector\": \"name\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    },\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"en\",\n        \"selector\": \"name\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"resultId\": 5076,\n      \"suppliers\": [\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"bank_account_number\": \"string\",\n          \"bank_iban\": \"string\",\n          \"bank_name\": \"string\",\n          \"bank_swift\": \"string\",\n          \"channel_docura_edi_enabled\": false,\n          \"channel_email_enabled\": true,\n          \"code\": \"string\",\n          \"country_id\": 6443,\n          \"currency_id\": 6410,\n          \"displayed_name\": \"string\",\n          \"displayed_name2\": \"string\",\n          \"edi_type\": \"string\",\n          \"employer_id\": 928,\n          \"fax\": \"string\",\n          \"first_name\": \"string\",\n          \"gln\": \"string\",\n          \"id\": 2431,\n          \"mail\": \"string\",\n          \"mobile\": \"string\",\n          \"name\": \"string\",\n          \"notes\": \"string\",\n          \"phone\": \"string\",\n          \"skype\": \"string\",\n          \"supplier_manager_id\": 2580,\n          \"supplier_type_id\": 8169,\n          \"type\": 4242,\n          \"vat_number\": \"string\",\n          \"vatrate_id\": 8082,\n          \"website\": \"string\"\n        },\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"bank_account_number\": \"string\",\n          \"bank_iban\": \"string\",\n          \"bank_name\": \"string\",\n          \"bank_swift\": \"string\",\n          \"channel_docura_edi_enabled\": false,\n          \"channel_email_enabled\": false,\n          \"code\": \"string\",\n          \"country_id\": 4884,\n          \"currency_id\": 3405,\n          \"displayed_name\": \"string\",\n          \"displayed_name2\": \"string\",\n          \"edi_type\": \"string\",\n          \"employer_id\": 2336,\n          \"fax\": \"string\",\n          \"first_name\": \"string\",\n          \"gln\": \"string\",\n          \"id\": 4497,\n          \"mail\": \"string\",\n          \"mobile\": \"string\",\n          \"name\": \"string\",\n          \"notes\": \"string\",\n          \"phone\": \"string\",\n          \"skype\": \"string\",\n          \"supplier_manager_id\": 511,\n          \"supplier_type_id\": 7156,\n          \"type\": 9394,\n          \"vat_number\": \"string\",\n          \"vatrate_id\": 365,\n          \"website\": \"string\"\n        }\n      ],\n      \"totalCount\": 1294\n    },\n    {\n      \"message\": \"some message\",\n      \"resultId\": 3430,\n      \"suppliers\": [\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"bank_account_number\": \"string\",\n          \"bank_iban\": \"string\",\n          \"bank_name\": \"string\",\n          \"bank_swift\": \"string\",\n          \"channel_docura_edi_enabled\": false,\n          \"channel_email_enabled\": false,\n          \"code\": \"string\",\n          \"country_id\": 6116,\n          \"currency_id\": 5712,\n          \"displayed_name\": \"string\",\n          \"displayed_name2\": \"string\",\n          \"edi_type\": \"string\",\n          \"employer_id\": 7430,\n          \"fax\": \"string\",\n          \"first_name\": \"string\",\n          \"gln\": \"string\",\n          \"id\": 8477,\n          \"mail\": \"string\",\n          \"mobile\": \"string\",\n          \"name\": \"string\",\n          \"notes\": \"string\",\n          \"phone\": \"string\",\n          \"skype\": \"string\",\n          \"supplier_manager_id\": 5820,\n          \"supplier_type_id\": 9993,\n          \"type\": 8563,\n          \"vat_number\": \"string\",\n          \"vatrate_id\": 6261,\n          \"website\": \"string\"\n        },\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"bank_account_number\": \"string\",\n          \"bank_iban\": \"string\",\n          \"bank_name\": \"string\",\n          \"bank_swift\": \"string\",\n          \"channel_docura_edi_enabled\": false,\n          \"channel_email_enabled\": false,\n          \"code\": \"string\",\n          \"country_id\": 3822,\n          \"currency_id\": 8421,\n          \"displayed_name\": \"string\",\n          \"displayed_name2\": \"string\",\n          \"edi_type\": \"string\",\n          \"employer_id\": 5747,\n          \"fax\": \"string\",\n          \"first_name\": \"string\",\n          \"gln\": \"string\",\n          \"id\": 6317,\n          \"mail\": \"string\",\n          \"mobile\": \"string\",\n          \"name\": \"string\",\n          \"notes\": \"string\",\n          \"phone\": \"string\",\n          \"skype\": \"string\",\n          \"supplier_manager_id\": 5057,\n          \"supplier_type_id\": 8785,\n          \"type\": 404,\n          \"vat_number\": \"string\",\n          \"vatrate_id\": 8403,\n          \"website\": \"string\"\n        }\n      ],\n      \"totalCount\": 2997\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c24a9e4a-f9ad-4ea2-bd50-35078242c4c6",
+          "name": "Get Supplier Types",
+          "request": {
+            "name": "Get Supplier Types",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "supplier",
+                "type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "178e159f-4bca-4834-8e9d-f8caa35f4077",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier",
+                    "type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"changed\": 1595230999,\n    \"changedby\": \"k@erp.xyz\",\n    \"id\": 1234,\n    \"issupplier\": 1188,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"order\": 15\n  },\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"changed\": 1595230999,\n    \"changedby\": \"k@erp.xyz\",\n    \"id\": 1234,\n    \"issupplier\": 716,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"order\": 15\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e50c3b77-b320-4d6d-bcb8-7d67a23db517",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier",
+                    "type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64fda4de-7f4c-4501-bc34-b279c6c20e27",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier",
+                    "type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "acf56adf-11f5-4cdf-82d8-f7a268ade3c0",
+          "name": "Delete suppliers",
+          "request": {
+            "name": "Delete suppliers",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "supplier",
+                ":ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) up to 100 semicolon delimited supplier IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "333f53b5-9489-404a-a825-ed4ea5fcd836",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited supplier IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "734d216b-dc8d-45c2-af58-4b9130edf4df",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited supplier IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c74dc3ba-bfd2-49bf-8c5c-793542a8aee1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited supplier IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8e13ccd-e2e4-4412-9fe4-fe17900c6804",
+          "name": "Update Supplier",
+          "request": {
+            "name": "Update Supplier",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "supplier",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Supplier ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bank_account_number\": \"<string>\",\n  \"bank_iban\": \"<string>\",\n  \"bank_name\": \"<string>\",\n  \"bank_swift\": \"<string>\",\n  \"channel_docura_edi_enabled\": \"<boolean>\",\n  \"channel_email_enabled\": \"<boolean>\",\n  \"code\": \"<string>\",\n  \"country_id\": \"<integer>\",\n  \"currency_id\": \"<integer>\",\n  \"edi_type\": \"<string>\",\n  \"employer_id\": \"<integer>\",\n  \"fax\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"gln\": \"<string>\",\n  \"mail\": \"<string>\",\n  \"mobile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"skype\": \"<string>\",\n  \"supplier_manager_id\": \"<integer>\",\n  \"supplier_type_id\": \"<integer>\",\n  \"type\": \"<integer>\",\n  \"vat_number\": \"<string>\",\n  \"vatrate_id\": \"<integer>\",\n  \"website\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75d3642f-c5f5-4744-9e57-b67fab23e331",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Supplier ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd6b1145-ae79-4d5f-8d1a-25e247bf4eba",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Supplier ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25740689-b917-4e0e-8e04-818a84bb003d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "supplier",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Supplier ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c3f3e45b-595f-4d6a-bbe6-a78ee1050e79",
+    "name": "assignments Assortment Supplier API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

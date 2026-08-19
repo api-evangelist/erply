@@ -1,0 +1,232 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment clsf-labels API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "clsf-labels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clsf/label",
+            "params": [
+              {
+                "name": "entity",
+                "value": "",
+                "type": "query",
+                "description": "Object type for which labels should be returned. One of [workorder raji]"
+              },
+              {
+                "name": "labelType",
+                "value": "",
+                "type": "query",
+                "description": "Label type code for which labels should be returned"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Label ids"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "Label code to search for. Partial matching from the beginning of the code"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+              }
+            ]
+          },
+          "docs": "Look up labels"
+        },
+        {
+          "info": {
+            "name": "Add a new label record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clsf/label"
+          },
+          "docs": "Add a new label record"
+        },
+        {
+          "info": {
+            "name": "Look up label types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clsf/label-type",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Label type ids"
+              },
+              {
+                "name": "entity",
+                "value": "",
+                "type": "query",
+                "description": "Object type for which label types should be returned. One of [workorder raji]"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "Label type code to search for. Partial matching from the beginning of the code"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+              }
+            ]
+          },
+          "docs": "Look up label types"
+        },
+        {
+          "info": {
+            "name": "Add a new label type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clsf/label-type"
+          },
+          "docs": "Add a new label type"
+        },
+        {
+          "info": {
+            "name": "Update an existing label type record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/clsf/label-type/:typeId",
+            "params": [
+              {
+                "name": "typeId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update an existing label type record"
+        },
+        {
+          "info": {
+            "name": "Delete one label type record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/clsf/label-type/:typeId",
+            "params": [
+              {
+                "name": "typeId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one label type record"
+        },
+        {
+          "info": {
+            "name": "Update an existing label record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/clsf/label/:labelId",
+            "params": [
+              {
+                "name": "labelId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update an existing label record"
+        },
+        {
+          "info": {
+            "name": "Delete one label record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/clsf/label/:labelId",
+            "params": [
+              {
+                "name": "labelId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one label record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

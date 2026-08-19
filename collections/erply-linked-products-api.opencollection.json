@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Linked Products API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Linked Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Link 2 products for cross-sell or substitute purposes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/linked-products"
+          },
+          "docs": "Each product can have zero or more substitute products (items that the cashier could offer as alternatives if the original is out of stock) and zero or more cross-sell products (items that are often sold along the main item)."
+        },
+        {
+          "info": {
+            "name": "Create product links in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/linked-products/bulk"
+          },
+          "docs": "each request contains the created resource data"
+        },
+        {
+          "info": {
+            "name": "Read all products linked products and the link types",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/linked-products/bulk/get"
+          },
+          "docs": "Each product can have zero or more substitute products (items that the cashier could offer as alternatives if the original is out of stock) and zero or more cross-sell products (items that are often sold along the main item).\nlink type (values: cross-sell or substitute)"
+        },
+        {
+          "info": {
+            "name": "Delete links between 2 products",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/linked-products/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited link IDs"
+              }
+            ]
+          },
+          "docs": "Each product can have zero or more substitute products\n(items that the cashier could offer as alternatives if the original is out of stock)\nand zero or more cross-sell products (items that are often sold along the main item)."
+        },
+        {
+          "info": {
+            "name": "Update a link between 2 products",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/linked-products/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "link ID"
+              }
+            ]
+          },
+          "docs": "Each product can have zero or more substitute products (items that the cashier could offer as alternatives if the original is out of stock) and zero or more cross-sell products (items that are often sold along the main item)."
+        },
+        {
+          "info": {
+            "name": "Read all product's linked products and the link types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/:productID/linked-products",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "productID",
+                "value": "",
+                "type": "path",
+                "description": "product ID"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "link type (values: `cross-sell` or `substitute`)"
+              }
+            ]
+          },
+          "docs": "Each product can have zero or more substitute products (items that the cashier could offer as alternatives if the original is out of stock) and zero or more cross-sell products (items that are often sold along the main item)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,203 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment row API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "row",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up rows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/row",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "1",
+                "type": "query",
+                "description": "Workorder id"
+              },
+              {
+                "name": "itemId",
+                "value": "2",
+                "type": "query",
+                "description": "Item ids"
+              },
+              {
+                "name": "rowId",
+                "value": "3",
+                "type": "query",
+                "description": "Row ids"
+              },
+              {
+                "name": "isNonStockProduct",
+                "value": "true",
+                "type": "query",
+                "description": "Return only stock or non stock products"
+              },
+              {
+                "name": "state",
+                "value": "state-code",
+                "type": "query",
+                "description": "States"
+              },
+              {
+                "name": "purchaseOrderRowId",
+                "value": "3",
+                "type": "query",
+                "description": "Product purchase order row ids"
+              },
+              {
+                "name": "titleLike",
+                "value": "title partial mat",
+                "type": "query",
+                "description": "Row title matching"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "true",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "30",
+                "type": "query",
+                "description": "Result page size. Defaults to 20"
+              },
+              {
+                "name": "pageNr",
+                "value": "2",
+                "type": "query",
+                "description": "Result page number. Defaults to 1"
+              },
+              {
+                "name": "sort",
+                "value": "-order",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `order`. Defaults to `order`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword"
+              }
+            ]
+          },
+          "docs": "Look up rows"
+        },
+        {
+          "info": {
+            "name": "Add a new row record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/row"
+          },
+          "docs": "Add a new row record"
+        },
+        {
+          "info": {
+            "name": "Update row record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/row/:rowId",
+            "params": [
+              {
+                "name": "rowId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update row record"
+        },
+        {
+          "info": {
+            "name": "Delete one row record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/row/:rowId",
+            "params": [
+              {
+                "name": "rowId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one row record"
+        },
+        {
+          "info": {
+            "name": "Change the order of one row",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/row/:rowId/order",
+            "params": [
+              {
+                "name": "rowId",
+                "value": "",
+                "type": "path",
+                "description": "Row id that must be moved to new position"
+              }
+            ]
+          },
+          "docs": "Allows changing the order of rows. A single record can be moved either in front of any other row in the same workorder, or to the end of the row list"
+        },
+        {
+          "info": {
+            "name": "Add row records",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/row",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Add row records"
+        },
+        {
+          "info": {
+            "name": "Update row records",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/row",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Update row records"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,330 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment clsf-device-properties API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "clsf-device-properties",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up device brands",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clsf/brand",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Brand ids"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "Brand code to search for. Partial matching from the beginning of the code"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+              }
+            ]
+          },
+          "docs": "Look up device brands"
+        },
+        {
+          "info": {
+            "name": "Add a new device brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clsf/brand"
+          },
+          "docs": "Add a new device brand"
+        },
+        {
+          "info": {
+            "name": "Update an existing device brand record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/clsf/brand/:brandId",
+            "params": [
+              {
+                "name": "brandId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update an existing device brand record"
+        },
+        {
+          "info": {
+            "name": "Delete one device brand record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/clsf/brand/:brandId",
+            "params": [
+              {
+                "name": "brandId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one device brand record"
+        },
+        {
+          "info": {
+            "name": "Look up device models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clsf/model",
+            "params": [
+              {
+                "name": "brandCode",
+                "value": "",
+                "type": "query",
+                "description": "Device brand code for which models should be returned"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Device brand ids"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "Model code to search for. Partial matching from the beginning of the code"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+              }
+            ]
+          },
+          "docs": "Look up device models"
+        },
+        {
+          "info": {
+            "name": "Add a new device model record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clsf/model"
+          },
+          "docs": "Add a new device model record"
+        },
+        {
+          "info": {
+            "name": "Update an existing device model record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/clsf/model/:modelId",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update an existing device model record"
+        },
+        {
+          "info": {
+            "name": "Delete one device model record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/clsf/model/:modelId",
+            "params": [
+              {
+                "name": "modelId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one device model record"
+        },
+        {
+          "info": {
+            "name": "Look up device versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clsf/version",
+            "params": [
+              {
+                "name": "brandCode",
+                "value": "",
+                "type": "query",
+                "description": "Device brand code for which versions should be returned"
+              },
+              {
+                "name": "modelCode",
+                "value": "",
+                "type": "query",
+                "description": "Device model code for which versions should be returned"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Device brand ids"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "Version code to search for. Partial matching from the beginning of the code"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+              }
+            ]
+          },
+          "docs": "Look up device versions"
+        },
+        {
+          "info": {
+            "name": "Add a new device version record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clsf/version"
+          },
+          "docs": "Add a new device version record"
+        },
+        {
+          "info": {
+            "name": "Update an existing device version record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/clsf/version/:versionId",
+            "params": [
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update an existing device version record"
+        },
+        {
+          "info": {
+            "name": "Delete one device version record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/clsf/version/:versionId",
+            "params": [
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one device version record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

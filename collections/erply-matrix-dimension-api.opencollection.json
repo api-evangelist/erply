@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Matrix Dimension API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Matrix Dimension",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Matrix Dimensions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/matrix/dimension",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "amount to take"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              }
+            ]
+          },
+          "docs": "Get Matrix Dimension"
+        },
+        {
+          "info": {
+            "name": "Create Matrix Dimension",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/dimension"
+          },
+          "docs": "Create Matrix Dimension"
+        },
+        {
+          "info": {
+            "name": "Create dimensions in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/dimension/bulk"
+          },
+          "docs": "each request contains the created resource data"
+        },
+        {
+          "info": {
+            "name": "Get dimensions in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/dimension/bulk/get"
+          },
+          "docs": "Get dimensions in bulk"
+        },
+        {
+          "info": {
+            "name": "Delete Matrix Dimensions",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/matrix/dimension/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "semicolon delimited IDs"
+              }
+            ]
+          },
+          "docs": "Deleting a matrix dimension is not allowed if there are products using that dimension.\nDeleting a matrix dimension will also delete all the values of that dimension."
+        },
+        {
+          "info": {
+            "name": "Update Matrix Dimension",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/matrix/dimension/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "dimension id"
+              }
+            ]
+          },
+          "docs": "Update Matrix Dimension"
+        },
+        {
+          "info": {
+            "name": "Move Dimension",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/matrix/dimension/:id/move",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              }
+            ]
+          },
+          "docs": "position has to be one of the following:  `before` | `after`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,757 @@
+{
+  "item": [
+    {
+      "id": "584b643e-96a5-4bbc-8acf-9e4c0e690068",
+      "name": "Special Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60ce6082-05db-412e-bdca-bcbb85b842e4",
+          "name": "Get Pricelist Prices for Offline DB to sync",
+          "request": {
+            "name": "Get Pricelist Prices for Offline DB to sync",
+            "description": {
+              "content": "Get products that have been added or modified since the specified timestamp. Fetches only the columns that are actually needed for ODB (Offline Database).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "offline-db",
+                "sync",
+                "pricelist-prices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lastModified",
+                  "value": "<integer>",
+                  "description": "(Required) Last modification time (create/update)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pricelistID",
+                  "value": "<integer>",
+                  "description": "(Required) price list ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000 for this special endpoint"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "274f11c4-84ac-4d8e-b5f3-566f7ca93aa8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "offline-db",
+                    "sync",
+                    "pricelist-prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pricelistID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7828,\n    \"price\": 5482.106395088991,\n    \"product_id\": 1710\n  },\n  {\n    \"id\": 4655,\n    \"price\": 9751.470493098619,\n    \"product_id\": 9065\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9545540c-d389-4fdf-a5b6-2aad1702b91f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "offline-db",
+                    "sync",
+                    "pricelist-prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pricelistID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fc7cd41-102f-4cf0-a61d-5e680f1bc73a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "offline-db",
+                    "sync",
+                    "pricelist-prices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pricelistID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1b9586f-7fad-4b27-a09b-603fe6dc148a",
+          "name": "Get Products for Offline DB to sync, Product pictures: CDN API",
+          "request": {
+            "name": "Get Products for Offline DB to sync, Product pictures: CDN API",
+            "description": {
+              "content": "Get products that have been added or modified since the specified timestamp. Fetches only the columns that are actually needed for ODB (Offline Database).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "offline-db",
+                "sync",
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lastModified",
+                  "value": "<integer>",
+                  "description": "(Required) Last modification time (create/update)"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 8000 for this special endpoint"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "optionally return total number of records in the X-Total-Count response header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "5685200a-c6f1-41a8-a07b-f16c07e92204",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "offline-db",
+                    "sync",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "total number of records (ignores skip & take parameters)",
+                  "key": "X-Total-Count",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributes\": [\n      {\n        \"entity\": \"product\",\n        \"id\": 33,\n        \"name\": \"has_warranty\",\n        \"record_id\": 7,\n        \"type\": \"text\",\n        \"value\": {}\n      },\n      {\n        \"entity\": \"product\",\n        \"id\": 33,\n        \"name\": \"has_warranty\",\n        \"record_id\": 7,\n        \"type\": \"text\",\n        \"value\": {}\n      }\n    ],\n    \"category_id\": 3010,\n    \"code\": \"string\",\n    \"code2\": \"string\",\n    \"code5\": \"string\",\n    \"code6\": \"string\",\n    \"code7\": \"string\",\n    \"code8\": \"string\",\n    \"deposit_fee_id\": 2261,\n    \"id\": 602,\n    \"lastModified\": 3965,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"price\": 4355.39233395999,\n    \"status\": \"ACTIVE\",\n    \"tax_rate_id\": 4760\n  },\n  {\n    \"attributes\": [\n      {\n        \"entity\": \"product\",\n        \"id\": 33,\n        \"name\": \"has_warranty\",\n        \"record_id\": 7,\n        \"type\": \"text\",\n        \"value\": {}\n      },\n      {\n        \"entity\": \"product\",\n        \"id\": 33,\n        \"name\": \"has_warranty\",\n        \"record_id\": 7,\n        \"type\": \"text\",\n        \"value\": {}\n      }\n    ],\n    \"category_id\": 1797,\n    \"code\": \"string\",\n    \"code2\": \"string\",\n    \"code5\": \"string\",\n    \"code6\": \"string\",\n    \"code7\": \"string\",\n    \"code8\": \"string\",\n    \"deposit_fee_id\": 4709,\n    \"id\": 8548,\n    \"lastModified\": 3153,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"price\": 6876.82073911198,\n    \"status\": \"ACTIVE\",\n    \"tax_rate_id\": 8551\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9407f49b-c87a-4cec-aed4-8af20403b9bb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "offline-db",
+                    "sync",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8500fd5d-73a7-4a64-b54b-ed5c860c6e1e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "offline-db",
+                    "sync",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastModified",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9185f333-cae2-4d7f-9459-2d492893ed6e",
+          "name": "Get Products for UI, Product pictures: CDN API",
+          "request": {
+            "name": "Get Products for UI, Product pictures: CDN API",
+            "description": {
+              "content": "Getting the products for the UI involves additional steps and the query is slower than the regular get products.\nNB: Filtering & sorting is not supported for the following fields: length, delivery_time, packaging_type, alcohol_registry_number, alcohol_percentage\nbatches, excise_declaration_number, tax_free, is_regular_gift_card, reward_points_not_allowed, non_stock_product, cashier_must_enter_price, labels_not_needed, deposit_fee_amount",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "ui",
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 1000"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdDate",
+                  "value": "<string>",
+                  "description": "this is an alternative for the added field filter, the format is ISO 'yyyy-mm-dd'."
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "optionally return total number of records in the X-Total-Count response header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "e4b0aca9-c3f9-484b-b30c-b8016af90e5a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "total number of records (ignores skip & take parameters)",
+                  "key": "X-Total-Count",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"age_restriction\": 8945,\n    \"alcohol_percentage\": \"string\",\n    \"alcohol_registry_number\": \"string\",\n    \"batches\": \"string\",\n    \"brand_id\": 6428,\n    \"cashier_must_enter_price\": 4976,\n    \"category_id\": 6332,\n    \"changed\": 1595230999,\n    \"changedby\": \"k@erp.xyz\",\n    \"code\": \"string\",\n    \"code2\": \"string\",\n    \"code3\": \"string\",\n    \"code5\": \"string\",\n    \"code6\": \"string\",\n    \"code7\": \"string\",\n    \"code8\": \"string\",\n    \"cost\": 224.08419025612304,\n    \"country_of_origin_id\": 583,\n    \"delivery_time\": \"string\",\n    \"deposit_fee_amount\": 432,\n    \"deposit_fee_id\": 2,\n    \"description\": {\n      \"en\": {\n        \"html\": \"<b>Very good product!</b>\",\n        \"plain_text\": \"Very good product!\"\n      }\n    },\n    \"displayed_in_webshop\": 3800,\n    \"excise_declaration_number\": \"string\",\n    \"extra_field1_id\": 738,\n    \"extra_field2_id\": 7384,\n    \"extra_field3_id\": 7190,\n    \"extra_field4_id\": 9130,\n    \"family_id\": 1007,\n    \"formula_identifier\": \"string\",\n    \"gross_weight\": 751.4321326239981,\n    \"group_id\": 6900,\n    \"group_package_ferrous_metal\": 3796.251367302511,\n    \"group_package_metal\": 9905.899978287895,\n    \"group_package_non_ferrous_metal\": 3644.684614233249,\n    \"group_package_paper\": 5795.414685759678,\n    \"group_package_plastic\": 7259.2320991258985,\n    \"group_package_wood\": 5215.748069642613,\n    \"has_serial_numbers\": 7030,\n    \"height\": 6412.164263218334,\n    \"id\": 5359,\n    \"is_gift_card\": 9534,\n    \"is_lot_product\": true,\n    \"is_regular_gift_card\": 1583,\n    \"is_used_product\": true,\n    \"labels_not_needed\": 8073,\n    \"length\": 745.8187007070504,\n    \"location_in_warehouse_id\": 8679,\n    \"location_in_warehouse_text\": \"string\",\n    \"manufacturer_name\": \"string\",\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"net_weight\": 4620.818158378006,\n    \"non_discountable\": 7468,\n    \"non_refundable\": 7393,\n    \"non_stock_product\": 4406,\n    \"packaging_type\": \"string\",\n    \"packing_not_required\": 1328,\n    \"parent_product_id\": 1774,\n    \"price\": 5491.289986835705,\n    \"price_with_tax\": 8040.571519244455,\n    \"priority_group_id\": 3208,\n    \"product_item_level_promotions_disabled\": 6673,\n    \"product_reorder_multiples\": 5670,\n    \"revenue_account\": \"string\",\n    \"reward_points_not_allowed\": 5939,\n    \"sales_package_cardboard\": 9089.951619821753,\n    \"sales_package_clear_brown_glass\": 5780.840154360973,\n    \"sales_package_green_other_glass\": 7228.35252225046,\n    \"sales_package_metal_al\": 112.9749318125961,\n    \"sales_package_metal_fe\": 3601.93518279079,\n    \"sales_package_other_metal\": 3904.7174552737706,\n    \"sales_package_paper_and_cardboard_mono\": 6031.383481649211,\n    \"sales_package_plastic_pet\": 8842.828226509297,\n    \"sales_package_plastic_pp_pe\": 8901.618810524715,\n    \"sales_package_wood\": 4450.586474333842,\n    \"serial_number\": \"string\",\n    \"shelf_life_days\": 7542,\n    \"sold_in_packages\": 6397,\n    \"status\": \"ACTIVE\",\n    \"suggested_retail_price\": 7320.689281846311,\n    \"supplier_code\": \"string\",\n    \"supplier_id\": 6485,\n    \"supplier_name\": \"string\",\n    \"tax_free\": 1941,\n    \"tax_rate_id\": 470,\n    \"transport_package_cardboard\": 9539.25297684568,\n    \"transport_package_ferrous_metal\": 6699.191250474034,\n    \"transport_package_non_ferrous_metal\": 2292.2947948322912,\n    \"transport_package_plastic\": 1128.992082524478,\n    \"transport_package_wood\": 2738.7172666637603,\n    \"type\": \"string\",\n    \"unit_id\": 9226,\n    \"volume\": 9621.671631186457,\n    \"webshop_description\": \"string\",\n    \"webshop_keywords\": \"string\",\n    \"webshop_title\": \"string\",\n    \"webshop_url_slug\": \"string\",\n    \"width\": 6190.69793169863\n  },\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"age_restriction\": 1257,\n    \"alcohol_percentage\": \"string\",\n    \"alcohol_registry_number\": \"string\",\n    \"batches\": \"string\",\n    \"brand_id\": 6993,\n    \"cashier_must_enter_price\": 1176,\n    \"category_id\": 7727,\n    \"changed\": 1595230999,\n    \"changedby\": \"k@erp.xyz\",\n    \"code\": \"string\",\n    \"code2\": \"string\",\n    \"code3\": \"string\",\n    \"code5\": \"string\",\n    \"code6\": \"string\",\n    \"code7\": \"string\",\n    \"code8\": \"string\",\n    \"cost\": 2218.8691362007216,\n    \"country_of_origin_id\": 9534,\n    \"delivery_time\": \"string\",\n    \"deposit_fee_amount\": 2343,\n    \"deposit_fee_id\": 1870,\n    \"description\": {\n      \"en\": {\n        \"html\": \"<b>Very good product!</b>\",\n        \"plain_text\": \"Very good product!\"\n      }\n    },\n    \"displayed_in_webshop\": 9078,\n    \"excise_declaration_number\": \"string\",\n    \"extra_field1_id\": 835,\n    \"extra_field2_id\": 5074,\n    \"extra_field3_id\": 4026,\n    \"extra_field4_id\": 8097,\n    \"family_id\": 9588,\n    \"formula_identifier\": \"string\",\n    \"gross_weight\": 516.8344796583557,\n    \"group_id\": 6069,\n    \"group_package_ferrous_metal\": 4982.544698899673,\n    \"group_package_metal\": 3887.143896514482,\n    \"group_package_non_ferrous_metal\": 2445.168293124694,\n    \"group_package_paper\": 8483.237373015892,\n    \"group_package_plastic\": 6814.337834321833,\n    \"group_package_wood\": 9898.26262085,\n    \"has_serial_numbers\": 6667,\n    \"height\": 5586.982875957913,\n    \"id\": 6271,\n    \"is_gift_card\": 1865,\n    \"is_lot_product\": true,\n    \"is_regular_gift_card\": 8009,\n    \"is_used_product\": true,\n    \"labels_not_needed\": 4593,\n    \"length\": 3132.583325781212,\n    \"location_in_warehouse_id\": 2084,\n    \"location_in_warehouse_text\": \"string\",\n    \"manufacturer_name\": \"string\",\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"net_weight\": 2348.7333698659163,\n    \"non_discountable\": 909,\n    \"non_refundable\": 308,\n    \"non_stock_product\": 9049,\n    \"packaging_type\": \"string\",\n    \"packing_not_required\": 6980,\n    \"parent_product_id\": 3313,\n    \"price\": 5880.427153732655,\n    \"price_with_tax\": 244.84838055414903,\n    \"priority_group_id\": 8690,\n    \"product_item_level_promotions_disabled\": 4332,\n    \"product_reorder_multiples\": 9195,\n    \"revenue_account\": \"string\",\n    \"reward_points_not_allowed\": 9675,\n    \"sales_package_cardboard\": 4999.3752217502915,\n    \"sales_package_clear_brown_glass\": 1985.4144156604648,\n    \"sales_package_green_other_glass\": 8820.100213045418,\n    \"sales_package_metal_al\": 1076.4949787140854,\n    \"sales_package_metal_fe\": 6926.753518898602,\n    \"sales_package_other_metal\": 2853.971826498455,\n    \"sales_package_paper_and_cardboard_mono\": 6896.553771882766,\n    \"sales_package_plastic_pet\": 7104.636342089996,\n    \"sales_package_plastic_pp_pe\": 5481.017323608188,\n    \"sales_package_wood\": 5733.295442868256,\n    \"serial_number\": \"string\",\n    \"shelf_life_days\": 4376,\n    \"sold_in_packages\": 8456,\n    \"status\": \"ACTIVE\",\n    \"suggested_retail_price\": 7405.257238547603,\n    \"supplier_code\": \"string\",\n    \"supplier_id\": 896,\n    \"supplier_name\": \"string\",\n    \"tax_free\": 1285,\n    \"tax_rate_id\": 5821,\n    \"transport_package_cardboard\": 6833.738124278496,\n    \"transport_package_ferrous_metal\": 1813.8862905370213,\n    \"transport_package_non_ferrous_metal\": 8134.021651769014,\n    \"transport_package_plastic\": 7162.81165862857,\n    \"transport_package_wood\": 8932.768487392743,\n    \"type\": \"string\",\n    \"unit_id\": 4960,\n    \"volume\": 6033.499139809648,\n    \"webshop_description\": \"string\",\n    \"webshop_keywords\": \"string\",\n    \"webshop_title\": \"string\",\n    \"webshop_url_slug\": \"string\",\n    \"width\": 2755.2006170856303\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "010cc3b6-08b9-4d4a-9c43-f6cfbe79a914",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a6e5ba3-a27d-4f68-9c6c-4dc0d43d7d09",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "ui",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "88ff23f1-eccd-43c2-b259-0bf515e49c6c",
+    "name": "assignments Assortment Special Endpoints API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

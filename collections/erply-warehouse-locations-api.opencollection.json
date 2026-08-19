@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Warehouse Locations API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Warehouse Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Warehouse Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/warehouse/locations"
+          },
+          "docs": "Create a Warehouse Location"
+        },
+        {
+          "info": {
+            "name": "Delete Warehouse Locations by IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/warehouse/locations/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited Warehouse Location IDs"
+              }
+            ]
+          },
+          "docs": "Delete Warehouse Locations by IDs"
+        },
+        {
+          "info": {
+            "name": "Update a warehouse location",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/warehouse/locations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "location ID"
+              }
+            ]
+          },
+          "docs": "Update a warehouse location"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

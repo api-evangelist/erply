@@ -1,0 +1,1655 @@
+{
+  "item": [
+    {
+      "id": "afad2740-9e32-4467-bffa-57136d1e016d",
+      "name": "template",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e480b95d-d696-4223-8425-cab386ba9a73",
+          "name": "Look up templates",
+          "request": {
+            "name": "Look up templates",
+            "description": {
+              "content": "Allows searching for templates matching specific criteria. To find templates for a specific workorder, just specify the workorderId as a filter but detailed filtering by fields is also supported.\r\n\r\n> Param           | Default&nbsp;          | Example&nbsp; | Description\r\n> ----------------|------------------------|---------------|----\r\n> `onlyTemplateGroups` | false                  | true          | Search for templates created from entire workorders, not individual item templates. Such workorder-based templates can contain multiple items in them\r\n> `workorderId`   |                        | 2             | Search for templates with matching filters for the specified workorder. When filtering templates using this field, it is not possible to additionally filter by single fields like `name`, `deviceModel` etc.\r\n> `name`          |                        | My template   | Search for templates by name. Supports partial matches\r\n> `deviceBrand`   |                        | Ford          | Search for templates by device brand. Exact match\r\n> `deviceModel`   |                        | Mondeo        | Search for templates by device model. Exact match\r\n> `deviceVersion` |                        | MK2           | Search for templates by device version. Exact match\r\n> `deviceSoldAt`  |                        | 2020-06-06T13:55:00Z&nbsp; | Search for templates by device soldAt date. When specified, the accepted format is `yyyy-mm-ddThh:mm:ssZ` or a UNIX timestamp\r\n> `withTotalCount` | false                  | true          | If total count of matched records should be returned in response header `x-total-count`\r\n> `pageSize`      | 20                     | 100           | Allows specifying how many records per page should be returned\r\n> `pageNr`        | 1                      | 2             | Allows specifying which page should be returned for creating paginated views over the data.\r\n> `sort`          | -usedCount, -relevance | -id           | Allows specifying in which order the rows should be returned. Supported values are: `id`, `name`, `usedCount`, `relevance`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword.\r\n>\r\n>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "template"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "onlyTemplateGroups",
+                  "value": "<boolean>",
+                  "description": "When set to `true` returns workorder templates, `false` returns item templates and if missing, both template types are returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "workorderId",
+                  "value": "<integer>",
+                  "description": "ID of workorder for which matching templates should be found"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Search for templates by name. Supports partial matches"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceBrand",
+                  "value": "<string>",
+                  "description": "Search for templates by device brand"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceModel",
+                  "value": "<string>",
+                  "description": "Search for templates by device model"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceVersion",
+                  "value": "<string>",
+                  "description": "Search for templates by device version"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceSoldAt",
+                  "value": "<string>",
+                  "description": "Search for templates by device soldAt date"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `id`, `name`, `usedCount`, `relevance`. Defaults to `-usedCount, -relevance`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "50e3cb82-c656-4146-9395-0f3bb7fd7ac5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "onlyTemplateGroups",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "workorderId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceSoldAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"createdAt\": \"string\",\n    \"createdById\": 6243,\n    \"data\": {},\n    \"id\": 3515,\n    \"itemIds\": [\n      1242,\n      5548\n    ],\n    \"name\": \"string\",\n    \"relevance\": 2724.400677576373,\n    \"scopeDeviceBrand\": \"string\",\n    \"scopeDeviceModel\": \"string\",\n    \"scopeDeviceSoldAtLessDaysAgo\": 9889,\n    \"scopeDeviceVersion\": \"string\",\n    \"updatedAt\": \"string\",\n    \"updatedById\": 9722,\n    \"usedCount\": 924,\n    \"workorderId\": 1768\n  },\n  {\n    \"createdAt\": \"string\",\n    \"createdById\": 6895,\n    \"data\": {},\n    \"id\": 2625,\n    \"itemIds\": [\n      7282,\n      7796\n    ],\n    \"name\": \"string\",\n    \"relevance\": 4864.9312317894555,\n    \"scopeDeviceBrand\": \"string\",\n    \"scopeDeviceModel\": \"string\",\n    \"scopeDeviceSoldAtLessDaysAgo\": 5086,\n    \"scopeDeviceVersion\": \"string\",\n    \"updatedAt\": \"string\",\n    \"updatedById\": 5422,\n    \"usedCount\": 8617,\n    \"workorderId\": 6170\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a026834-4cd0-4808-8925-167b85e9e19a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "onlyTemplateGroups",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "workorderId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceSoldAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "66d07c60-abe8-498f-bb5b-1ac096183680",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "onlyTemplateGroups",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "workorderId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceSoldAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42f50e7e-71fe-42a0-a9aa-a0593ee291af",
+          "name": "Create a new template",
+          "request": {
+            "name": "Create a new template",
+            "description": {
+              "content": "Create a new template. Templates are used to modify existing workorders to fill them with pre-defined items, rows and tasks. They can be based either on a workorder or an individual item. A template based on a workorder can contain multiple items. Once a template is created, the associated workorderId and itemId cannot be changed.\r\n\r\nA template must be assigned a name which can be used for looking it up.\r\n\r\nTemplate definition can also contain a number of scope fields. These determine what kind of workorders this template is suitable for. If a value is not defined for a specific scope, it means that the field is ignored when determining workorder suitability. As a result a template without any defined scopes matches all workorders.\r\n\r\nCurrently supported scopes are:\r\n\r\n> Scope              | Example value&nbsp; | Description      \r\n> -------|---------------------|---------------\r\n> `scopeDeviceBrand` | Ford                | device with the specified brand   |\r\n> `scopeDeviceModel` | Mondeo              | device with the specified model   |\r\n> `scopeDeviceVersion` | MK2               | device with the specified version |\r\n> `scopeDeviceSoldAtLessDaysAgo` | 365     | device that was sold less than the specified number of days ago |\r\n> \r\n\r\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "template"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": \"<object>\",\n  \"id\": \"<integer>\",\n  \"itemId\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"name\": \"<string>\",\n  \"scopeDeviceBrand\": \"<string>\",\n  \"scopeDeviceModel\": \"<string>\",\n  \"scopeDeviceSoldAtLessDaysAgo\": \"<integer>\",\n  \"scopeDeviceVersion\": \"<string>\",\n  \"workorderId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "48fc20df-1647-45f9-ad7e-824d77aae694",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"string\",\n  \"createdById\": 6296,\n  \"data\": {},\n  \"id\": 8842,\n  \"itemIds\": [\n    1907,\n    9531\n  ],\n  \"name\": \"string\",\n  \"relevance\": 347.24510124167887,\n  \"scopeDeviceBrand\": \"string\",\n  \"scopeDeviceModel\": \"string\",\n  \"scopeDeviceSoldAtLessDaysAgo\": 3239,\n  \"scopeDeviceVersion\": \"string\",\n  \"updatedAt\": \"string\",\n  \"updatedById\": 5585,\n  \"usedCount\": 8153,\n  \"workorderId\": 2574\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f714bbf2-4d56-424d-9878-ba60a6e924fa",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "25533fc3-a6bd-4e22-9724-441ba573b181",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd4c050c-c893-41c2-a8eb-1568d6c900bc",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5afa13f-a1c2-4534-9d1c-9c71d4851d6f",
+          "name": "Delete one template record",
+          "request": {
+            "name": "Delete one template record",
+            "description": {
+              "content": "Delete one template record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "template",
+                ":templateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "templateId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cf713ef9-e2d1-42f2-a44a-d4bf894f4be1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "034e7b6a-f224-4cf6-bfad-cea49b3293f7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "19b7e381-ee08-4128-946f-50a45f4c0462",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "094d72d4-f9f8-4701-bc67-48628cc67f2b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0a281bb8-089c-4af7-bce1-3a5aabb0e719",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cc23bff-12bb-48e2-99ff-d96932086057",
+          "name": "Update template record",
+          "request": {
+            "name": "Update template record",
+            "description": {
+              "content": "Update a template. It is possible to update its name and scopes. Changing the associated workorderId and itemId-s is not supported.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "template",
+                ":templateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "templateId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": \"<object>\",\n  \"id\": \"<integer>\",\n  \"itemId\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"name\": \"<string>\",\n  \"scopeDeviceBrand\": \"<string>\",\n  \"scopeDeviceModel\": \"<string>\",\n  \"scopeDeviceSoldAtLessDaysAgo\": \"<integer>\",\n  \"scopeDeviceVersion\": \"<string>\",\n  \"workorderId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "581044aa-c38b-4f7d-ab44-842a258dcdce",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"string\",\n  \"createdById\": 6296,\n  \"data\": {},\n  \"id\": 8842,\n  \"itemIds\": [\n    1907,\n    9531\n  ],\n  \"name\": \"string\",\n  \"relevance\": 347.24510124167887,\n  \"scopeDeviceBrand\": \"string\",\n  \"scopeDeviceModel\": \"string\",\n  \"scopeDeviceSoldAtLessDaysAgo\": 3239,\n  \"scopeDeviceVersion\": \"string\",\n  \"updatedAt\": \"string\",\n  \"updatedById\": 5585,\n  \"usedCount\": 8153,\n  \"workorderId\": 2574\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d57cbb2-1c00-4bd2-95cd-97cc6f1767be",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41ec97b5-efb7-4da9-9dad-efd615b26708",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4ec698f4-ffa9-4b53-bf1a-936b4e8fa280",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2139103f-50cb-4faa-bc44-c88a23b9135a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41ad1852-b2cd-4277-8f24-82b2bc0b1ec2",
+          "name": "Applies a template to a workorder. If the workorderId is not specified, creates a new workorder",
+          "request": {
+            "name": "Applies a template to a workorder. If the workorderId is not specified, creates a new workorder",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "template",
+                ":templateId",
+                "apply"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "templateId",
+                  "description": "(Required) Template id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"templateId\": \"<integer>\",\n  \"warehouseId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f56f760d-1532-47bb-953b-d2fe0d91aa31",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId",
+                    "apply"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateId\": \"<integer>\",\n  \"warehouseId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cancelledAt\": \"string\",\n  \"cancelledById\": 828,\n  \"confirmedAt\": \"string\",\n  \"confirmedById\": 6907,\n  \"contactId\": 3497,\n  \"createdAt\": \"string\",\n  \"createdById\": 9246,\n  \"customerId\": 7712,\n  \"data\": {},\n  \"deviceId\": 7420,\n  \"deviceUse\": 4859,\n  \"emsThreadId\": 4339,\n  \"entity\": \"string\",\n  \"hasDocCredit\": false,\n  \"id\": 4208,\n  \"labels\": [\n    {\n      \"createdAt\": \"string\",\n      \"createdById\": 2088,\n      \"label\": \"string\",\n      \"labelType\": \"string\",\n      \"taskId\": 6802,\n      \"workorderId\": 1896\n    },\n    {\n      \"createdAt\": \"string\",\n      \"createdById\": 3869,\n      \"label\": \"string\",\n      \"labelType\": \"string\",\n      \"taskId\": 3588,\n      \"workorderId\": 8476\n    }\n  ],\n  \"netTotal\": 992.7407216309048,\n  \"noteCount\": 5374,\n  \"order\": 8925,\n  \"paid\": 2731.090610681821,\n  \"parentId\": 2413,\n  \"priority\": \"string\",\n  \"productStockState\": \"string\",\n  \"progress\": 8242.535812053062,\n  \"receivedAt\": \"string\",\n  \"receivedById\": 3367,\n  \"referenceNo\": \"string\",\n  \"returnedAt\": \"string\",\n  \"returnedById\": 5173,\n  \"salepointId\": 695,\n  \"state\": \"string\",\n  \"taskScheduledState\": \"string\",\n  \"taxExempt\": true,\n  \"templateId\": 4806,\n  \"title\": \"string\",\n  \"total\": 3692.545380533743,\n  \"transactionalState\": \"string\",\n  \"type\": \"string\",\n  \"updatedAt\": \"string\",\n  \"updatedById\": 1110,\n  \"vatTotal\": 8300.13942144417,\n  \"warehouseId\": 4360,\n  \"workorderGroupId\": 6152,\n  \"workorderNo\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2445ac8-54bd-4873-b93d-b04e87ffb488",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId",
+                    "apply"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateId\": \"<integer>\",\n  \"warehouseId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2583f6c0-5ed4-4233-aa7a-2ce5d492c969",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId",
+                    "apply"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateId\": \"<integer>\",\n  \"warehouseId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "69abb20e-8d26-4059-a901-454a8e40f765",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId",
+                    "apply"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateId\": \"<integer>\",\n  \"warehouseId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1f4c3b09-af4f-4ecf-acc2-179b5103cc24",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "template",
+                    ":templateId",
+                    "apply"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateId\": \"<integer>\",\n  \"warehouseId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0ecd2529-4862-4b8d-a227-a8897baa287f",
+    "name": "assignments Assortment template API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

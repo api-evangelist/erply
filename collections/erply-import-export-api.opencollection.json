@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Import & Export API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Import & Export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Export configurations to files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/configurations/export",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "application",
+                "value": "",
+                "type": "query",
+                "description": "Application name that uses CAFA to store configs"
+              },
+              {
+                "name": "level",
+                "value": "",
+                "type": "query",
+                "description": "Level is the operating level where the config is stored. Has to be one of Company, Warehouse, Pos, User. Default is Company"
+              },
+              {
+                "name": "level_id",
+                "value": "",
+                "type": "query",
+                "description": "LevelID is a unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  `Company level does not need level_id.`"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name of the configuration"
+              }
+            ]
+          },
+          "docs": "Export configurations to files"
+        },
+        {
+          "info": {
+            "name": "Import configurations from file",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/configurations/import",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "preserveExistingConfigurations",
+                "value": "",
+                "type": "query",
+                "description": "If true, existing configurations will not be updated, otherwise they will be updated with the imported data"
+              }
+            ]
+          },
+          "docs": "Import configurations from file"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

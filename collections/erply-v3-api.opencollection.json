@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment v3 API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "v3",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Save or update a configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v3/configuration",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "`NB`: You cannot have 2 configurations with the same level,level_id, type, name and application\nlevel, level_id and type are optional fields."
+        },
+        {
+          "info": {
+            "name": "Get by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v3/configuration/:id",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Configuration ID"
+              }
+            ]
+          },
+          "docs": "Get by ID"
+        },
+        {
+          "info": {
+            "name": "Update `value` by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v3/configuration/:id",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Configuration ID"
+              }
+            ]
+          },
+          "docs": "Update `value` by ID"
+        },
+        {
+          "info": {
+            "name": "Delete By ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v3/configuration/:id",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "configuration ID"
+              }
+            ]
+          },
+          "docs": "Delete By ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

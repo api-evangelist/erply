@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Parameter Set to Group Linking API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Parameter Set to Group Linking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete Linked Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/parameter/set/groups/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited link IDs"
+              }
+            ]
+          },
+          "docs": "Delete Linked Groups"
+        },
+        {
+          "info": {
+            "name": "Get Linked Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/parameter/set/:id/groups",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "set ID"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "amount to take"
+              }
+            ]
+          },
+          "docs": "Get Linked Groups"
+        },
+        {
+          "info": {
+            "name": "Link Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/parameter/set/:id/groups",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "set ID"
+              }
+            ]
+          },
+          "docs": "Link Group"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

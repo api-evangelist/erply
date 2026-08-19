@@ -1,0 +1,2239 @@
+{
+  "item": [
+    {
+      "id": "0495778c-e8a9-41ef-a7ae-ee26a9847d2e",
+      "name": "Assortment To Product Linking",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b1d9b871-e1a0-488d-a6ef-39ac872c78dc",
+          "name": "Delete products from all assortments",
+          "request": {
+            "name": "Delete products from all assortments",
+            "description": {
+              "content": "Delete products from all assortments providing product IDs\nresponds with link IDs that were deleted",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "assortment",
+                "products",
+                "links",
+                ":productIDs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "productIDs",
+                  "description": "(Required) can contain up to 100 semicolon delimited product IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "70f085e2-d359-4209-a61d-b838d3c83b28",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    "links",
+                    ":productIDs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productIDs",
+                      "description": "(Required) can contain up to 100 semicolon delimited product IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd53513d-1eb1-4b8e-8271-20d0e77dd677",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    "links",
+                    ":productIDs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productIDs",
+                      "description": "(Required) can contain up to 100 semicolon delimited product IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6d5bd61-0624-4e44-8b51-ba8e6212bc9d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    "links",
+                    ":productIDs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productIDs",
+                      "description": "(Required) can contain up to 100 semicolon delimited product IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "830539df-8d47-4b48-a04f-b514647cb2aa",
+          "name": "Delete Assortment Product Links",
+          "request": {
+            "name": "Delete Assortment Product Links",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "assortment",
+                "products",
+                ":ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) up to 100 semicolon delimited link IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "468ae962-ae88-474d-9589-a10181224859",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited link IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75b466ae-5aad-4f2a-a7c6-79dd1cb7d4cd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited link IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a5c099f-0680-482d-a742-28522ddcd416",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited link IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d7f49dd-0419-447d-9c1b-93da2822df3f",
+          "name": "Delete product to assortment links by link IDs",
+          "request": {
+            "name": "Delete product to assortment links by link IDs",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "assortment",
+                "products",
+                ":ids",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) can contain up to 100 semicolon delimited link IDs."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "94817247-feac-4819-98dc-02c7ff83a5c9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    ":ids",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) can contain up to 100 semicolon delimited link IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a04ecf55-660a-4a50-b567-5ebcbbd42942",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    ":ids",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) can contain up to 100 semicolon delimited link IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "131e3e33-6f7b-4efa-bcba-687e91ec26ee",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    ":ids",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) can contain up to 100 semicolon delimited link IDs."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5704356-ab1a-4dfb-a724-97a3059e9f2d",
+          "name": "Update Assortment's Products Link Data",
+          "request": {
+            "name": "Update Assortment's Products Link Data",
+            "description": {
+              "content": "Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "assortment",
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) link ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product_name_in_assortment\": {\n    \"en\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9f44cf00-ea37-4803-bae9-f917a5b04945",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product_name_in_assortment\": {\n    \"en\": \"<string>\"\n  },\n  \"status\": \"ACTIVE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2daf3d03-c2d7-4f0e-b2c8-c6ff7e1251a0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product_name_in_assortment\": {\n    \"en\": \"<string>\"\n  },\n  \"status\": \"ACTIVE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71014f83-9c45-492e-a145-bf11ba9e9557",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product_name_in_assortment\": {\n    \"en\": \"<string>\"\n  },\n  \"status\": \"ACTIVE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "151848bd-dd8f-4096-8a0d-370833020df5",
+          "name": "Get Assortment's Products Link Data",
+          "request": {
+            "name": "Get Assortment's Products Link Data",
+            "description": {
+              "content": "Get Assortment's Products Link Data only for active links.  Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "assortment",
+                ":id",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Assortment ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "it' s a `UNIX timestamp`",
+                "key": "If-Modified-Since",
+                "value": "<integer>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "3d890fe1-2c9e-4e9a-a9f7-ca63300b3145",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "it' s a `UNIX timestamp`",
+                    "key": "If-Modified-Since",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"assortment_id\": 7445,\n    \"id\": 5190,\n    \"product_id\": 7217,\n    \"product_name_in_assortment\": {\n      \"en\": \"<string>\"\n    },\n    \"status\": \"ACTIVE\"\n  },\n  {\n    \"assortment_id\": 1336,\n    \"id\": 13,\n    \"product_id\": 7185,\n    \"product_name_in_assortment\": {\n      \"en\": \"<string>\"\n    },\n    \"status\": \"ACTIVE\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9d7b07a-d68e-4f3b-bebd-4752b24d29c2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "it' s a `UNIX timestamp`",
+                    "key": "If-Modified-Since",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5887f4e2-bdcf-4697-9251-c07844c2e8ce",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "it' s a `UNIX timestamp`",
+                    "key": "If-Modified-Since",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a27a155e-af68-4b03-937d-b9d6dbf02475",
+          "name": "Add Product to Assortment",
+          "request": {
+            "name": "Add Product to Assortment",
+            "description": {
+              "content": "Add Product to Assortment. Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "assortment",
+                ":id",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Assortment ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"product_id\": \"<integer>\",\n  \"product_name_in_assortment\": {\n    \"en\": \"<string>\"\n  },\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e721809c-a76a-4cf9-8384-9a2a1c67e7ac",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product_id\": \"<integer>\",\n  \"product_name_in_assortment\": {\n    \"en\": \"<string>\"\n  },\n  \"status\": \"ACTIVE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36092582-e452-4b1e-a321-fe6e75b1a85e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product_id\": \"<integer>\",\n  \"product_name_in_assortment\": {\n    \"en\": \"<string>\"\n  },\n  \"status\": \"ACTIVE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce0939ae-4c13-413c-9b4c-fef40dcb39cd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"product_id\": \"<integer>\",\n  \"product_name_in_assortment\": {\n    \"en\": \"<string>\"\n  },\n  \"status\": \"ACTIVE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb40e559-9ebd-4cb9-aeb3-8171bd82dc70",
+          "name": "Add Products to Assortment",
+          "request": {
+            "name": "Add Products to Assortment",
+            "description": {
+              "content": "Add Products to Assortment in bulk.  Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "assortment",
+                ":id",
+                "products",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Assortment ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"links\": [\n    {\n      \"product_id\": \"<integer>\",\n      \"product_name_in_assortment\": {\n        \"en\": \"<string>\"\n      },\n      \"status\": \"<string>\"\n    },\n    {\n      \"product_id\": \"<integer>\",\n      \"product_name_in_assortment\": {\n        \"en\": \"<string>\"\n      },\n      \"status\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e0d52677-e4fb-470f-a383-38acdfe6a864",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": [\n    {\n      \"product_id\": \"<integer>\",\n      \"product_name_in_assortment\": {\n        \"en\": \"<string>\"\n      },\n      \"status\": \"ACTIVE\"\n    },\n    {\n      \"product_id\": \"<integer>\",\n      \"product_name_in_assortment\": {\n        \"en\": \"<string>\"\n      },\n      \"status\": \"ACTIVE\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    },\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb94baea-832f-47e6-bdc0-5aeef60d358c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": [\n    {\n      \"product_id\": \"<integer>\",\n      \"product_name_in_assortment\": {\n        \"en\": \"<string>\"\n      },\n      \"status\": \"ACTIVE\"\n    },\n    {\n      \"product_id\": \"<integer>\",\n      \"product_name_in_assortment\": {\n        \"en\": \"<string>\"\n      },\n      \"status\": \"ACTIVE\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f1c3f7f-2074-44eb-ace7-5fb2f50213fd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"links\": [\n    {\n      \"product_id\": \"<integer>\",\n      \"product_name_in_assortment\": {\n        \"en\": \"<string>\"\n      },\n      \"status\": \"ACTIVE\"\n    },\n    {\n      \"product_id\": \"<integer>\",\n      \"product_name_in_assortment\": {\n        \"en\": \"<string>\"\n      },\n      \"status\": \"ACTIVE\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a7d8ddb-92c1-4ea3-8ac7-56242fd7bed0",
+          "name": "Get Assortment's Products Data",
+          "request": {
+            "name": "Get Assortment's Products Data",
+            "description": {
+              "content": "Get Assortment's Products Data with total count. The assortment to product link status is in the `linkStatus` field under each product's data.\nThe `linkStatus` field is filterable and sortable.  Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE\nThe `product_name_in_assortment` field is filterable.  just put [['product_name_in_assortment.en','=','bla-bla-bla'],'or','product_name_in_assortment.fr','=','yada-yada]\nthe 'and' operand is not supported for the  `product_name_in_assortment`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "assortment",
+                ":id",
+                "products",
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "optionally return total number of records in the X-Total-Count response header"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Assortment ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "it' s a `UNIX timestamp`",
+                "key": "If-Modified-Since",
+                "value": "<integer>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "864ccc3b-3e15-4728-aee2-65fb38cb17ae",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "it' s a `UNIX timestamp`",
+                    "key": "If-Modified-Since",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "total number of records (ignores skip & take parameters)",
+                  "key": "X-Total-Count",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"products\": [\n      {\n        \"added\": 1595230999,\n        \"addedby\": \"k@erp.xyz\",\n        \"age_restriction\": 9866,\n        \"alcohol_percentage\": \"string\",\n        \"alcohol_registry_number\": \"string\",\n        \"batches\": \"string\",\n        \"brand_id\": 908,\n        \"cashier_must_enter_price\": 95,\n        \"category_id\": 7493,\n        \"changed\": 1595230999,\n        \"changedby\": \"k@erp.xyz\",\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"cost\": 1135.8475920739752,\n        \"country_of_origin_id\": 6839,\n        \"delivery_time\": \"string\",\n        \"deposit_fee_amount\": 6971,\n        \"deposit_fee_id\": 7167,\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": 2189,\n        \"excise_declaration_number\": \"string\",\n        \"extra_field1_id\": 25,\n        \"extra_field2_id\": 4607,\n        \"extra_field3_id\": 8884,\n        \"extra_field4_id\": 2071,\n        \"family_id\": 2813,\n        \"formula_identifier\": \"string\",\n        \"gross_weight\": 1544.0250609199136,\n        \"group_id\": 125,\n        \"group_package_ferrous_metal\": 1918.1748047876013,\n        \"group_package_metal\": 3219.5190057793634,\n        \"group_package_non_ferrous_metal\": 7877.457350916605,\n        \"group_package_paper\": 3058.011861981086,\n        \"group_package_plastic\": 5079.591844251472,\n        \"group_package_wood\": 7477.255681515236,\n        \"has_serial_numbers\": 349,\n        \"height\": 1116.332615749004,\n        \"id\": 8913,\n        \"is_gift_card\": 9235,\n        \"is_lot_product\": true,\n        \"is_regular_gift_card\": 8641,\n        \"is_used_product\": true,\n        \"labels_not_needed\": 602,\n        \"length\": 5809.705738913022,\n        \"linkStatus\": \"string\",\n        \"location_in_warehouse_id\": 4598,\n        \"location_in_warehouse_text\": \"string\",\n        \"manufacturer_name\": \"string\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": 5231.671868794775,\n        \"non_discountable\": 136,\n        \"non_refundable\": 7097,\n        \"non_stock_product\": 3252,\n        \"packaging_type\": \"string\",\n        \"packing_not_required\": 4296,\n        \"parent_product_id\": 1595,\n        \"price\": 8089.180299249986,\n        \"price_with_tax\": 9268.194286310727,\n        \"priority_group_id\": 4937,\n        \"product_item_level_promotions_disabled\": 8490,\n        \"product_name_in_assortment\": {\n          \"en\": \"<string>\"\n        },\n        \"product_reorder_multiples\": 6280,\n        \"revenue_account\": \"string\",\n        \"reward_points_not_allowed\": 9885,\n        \"sales_package_cardboard\": 64.95895224528981,\n        \"sales_package_clear_brown_glass\": 494.62726978055315,\n        \"sales_package_green_other_glass\": 9900.38903100866,\n        \"sales_package_metal_al\": 9367.207273771464,\n        \"sales_package_metal_fe\": 7794.523017596787,\n        \"sales_package_other_metal\": 3388.4372241340798,\n        \"sales_package_paper_and_cardboard_mono\": 8403.347288839,\n        \"sales_package_plastic_pet\": 9628.773907559362,\n        \"sales_package_plastic_pp_pe\": 7118.022337371945,\n        \"sales_package_wood\": 5058.438287638459,\n        \"serial_number\": \"string\",\n        \"shelf_life_days\": 5327,\n        \"sold_in_packages\": 9065,\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": 5835.832110564498,\n        \"supplier_code\": \"string\",\n        \"supplier_id\": 2044,\n        \"tax_free\": 9057,\n        \"tax_rate_id\": 8195,\n        \"transport_package_cardboard\": 1323.340078553209,\n        \"transport_package_ferrous_metal\": 1705.3195435506962,\n        \"transport_package_non_ferrous_metal\": 7875.430305676002,\n        \"transport_package_plastic\": 8808.552373867818,\n        \"transport_package_wood\": 7355.265908006041,\n        \"type\": \"string\",\n        \"unit_id\": 9447,\n        \"volume\": 3801.565822210181,\n        \"webshop_description\": \"string\",\n        \"webshop_keywords\": \"string\",\n        \"webshop_title\": \"string\",\n        \"webshop_url_slug\": \"string\",\n        \"width\": 805.2322377791554\n      },\n      {\n        \"added\": 1595230999,\n        \"addedby\": \"k@erp.xyz\",\n        \"age_restriction\": 1808,\n        \"alcohol_percentage\": \"string\",\n        \"alcohol_registry_number\": \"string\",\n        \"batches\": \"string\",\n        \"brand_id\": 8174,\n        \"cashier_must_enter_price\": 3088,\n        \"category_id\": 3055,\n        \"changed\": 1595230999,\n        \"changedby\": \"k@erp.xyz\",\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"cost\": 5455.195020444219,\n        \"country_of_origin_id\": 1321,\n        \"delivery_time\": \"string\",\n        \"deposit_fee_amount\": 5000,\n        \"deposit_fee_id\": 6647,\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": 632,\n        \"excise_declaration_number\": \"string\",\n        \"extra_field1_id\": 6705,\n        \"extra_field2_id\": 6751,\n        \"extra_field3_id\": 5741,\n        \"extra_field4_id\": 6147,\n        \"family_id\": 2864,\n        \"formula_identifier\": \"string\",\n        \"gross_weight\": 6099.14214777044,\n        \"group_id\": 332,\n        \"group_package_ferrous_metal\": 1250.1662656578783,\n        \"group_package_metal\": 6607.120469125771,\n        \"group_package_non_ferrous_metal\": 5199.969548299952,\n        \"group_package_paper\": 6650.089323657086,\n        \"group_package_plastic\": 3647.4478444485435,\n        \"group_package_wood\": 738.7730452365704,\n        \"has_serial_numbers\": 7245,\n        \"height\": 3098.008506515705,\n        \"id\": 6467,\n        \"is_gift_card\": 8975,\n        \"is_lot_product\": false,\n        \"is_regular_gift_card\": 9634,\n        \"is_used_product\": false,\n        \"labels_not_needed\": 3783,\n        \"length\": 7586.492938291003,\n        \"linkStatus\": \"string\",\n        \"location_in_warehouse_id\": 8273,\n        \"location_in_warehouse_text\": \"string\",\n        \"manufacturer_name\": \"string\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": 9365.499270682056,\n        \"non_discountable\": 7514,\n        \"non_refundable\": 6036,\n        \"non_stock_product\": 9978,\n        \"packaging_type\": \"string\",\n        \"packing_not_required\": 457,\n        \"parent_product_id\": 49,\n        \"price\": 1585.8392510374763,\n        \"price_with_tax\": 1042.8296159960494,\n        \"priority_group_id\": 4823,\n        \"product_item_level_promotions_disabled\": 1235,\n        \"product_name_in_assortment\": {\n          \"en\": \"<string>\"\n        },\n        \"product_reorder_multiples\": 3839,\n        \"revenue_account\": \"string\",\n        \"reward_points_not_allowed\": 7877,\n        \"sales_package_cardboard\": 3151.2119630329703,\n        \"sales_package_clear_brown_glass\": 5726.504253812058,\n        \"sales_package_green_other_glass\": 7027.634412549188,\n        \"sales_package_metal_al\": 7444.186387351871,\n        \"sales_package_metal_fe\": 7891.070981963707,\n        \"sales_package_other_metal\": 918.1628692759868,\n        \"sales_package_paper_and_cardboard_mono\": 5167.523382992185,\n        \"sales_package_plastic_pet\": 4103.513863029593,\n        \"sales_package_plastic_pp_pe\": 7959.632065853613,\n        \"sales_package_wood\": 2181.562341942831,\n        \"serial_number\": \"string\",\n        \"shelf_life_days\": 3442,\n        \"sold_in_packages\": 9481,\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": 3163.0068965184278,\n        \"supplier_code\": \"string\",\n        \"supplier_id\": 3087,\n        \"tax_free\": 4164,\n        \"tax_rate_id\": 2239,\n        \"transport_package_cardboard\": 5240.127241883582,\n        \"transport_package_ferrous_metal\": 2694.670743544697,\n        \"transport_package_non_ferrous_metal\": 338.05247969904804,\n        \"transport_package_plastic\": 4912.795635232578,\n        \"transport_package_wood\": 7549.847491185579,\n        \"type\": \"string\",\n        \"unit_id\": 974,\n        \"volume\": 1525.5541087711,\n        \"webshop_description\": \"string\",\n        \"webshop_keywords\": \"string\",\n        \"webshop_title\": \"string\",\n        \"webshop_url_slug\": \"string\",\n        \"width\": 3816.4178295573724\n      }\n    ],\n    \"totalCount\": 20\n  },\n  {\n    \"products\": [\n      {\n        \"added\": 1595230999,\n        \"addedby\": \"k@erp.xyz\",\n        \"age_restriction\": 772,\n        \"alcohol_percentage\": \"string\",\n        \"alcohol_registry_number\": \"string\",\n        \"batches\": \"string\",\n        \"brand_id\": 9925,\n        \"cashier_must_enter_price\": 5833,\n        \"category_id\": 2217,\n        \"changed\": 1595230999,\n        \"changedby\": \"k@erp.xyz\",\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"cost\": 4173.166214822205,\n        \"country_of_origin_id\": 5287,\n        \"delivery_time\": \"string\",\n        \"deposit_fee_amount\": 4583,\n        \"deposit_fee_id\": 8135,\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": 244,\n        \"excise_declaration_number\": \"string\",\n        \"extra_field1_id\": 8286,\n        \"extra_field2_id\": 2084,\n        \"extra_field3_id\": 9379,\n        \"extra_field4_id\": 1810,\n        \"family_id\": 3094,\n        \"formula_identifier\": \"string\",\n        \"gross_weight\": 3450.884690270837,\n        \"group_id\": 7704,\n        \"group_package_ferrous_metal\": 6509.516282365383,\n        \"group_package_metal\": 1208.1775404143991,\n        \"group_package_non_ferrous_metal\": 3373.6511947127524,\n        \"group_package_paper\": 6605.349108828123,\n        \"group_package_plastic\": 385.07396722716527,\n        \"group_package_wood\": 2533.56909640827,\n        \"has_serial_numbers\": 5234,\n        \"height\": 1543.166113816582,\n        \"id\": 1034,\n        \"is_gift_card\": 8757,\n        \"is_lot_product\": false,\n        \"is_regular_gift_card\": 2294,\n        \"is_used_product\": true,\n        \"labels_not_needed\": 7610,\n        \"length\": 6008.0890426010255,\n        \"linkStatus\": \"string\",\n        \"location_in_warehouse_id\": 823,\n        \"location_in_warehouse_text\": \"string\",\n        \"manufacturer_name\": \"string\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": 5212.839040334989,\n        \"non_discountable\": 5793,\n        \"non_refundable\": 1505,\n        \"non_stock_product\": 7870,\n        \"packaging_type\": \"string\",\n        \"packing_not_required\": 8311,\n        \"parent_product_id\": 812,\n        \"price\": 2482.463943990062,\n        \"price_with_tax\": 5566.10638051847,\n        \"priority_group_id\": 8297,\n        \"product_item_level_promotions_disabled\": 8973,\n        \"product_name_in_assortment\": {\n          \"en\": \"<string>\"\n        },\n        \"product_reorder_multiples\": 6677,\n        \"revenue_account\": \"string\",\n        \"reward_points_not_allowed\": 2802,\n        \"sales_package_cardboard\": 2611.766046923849,\n        \"sales_package_clear_brown_glass\": 6000.788726986779,\n        \"sales_package_green_other_glass\": 1970.322155557388,\n        \"sales_package_metal_al\": 289.2188188376654,\n        \"sales_package_metal_fe\": 765.1381132331459,\n        \"sales_package_other_metal\": 1534.5386316799058,\n        \"sales_package_paper_and_cardboard_mono\": 2831.1924742078454,\n        \"sales_package_plastic_pet\": 4409.288840638252,\n        \"sales_package_plastic_pp_pe\": 6434.098108050439,\n        \"sales_package_wood\": 8694.238297817492,\n        \"serial_number\": \"string\",\n        \"shelf_life_days\": 880,\n        \"sold_in_packages\": 3230,\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": 3780.5693393754646,\n        \"supplier_code\": \"string\",\n        \"supplier_id\": 9539,\n        \"tax_free\": 8988,\n        \"tax_rate_id\": 326,\n        \"transport_package_cardboard\": 4182.267218812516,\n        \"transport_package_ferrous_metal\": 2466.8478362591286,\n        \"transport_package_non_ferrous_metal\": 3496.1708197016337,\n        \"transport_package_plastic\": 677.5104935820219,\n        \"transport_package_wood\": 3485.759509907337,\n        \"type\": \"string\",\n        \"unit_id\": 3706,\n        \"volume\": 226.58105691669707,\n        \"webshop_description\": \"string\",\n        \"webshop_keywords\": \"string\",\n        \"webshop_title\": \"string\",\n        \"webshop_url_slug\": \"string\",\n        \"width\": 2909.599145095567\n      },\n      {\n        \"added\": 1595230999,\n        \"addedby\": \"k@erp.xyz\",\n        \"age_restriction\": 8322,\n        \"alcohol_percentage\": \"string\",\n        \"alcohol_registry_number\": \"string\",\n        \"batches\": \"string\",\n        \"brand_id\": 9479,\n        \"cashier_must_enter_price\": 7895,\n        \"category_id\": 5667,\n        \"changed\": 1595230999,\n        \"changedby\": \"k@erp.xyz\",\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"cost\": 1818.1340397497236,\n        \"country_of_origin_id\": 1415,\n        \"delivery_time\": \"string\",\n        \"deposit_fee_amount\": 7784,\n        \"deposit_fee_id\": 4578,\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": 9539,\n        \"excise_declaration_number\": \"string\",\n        \"extra_field1_id\": 6669,\n        \"extra_field2_id\": 2719,\n        \"extra_field3_id\": 8939,\n        \"extra_field4_id\": 6804,\n        \"family_id\": 4616,\n        \"formula_identifier\": \"string\",\n        \"gross_weight\": 1287.9884514779815,\n        \"group_id\": 2119,\n        \"group_package_ferrous_metal\": 7613.209113001406,\n        \"group_package_metal\": 4942.72810839158,\n        \"group_package_non_ferrous_metal\": 905.9930680082739,\n        \"group_package_paper\": 4350.75763489511,\n        \"group_package_plastic\": 4235.529611908731,\n        \"group_package_wood\": 7489.546744585926,\n        \"has_serial_numbers\": 8220,\n        \"height\": 2241.248392002362,\n        \"id\": 106,\n        \"is_gift_card\": 2920,\n        \"is_lot_product\": false,\n        \"is_regular_gift_card\": 7822,\n        \"is_used_product\": false,\n        \"labels_not_needed\": 8817,\n        \"length\": 4940.627463045939,\n        \"linkStatus\": \"string\",\n        \"location_in_warehouse_id\": 4208,\n        \"location_in_warehouse_text\": \"string\",\n        \"manufacturer_name\": \"string\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": 9946.081764280038,\n        \"non_discountable\": 1341,\n        \"non_refundable\": 7634,\n        \"non_stock_product\": 8349,\n        \"packaging_type\": \"string\",\n        \"packing_not_required\": 8324,\n        \"parent_product_id\": 5191,\n        \"price\": 1.3691364882573165,\n        \"price_with_tax\": 3964.568940647688,\n        \"priority_group_id\": 8779,\n        \"product_item_level_promotions_disabled\": 6506,\n        \"product_name_in_assortment\": {\n          \"en\": \"<string>\"\n        },\n        \"product_reorder_multiples\": 3300,\n        \"revenue_account\": \"string\",\n        \"reward_points_not_allowed\": 621,\n        \"sales_package_cardboard\": 4235.904790878802,\n        \"sales_package_clear_brown_glass\": 6700.749916667925,\n        \"sales_package_green_other_glass\": 6587.3304573446885,\n        \"sales_package_metal_al\": 2974.025143139486,\n        \"sales_package_metal_fe\": 1825.920605945649,\n        \"sales_package_other_metal\": 1670.0034067765657,\n        \"sales_package_paper_and_cardboard_mono\": 4713.55183275127,\n        \"sales_package_plastic_pet\": 6172.993277302135,\n        \"sales_package_plastic_pp_pe\": 8699.734795978027,\n        \"sales_package_wood\": 3974.6449686837614,\n        \"serial_number\": \"string\",\n        \"shelf_life_days\": 4475,\n        \"sold_in_packages\": 6549,\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": 5328.303495896319,\n        \"supplier_code\": \"string\",\n        \"supplier_id\": 4130,\n        \"tax_free\": 3867,\n        \"tax_rate_id\": 6245,\n        \"transport_package_cardboard\": 6385.372555555076,\n        \"transport_package_ferrous_metal\": 4465.667363040666,\n        \"transport_package_non_ferrous_metal\": 8517.53782499508,\n        \"transport_package_plastic\": 1867.7242737887068,\n        \"transport_package_wood\": 1007.4335468971518,\n        \"type\": \"string\",\n        \"unit_id\": 323,\n        \"volume\": 7.6545506253289375,\n        \"webshop_description\": \"string\",\n        \"webshop_keywords\": \"string\",\n        \"webshop_title\": \"string\",\n        \"webshop_url_slug\": \"string\",\n        \"width\": 3219.1277355747993\n      }\n    ],\n    \"totalCount\": 20\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd0b34e4-24e0-4c55-912d-921192094421",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "it' s a `UNIX timestamp`",
+                    "key": "If-Modified-Since",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ccd5691-5343-4b7f-881a-05ffe6ac1c8f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "it' s a `UNIX timestamp`",
+                    "key": "If-Modified-Since",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70466964-8afb-4694-8811-0c81d42c95ab",
+          "name": "Get Deleted Assortment's Products IDs",
+          "request": {
+            "name": "Get Deleted Assortment's Products IDs",
+            "description": {
+              "content": "Input the assortment ID and optionally a header with the unix timestamp, responds with the found product IDs in the IDs field",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "assortment",
+                ":id",
+                "products",
+                "deleted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Assortment ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "it' s a `UNIX timestamp`",
+                "key": "If-Deleted-Since",
+                "value": "<integer>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "01778175-610e-4352-81b5-a393c1152ea8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products",
+                    "deleted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "it' s a `UNIX timestamp`",
+                    "key": "If-Deleted-Since",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"assortment_id\": 7445,\n    \"id\": 5190,\n    \"product_id\": 7217,\n    \"product_name_in_assortment\": {\n      \"en\": \"<string>\"\n    },\n    \"status\": \"ACTIVE\"\n  },\n  {\n    \"assortment_id\": 1336,\n    \"id\": 13,\n    \"product_id\": 7185,\n    \"product_name_in_assortment\": {\n      \"en\": \"<string>\"\n    },\n    \"status\": \"ACTIVE\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da6c55d8-2993-4899-bed5-f102d9e88f17",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products",
+                    "deleted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "it' s a `UNIX timestamp`",
+                    "key": "If-Deleted-Since",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a30927b-6ac5-4061-834f-fd50e4fc2bb4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "assortment",
+                    ":id",
+                    "products",
+                    "deleted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Assortment ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "it' s a `UNIX timestamp`",
+                    "key": "If-Deleted-Since",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11e1b231-0b05-451a-8e18-eb9859a3d8fb",
+          "name": "Get Assortments for Product",
+          "request": {
+            "name": "Get Assortments for Product",
+            "description": {
+              "content": "Get Assortments for Product",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                ":id",
+                "assortments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) product ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "3c233fbb-5d4d-4b2b-b37f-136192aa2908",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    ":id",
+                    "assortments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"assortment_id\": 7445,\n    \"id\": 5190,\n    \"product_id\": 7217,\n    \"product_name_in_assortment\": {\n      \"en\": \"<string>\"\n    },\n    \"status\": \"ACTIVE\"\n  },\n  {\n    \"assortment_id\": 1336,\n    \"id\": 13,\n    \"product_id\": 7185,\n    \"product_name_in_assortment\": {\n      \"en\": \"<string>\"\n    },\n    \"status\": \"ACTIVE\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7b40c60-8e72-424e-a3f0-50aa3925cb0f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    ":id",
+                    "assortments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0411c661-3cb4-4756-9382-a069c79d23b0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    ":id",
+                    "assortments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0e6d6676-a346-4023-adc2-689c3ca120c1",
+    "name": "assignments Assortment Assortment To Product Linking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

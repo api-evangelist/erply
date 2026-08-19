@@ -1,0 +1,385 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Products API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Products, Product pictures: CDN API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "comma or semicolon separated list of fields to fetch"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              }
+            ]
+          },
+          "docs": "Get Products, NB: Filtering & sorting is not supported for the following fields: length, delivery_time, packaging_type, alcohol_registry_number, alcohol_percentage\nbatches, excise_declaration_number, tax_free, is_regular_gift_card, reward_points_not_allowed, non_stock_product, cashier_must_enter_price, labels_not_needed, deposit_fee_amount\nIn filteration `group_id_with_sub` with `in` operator can be used in filters to get group ids with subgroups\nalso `category_id_with_sub` with `in` operator ca"
+        },
+        {
+          "info": {
+            "name": "Create a Product, Pictures: CDN API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product",
+            "params": [
+              {
+                "name": "trimInput",
+                "value": "",
+                "type": "query",
+                "description": "trim spaces on all text fields"
+              },
+              {
+                "name": "generateCodeAutomatically",
+                "value": "",
+                "type": "query",
+                "description": "generate code automatically based on the preconfigured starting code or based on a generated code. If the code is not blank in the request, will override."
+              },
+              {
+                "name": "generateCode2Automatically",
+                "value": "",
+                "type": "query",
+                "description": "generate code2 (EAN/UPC) automatically based on the preconfigured starting code or based on a generated code. If the code is not blank in the request, will override."
+              }
+            ]
+          },
+          "docs": "The field descriptions can be found under the model description. For that please click the Model button near the Example Value button under the product (body) parameter description.\nThe group_id is a required field. Code, code2 must be unique or empty.\nFiltering won't work for the price_with_tax field."
+        },
+        {
+          "info": {
+            "name": "Create Products in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/bulk"
+          },
+          "docs": "Each request body is a product to create. The parameters to generate the product code/code2 automatically is embedded into the request body as the `generateCodeAutomatically` & `generateCode2Automatically` fields.\nThe body can contain up to 100 requests."
+        },
+        {
+          "info": {
+            "name": "Update Products in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/bulk"
+          },
+          "docs": "The resourceId request field should be used for the product id in each request for the bulk update."
+        },
+        {
+          "info": {
+            "name": "Update Product field by field in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/product/bulk"
+          },
+          "docs": "This API endpoint is to update the product field by field in bulk. You must provide the fields you want to update only"
+        },
+        {
+          "info": {
+            "name": "Get Products in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/bulk/get"
+          },
+          "docs": "Get Products in bulk, NB: Filtering & sorting is not supported for the following fields: length, delivery_time, packaging_type, alcohol_registry_number, alcohol_percentage\nbatches, excise_declaration_number, tax_free, is_regular_gift_card, reward_points_not_allowed, non_stock_product, cashier_must_enter_price, labels_not_needed, deposit_fee_amount"
+        },
+        {
+          "info": {
+            "name": "Get product codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/codes"
+          },
+          "docs": "Get product codes"
+        },
+        {
+          "info": {
+            "name": "Set/Update product codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/product/codes"
+          },
+          "docs": "Set/Update product codes - pass only the code(s) you need to set/update. Returns updated codes if any were updated"
+        },
+        {
+          "info": {
+            "name": "Get Deleted Product IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/deleted/ids",
+            "headers": [
+              {
+                "name": "If-Modified-Since",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Get Deleted Product IDs"
+        },
+        {
+          "info": {
+            "name": "Lookup products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/full-text-lookup",
+            "params": [
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "lookupPhrase",
+                "value": "",
+                "type": "query",
+                "description": "text to lookup, must be at least 3 characters in length, if quotes are applied a string match is returned"
+              }
+            ]
+          },
+          "docs": "Full text search is a more advanced way to search products"
+        },
+        {
+          "info": {
+            "name": "Merge a Product to another Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/merge"
+          },
+          "docs": "`useDiscardedProductRecipe` can be true only for Assembly, Bundle products if the kept product’s recipe is replaced by the discarded product’s recipe.\n`useDiscardedProductVariations` can be true only for Matrix products, if the kept product’s child products are replaced by the discarded product’s child products"
+        },
+        {
+          "info": {
+            "name": "Restore products by backup ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/restore"
+          },
+          "docs": "The back-up ID can be passed to create product, update product & update product type endpoints as well as their bulk variants.\nOnce passed, the system will keep a back-up of the products catalogue. To restore the catalogue, use this endpoint with the backupID.\nThere can be only one back-up in the system."
+        },
+        {
+          "info": {
+            "name": "Get information on restore",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/restore/info",
+            "params": [
+              {
+                "name": "backupID",
+                "value": "",
+                "type": "query",
+                "description": "backup id"
+              }
+            ]
+          },
+          "docs": "Return information on what would be restored with the restore products by backup ID call."
+        },
+        {
+          "info": {
+            "name": "Get Products in batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "can contain semicolon delimited IDs."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              }
+            ]
+          },
+          "docs": "Get Products in batch"
+        },
+        {
+          "info": {
+            "name": "Delete Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited product IDs"
+              }
+            ]
+          },
+          "docs": "Deleting Products will delete all links to assortments and parameter values."
+        },
+        {
+          "info": {
+            "name": "Update Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "product ID"
+              },
+              {
+                "name": "trimInput",
+                "value": "",
+                "type": "query",
+                "description": "trim spaces on all text fields"
+              }
+            ]
+          },
+          "docs": "Update Product"
+        },
+        {
+          "info": {
+            "name": "Update Product field by field",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/product/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "product ID"
+              },
+              {
+                "name": "trimInput",
+                "value": "",
+                "type": "query",
+                "description": "trim spaces on all text fields"
+              }
+            ]
+          },
+          "docs": "In this request you pass only the fields you want to update"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

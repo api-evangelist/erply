@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment event API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "event",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/event",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              },
+              {
+                "name": "eventType",
+                "value": "",
+                "type": "query",
+                "description": "Event types"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order"
+              }
+            ]
+          },
+          "docs": "Allows searching for workorder events matching specific criteria.\r\n\r\n> Param           | Default&nbsp; | Example&nbsp; | Description\r\n> ----------------|---------|---------|----\r\n> `eventType`     |         | task_created | Event codes that should be returned\r\n> `withTotalCount` | false  | true    | If total count of matched records should be returned in response header `x-total-count\r\n> `pageSize`      | 20      | 100     | Allows specifying how many records per page should be returned\r\n> `page"
+        },
+        {
+          "info": {
+            "name": "Log an event with the workorder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/event",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Log an event with the workorder"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

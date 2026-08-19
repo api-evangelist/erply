@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Parameter Set API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Parameter Set",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Parameter Sets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/parameter/set",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Get Product Parameter Sets"
+        },
+        {
+          "info": {
+            "name": "Create Parameter Set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/parameter/set"
+          },
+          "docs": "Create Product Parameter Set"
+        },
+        {
+          "info": {
+            "name": "Delete Parameter Sets",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/parameter/set/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited set IDs"
+              }
+            ]
+          },
+          "docs": "Deleting a Product Parameter Set will also delete its parameters options and values"
+        },
+        {
+          "info": {
+            "name": "Update Set's Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/parameter/set/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "set ID"
+              }
+            ]
+          },
+          "docs": "Update Product Parameter Set"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

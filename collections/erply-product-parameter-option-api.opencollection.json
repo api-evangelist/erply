@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Parameter Option API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Parameter Option",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Product Parameter Option",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/parameter/option"
+          },
+          "docs": "Create Product Parameter Option"
+        },
+        {
+          "info": {
+            "name": "Delete Product Parameter Options",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/parameter/option/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited parameter Option IDs"
+              }
+            ]
+          },
+          "docs": "Delete Product Parameter Options"
+        },
+        {
+          "info": {
+            "name": "Update Product Parameter Option",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/parameter/option/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "parameterOption ID"
+              }
+            ]
+          },
+          "docs": "Update Product Parameter Option"
+        },
+        {
+          "info": {
+            "name": "Get Parameter Option and Products associated with a parameter that has a Parameter Options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/parameter/option/:id/products",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "option ID"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Get Parameter Option and Products associated with a parameter that has the Parameter Options"
+        },
+        {
+          "info": {
+            "name": "Get Product Parameter Options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/parameter/option/:parameterId",
+            "params": [
+              {
+                "name": "parameterId",
+                "value": "",
+                "type": "path",
+                "description": "parameter ID"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Get Product Parameter Option"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

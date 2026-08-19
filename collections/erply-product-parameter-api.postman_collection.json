@@ -1,0 +1,1328 @@
+{
+  "item": [
+    {
+      "id": "6e8708e5-fef3-4b23-8590-6670d4c70485",
+      "name": "Product Parameter",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd3f216d-ac01-42e7-af9e-bc766f33b679",
+          "name": "Get Product Parameters",
+          "request": {
+            "name": "Get Product Parameters",
+            "description": {
+              "content": "Get Product ReadParameters `NB: filtering and sorting does not apply to the parameter's name`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "parameter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "optionally return total number of records in the X-Total-Count response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "withOptions",
+                  "value": "<integer>",
+                  "description": "set to 1 return parameters with all their options"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "11edfa33-0937-443b-8d86-d6fad5e56c8e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "withOptions",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"added\": 1595230999,\n    \"addedby_id\": 1,\n    \"changed\": 1595230999,\n    \"changedby_id\": 1,\n    \"dataset_id\": 2946,\n    \"id\": 1634,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"options\": [\n      {\n        \"added\": 1595230999,\n        \"addedby_id\": 1,\n        \"changed\": 1595230999,\n        \"changedby_id\": 1,\n        \"id\": 7344,\n        \"name\": {\n          \"en\": \"string\"\n        },\n        \"parameter_id\": 5431\n      },\n      {\n        \"added\": 1595230999,\n        \"addedby_id\": 1,\n        \"changed\": 1595230999,\n        \"changedby_id\": 1,\n        \"id\": 8350,\n        \"name\": {\n          \"en\": \"string\"\n        },\n        \"parameter_id\": 8367\n      }\n    ],\n    \"type\": \"string\",\n    \"type_id\": 2229,\n    \"value\": \"\",\n    \"value_id\": 2107\n  },\n  {\n    \"added\": 1595230999,\n    \"addedby_id\": 1,\n    \"changed\": 1595230999,\n    \"changedby_id\": 1,\n    \"dataset_id\": 5331,\n    \"id\": 6039,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"options\": [\n      {\n        \"added\": 1595230999,\n        \"addedby_id\": 1,\n        \"changed\": 1595230999,\n        \"changedby_id\": 1,\n        \"id\": 5759,\n        \"name\": {\n          \"en\": \"string\"\n        },\n        \"parameter_id\": 8004\n      },\n      {\n        \"added\": 1595230999,\n        \"addedby_id\": 1,\n        \"changed\": 1595230999,\n        \"changedby_id\": 1,\n        \"id\": 8230,\n        \"name\": {\n          \"en\": \"string\"\n        },\n        \"parameter_id\": 571\n      }\n    ],\n    \"type\": \"string\",\n    \"type_id\": 1121,\n    \"value\": \"\",\n    \"value_id\": 7064\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "162c142c-1d00-482b-b3a4-47a3323751e3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "withOptions",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbb5bbc2-5a83-4018-a191-e821ab2ccf37",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "withOptions",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "066c7bd9-d8e9-412c-94ea-e5b4dfbee17a",
+          "name": "A parameter always belongs to exactly one data set (not multiple data sets at the same time, and a parameter cannot exist without a set). A parameter has a name and a type.",
+          "request": {
+            "name": "A parameter always belongs to exactly one data set (not multiple data sets at the same time, and a parameter cannot exist without a set). A parameter has a name and a type.",
+            "description": {
+              "content": "The type can be one of the following: `TEXT, INTEGER, DECIMAL, BOOLEAN, LIST, MULTILIST`. After created parameter type can't be changed and parameter can't be reattached to a different dataset. Only parameter name can be adjusted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "parameter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": {\n    \"en\": \"<string>\"\n  },\n  \"set_id\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "31fd625d-ca8b-4e7f-af87-b0364d896c1d",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en\": \"<string>\"\n  },\n  \"set_id\": 1,\n  \"type\": \"TEXT\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b2ba526-9249-4f33-9c2a-0d9f9110087f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en\": \"<string>\"\n  },\n  \"set_id\": 1,\n  \"type\": \"TEXT\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9270c76-b3d1-400f-bf7e-dec664a545ea",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en\": \"<string>\"\n  },\n  \"set_id\": 1,\n  \"type\": \"TEXT\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f02a38b4-739b-45e8-8b94-32fe84c5f7e2",
+          "name": "Delete Product Parameters",
+          "request": {
+            "name": "Delete Product Parameters",
+            "description": {
+              "content": "Deleting a parameter will delete it's options and values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "parameter",
+                ":ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) Parameter IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "7251325f-7f9f-4f98-9ca1-421254145af2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Parameter IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f24497f-9d6a-44ba-9032-c7a30e0d92fc",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Parameter IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2e0ce37-66ec-45de-9fe6-42f280be3d9c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Parameter IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dcaae9a1-4ab6-4547-b96f-06751a2b5866",
+          "name": "Update Product Parameter",
+          "request": {
+            "name": "Update Product Parameter",
+            "description": {
+              "content": "Parameter's name can be updated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "parameter",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Parameter ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": {\n    \"en\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9ab2ea63-5f09-46e8-80f1-71a431cd0b17",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Parameter ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c906210e-e19f-424b-a701-84ba3caf7368",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Parameter ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d7c3f51a-2931-4076-bb9f-06ecc6fdc387",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Parameter ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {\n    \"en\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "329e5fb3-2582-4ad0-95a2-d5895fd66f62",
+          "name": "Get products that have values for this parameter",
+          "request": {
+            "name": "Get products that have values for this parameter",
+            "description": {
+              "content": "Get products that have values for this parameter",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "parameter",
+                ":id",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Parameter ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "11319e6b-ea93-4edd-a06e-e678018b4be7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter",
+                    ":id",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Parameter ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"added\": 1595230999,\n    \"addedby_id\": 1,\n    \"changed\": 1595230999,\n    \"changedby_id\": 1,\n    \"dataset_id\": 4155,\n    \"id\": 1300,\n    \"name\": {\n      \"en\": \"<string>\"\n    },\n    \"type\": \"string\",\n    \"type_id\": 6275,\n    \"value\": \"\",\n    \"value_id\": 149\n  },\n  {\n    \"added\": 1595230999,\n    \"addedby_id\": 1,\n    \"changed\": 1595230999,\n    \"changedby_id\": 1,\n    \"dataset_id\": 8283,\n    \"id\": 244,\n    \"name\": {\n      \"en\": \"<string>\"\n    },\n    \"type\": \"string\",\n    \"type_id\": 9587,\n    \"value\": \"\",\n    \"value_id\": 2011\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e70e010b-e897-4718-a2fd-ae987de36655",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter",
+                    ":id",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Parameter ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0efc263-0c8d-4395-800f-16c4d47c5955",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "parameter",
+                    ":id",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Parameter ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20f3df06-6184-47f2-9ebb-a1dc80cb01e2",
+          "name": "Get All Parameters for the Product by ID",
+          "request": {
+            "name": "Get All Parameters for the Product by ID",
+            "description": {
+              "content": "API reads product group and it's parents, fetches all the parameter sets associated with those groups\n(product can have values for parameters that are associated with it's linked group's parent group of that group's parent and so on),\nand fetches all parameters from all the fetched sets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                ":id",
+                "parameters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) product ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "28e60382-01c5-4c13-a1d7-bd163569ff58",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    ":id",
+                    "parameters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"parameters\": [\n      {\n        \"added\": 1595230999,\n        \"addedby_id\": 1,\n        \"changed\": 1595230999,\n        \"changedby_id\": 1,\n        \"dataset_id\": 8586,\n        \"id\": 5330,\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"type\": \"string\",\n        \"type_id\": 3561,\n        \"value\": \"\",\n        \"value_id\": 4649\n      },\n      {\n        \"added\": 1595230999,\n        \"addedby_id\": 1,\n        \"changed\": 1595230999,\n        \"changedby_id\": 1,\n        \"dataset_id\": 9059,\n        \"id\": 5351,\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"type\": \"string\",\n        \"type_id\": 8217,\n        \"value\": \"\",\n        \"value_id\": 3712\n      }\n    ],\n    \"product\": {\n      \"added\": 1595230999,\n      \"addedby\": \"k@erp.xyz\",\n      \"age_restriction\": 6687,\n      \"alcohol_percentage\": \"string\",\n      \"alcohol_registry_number\": \"string\",\n      \"batches\": \"string\",\n      \"brand_id\": 6187,\n      \"cashier_must_enter_price\": 5795,\n      \"category_id\": 5512,\n      \"changed\": 1595230999,\n      \"changedby\": \"k@erp.xyz\",\n      \"code\": \"string\",\n      \"code2\": \"string\",\n      \"code3\": \"string\",\n      \"code5\": \"string\",\n      \"code6\": \"string\",\n      \"code7\": \"string\",\n      \"code8\": \"string\",\n      \"cost\": 430.0154074283058,\n      \"country_of_origin_id\": 1076,\n      \"delivery_time\": \"string\",\n      \"deposit_fee_amount\": 343,\n      \"deposit_fee_id\": 6191,\n      \"description\": {\n        \"en\": {\n          \"html\": \"<b>Very good product!</b>\",\n          \"plain_text\": \"Very good product!\"\n        }\n      },\n      \"displayed_in_webshop\": 8000,\n      \"excise_declaration_number\": \"string\",\n      \"extra_field1_id\": 8908,\n      \"extra_field2_id\": 9600,\n      \"extra_field3_id\": 9883,\n      \"extra_field4_id\": 4737,\n      \"family_id\": 7986,\n      \"formula_identifier\": \"string\",\n      \"gross_weight\": 2784.581533447383,\n      \"group_id\": 6329,\n      \"group_package_ferrous_metal\": 1840.281780299885,\n      \"group_package_metal\": 4594.414419986834,\n      \"group_package_non_ferrous_metal\": 589.2394596678396,\n      \"group_package_paper\": 1543.085930392555,\n      \"group_package_plastic\": 6904.904037038398,\n      \"group_package_wood\": 2045.7116246461926,\n      \"has_serial_numbers\": 6632,\n      \"height\": 588.3062156863427,\n      \"id\": 1632,\n      \"is_gift_card\": 6711,\n      \"is_lot_product\": true,\n      \"is_regular_gift_card\": 8065,\n      \"is_used_product\": false,\n      \"labels_not_needed\": 1143,\n      \"length\": 7283.155704337602,\n      \"location_in_warehouse_id\": 1330,\n      \"location_in_warehouse_text\": \"string\",\n      \"manufacturer_name\": \"string\",\n      \"name\": {\n        \"en\": \"<string>\"\n      },\n      \"net_weight\": 4610.578773120793,\n      \"non_discountable\": 9838,\n      \"non_refundable\": 3766,\n      \"non_stock_product\": 5479,\n      \"packaging_type\": \"string\",\n      \"packing_not_required\": 2814,\n      \"parent_product_id\": 4403,\n      \"price\": 7001.490128939785,\n      \"price_with_tax\": 4931.799297914749,\n      \"priority_group_id\": 2688,\n      \"product_item_level_promotions_disabled\": 4672,\n      \"product_reorder_multiples\": 4854,\n      \"revenue_account\": \"string\",\n      \"reward_points_not_allowed\": 2100,\n      \"sales_package_cardboard\": 1786.3124484077875,\n      \"sales_package_clear_brown_glass\": 4467.227976987858,\n      \"sales_package_green_other_glass\": 1047.1774381084342,\n      \"sales_package_metal_al\": 224.6397691963631,\n      \"sales_package_metal_fe\": 3898.7021900685936,\n      \"sales_package_other_metal\": 7338.3606042289275,\n      \"sales_package_paper_and_cardboard_mono\": 1788.6540166440868,\n      \"sales_package_plastic_pet\": 3516.600846518834,\n      \"sales_package_plastic_pp_pe\": 2895.648585372911,\n      \"sales_package_wood\": 6404.59641910912,\n      \"serial_number\": \"string\",\n      \"shelf_life_days\": 2535,\n      \"sold_in_packages\": 5722,\n      \"status\": \"ACTIVE\",\n      \"suggested_retail_price\": 4438.167561687436,\n      \"supplier_code\": \"string\",\n      \"supplier_id\": 2153,\n      \"tax_free\": 2303,\n      \"tax_rate_id\": 3276,\n      \"transport_package_cardboard\": 3607.208992113019,\n      \"transport_package_ferrous_metal\": 8145.213058010756,\n      \"transport_package_non_ferrous_metal\": 8119.020515276023,\n      \"transport_package_plastic\": 2850.2465972831437,\n      \"transport_package_wood\": 9373.905596691999,\n      \"type\": \"string\",\n      \"unit_id\": 4504,\n      \"volume\": 8864.674783546045,\n      \"webshop_description\": \"string\",\n      \"webshop_keywords\": \"string\",\n      \"webshop_title\": \"string\",\n      \"webshop_url_slug\": \"string\",\n      \"width\": 7885.513123615512\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e065145-8669-41cf-a0d2-b73977f8f489",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    ":id",
+                    "parameters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c267afbb-8181-473f-957b-9016f584a29a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    ":id",
+                    "parameters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9554810f-d81f-4211-a10b-5fe098b7670b",
+    "name": "assignments Assortment Product Parameter API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

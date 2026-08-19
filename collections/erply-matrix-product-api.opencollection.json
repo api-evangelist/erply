@@ -1,0 +1,211 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Matrix Product API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Matrix Product",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "API call for retrieving matrix variations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/matrix/product",
+            "params": [
+              {
+                "name": "matrixProductIDs",
+                "value": "",
+                "type": "query",
+                "description": "Limit: 1500 ids. Expected usage: API client has a matrix product ID and wants to get a complete list of variations. Format: 1 or many comma separated matrix product IDs."
+              },
+              {
+                "name": "productIDs",
+                "value": "",
+                "type": "query",
+                "description": "Limit: 1500 ids. Expected usage: API client will get a bunch of products from GET /v1/product and will want to fetch variation descriptions for the same items. Format: 1 or many comma separated product IDs."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Products are returned from the request only if they are a matrix variation. As an input there are 2 options. You can provide One or more product IDs, or one or more matrix product IDs."
+        },
+        {
+          "info": {
+            "name": "Create Matrix Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/product",
+            "params": [
+              {
+                "name": "generateCodeAutomatically",
+                "value": "",
+                "type": "query",
+                "description": "generate code automatically based on the preconfigured starting code or based on a generated code. If the code is not blank in the request, will override."
+              },
+              {
+                "name": "generateCode2Automatically",
+                "value": "",
+                "type": "query",
+                "description": "generate code2 (UPC/EAN automatically based on the preconfigured starting code + user's country or based on a generated code. If the code is not blank in the request, will override."
+              }
+            ]
+          },
+          "docs": "Matrix items have 1...3 dimensions - color, size etc. Matrix dimensions can be defined in Erply backend A dimension has a name (eg. \"Letter Sizes\" or Spring 2013 Colors\") and a list of possible values (eg. S, M, L or Lime, Yellow, Fuchsia).\nTo create a matrix product, first pick the dimension(s) that apply to this particular product, eg \"Waist Size\" and \"Length\" for jeans. A matrix can have up to 3 dimensions."
+        },
+        {
+          "info": {
+            "name": "Create matrix products in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/product/bulk"
+          },
+          "docs": "Matrix items have 1...3 dimensions - color, size etc. Matrix dimensions can be defined in Erply backend A dimension has a name (eg. \"Letter Sizes\" or Spring 2013 Colors\") and a list of possible values (eg. S, M, L or Lime, Yellow, Fuchsia).\nTo create a matrix product, first pick the dimension(s) that apply to this particular product, eg \"Waist Size\" and \"Length\" for jeans. A matrix can have up to 3 dimensions.\nEach request contains the created resource data. The parameters to generate the produc"
+        },
+        {
+          "info": {
+            "name": "Get matrix variations in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/product/bulk/get"
+          },
+          "docs": "Get matrix variations in bulk"
+        },
+        {
+          "info": {
+            "name": "Update matrix products dimensions in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/matrix/product/dimensions/bulk"
+          },
+          "docs": "each request contains the updated resource data"
+        },
+        {
+          "info": {
+            "name": "Read matrix products dimensions in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/product/dimensions/bulk/get"
+          },
+          "docs": "each request contains the matrix product ID"
+        },
+        {
+          "info": {
+            "name": "API call for retrieving matrix products with variations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/matrix/product/with-variations",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting is applied to the matrix products only. The sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filtering is applied to the matrix products only. The filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              }
+            ]
+          },
+          "docs": "API call for retrieving matrix products with variations"
+        },
+        {
+          "info": {
+            "name": "Read Matrix Product Dimensions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/matrix/product/:id/dimensions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "matrix product id"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Matrix items have 1...3 dimensions - color, size etc. Matrix dimensions can be defined in Erply backend A dimension has a name (eg. \"Letter Sizes\" or Spring 2013 Colors\") and a list of possible values (eg. S, M, L or Lime, Yellow, Fuchsia)."
+        },
+        {
+          "info": {
+            "name": "Update Matrix Product Dimensions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/matrix/product/:id/dimensions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "matrix product id"
+              }
+            ]
+          },
+          "docs": "Matrix items have 1...3 dimensions - color, size etc. Matrix dimensions can be defined in Erply backend.\nA dimension has a name (eg. \"Letter Sizes\" or Spring 2013 Colors\") and a list of possible values (eg. S, M, L or Lime, Yellow, Fuchsia).\nTo update the matrix product dimensions, first pick the dimension(s) that apply to this particular product, eg \"Waist Size\" and \"Length\" for jeans and pass them to the request body.\nA matrix can have up to 3 dimensions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

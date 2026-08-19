@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Parameter Value API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Parameter Value",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete product parameter values",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/parameter/value/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited value IDs"
+              }
+            ]
+          },
+          "docs": "Delete product parameter values"
+        },
+        {
+          "info": {
+            "name": "Update Product Parameter Value",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/parameter/value/:id",
+            "headers": [
+              {
+                "name": "Apply-Validation-Rules",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "value ID"
+              }
+            ]
+          },
+          "docs": "Update Product Parameter Value"
+        },
+        {
+          "info": {
+            "name": "Get Product Parameter Values by Product IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/:ids/parameter/value",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "can contain semicolon delimited IDs."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Get Product Parameter Values by Product IDs (ids parameter)"
+        },
+        {
+          "info": {
+            "name": "Assign Value to Product's Parameter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/:productId/parameter/:parameterId/value",
+            "headers": [
+              {
+                "name": "Apply-Validation-Rules",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "productId",
+                "value": "",
+                "type": "path",
+                "description": "product ID"
+              },
+              {
+                "name": "parameterId",
+                "value": "",
+                "type": "path",
+                "description": "parameter ID"
+              }
+            ]
+          },
+          "docs": "Type `TEXT`: \"value\":\"your_text\"\nType `BOOLEAN` : \"value\":true\nType `INTEGER`: \"value\":1\nType `DECIMAL`: \"value\": 1.01\nType `LIST`: \"value\": 1 (1 is option ID)\nType `MULTILIST`: \"value\": [1,2,3] (arrray of option IDs)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

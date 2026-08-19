@@ -1,0 +1,1924 @@
+{
+  "item": [
+    {
+      "id": "0f12aeb6-e67f-4b4a-9d5f-b6aa68a47013",
+      "name": "report",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cf158eb9-a259-4bf9-b07a-fef019de0525",
+          "name": "Generates device reports",
+          "request": {
+            "name": "Generates device reports",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "report",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "group",
+                  "value": "<string>",
+                  "description": "What kind of grouping should be used when composing a report on the data matching the specified filters. Defaults to `total`"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceBrand",
+                  "value": "<string>",
+                  "description": "Search for devices with the specified brand"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceModel",
+                  "value": "<string>",
+                  "description": "Search for devices with the specified model"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceVersion",
+                  "value": "<string>",
+                  "description": "Search for devices with the specified version"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceYear",
+                  "value": "<string>",
+                  "description": "Search for devices with the specified year"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<integer>",
+                  "description": "Search for devices linked to the specified customer"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `brand`, `model`, `version`, `year`, `count`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword. Defaults to ordering by `count` in descending order"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5b0e5bf7-1d88-4d09-b3e5-c5b45867b658",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"brand\": \"ford\",\n    \"deviceCount\": 5,\n    \"model\": \"transit\",\n    \"version\": \"cargo van\",\n    \"year\": \"2022\"\n  },\n  {\n    \"brand\": \"ford\",\n    \"deviceCount\": 5,\n    \"model\": \"transit\",\n    \"version\": \"cargo van\",\n    \"year\": \"2022\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "218ac024-2f3c-408d-bd75-5b65d7c3c7e9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd96cc56-fd3f-42b9-b56a-65ac4debf0ee",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6c25de8-4f30-472e-8b6a-e073d2845dd8",
+          "name": "Generates product reports",
+          "request": {
+            "name": "Generates product reports",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "report",
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "groups",
+                  "value": "<string>,<string>",
+                  "description": "What kind of groupings should be used when composing a report on the data matching the specified filters. Possible values `total`, `group`, `product`. Defaults to `total`"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>,<string>",
+                  "description": "Search for workorders with specified state codes"
+                },
+                {
+                  "disabled": false,
+                  "key": "transactionalState",
+                  "value": "<string>,<string>",
+                  "description": "Search for workorders with specified state codes"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceBrand",
+                  "value": "<string>",
+                  "description": "Search for workorders linked to devices with the specified brand"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceModel",
+                  "value": "<string>",
+                  "description": "Search for workorders linked to devices with the specified model"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceYear",
+                  "value": "<string>",
+                  "description": "Search for workorders linked to devices with the specified year"
+                },
+                {
+                  "disabled": false,
+                  "key": "productParentGroupId",
+                  "value": "<integer>",
+                  "description": "Search for products under the specified parent group"
+                },
+                {
+                  "disabled": false,
+                  "key": "productGroupLvl",
+                  "value": "<integer>",
+                  "description": "Search for results at the specified product group depth level"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdById",
+                  "value": "<integer>",
+                  "description": "ID of employees who created the workorder"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<integer>",
+                  "description": "Search for workorders linked to the specified customer"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerGroup",
+                  "value": "<integer>",
+                  "description": "Search for workorders linked to customers from the specified customer group"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtStart",
+                  "value": "<string>",
+                  "description": "Workorder creation time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtEnd",
+                  "value": "<string>",
+                  "description": "Workorder creation time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "confirmedAtStart",
+                  "value": "<string>",
+                  "description": "Workorder confirmed time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "confirmedAtEnd",
+                  "value": "<string>",
+                  "description": "Workorder confirmed time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "receivedAtStart",
+                  "value": "<string>",
+                  "description": "Device received time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "receivedAtEnd",
+                  "value": "<string>",
+                  "description": "Device received time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "returnedAtStart",
+                  "value": "<string>",
+                  "description": "Device returned time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "returnedAtEnd",
+                  "value": "<string>",
+                  "description": "Device returned time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `level`, `groupId`, `groupName`, `productId`, `productName`, `netTotal`, `vatTotal`, `total`, `amount`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword. Defaults to ordering by `total` in descending order"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9da43a93-b2e2-4a1a-870b-7c8e18029719",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "groups",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "transactionalState",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "productParentGroupId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "productGroupLvl",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdById",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerGroup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": 1,\n    \"groupId\": 28,\n    \"groupName\": \"string\",\n    \"level\": 1,\n    \"netTotal\": 80,\n    \"parentGroupId\": 27,\n    \"parentGroupName\": \"string\",\n    \"productId\": 62,\n    \"productName\": \"string\",\n    \"total\": 100,\n    \"vatTotal\": 20\n  },\n  {\n    \"amount\": 1,\n    \"groupId\": 28,\n    \"groupName\": \"string\",\n    \"level\": 1,\n    \"netTotal\": 80,\n    \"parentGroupId\": 27,\n    \"parentGroupName\": \"string\",\n    \"productId\": 62,\n    \"productName\": \"string\",\n    \"total\": 100,\n    \"vatTotal\": 20\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b63f9afa-ee98-4e6e-8fba-b33ce6724311",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "groups",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "transactionalState",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "productParentGroupId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "productGroupLvl",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdById",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerGroup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bfb6cade-da37-4036-9f62-dd893d09c8d2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "groups",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "transactionalState",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "productParentGroupId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "productGroupLvl",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdById",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerGroup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73545b80-ebd3-470d-af98-180e5464526e",
+          "name": "Generates task reports",
+          "request": {
+            "name": "Generates task reports",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "report",
+                "task"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "group",
+                  "value": "<string>",
+                  "description": "What kind of grouping should be used when composing a report on the data matching the specified filters. Defaults to `total`"
+                },
+                {
+                  "disabled": false,
+                  "key": "assignedToId",
+                  "value": "<integer>",
+                  "description": "ID of employee who is assigned to the task"
+                },
+                {
+                  "disabled": false,
+                  "key": "resourceId",
+                  "value": "<integer>",
+                  "description": "Search for tasks linked to the specified resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Search for tasks with specified associated row state code"
+                },
+                {
+                  "disabled": false,
+                  "key": "endAtStart",
+                  "value": "<string>",
+                  "description": "Task end time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endAtEnd",
+                  "value": "<string>",
+                  "description": "Task end time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `assignedTo`, `resource`, `state`, `rowCount`, `taskCount`, `avgPlanned`, `avgReal`, `sumPlanned`, `sumReal`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword. Defaults to ordering by `sumReal` in descending order"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "faa7bb24-cc73-4c7a-8951-f272180d6f2a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "task"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assignedToId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resourceId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"assignedToId\": 2,\n    \"avgPlannedDuration\": 100,\n    \"avgRealDuration\": 100,\n    \"resourceId\": 1,\n    \"rowCount\": 5,\n    \"state\": \"planned\",\n    \"sumPlannedDuration\": 100,\n    \"sumRealDuration\": 100,\n    \"taskCount\": 5\n  },\n  {\n    \"assignedToId\": 2,\n    \"avgPlannedDuration\": 100,\n    \"avgRealDuration\": 100,\n    \"resourceId\": 1,\n    \"rowCount\": 5,\n    \"state\": \"planned\",\n    \"sumPlannedDuration\": 100,\n    \"sumRealDuration\": 100,\n    \"taskCount\": 5\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95159686-9b2d-4b35-a73b-5cf0ae2d4096",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "task"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assignedToId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resourceId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48187f9f-25e5-4266-a7b9-1f27f246a95c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "task"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assignedToId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resourceId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "808e6bea-0635-4bcf-ad4c-06ab74614168",
+          "name": "Generates workorder reports",
+          "request": {
+            "name": "Generates workorder reports",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "report",
+                "workorder"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "groups",
+                  "value": "<string>,<string>",
+                  "description": "What kind of groupings should be used when composing a report on the data matching the specified filters. Possible values `total`, `deviceBrand`, `deviceModel`, `deviceYear`. Defaults to `total`"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>,<string>",
+                  "description": "Search for workorders with specified state codes"
+                },
+                {
+                  "disabled": false,
+                  "key": "transactionalState",
+                  "value": "<string>,<string>",
+                  "description": "Search for workorders with specified state codes"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceBrand",
+                  "value": "<string>",
+                  "description": "Search for workorders linked to devices with the specified brand"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceModel",
+                  "value": "<string>",
+                  "description": "Search for workorders linked to devices with the specified model"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceYear",
+                  "value": "<string>",
+                  "description": "Search for workorders linked to devices with the specified year"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdById",
+                  "value": "<integer>",
+                  "description": "ID of employees who created the workorder"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<integer>",
+                  "description": "Search for workorders linked to the specified customer"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerGroup",
+                  "value": "<integer>",
+                  "description": "Search for workorders linked to customers from the specified customer group"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtStart",
+                  "value": "<string>",
+                  "description": "Workorder creation time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtEnd",
+                  "value": "<string>",
+                  "description": "Workorder creation time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "confirmedAtStart",
+                  "value": "<string>",
+                  "description": "Workorder confirmed time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "confirmedAtEnd",
+                  "value": "<string>",
+                  "description": "Workorder confirmed time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "receivedAtStart",
+                  "value": "<string>",
+                  "description": "Device received time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "receivedAtEnd",
+                  "value": "<string>",
+                  "description": "Device received time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "returnedAtStart",
+                  "value": "<string>",
+                  "description": "Device returned time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "returnedAtEnd",
+                  "value": "<string>",
+                  "description": "Device returned time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `linkedDevice`, `deviceBrand`, `deviceModel`, `deviceYear`, `deviceAvgYear`, `workorderCount`, `minTotal`, `avgTotal`, `maxTotal`, `netTotal`, `vatTotal`, `total`. Defaults to ordering by `workorderCount` in descending order"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "daf92051-645f-4c58-ad4c-e98d84a82dfb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "workorder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "groups",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "transactionalState",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdById",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerGroup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"avgTotal\": 100,\n    \"avgYear\": 2010,\n    \"brand\": \"ford\",\n    \"linkedDevice\": true,\n    \"maxTotal\": 1000,\n    \"minTotal\": 10,\n    \"model\": \"transit\",\n    \"netTotal\": 80,\n    \"total\": 100,\n    \"vatTotal\": 20,\n    \"workorderCount\": 4,\n    \"year\": \"2022\"\n  },\n  {\n    \"avgTotal\": 100,\n    \"avgYear\": 2010,\n    \"brand\": \"ford\",\n    \"linkedDevice\": true,\n    \"maxTotal\": 1000,\n    \"minTotal\": 10,\n    \"model\": \"transit\",\n    \"netTotal\": 80,\n    \"total\": 100,\n    \"vatTotal\": 20,\n    \"workorderCount\": 4,\n    \"year\": \"2022\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c9678d4-e7b7-468d-bffb-7557eeb20e99",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "workorder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "groups",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "transactionalState",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdById",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerGroup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bf9d25e5-0daf-435c-a6b3-80bfdf3b85ad",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "report",
+                    "workorder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "groups",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "transactionalState",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "deviceBrand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceModel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdById",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerGroup",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "confirmedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "receivedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnedAtEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7bfb1ea6-9425-4002-bce9-77e0eb7768b3",
+    "name": "assignments Assortment report API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

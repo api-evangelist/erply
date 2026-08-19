@@ -1,0 +1,443 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Group API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Group",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/group",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              }
+            ]
+          },
+          "docs": "Get Product Groups. The fields `quick_books_debit_account`, `quick_books_credit_account`, `reward_points` and `location_tax_rates` will be on the object only if there are values for them"
+        },
+        {
+          "info": {
+            "name": "Create Product Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/group"
+          },
+          "docs": "Create Product Group"
+        },
+        {
+          "info": {
+            "name": "Create groups in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/group/bulk"
+          },
+          "docs": "each request contains the created resource data"
+        },
+        {
+          "info": {
+            "name": "Get groups in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/group/bulk/get"
+          },
+          "docs": "Get groups in bulk"
+        },
+        {
+          "info": {
+            "name": "Read external group IDs of Product Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/group/external-ids",
+            "params": [
+              {
+                "name": "externalIDs",
+                "value": "",
+                "type": "query",
+                "description": "up to 100 external IDs. Cannot be provided with the product group ID parameter"
+              },
+              {
+                "name": "groupIDs",
+                "value": "",
+                "type": "query",
+                "description": "up to 100 product group IDs. Cannot be provided with the external ID parameter"
+              },
+              {
+                "name": "integrationName",
+                "value": "",
+                "type": "query",
+                "description": "integration name"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "External IDs are the ones from different commerce systems. This endpoint enables the API user to read the external IDs of the Erply product groups."
+        },
+        {
+          "info": {
+            "name": "Delete external group IDs of Product Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/group/external-ids/:groupIds",
+            "params": [
+              {
+                "name": "integrationName",
+                "value": "",
+                "type": "query",
+                "description": "Specify the integration name to delete the external ID associated with the integration only."
+              },
+              {
+                "name": "groupIds",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited Group IDs"
+              }
+            ]
+          },
+          "docs": "Requesting the endpoint will delete all the external IDs of selected product groups. With the integrationName parameter you can delete only integration-specific external IDs."
+        },
+        {
+          "info": {
+            "name": "Attach external group ID to a Product Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/group/external-ids/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Group ID"
+              }
+            ]
+          },
+          "docs": "External IDs are the ones from different commerce systems. This endpoint enables the API user to attach the external IDs to the Erply product groups."
+        },
+        {
+          "info": {
+            "name": "Update external group ID of a Product Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/product/group/external-ids/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Group ID"
+              }
+            ]
+          },
+          "docs": "External IDs are the ones from different commerce systems that have to be stored in ERPLY\nThis call allows to update the external ID using the integration name and group ID."
+        },
+        {
+          "info": {
+            "name": "Get Indented List of Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/group/indented",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language code (ISO 639). Return the name in the requested language or leave empty for account default language."
+              }
+            ]
+          },
+          "docs": "The result is a indented list of group ids and names sorted by orders and prefixed by the dash (―) sign if is a parent"
+        },
+        {
+          "info": {
+            "name": "Get Tree of product groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/group/tree",
+            "params": [
+              {
+                "name": "groupFields",
+                "value": "",
+                "type": "query",
+                "description": "You must specify the fields to you want to get from the groups and products (models can be found under GET /product/group and GET /product)"
+              },
+              {
+                "name": "productFields",
+                "value": "",
+                "type": "query",
+                "description": "You must specify the fields to you want to get from the groups and products (models can be found under GET /product/group and GET /product)"
+              },
+              {
+                "name": "withProducts",
+                "value": "",
+                "type": "query",
+                "description": "Optionally you can get products that belong to each group"
+              },
+              {
+                "name": "languageCode",
+                "value": "",
+                "type": "query",
+                "description": "Optionally specify the language ISO 639-1 code for the translatable fields. Default is the default language of the account."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "itemFilters",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "productFilters",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              }
+            ]
+          },
+          "docs": "Optionally you can get products that belong to each group\nYou must specify the fields to you want to get from the groups and products (models can be found under GET /product/group and GET /product)"
+        },
+        {
+          "info": {
+            "name": "Delete Location Specific Tax From Product Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/group/:groupId/location-tax/:warehouseId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "group ID"
+              },
+              {
+                "name": "warehouseId",
+                "value": "",
+                "type": "path",
+                "description": "warehouse ID"
+              }
+            ]
+          },
+          "docs": "Delete Location Specific Tax To Product Group"
+        },
+        {
+          "info": {
+            "name": "Delete Product Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/group/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited Group IDs"
+              }
+            ]
+          },
+          "docs": "Delete Product Groups"
+        },
+        {
+          "info": {
+            "name": "Update Product Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/group/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Group ID"
+              }
+            ]
+          },
+          "docs": "Update Product Group"
+        },
+        {
+          "info": {
+            "name": "Add Location Specific Tax",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/product/group/:id/location-tax",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "group ID"
+              }
+            ]
+          },
+          "docs": "Add Location Specific Tax To Product Group"
+        },
+        {
+          "info": {
+            "name": "Move Product Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/group/:id/move",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Group ID"
+              }
+            ]
+          },
+          "docs": "position has to be one of the following:  `lastChild` | `before` | `after`"
+        },
+        {
+          "info": {
+            "name": "Get Product's Additional Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/:ids/additional-groups",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited product IDs"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Get Product's Additional Groups"
+        },
+        {
+          "info": {
+            "name": "Attach Additional Groups to Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/:id/additional-groups",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "product ID"
+              }
+            ]
+          },
+          "docs": "this request allows you to attach or delete additional groups to the product. To delete just pass an empty IDs array"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

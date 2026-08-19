@@ -1,0 +1,3740 @@
+{
+  "item": [
+    {
+      "id": "62081882-e987-46a6-8639-03ba29058a87",
+      "name": "clsf-device-properties",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34debc3a-32a5-4e5a-8710-4468b6888c27",
+          "name": "Look up device brands",
+          "request": {
+            "name": "Look up device brands",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "brand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Brand ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Brand code to search for. Partial matching from the beginning of the code"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0761f1df-5b51-4b62-a428-38f885b617b0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 8325,\n    \"entity\": \"string\",\n    \"id\": 1658,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 4795,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 90\n  },\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 5431,\n    \"entity\": \"string\",\n    \"id\": 2141,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 7995,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 4942\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82be35cb-48a9-4a6f-9506-c8f731d1a80e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b0f0b46-fe8b-4578-80ed-dcf86aeaefb1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec93ca30-176e-44e5-9ee5-a9fa6e61ad64",
+          "name": "Add a new device brand",
+          "request": {
+            "name": "Add a new device brand",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "brand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "32cdee1e-7647-4e28-8aff-c3db04d96f00",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 5777,\n  \"entity\": \"string\",\n  \"id\": 5509,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4801,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 5339\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dec4cf81-13c3-4fdb-8fa3-51b41632e331",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1bd912a5-2bec-412a-a2ca-8553411193ee",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "43e60ba0-b872-4be7-aa2b-98d2336871bc",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c21ee57e-659f-4cb4-9af4-95bf7bfcff93",
+          "name": "Delete one device brand record",
+          "request": {
+            "name": "Delete one device brand record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "brand",
+                ":brandId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "brandId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9b85f410-8325-465b-ac82-ecd072bb2ac0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand",
+                    ":brandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "brandId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5c4296a7-1faa-490d-b6c8-39a594d4aeaa",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand",
+                    ":brandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "brandId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d8e80245-a4bd-400c-ba0a-a2fc60ded9ad",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand",
+                    ":brandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "brandId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "949d62e0-6822-403f-989a-528c998f0776",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand",
+                    ":brandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "brandId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e6c3eb64-709d-4ca9-bdc2-a318b4afd4d5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand",
+                    ":brandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "brandId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b99bd6b-186a-4fe8-81c2-2b990ec5c2c3",
+          "name": "Update an existing device brand record",
+          "request": {
+            "name": "Update an existing device brand record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "brand",
+                ":brandId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "brandId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ae039bc0-2305-439c-bff1-5792aff0f5b2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand",
+                    ":brandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "brandId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 5777,\n  \"entity\": \"string\",\n  \"id\": 5509,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4801,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 5339\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01407b36-452e-4379-b2fc-d4caf717fd04",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand",
+                    ":brandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "brandId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d53cbf2e-18d2-4f3a-bd25-d34dab2f4a2e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand",
+                    ":brandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "brandId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca3a1913-befe-4859-8b7c-72d8b124cfb4",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand",
+                    ":brandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "brandId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1e5901a3-a013-47fb-959a-47070316e53e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "brand",
+                    ":brandId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "brandId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcfc4a93-5175-44a0-a13b-9734ddc2e61c",
+          "name": "Look up device models",
+          "request": {
+            "name": "Look up device models",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "model"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "brandCode",
+                  "value": "<string>",
+                  "description": "Device brand code for which models should be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Device brand ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Model code to search for. Partial matching from the beginning of the code"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aa1e310d-4a43-4b60-9ee0-ce54674fda97",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 4295,\n    \"entity\": \"string\",\n    \"id\": 4079,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 4271,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 1940\n  },\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 7630,\n    \"entity\": \"string\",\n    \"id\": 5420,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 3125,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 4086\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e971964-54a6-47a7-9a0e-9cb2a75c5e05",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b7a669f8-d9b4-4bc5-aef7-2559f8624afc",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aaf51932-ce74-4765-a77d-c502b574a254",
+          "name": "Add a new device model record",
+          "request": {
+            "name": "Add a new device model record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "model"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f35ec275-7dbf-4033-822d-8e6798a171c7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 5777,\n  \"entity\": \"string\",\n  \"id\": 5509,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4801,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 5339\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08fe69c0-2a0e-4a65-b72c-25c5bd0c810a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "22c8a4b1-9222-455e-bc19-dc7e97aa3424",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8fe8daa5-b2de-4f1d-a2d1-68ad0f952756",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3cd57b42-0b10-420b-93cd-f304379cddc3",
+          "name": "Delete one device model record",
+          "request": {
+            "name": "Delete one device model record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "model",
+                ":modelId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "modelId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eb0b3bd8-e32d-4b73-aba5-bcd7a99b5fb1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model",
+                    ":modelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5a5d043f-9dfa-4f24-9c0e-123c2febef1f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model",
+                    ":modelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "530ff02b-ff7a-4c05-a8d9-67fda0a34c26",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model",
+                    ":modelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e3dced4e-9a7f-481c-95d2-a95cfdf1bb04",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model",
+                    ":modelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9bfe6c79-0218-4690-a079-685cc55814e9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model",
+                    ":modelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7d023f1-569e-4f8b-8d10-b788c6d4258c",
+          "name": "Update an existing device model record",
+          "request": {
+            "name": "Update an existing device model record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "model",
+                ":modelId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "modelId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d54a07e2-7b65-4f9f-99ca-c9c0340de535",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model",
+                    ":modelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 5777,\n  \"entity\": \"string\",\n  \"id\": 5509,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4801,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 5339\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82353ac9-837c-4bbc-9fbc-608e02136aeb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model",
+                    ":modelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92f83c89-dbba-4266-99f5-9e936695730b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model",
+                    ":modelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca4ab225-4538-41e8-b305-b2777fe629a2",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model",
+                    ":modelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "544442f5-dbdb-44c0-9541-6be50167b331",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "model",
+                    ":modelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "modelId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6d825dc-c77e-4324-9a55-54358cc77129",
+          "name": "Look up device versions",
+          "request": {
+            "name": "Look up device versions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "brandCode",
+                  "value": "<string>",
+                  "description": "Device brand code for which versions should be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "modelCode",
+                  "value": "<string>",
+                  "description": "Device model code for which versions should be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Device brand ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Version code to search for. Partial matching from the beginning of the code"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c524a603-fe77-4e30-ad22-594130a03e10",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modelCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 4295,\n    \"entity\": \"string\",\n    \"id\": 4079,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 4271,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 1940\n  },\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 7630,\n    \"entity\": \"string\",\n    \"id\": 5420,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 3125,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 4086\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d55a2cc7-df2a-4383-b570-fefc20e8b509",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modelCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "06b816a8-c4a2-4e08-b2f7-e05748098d79",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modelCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1592c6d1-6833-41a4-ae1e-2d6485e07b16",
+          "name": "Add a new device version record",
+          "request": {
+            "name": "Add a new device version record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "05032d8e-f3ca-4705-9255-cf8e1a2c5643",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 5777,\n  \"entity\": \"string\",\n  \"id\": 5509,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4801,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 5339\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10378c81-1ece-466b-abec-483d807707d5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "127191aa-b422-41aa-a292-7c9f6309f3a2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e5ff3b57-dece-4861-a4df-32e8f989644f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b38fbbe7-1a9f-4ba8-9cad-c0c8e69e45e4",
+          "name": "Delete one device version record",
+          "request": {
+            "name": "Delete one device version record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "version",
+                ":versionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8b044130-5d68-4ebc-83f0-7ba3dda731d9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0e7bc65-b30e-411a-b6bf-2da8e2beb9cf",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d24a49ab-cdb8-4acc-a574-33dddb297561",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "13ff7f49-282d-4dc5-8ae0-bd2ca116d9a9",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ecc9d810-5df9-48dc-8dbc-26e8166a4507",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ca98b85-894d-499b-a1a0-30182f5a012c",
+          "name": "Update an existing device version record",
+          "request": {
+            "name": "Update an existing device version record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "version",
+                ":versionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "versionId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "08ee8f5a-d317-4ad7-9c98-84c3f324c830",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 5777,\n  \"entity\": \"string\",\n  \"id\": 5509,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4801,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 5339\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3cd15b67-9b4b-4e5d-bb19-3aa4d26bae96",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fe50b43f-fc88-4061-a6fe-5229f65406a6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ad11c7d8-0911-4d33-adec-a872403d433c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "425dce1b-3494-44ed-8aba-b043f775fbcd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "versionId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"brand\": \"<string>\",\n  \"code\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cf17286f-4b26-49d9-8f13-2da6bb284f36",
+    "name": "assignments Assortment clsf-device-properties API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,474 @@
+{
+  "item": [
+    {
+      "id": "0df340c9-b96e-480e-a27c-83cde8023956",
+      "name": "Franchise Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "26d3b66a-7b73-4786-8e25-cc77686247e0",
+          "name": "Copies the hq product to the store",
+          "request": {
+            "name": "Copies the hq product to the store",
+            "description": {
+              "content": "Takes an id of the hq product and creates a copy of it to the store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "franchise-product",
+                "hq-to-store",
+                ":hqProductId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "hqProductId",
+                  "description": "(Required) hq product ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "1ed5262a-5be1-481a-bb50-cfacf455b353",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "franchise-product",
+                    "hq-to-store",
+                    ":hqProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hqProductId",
+                      "description": "(Required) hq product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hq_product_id\": 5334,\n  \"store_product_id\": 2911\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d82f85b-a654-4f14-943b-2c99f6112ea1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "franchise-product",
+                    "hq-to-store",
+                    ":hqProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hqProductId",
+                      "description": "(Required) hq product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7918d910-e5cd-44be-929a-dd8ebee41250",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "franchise-product",
+                    "hq-to-store",
+                    ":hqProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "hqProductId",
+                      "description": "(Required) hq product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b83cbe3f-9eca-4a7d-9e4b-39f69b1d4489",
+          "name": "Search product with special franchise rules",
+          "request": {
+            "name": "Search product with special franchise rules",
+            "description": {
+              "content": "Searches for products in both current store and its hq.\nIf the desired product does not have store id then before it can be used in the store\nit needs to be moved there with the _/v1/franchise-product/hq-to-store/{hqProductId}_ call.\nNote that the results here cannot be paginated or sorted and the amount of records returned is limited.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "franchise-product",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "warehouseId",
+                  "value": "<integer>",
+                  "description": "(Required) Supply the warehouse ID to get the pricing api price for."
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<integer>",
+                  "description": "Customer ID. Used to calculate the pricing api price when provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "nonStockProducts",
+                  "value": "<string>",
+                  "description": "Include or exclude non-stock products. Both will be returned by default."
+                },
+                {
+                  "disabled": false,
+                  "key": "isInStock",
+                  "value": "<boolean>",
+                  "description": "Return only products that are in stock."
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 200"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "4d7ebcc1-9e69-4123-a28a-5255bf94de1c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "franchise-product",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "nonStockProducts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isInStock",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": \"string\",\n    \"group\": {\n      \"id\": 4159,\n      \"name\": {\n        \"en\": \"string\"\n      }\n    },\n    \"hq_product_id\": 5060,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"price\": 2063.335774116163,\n    \"pricing_api_price\": 5901.603256167635,\n    \"pricing_api_price_with_tax\": 1121.3355545573668,\n    \"stock\": {\n      \"stock\": 3951.036010520326,\n      \"warehouseId\": 1406\n    },\n    \"store_product_id\": 8819,\n    \"suggested_retail_price\": 7282.381059526551,\n    \"unit\": {\n      \"id\": 8649,\n      \"name\": {\n        \"en\": \"string\"\n      }\n    }\n  },\n  {\n    \"code\": \"string\",\n    \"group\": {\n      \"id\": 2861,\n      \"name\": {\n        \"en\": \"string\"\n      }\n    },\n    \"hq_product_id\": 9796,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"price\": 7808.419506606806,\n    \"pricing_api_price\": 7470.836069490303,\n    \"pricing_api_price_with_tax\": 9860.173284173874,\n    \"stock\": {\n      \"stock\": 5998.5101859576,\n      \"warehouseId\": 1746\n    },\n    \"store_product_id\": 8169,\n    \"suggested_retail_price\": 416.638796047738,\n    \"unit\": {\n      \"id\": 1126,\n      \"name\": {\n        \"en\": \"string\"\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "830a15da-9e7d-4ab6-8874-d2e446ac92e6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "franchise-product",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "nonStockProducts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isInStock",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ed80ee0-b12c-4525-aa76-53fbd63f2bbc",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "franchise-product",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "nonStockProducts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isInStock",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "87399a9d-d87c-4016-a113-3e79c1645811",
+    "name": "assignments Assortment Franchise Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

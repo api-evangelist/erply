@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Matrix Product Variation API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Matrix Product Variation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create variations in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/product/variation/bulk"
+          },
+          "docs": "Each request body is a variation to create. The parameters to generate the product code/code2 automatically is embedded into the request body as the `generateCodeAutomatically` & `generateCode2Automatically` fields."
+        },
+        {
+          "info": {
+            "name": "Change variation parents in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/matrix/product/variation/bulk"
+          },
+          "docs": "each request item contains the updated resource data"
+        },
+        {
+          "info": {
+            "name": "Create Matrix Product Variation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/product/:id/variation",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "matrix product ID"
+              },
+              {
+                "name": "generateCodeAutomatically",
+                "value": "",
+                "type": "query",
+                "description": "generate code automatically based on the preconfigured starting code or based on a generated code. If the code is not blank in the request, will override."
+              },
+              {
+                "name": "generateCode2Automatically",
+                "value": "",
+                "type": "query",
+                "description": "generate code2 (EAN/UPC) automatically based on the preconfigured starting code or based on a generated code. If the code is not blank in the request, will override."
+              }
+            ]
+          },
+          "docs": "Create specific variations (color/size combinations), each one as a separate product.\n`parent_product_id` field can be left empty on the variation."
+        },
+        {
+          "info": {
+            "name": "Update a matrix product variation's dimension values",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/matrix/product/:productID/variation/:variationID/dimension-values",
+            "params": [
+              {
+                "name": "productID",
+                "value": "",
+                "type": "path",
+                "description": "matrix product ID"
+              },
+              {
+                "name": "variationID",
+                "value": "",
+                "type": "path",
+                "description": "matrix product variation ID"
+              }
+            ]
+          },
+          "docs": "Update variation's dimensions values"
+        },
+        {
+          "info": {
+            "name": "Change Matrix Product Variation Parent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/matrix/product/:productID/variation/:variationID/parent",
+            "params": [
+              {
+                "name": "productID",
+                "value": "",
+                "type": "path",
+                "description": "matrix product ID"
+              },
+              {
+                "name": "variationID",
+                "value": "",
+                "type": "path",
+                "description": "matrix product variation ID"
+              }
+            ]
+          },
+          "docs": "This endpoint solves 3 problems:\n1) the user can modify a variation product and REMOVE it's matrix product (set it to 0),\n2) the user can move the variation to different matrix product, in that case attach dimension values (same or new)\n3) the user can associate a regular product with a matrix one (turn it into a variation) - in this case attach dimension values"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

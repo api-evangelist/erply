@@ -1,0 +1,280 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Assortment To Product Linking API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assortment To Product Linking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete products from all assortments",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/assortment/products/links/:productIDs",
+            "params": [
+              {
+                "name": "productIDs",
+                "value": "",
+                "type": "path",
+                "description": "can contain up to 100 semicolon delimited product IDs."
+              }
+            ]
+          },
+          "docs": "Delete products from all assortments providing product IDs\nresponds with link IDs that were deleted"
+        },
+        {
+          "info": {
+            "name": "Delete Assortment Product Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/assortment/products/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited link IDs"
+              }
+            ]
+          },
+          "docs": "Delete Assortment Product Links"
+        },
+        {
+          "info": {
+            "name": "Delete product to assortment links by link IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/assortment/products/:ids/bulk",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "can contain up to 100 semicolon delimited link IDs."
+              }
+            ]
+          },
+          "docs": "Delete product to assortment links by link IDs"
+        },
+        {
+          "info": {
+            "name": "Update Assortment's Products Link Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/assortment/products/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "link ID"
+              }
+            ]
+          },
+          "docs": "Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE"
+        },
+        {
+          "info": {
+            "name": "Get Assortment's Products Link Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/assortment/:id/products",
+            "headers": [
+              {
+                "name": "If-Modified-Since",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Assortment ID"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Get Assortment's Products Link Data only for active links.  Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE"
+        },
+        {
+          "info": {
+            "name": "Add Product to Assortment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/assortment/:id/products",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Assortment ID"
+              }
+            ]
+          },
+          "docs": "Add Product to Assortment. Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE"
+        },
+        {
+          "info": {
+            "name": "Add Products to Assortment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/assortment/:id/products/bulk",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Assortment ID"
+              }
+            ]
+          },
+          "docs": "Add Products to Assortment in bulk.  Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE"
+        },
+        {
+          "info": {
+            "name": "Get Assortment's Products Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/assortment/:id/products/data",
+            "headers": [
+              {
+                "name": "If-Modified-Since",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Assortment ID"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              }
+            ]
+          },
+          "docs": "Get Assortment's Products Data with total count. The assortment to product link status is in the `linkStatus` field under each product's data.\nThe `linkStatus` field is filterable and sortable.  Status can be ACTIVE, ARCHIVED, NO_LONGER_ORDERED, NOT_FOR_SALE\nThe `product_name_in_assortment` field is filterable.  just put [['product_name_in_assortment.en','=','bla-bla-bla'],'or','product_name_in_assortment.fr','=','yada-yada]\nthe 'and' operand is not supported for the  `product_name_in_assortment"
+        },
+        {
+          "info": {
+            "name": "Get Deleted Assortment's Products IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/assortment/:id/products/deleted",
+            "headers": [
+              {
+                "name": "If-Deleted-Since",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Assortment ID"
+              }
+            ]
+          },
+          "docs": "Input the assortment ID and optionally a header with the unix timestamp, responds with the found product IDs in the IDs field"
+        },
+        {
+          "info": {
+            "name": "Get Assortments for Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/:id/assortments",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "product ID"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Get Assortments for Product"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

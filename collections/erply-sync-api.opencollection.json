@@ -1,0 +1,135 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment sync API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "sync",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sync devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/sync/device",
+            "params": [
+              {
+                "name": "lastIdRetrieved",
+                "value": "",
+                "type": "query",
+                "description": "Last record ID from previous page"
+              },
+              {
+                "name": "lastModified",
+                "value": "",
+                "type": "query",
+                "description": "Last modification time of records (unix timestamp)"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              }
+            ]
+          },
+          "docs": "Sync devices"
+        },
+        {
+          "info": {
+            "name": "Sync workorders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/sync/workorder",
+            "params": [
+              {
+                "name": "lastIdRetrieved",
+                "value": "",
+                "type": "query",
+                "description": "Last record ID from previous page"
+              },
+              {
+                "name": "lastModified",
+                "value": "",
+                "type": "query",
+                "description": "Last modification time of records (unix timestamp)"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              }
+            ]
+          },
+          "docs": "Sync workorders"
+        },
+        {
+          "info": {
+            "name": "Sync configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/configurations/sync",
+            "headers": [
+              {
+                "name": "timestamp",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "lastModified",
+                "value": "",
+                "type": "query",
+                "description": "change since date for the configurations to sync"
+              },
+              {
+                "name": "lastIdRetrieved",
+                "value": "",
+                "type": "query",
+                "description": "the ID of the last configuration in the previous response. It is the responsibility of the API client to extract this value and use it for the next call."
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return. If API client omits this parameter, the 20 is the default value."
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              }
+            ]
+          },
+          "docs": "Request the configurations with the intention to sync some or all of the configurations created or modified since the lastModified timestamp.\nAt most, 5000 configurations will be returned from this endpoint in one request.\nContinue making requests with the same lastModified to get the remaining configurations. The API remembers itself where you left off."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,454 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment report API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "report",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generates device reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/report/device",
+            "params": [
+              {
+                "name": "group",
+                "value": "",
+                "type": "query",
+                "description": "What kind of grouping should be used when composing a report on the data matching the specified filters. Defaults to `total`"
+              },
+              {
+                "name": "deviceBrand",
+                "value": "",
+                "type": "query",
+                "description": "Search for devices with the specified brand"
+              },
+              {
+                "name": "deviceModel",
+                "value": "",
+                "type": "query",
+                "description": "Search for devices with the specified model"
+              },
+              {
+                "name": "deviceVersion",
+                "value": "",
+                "type": "query",
+                "description": "Search for devices with the specified version"
+              },
+              {
+                "name": "deviceYear",
+                "value": "",
+                "type": "query",
+                "description": "Search for devices with the specified year"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Search for devices linked to the specified customer"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `brand`, `model`, `version`, `year`, `count`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword. Defaults to ordering by `count` in descending order"
+              }
+            ]
+          },
+          "docs": "Generates device reports"
+        },
+        {
+          "info": {
+            "name": "Generates product reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/report/product",
+            "params": [
+              {
+                "name": "groups",
+                "value": "",
+                "type": "query",
+                "description": "What kind of groupings should be used when composing a report on the data matching the specified filters. Possible values `total`, `group`, `product`. Defaults to `total`"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders with specified state codes"
+              },
+              {
+                "name": "transactionalState",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders with specified state codes"
+              },
+              {
+                "name": "deviceBrand",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders linked to devices with the specified brand"
+              },
+              {
+                "name": "deviceModel",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders linked to devices with the specified model"
+              },
+              {
+                "name": "deviceYear",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders linked to devices with the specified year"
+              },
+              {
+                "name": "productParentGroupId",
+                "value": "",
+                "type": "query",
+                "description": "Search for products under the specified parent group"
+              },
+              {
+                "name": "productGroupLvl",
+                "value": "",
+                "type": "query",
+                "description": "Search for results at the specified product group depth level"
+              },
+              {
+                "name": "createdById",
+                "value": "",
+                "type": "query",
+                "description": "ID of employees who created the workorder"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders linked to the specified customer"
+              },
+              {
+                "name": "customerGroup",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders linked to customers from the specified customer group"
+              },
+              {
+                "name": "createdAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Workorder creation time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "createdAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "Workorder creation time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "confirmedAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Workorder confirmed time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "confirmedAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "Workorder confirmed time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "receivedAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Device received time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "receivedAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "Device received time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "returnedAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Device returned time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "returnedAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "Device returned time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `level`, `groupId`, `groupName`, `productId`, `productName`, `netTotal`, `vatTotal`, `total`, `amount`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword. Defaults to ordering by `total` in descending order"
+              }
+            ]
+          },
+          "docs": "Generates product reports"
+        },
+        {
+          "info": {
+            "name": "Generates task reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/report/task",
+            "params": [
+              {
+                "name": "group",
+                "value": "",
+                "type": "query",
+                "description": "What kind of grouping should be used when composing a report on the data matching the specified filters. Defaults to `total`"
+              },
+              {
+                "name": "assignedToId",
+                "value": "",
+                "type": "query",
+                "description": "ID of employee who is assigned to the task"
+              },
+              {
+                "name": "resourceId",
+                "value": "",
+                "type": "query",
+                "description": "Search for tasks linked to the specified resource"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Search for tasks with specified associated row state code"
+              },
+              {
+                "name": "endAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Task end time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "endAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "Task end time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `assignedTo`, `resource`, `state`, `rowCount`, `taskCount`, `avgPlanned`, `avgReal`, `sumPlanned`, `sumReal`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword. Defaults to ordering by `sumReal` in descending order"
+              }
+            ]
+          },
+          "docs": "Generates task reports"
+        },
+        {
+          "info": {
+            "name": "Generates workorder reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/report/workorder",
+            "params": [
+              {
+                "name": "groups",
+                "value": "",
+                "type": "query",
+                "description": "What kind of groupings should be used when composing a report on the data matching the specified filters. Possible values `total`, `deviceBrand`, `deviceModel`, `deviceYear`. Defaults to `total`"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders with specified state codes"
+              },
+              {
+                "name": "transactionalState",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders with specified state codes"
+              },
+              {
+                "name": "deviceBrand",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders linked to devices with the specified brand"
+              },
+              {
+                "name": "deviceModel",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders linked to devices with the specified model"
+              },
+              {
+                "name": "deviceYear",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders linked to devices with the specified year"
+              },
+              {
+                "name": "createdById",
+                "value": "",
+                "type": "query",
+                "description": "ID of employees who created the workorder"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders linked to the specified customer"
+              },
+              {
+                "name": "customerGroup",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders linked to customers from the specified customer group"
+              },
+              {
+                "name": "createdAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Workorder creation time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "createdAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "Workorder creation time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "confirmedAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Workorder confirmed time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "confirmedAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "Workorder confirmed time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "receivedAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Device received time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "receivedAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "Device received time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "returnedAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Device returned time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "returnedAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "Device returned time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `linkedDevice`, `deviceBrand`, `deviceModel`, `deviceYear`, `deviceAvgYear`, `workorderCount`, `minTotal`, `avgTotal`, `maxTotal`, `netTotal`, `vatTotal`, `total`. Defaults to ordering by `workorderCount` in descending order"
+              }
+            ]
+          },
+          "docs": "Generates workorder reports"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

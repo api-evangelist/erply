@@ -1,0 +1,1035 @@
+{
+  "item": [
+    {
+      "id": "b20a3b43-c9be-48b6-b877-febaea726bd2",
+      "name": "printout",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ced4d1cc-2009-4b69-b659-7831d999e58c",
+          "name": "Get printout example dataset",
+          "request": {
+            "name": "Get printout example dataset",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workorder",
+                ":workorderId",
+                "printout",
+                ":templateId",
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workorderId",
+                  "description": "(Required) Workorder id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "templateId",
+                  "description": "(Required) Template id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d4b325c4-3a98-4f80-bee5-72cb6722e3fd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"address\": \"string\",\n    \"address2\": \"string\",\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"id\": 1522,\n    \"postcode\": \"string\",\n    \"state\": \"string\",\n    \"typeId\": 3076\n  },\n  \"company\": {\n    \"account\": \"string\",\n    \"account2\": \"string\",\n    \"bank\": \"string\",\n    \"bank2\": \"string\",\n    \"code\": \"string\",\n    \"email\": \"string\",\n    \"fax\": \"string\",\n    \"fullName\": \"string\",\n    \"fullName2\": \"string\",\n    \"iban\": \"string\",\n    \"iban2\": \"string\",\n    \"id\": 830,\n    \"mobile\": \"string\",\n    \"name\": \"string\",\n    \"phone\": \"string\",\n    \"swift\": \"string\",\n    \"swift2\": \"string\",\n    \"vatrateId\": 8274\n  },\n  \"createdAt\": \"string\",\n  \"documents\": [\n    {\n      \"createdBy\": {\n        \"email\": \"string\",\n        \"firstname\": \"string\",\n        \"fullName\": \"string\",\n        \"fullName2\": \"string\",\n        \"id\": 2535,\n        \"mobile\": \"string\",\n        \"name\": \"string\",\n        \"phone\": \"string\",\n        \"userId\": 5638\n      },\n      \"date\": \"string\",\n      \"deadline\": 1311,\n      \"documentNo\": 7721,\n      \"id\": 9896,\n      \"round\": 1985.6212002546813,\n      \"time\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"createdBy\": {\n        \"email\": \"string\",\n        \"firstname\": \"string\",\n        \"fullName\": \"string\",\n        \"fullName2\": \"string\",\n        \"id\": 1548,\n        \"mobile\": \"string\",\n        \"name\": \"string\",\n        \"phone\": \"string\",\n        \"userId\": 3685\n      },\n      \"date\": \"string\",\n      \"deadline\": 1281,\n      \"documentNo\": 7378,\n      \"id\": 8885,\n      \"round\": 5316.287957096032,\n      \"time\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"invoiceLogoUrl\": \"string\",\n  \"payments\": [\n    {\n      \"authorizationCode\": \"string\",\n      \"cardHolder\": \"string\",\n      \"cardNumber\": \"string\",\n      \"cardType\": \"string\",\n      \"cashChange\": 95.50753634759657,\n      \"cashPaid\": 3653.729602101975,\n      \"date\": \"string\",\n      \"id\": 7545,\n      \"referenceNumber\": \"string\",\n      \"sum\": 9794.137961880719,\n      \"type\": \"string\",\n      \"typeId\": 895\n    },\n    {\n      \"authorizationCode\": \"string\",\n      \"cardHolder\": \"string\",\n      \"cardNumber\": \"string\",\n      \"cardType\": \"string\",\n      \"cashChange\": 7489.242733650023,\n      \"cashPaid\": 4869.63049842392,\n      \"date\": \"string\",\n      \"id\": 9891,\n      \"referenceNumber\": \"string\",\n      \"sum\": 3902.591748818677,\n      \"type\": \"string\",\n      \"typeId\": 6266\n    }\n  ],\n  \"workorder\": {\n    \"contact\": {\n      \"email\": \"string\",\n      \"firstname\": \"string\",\n      \"fullName\": \"string\",\n      \"fullName2\": \"string\",\n      \"id\": 7801,\n      \"mobile\": \"string\",\n      \"name\": \"string\",\n      \"phone\": \"string\",\n      \"userId\": 2630\n    },\n    \"createdAt\": \"string\",\n    \"createdBy\": {\n      \"email\": \"string\",\n      \"firstname\": \"string\",\n      \"fullName\": \"string\",\n      \"fullName2\": \"string\",\n      \"id\": 6638,\n      \"mobile\": \"string\",\n      \"name\": \"string\",\n      \"phone\": \"string\",\n      \"userId\": 7263\n    },\n    \"customer\": {\n      \"email\": \"string\",\n      \"firstname\": \"string\",\n      \"fullName\": \"string\",\n      \"fullName2\": \"string\",\n      \"id\": 3931,\n      \"mobile\": \"string\",\n      \"name\": \"string\",\n      \"phone\": \"string\",\n      \"userId\": 525\n    },\n    \"data\": {},\n    \"device\": {\n      \"brand\": \"string\",\n      \"color\": \"string\",\n      \"createdAt\": \"string\",\n      \"customer\": {\n        \"email\": \"string\",\n        \"firstname\": \"string\",\n        \"fullName\": \"string\",\n        \"fullName2\": \"string\",\n        \"id\": 8065,\n        \"mobile\": \"string\",\n        \"name\": \"string\",\n        \"phone\": \"string\",\n        \"userId\": 4568\n      },\n      \"customerId\": 8374,\n      \"data\": {},\n      \"dateSoldAt\": \"string\",\n      \"deviceUse\": 1383,\n      \"id\": 6042,\n      \"invoiceId\": 9309,\n      \"model\": \"string\",\n      \"notes\": \"string\",\n      \"productId\": 7576,\n      \"productName\": \"string\",\n      \"registration\": \"string\",\n      \"serial\": \"string\",\n      \"updatedAt\": \"string\",\n      \"version\": \"string\",\n      \"warrantyEndAt\": \"string\",\n      \"warrantyStartAt\": \"string\",\n      \"year\": \"string\"\n    },\n    \"docInvoiceNo\": 8413,\n    \"docPrepayNo\": 7876,\n    \"docQuoteNo\": 5192,\n    \"id\": 9603,\n    \"items\": [\n      {\n        \"createdAt\": \"string\",\n        \"data\": {},\n        \"id\": 6092,\n        \"netTotal\": 7484.892349348286,\n        \"notes\": [\n          {\n            \"createdAt\": \"string\",\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data\": {},\n            \"id\": 157,\n            \"text\": \"string\",\n            \"updatedAt\": \"string\"\n          },\n          {\n            \"createdAt\": \"string\",\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data\": {},\n            \"id\": 217,\n            \"text\": \"string\",\n            \"updatedAt\": \"string\"\n          }\n        ],\n        \"notesMerged\": \"string\",\n        \"rows\": [\n          {\n            \"amount\": 1748.1545329127512,\n            \"confirmedAt\": \"string\",\n            \"createdAt\": \"string\",\n            \"data\": {},\n            \"discount\": 4129.29000932851,\n            \"id\": 7930,\n            \"itemId\": 9261,\n            \"netTotal\": 7472.191487413303,\n            \"nonStockProduct\": true,\n            \"notes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notesMerged\": \"string\",\n            \"price\": 3610.028508263683,\n            \"productCode\": \"string\",\n            \"productId\": 9957,\n            \"productName\": \"string\",\n            \"productOriginalPrice\": 42.311984785992074,\n            \"productUnitId\": 2258,\n            \"productUpcEan\": \"string\",\n            \"purchaseOrderRowId\": 415,\n            \"taxExempt\": false,\n            \"title\": \"string\",\n            \"total\": 8907.129345694946,\n            \"updatedAt\": \"string\",\n            \"vatRateId\": 6456,\n            \"vatRateName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"vatRateRate\": 3244.906099667547,\n            \"vatTotal\": 3427.1740924593964\n          },\n          {\n            \"amount\": 695.5541570248469,\n            \"confirmedAt\": \"string\",\n            \"createdAt\": \"string\",\n            \"data\": {},\n            \"discount\": 9279.783992421697,\n            \"id\": 1708,\n            \"itemId\": 1643,\n            \"netTotal\": 9228.105634730518,\n            \"nonStockProduct\": true,\n            \"notes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notesMerged\": \"string\",\n            \"price\": 7916.764354776495,\n            \"productCode\": \"string\",\n            \"productId\": 1434,\n            \"productName\": \"string\",\n            \"productOriginalPrice\": 3501.6843782261262,\n            \"productUnitId\": 5401,\n            \"productUpcEan\": \"string\",\n            \"purchaseOrderRowId\": 4193,\n            \"taxExempt\": true,\n            \"title\": \"string\",\n            \"total\": 5857.127757806679,\n            \"updatedAt\": \"string\",\n            \"vatRateId\": 3517,\n            \"vatRateName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"vatRateRate\": 3799.187563183839,\n            \"vatTotal\": 1333.06248513972\n          }\n        ],\n        \"text\": \"string\",\n        \"total\": 2331.8107720493076,\n        \"updatedAt\": \"string\",\n        \"vatTotal\": 5662.159269587387\n      },\n      {\n        \"createdAt\": \"string\",\n        \"data\": {},\n        \"id\": 9141,\n        \"netTotal\": 4342.47781360445,\n        \"notes\": [\n          {\n            \"createdAt\": \"string\",\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data\": {},\n            \"id\": 61,\n            \"text\": \"string\",\n            \"updatedAt\": \"string\"\n          },\n          {\n            \"createdAt\": \"string\",\n            \"createdBy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data\": {},\n            \"id\": 6011,\n            \"text\": \"string\",\n            \"updatedAt\": \"string\"\n          }\n        ],\n        \"notesMerged\": \"string\",\n        \"rows\": [\n          {\n            \"amount\": 1806.8508797745253,\n            \"confirmedAt\": \"string\",\n            \"createdAt\": \"string\",\n            \"data\": {},\n            \"discount\": 3185.1526603603897,\n            \"id\": 8489,\n            \"itemId\": 9718,\n            \"netTotal\": 108.39018239012677,\n            \"nonStockProduct\": false,\n            \"notes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notesMerged\": \"string\",\n            \"price\": 8712.608290292303,\n            \"productCode\": \"string\",\n            \"productId\": 1524,\n            \"productName\": \"string\",\n            \"productOriginalPrice\": 3063.996993714815,\n            \"productUnitId\": 650,\n            \"productUpcEan\": \"string\",\n            \"purchaseOrderRowId\": 6036,\n            \"taxExempt\": true,\n            \"title\": \"string\",\n            \"total\": 4092.0342438514313,\n            \"updatedAt\": \"string\",\n            \"vatRateId\": 4914,\n            \"vatRateName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"vatRateRate\": 5023.288526570144,\n            \"vatTotal\": 594.9044573111339\n          },\n          {\n            \"amount\": 5318.522195655983,\n            \"confirmedAt\": \"string\",\n            \"createdAt\": \"string\",\n            \"data\": {},\n            \"discount\": 1883.968884181396,\n            \"id\": 1300,\n            \"itemId\": 3210,\n            \"netTotal\": 3057.765304335388,\n            \"nonStockProduct\": false,\n            \"notes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"notesMerged\": \"string\",\n            \"price\": 7026.3280959900985,\n            \"productCode\": \"string\",\n            \"productId\": 1112,\n            \"productName\": \"string\",\n            \"productOriginalPrice\": 4420.070842177921,\n            \"productUnitId\": 3990,\n            \"productUpcEan\": \"string\",\n            \"purchaseOrderRowId\": 5175,\n            \"taxExempt\": true,\n            \"title\": \"string\",\n            \"total\": 3164.715273532763,\n            \"updatedAt\": \"string\",\n            \"vatRateId\": 4264,\n            \"vatRateName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"vatRateRate\": 94.88859469575117,\n            \"vatTotal\": 7355.654008019358\n          }\n        ],\n        \"text\": \"string\",\n        \"total\": 4630.820212109482,\n        \"updatedAt\": \"string\",\n        \"vatTotal\": 3837.7735941715973\n      }\n    ],\n    \"netTotal\": 5349.269362352391,\n    \"notes\": [\n      {\n        \"createdAt\": \"string\",\n        \"createdBy\": {\n          \"email\": \"string\",\n          \"firstname\": \"string\",\n          \"fullName\": \"string\",\n          \"fullName2\": \"string\",\n          \"id\": 7634,\n          \"mobile\": \"string\",\n          \"name\": \"string\",\n          \"phone\": \"string\",\n          \"userId\": 7584\n        },\n        \"data\": {},\n        \"id\": 2406,\n        \"text\": \"string\",\n        \"updatedAt\": \"string\"\n      },\n      {\n        \"createdAt\": \"string\",\n        \"createdBy\": {\n          \"email\": \"string\",\n          \"firstname\": \"string\",\n          \"fullName\": \"string\",\n          \"fullName2\": \"string\",\n          \"id\": 5000,\n          \"mobile\": \"string\",\n          \"name\": \"string\",\n          \"phone\": \"string\",\n          \"userId\": 7571\n        },\n        \"data\": {},\n        \"id\": 7491,\n        \"text\": \"string\",\n        \"updatedAt\": \"string\"\n      }\n    ],\n    \"paidTotal\": 6764.181120838515,\n    \"productRowTotals\": {\n      \"netTotal\": 5174.003846713065,\n      \"total\": 5088.035527940629,\n      \"vatTotal\": 5963.06065675888\n    },\n    \"receivedAt\": \"string\",\n    \"referenceNo\": \"string\",\n    \"remainingTotal\": 4405.228917019922,\n    \"returnedAt\": \"string\",\n    \"taxExempt\": false,\n    \"total\": 5807.910189815269,\n    \"updatedAt\": \"string\",\n    \"vatRateTotals\": [\n      {\n        \"name\": {\n          \"ar\": \" \",\n          \"cs\": \" \",\n          \"da\": \" \",\n          \"de\": \" \",\n          \"default\": \" \",\n          \"el\": \" \",\n          \"en\": \" \",\n          \"es\": \" \",\n          \"et\": \" \",\n          \"fi\": \" \",\n          \"fo\": \" \",\n          \"fr\": \" \",\n          \"it\": \" \",\n          \"lt\": \" \",\n          \"lv\": \" \",\n          \"nl\": \" \",\n          \"no\": \" \",\n          \"pl\": \" \",\n          \"ru\": \" \",\n          \"sv\": \" \",\n          \"th\": \" \",\n          \"tr\": \" \",\n          \"vi\": \" \",\n          \"zh_Hans\": \" \",\n          \"zh_Hant\": \" \"\n        },\n        \"netTotal\": 4820.696204012777,\n        \"rate\": 8005.615789607814,\n        \"total\": 1774.2753471081119,\n        \"vatRateId\": 9564,\n        \"vatTotal\": 4793.060019941952\n      },\n      {\n        \"name\": {\n          \"ar\": \" \",\n          \"cs\": \" \",\n          \"da\": \" \",\n          \"de\": \" \",\n          \"default\": \" \",\n          \"el\": \" \",\n          \"en\": \" \",\n          \"es\": \" \",\n          \"et\": \" \",\n          \"fi\": \" \",\n          \"fo\": \" \",\n          \"fr\": \" \",\n          \"it\": \" \",\n          \"lt\": \" \",\n          \"lv\": \" \",\n          \"nl\": \" \",\n          \"no\": \" \",\n          \"pl\": \" \",\n          \"ru\": \" \",\n          \"sv\": \" \",\n          \"th\": \" \",\n          \"tr\": \" \",\n          \"vi\": \" \",\n          \"zh_Hans\": \" \",\n          \"zh_Hant\": \" \"\n        },\n        \"netTotal\": 9434.332794710028,\n        \"rate\": 8148.143862203728,\n        \"total\": 4188.544488800756,\n        \"vatRateId\": 8655,\n        \"vatTotal\": 3496.2213379745745\n      }\n    ],\n    \"vatTotal\": 865.2553700512988,\n    \"warehouseId\": 9770,\n    \"workRowTotals\": {\n      \"netTotal\": 6351.300248504264,\n      \"total\": 6401.073048827743,\n      \"vatTotal\": 7641.432232614294\n    },\n    \"workorderNo\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4f1e38a-1405-4f2f-a81d-c4fa0cbd1b8b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e13fd05e-157a-4944-be4b-a5ad1357d34f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd970991-b32c-45b0-848d-213c7c7f5021",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fbd94312-aa4f-43b0-888d-454733935942",
+          "name": "Generate and download printout file",
+          "request": {
+            "name": "Generate and download printout file",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workorder",
+                ":workorderId",
+                "printout",
+                ":templateId",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fileName",
+                  "value": "<string>",
+                  "description": "File name"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workorderId",
+                  "description": "(Required) Workorder id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "templateId",
+                  "description": "(Required) Template id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/pdf"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9974d538-e8ed-405f-8e2b-c9ff7b479673",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/pdf"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd3be128-08b2-466e-b047-2304cc060432",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac2c4aab-25e3-4e45-811c-6f410fa67360",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bca10613-c612-4988-b096-ffda6a28ae81",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbe76916-5d3f-43c2-ba34-ceb78733f89c",
+          "name": "Send printout to customer",
+          "request": {
+            "name": "Send printout to customer",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workorder",
+                ":workorderId",
+                "printout",
+                ":templateId",
+                "send"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workorderId",
+                  "description": "(Required) Workorder id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "templateId",
+                  "description": "(Required) Template id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fileName\": \"<string>\",\n  \"messageBody\": \"<string>\",\n  \"messageSubject\": \"<string>\",\n  \"recipientEmail\": \"<string>\",\n  \"senderEmail\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"templateId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c5506c33-1c91-4daa-8c6f-430640505261",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fileName\": \"<string>\",\n  \"messageBody\": \"<string>\",\n  \"messageSubject\": \"<string>\",\n  \"recipientEmail\": \"<string>\",\n  \"senderEmail\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"templateId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b016eee9-7e60-408a-8f01-da650298eac6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fileName\": \"<string>\",\n  \"messageBody\": \"<string>\",\n  \"messageSubject\": \"<string>\",\n  \"recipientEmail\": \"<string>\",\n  \"senderEmail\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"templateId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1fbe0897-8865-4376-b3c3-c469d86395e2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fileName\": \"<string>\",\n  \"messageBody\": \"<string>\",\n  \"messageSubject\": \"<string>\",\n  \"recipientEmail\": \"<string>\",\n  \"senderEmail\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"templateId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5ed6000a-39b9-479b-adbe-c103605fae8c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "printout",
+                    ":templateId",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "templateId",
+                      "description": "(Required) Template id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fileName\": \"<string>\",\n  \"messageBody\": \"<string>\",\n  \"messageSubject\": \"<string>\",\n  \"recipientEmail\": \"<string>\",\n  \"senderEmail\": \"<string>\",\n  \"senderName\": \"<string>\",\n  \"templateId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1faf8a59-424e-46ca-b18b-6f30f3daaf35",
+    "name": "assignments Assortment printout API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

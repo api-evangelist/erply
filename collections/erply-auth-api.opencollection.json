@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment auth API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authenticate to get session token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/auth"
+          },
+          "docs": "Returns an Erply session token which can be used for calling the authenticated endpoints. This session token is retrieved from Erply API and the authentication method is exposed here just for the convenience. During actual use the client system does not need to authenticate against this endpoint, but can retrieve the Erply session token by any means available to them"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

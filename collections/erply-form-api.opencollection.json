@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment form API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "form",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Submit a registration form",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/form/registration"
+          },
+          "docs": "Submit a registration form"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

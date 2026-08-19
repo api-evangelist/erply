@@ -1,0 +1,3871 @@
+{
+  "item": [
+    {
+      "id": "14ddc256-8720-4aeb-9859-5551a48690cc",
+      "name": "clsf",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "16cc55d0-9fa2-412a-95a4-882f40b82993",
+          "name": "Look up priorities",
+          "request": {
+            "name": "Look up priorities",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "priority"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Priority ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity",
+                  "value": "<string>",
+                  "description": "(Required) Entity for which priority should be returned (`raji`)"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Priority code to search for. Partial matching from the beginning of the code"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "29ec4fb8-2f02-412f-be52-74fa5e5659ea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "entity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 8494,\n    \"entity\": \"string\",\n    \"id\": 8790,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 2486,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 1546\n  },\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 9756,\n    \"entity\": \"string\",\n    \"id\": 9257,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 7991,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 676\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d65140de-d31a-41a2-9140-7270b5b75810",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "entity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3cc11900-bcdd-4845-a855-2b96a19be493",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "entity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdd963ab-aa60-434f-a0e2-4a152bea5f02",
+          "name": "Add a new priority",
+          "request": {
+            "name": "Add a new priority",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "priority"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"entity\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "606d2b26-f00b-4269-b508-a3e5b0f17278",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 6288,\n  \"entity\": \"string\",\n  \"id\": 972,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4035,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 8703\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b2ee924-75f0-4f83-a49f-e127276199f3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a4709a3-aca3-4a6d-bfed-66b140d260f9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a37ab027-d43a-4166-af5d-aaf44457ef6d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "157e4157-a143-4ed1-b4ef-7e51b737c199",
+          "name": "Delete one priority record",
+          "request": {
+            "name": "Delete one priority record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "priority",
+                ":priorityId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "priorityId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a874bf94-3224-4a73-ba2c-ece9a2a8fb1e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority",
+                    ":priorityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "priorityId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f30762f-bc01-46e5-aad4-4d9224b178ad",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority",
+                    ":priorityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "priorityId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2483edf8-bc77-438c-83a5-0d6251395895",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority",
+                    ":priorityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "priorityId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d5eaa9a3-d2be-4573-a69d-a66a8117141c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority",
+                    ":priorityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "priorityId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d8fc44e7-b259-49f4-b3d3-0353016493a0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority",
+                    ":priorityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "priorityId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f3db630-66e5-41e0-a39b-ac2a76a76694",
+          "name": "Update an existing priority record",
+          "request": {
+            "name": "Update an existing priority record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "priority",
+                ":priorityId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "priorityId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"entity\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e807ffda-d47c-4915-84c0-e5f9fb2d899f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority",
+                    ":priorityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "priorityId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 6288,\n  \"entity\": \"string\",\n  \"id\": 972,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4035,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 8703\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f39ee45-3e18-4e96-89fc-f6e47181cde8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority",
+                    ":priorityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "priorityId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9fe06674-436b-4424-b1c0-5cf45a71b5c2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority",
+                    ":priorityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "priorityId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9eb46009-fe0a-4190-878f-7bacb72be567",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority",
+                    ":priorityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "priorityId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8250c157-e84d-438d-9aaf-dcc4fe4bf4e0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "priority",
+                    ":priorityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "priorityId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "feebfbdb-4847-4b58-ac78-6577508b6802",
+          "name": "Look up states",
+          "request": {
+            "name": "Look up states",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "state"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "entity",
+                  "value": "<string>",
+                  "description": "(Required) Object type for which states should be returned. One of [workorder row_work row_product transaction task_schedule product_stock raji]"
+                },
+                {
+                  "disabled": false,
+                  "key": "typeCode",
+                  "value": "<string>",
+                  "description": "Type code for which states should be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>,<integer>",
+                  "description": "State ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Language to use when sorting by name"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "State code to search for. Partial matching from the beginning of the code"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a9c6459d-4cf9-4faf-944a-d25046fd96aa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "typeCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 7888,\n    \"entity\": \"string\",\n    \"id\": 7136,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 3905,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 2965\n  },\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 1794,\n    \"entity\": \"string\",\n    \"id\": 3561,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 8865,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 8363\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d8235db-c11f-44c6-b42a-c04d68d20c42",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "typeCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9905d0a6-eedc-4d4b-95d8-f44b2ba8f655",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "typeCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b37796ee-5e5f-4062-a0cc-db3b356b2188",
+          "name": "Add a new state record",
+          "request": {
+            "name": "Add a new state record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "state"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"entity\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9bbfb105-5280-4411-a6c5-c34d3c90dbbc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 6288,\n  \"entity\": \"string\",\n  \"id\": 972,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4035,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 8703\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c9127a2-7502-4d42-836a-dc4e4e699160",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b9d1184f-d779-46e7-b232-9314e4755576",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b6c296e-8636-4136-ac02-de49f42ee385",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6e45134-d410-42ab-95d7-8809f6ee358d",
+          "name": "Delete one state record",
+          "request": {
+            "name": "Delete one state record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "state",
+                ":stateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "stateId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "33d3ca8d-ef44-418c-ad84-8a9a8173c697",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state",
+                    ":stateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "681af01e-f7cf-4287-9374-1670aec7fc0a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state",
+                    ":stateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "229b4fb6-e860-4fce-8615-1b8ff01a5de3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state",
+                    ":stateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c7ae3da6-09e9-4c7b-bca7-339f7e1086a6",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state",
+                    ":stateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0221fe82-a51f-4800-ad46-e5a2f73d14af",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state",
+                    ":stateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a4d242f-0198-4129-8852-d79ffc709754",
+          "name": "Update an existing state record",
+          "request": {
+            "name": "Update an existing state record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "state",
+                ":stateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "stateId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"entity\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "778bd080-c100-481c-9dac-6653ad988b9b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state",
+                    ":stateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 6288,\n  \"entity\": \"string\",\n  \"id\": 972,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4035,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 8703\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98bdde4f-a1de-4ae4-8246-576bc40af2ab",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state",
+                    ":stateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0542983f-0ca7-40b1-9c45-329e0dcfa1c3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state",
+                    ":stateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "882fd151-8218-4587-97bb-d8327c70eff3",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state",
+                    ":stateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b34c8ab-8011-421f-869b-5e9054c3d7d8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "state",
+                    ":stateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stateId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f985c8df-1f46-4540-9654-7c085ac9c6ef",
+          "name": "Look up product units",
+          "request": {
+            "name": "Look up product units",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "unit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Device brand ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "204e9d69-7bf2-4fb5-ad79-f5777649293c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "unit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 7888,\n    \"entity\": \"string\",\n    \"id\": 7136,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 3905,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 2965\n  },\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 1794,\n    \"entity\": \"string\",\n    \"id\": 3561,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 8865,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 8363\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fcf62405-3eed-4f81-b05a-1b22d78ce547",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "unit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e0378e8-97b6-469e-af06-930d835a348a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "unit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eba60493-4e5e-4fc3-8fcd-814df8ba7314",
+          "name": "Look up workorder types",
+          "request": {
+            "name": "Look up workorder types",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "workorder-type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Workorder type ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity",
+                  "value": "<string>",
+                  "description": "Entity for which workorder types should be returned (`workorder`, `raji`). Defaults to `workorder`"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Type code to search for. Partial matching from the beginning of the code"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4d3497fe-ba82-4a7d-ac20-91f242cc7e6c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "entity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 7888,\n    \"entity\": \"string\",\n    \"id\": 7136,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 3905,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 2965\n  },\n  {\n    \"children\": [\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"code\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"code\": \"string\",\n    \"createdAt\": \"string\",\n    \"createdById\": 1794,\n    \"entity\": \"string\",\n    \"id\": 3561,\n    \"name\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"parentId\": 8865,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 8363\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c218c7d1-27d8-4bb2-a407-bdf5938a7cf0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "entity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ce2ba23-98fa-45af-974f-e55dad81ebf7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "entity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "798be92e-fb98-406b-944d-0a348c9452ff",
+          "name": "Add a new workorder type",
+          "request": {
+            "name": "Add a new workorder type",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "workorder-type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"entity\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8cffce8a-0cb0-4b97-bb0d-bad9aa29ccb9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 6288,\n  \"entity\": \"string\",\n  \"id\": 972,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4035,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 8703\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26127ea4-9b3b-4832-b5f7-b84068a460ad",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8428d1dd-2338-462f-b0da-25d74b352e01",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ff9689e5-f31d-4a0c-a6b7-88e7d6e2d396",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db1848d0-95e5-4b4b-a9fd-d2bd195ad011",
+          "name": "Delete one workorder type record",
+          "request": {
+            "name": "Delete one workorder type record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "workorder-type",
+                ":typeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "typeId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "94998388-1eae-49fb-87af-537991c84dd1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type",
+                    ":typeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "typeId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f29fb5ea-2d9a-4337-ab54-e8312754fbe6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type",
+                    ":typeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "typeId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6863c30c-139a-45bd-ba9f-287a5347cf7d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type",
+                    ":typeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "typeId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f9e727e4-d73d-4141-9803-a28d69fe6e23",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type",
+                    ":typeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "typeId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "955c7625-76e2-404f-af3f-730a072e7dc7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type",
+                    ":typeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "typeId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7cfacd1-34b4-4702-942c-68189618b8df",
+          "name": "Update an existing workorder type record",
+          "request": {
+            "name": "Update an existing workorder type record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clsf",
+                "workorder-type",
+                ":typeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "typeId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"entity\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": {\n    \"ar\": \"<string>\",\n    \"cs\": \"<string>\",\n    \"da\": \"<string>\",\n    \"de\": \"<string>\",\n    \"default\": \"<string>\",\n    \"el\": \"<string>\",\n    \"en\": \"<string>\",\n    \"es\": \"<string>\",\n    \"et\": \"<string>\",\n    \"fi\": \"<string>\",\n    \"fo\": \"<string>\",\n    \"fr\": \"<string>\",\n    \"it\": \"<string>\",\n    \"lt\": \"<string>\",\n    \"lv\": \"<string>\",\n    \"nl\": \"<string>\",\n    \"no\": \"<string>\",\n    \"pl\": \"<string>\",\n    \"ru\": \"<string>\",\n    \"sv\": \"<string>\",\n    \"th\": \"<string>\",\n    \"tr\": \"<string>\",\n    \"vi\": \"<string>\",\n    \"zh_Hans\": \"<string>\",\n    \"zh_Hant\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a8080fc-202b-4baa-a6f6-cbedf367ed6a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type",
+                    ":typeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "typeId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"children\": [\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"type\": \"string\"\n    }\n  ],\n  \"code\": \"string\",\n  \"createdAt\": \"string\",\n  \"createdById\": 6288,\n  \"entity\": \"string\",\n  \"id\": 972,\n  \"name\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"parentId\": 4035,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 8703\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a7a53ff-d5e5-4464-aa79-175e8af1eeb7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type",
+                    ":typeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "typeId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "591f7535-61ca-4b66-9577-e430f8a609df",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type",
+                    ":typeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "typeId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0c88274-c58a-49ee-b6b8-832b9f97df0b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type",
+                    ":typeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "typeId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9612f0d2-d6c6-49fd-959d-c67a8123444d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clsf",
+                    "workorder-type",
+                    ":typeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "typeId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "44e61037-67a0-431e-a8a3-8168c5cac968",
+    "name": "assignments Assortment clsf API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

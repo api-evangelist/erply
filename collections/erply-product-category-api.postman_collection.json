@@ -1,0 +1,1735 @@
+{
+  "item": [
+    {
+      "id": "1e406327-edab-441b-827c-a7e49e9b408a",
+      "name": "Product Category",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f73dd056-acc2-4f0f-bc00-92f56f91a0eb",
+          "name": "Get Categories",
+          "request": {
+            "name": "Get Categories",
+            "description": {
+              "content": "Get Product Categories",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "category"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "optionally return total number of records in the X-Total-Count response header"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "c3412dda-37d9-4be7-b74a-69c4b594a697",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "total number of records (ignores skip & take parameters)",
+                  "key": "X-Total-Count",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"changed\": 1595230999,\n    \"changedby\": \"k@erp.xyz\",\n    \"id\": 6603,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"order\": 3667,\n    \"parent_id\": 5470\n  },\n  {\n    \"added\": 1595230999,\n    \"addedby\": \"k@erp.xyz\",\n    \"changed\": 1595230999,\n    \"changedby\": \"k@erp.xyz\",\n    \"id\": 4112,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"order\": 164,\n    \"parent_id\": 238\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54de885e-7add-4f80-9905-0f815cea8d11",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a733a06-c315-4024-9c69-ecfffcf0fc1a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48f96350-1df4-463c-b27f-df6777b1202f",
+          "name": "Create Product Category",
+          "request": {
+            "name": "Create Product Category",
+            "description": {
+              "content": "Create Product Category",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "category"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"main_id\": \"<integer>\",\n  \"name\": {\n    \"en\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8115b7ae-891e-46e9-8b19-166d2e3599d9",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2627b799-e11e-4f81-8aab-ff8fb9823331",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39cfaa58-fc8e-4300-9bb1-09e810b27c97",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7a2c8a8-90a1-4929-b072-41d50da06bb6",
+          "name": "Create categories in bulk",
+          "request": {
+            "name": "Create categories in bulk",
+            "description": {
+              "content": "each request contains the category data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "category",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"main_id\": \"<integer>\",\n      \"name\": {\n        \"en\": \"<string>\"\n      }\n    },\n    {\n      \"main_id\": \"<integer>\",\n      \"name\": {\n        \"en\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1821f694-c26b-4d97-b890-d1dcca5ece0d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"main_id\": \"<integer>\",\n      \"name\": {\n        \"en\": \"<string>\"\n      }\n    },\n    {\n      \"main_id\": \"<integer>\",\n      \"name\": {\n        \"en\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    },\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97f86eef-3eba-4df6-9dba-e187ade13ff3",
+          "name": "Get categories in bulk",
+          "request": {
+            "name": "Get categories in bulk",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "category",
+                "bulk",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"<string>\",\n        \"selector\": \"<string>\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    },\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"<string>\",\n          \"operandBefore\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"<string>\",\n        \"selector\": \"<string>\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e2aa9994-c0f7-41c5-97a9-74327b3e634b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    "bulk",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"en\",\n        \"selector\": \"name\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    },\n    {\n      \"filters\": [\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"fieldName\": \"group_id\",\n          \"operandBefore\": \"or\",\n          \"operator\": \"=\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"sortingParameters\": {\n        \"desc\": \"<boolean>\",\n        \"language\": \"en\",\n        \"selector\": \"name\"\n      },\n      \"withTotalCount\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"categories\": [\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"id\": 3544,\n          \"name\": {\n            \"en\": \"<string>\"\n          },\n          \"order\": 4407,\n          \"parent_id\": 8906\n        },\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"id\": 7838,\n          \"name\": {\n            \"en\": \"<string>\"\n          },\n          \"order\": 8877,\n          \"parent_id\": 3606\n        }\n      ],\n      \"message\": \"some message\",\n      \"resultId\": 2897,\n      \"totalCount\": 3937\n    },\n    {\n      \"categories\": [\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"id\": 7185,\n          \"name\": {\n            \"en\": \"<string>\"\n          },\n          \"order\": 8881,\n          \"parent_id\": 2517\n        },\n        {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"id\": 142,\n          \"name\": {\n            \"en\": \"<string>\"\n          },\n          \"order\": 927,\n          \"parent_id\": 9980\n        }\n      ],\n      \"message\": \"some message\",\n      \"resultId\": 9545,\n      \"totalCount\": 5089\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb5f7450-0717-478d-a74b-92c72ec6a306",
+          "name": "Get Indented List of Categories",
+          "request": {
+            "name": "Get Indented List of Categories",
+            "description": {
+              "content": "The result is a indented list of category ids and names sorted by orders and  prefixed by the dash (―) sign if is a parent",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "category",
+                "indented"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Language code (ISO 639). Return the name in the requested language or leave empty for account default language."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "36d54a59-f2e8-41d4-b9fd-fd4ffae147a8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    "indented"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 64,\n    \"name\": \"element 1\"\n  },\n  {\n    \"id\": 64,\n    \"name\": \"element 1\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "471c4449-0fc2-41e7-a8b2-c3d95fc30156",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    "indented"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8649b669-f0a7-4204-93e1-225e03cd27be",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    "indented"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e663c88e-1672-481f-aab7-49c30769ee5a",
+          "name": "Get Tree of product categories",
+          "request": {
+            "name": "Get Tree of product categories",
+            "description": {
+              "content": "Optionally you can get products that belong to each category\nYou must specify the fields to you want to get from the categories and products (models can be found under GET /product/category and GET /product)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "category",
+                "tree"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "categoryFields",
+                  "value": "<string>,<string>",
+                  "description": "You must specify the fields to you want to get from the categories and products (models can be found under GET /product/group and GET /product)"
+                },
+                {
+                  "disabled": false,
+                  "key": "productFields",
+                  "value": "<string>,<string>",
+                  "description": "You must specify the fields to you want to get from the categories and products (models can be found under GET /product/group and GET /product)"
+                },
+                {
+                  "disabled": false,
+                  "key": "withProducts",
+                  "value": "<boolean>",
+                  "description": "Optionally you can get products that belong to each category"
+                },
+                {
+                  "disabled": false,
+                  "key": "languageCode",
+                  "value": "<string>",
+                  "description": "Optionally specify the language ISO 639-1 code for the translatable fields. Default is the default language of the account."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "optionally return total number of records in the X-Total-Count response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemFilters",
+                  "value": "<string>",
+                  "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "productFilters",
+                  "value": "<string>",
+                  "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "2c24d89f-a562-415e-a91f-70f763c532d8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    "tree"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "categoryFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "productFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "withProducts",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "languageCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "itemFilters",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "productFilters",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"children\": [\n      {\n        \"item\": {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"id\": 1676,\n          \"name\": {\n            \"en\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"order\": 5800,\n          \"parent_id\": 588\n        },\n        \"products\": [\n          {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 9468,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 568,\n            \"cashier_must_enter_price\": 2735,\n            \"category_id\": 8790,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 7342.044263842391,\n            \"country_of_origin_id\": 8974,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 6586,\n            \"deposit_fee_id\": 7402,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 6535,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 1442,\n            \"extra_field2_id\": 7440,\n            \"extra_field3_id\": 6070,\n            \"extra_field4_id\": 1952,\n            \"family_id\": 5399,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 360.91266353531324,\n            \"group_id\": 3239,\n            \"group_package_ferrous_metal\": 5470.7619923821685,\n            \"group_package_metal\": 2900.3950040484574,\n            \"group_package_non_ferrous_metal\": 2828.9431276083355,\n            \"group_package_paper\": 8879.175266295137,\n            \"group_package_plastic\": 8550.950642109461,\n            \"group_package_wood\": 82.25532399019131,\n            \"has_serial_numbers\": 5843,\n            \"height\": 1864.7702647437914,\n            \"id\": 8197,\n            \"is_gift_card\": 6759,\n            \"is_lot_product\": false,\n            \"is_regular_gift_card\": 2930,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 1789,\n            \"length\": 2962.1004212316284,\n            \"location_in_warehouse_id\": 4020,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 5949.714839130063,\n            \"non_discountable\": 3959,\n            \"non_refundable\": 306,\n            \"non_stock_product\": 5486,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 7500,\n            \"parent_product_id\": 4050,\n            \"price\": 6948.36993542539,\n            \"price_with_tax\": 6102.061115407873,\n            \"priority_group_id\": 3470,\n            \"product_item_level_promotions_disabled\": 1642,\n            \"product_reorder_multiples\": 908,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 8924,\n            \"sales_package_cardboard\": 7838.578597737257,\n            \"sales_package_clear_brown_glass\": 76.0482216687719,\n            \"sales_package_green_other_glass\": 2175.7239259133344,\n            \"sales_package_metal_al\": 5409.976302053702,\n            \"sales_package_metal_fe\": 7045.38151537092,\n            \"sales_package_other_metal\": 8321.220005174297,\n            \"sales_package_paper_and_cardboard_mono\": 5447.72065735358,\n            \"sales_package_plastic_pet\": 5242.867155327013,\n            \"sales_package_plastic_pp_pe\": 6201.097156861503,\n            \"sales_package_wood\": 4237.020841310965,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 2516,\n            \"sold_in_packages\": 2485,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 5177.287608093917,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 5899,\n            \"tax_free\": 5664,\n            \"tax_rate_id\": 6516,\n            \"transport_package_cardboard\": 6863.5329501062,\n            \"transport_package_ferrous_metal\": 1904.3666719292996,\n            \"transport_package_non_ferrous_metal\": 8405.564637688876,\n            \"transport_package_plastic\": 319.03562902017677,\n            \"transport_package_wood\": 873.3086144044111,\n            \"type\": \"string\",\n            \"unit_id\": 604,\n            \"volume\": 3914.731979223085,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 6985.692136564532\n          },\n          {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 4845,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 3659,\n            \"cashier_must_enter_price\": 1183,\n            \"category_id\": 6391,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 6413.866723254926,\n            \"country_of_origin_id\": 2687,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 3566,\n            \"deposit_fee_id\": 9562,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 2046,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 4468,\n            \"extra_field2_id\": 8029,\n            \"extra_field3_id\": 350,\n            \"extra_field4_id\": 9537,\n            \"family_id\": 9871,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 2259.880237044992,\n            \"group_id\": 4380,\n            \"group_package_ferrous_metal\": 5339.35269060922,\n            \"group_package_metal\": 703.1702983334087,\n            \"group_package_non_ferrous_metal\": 3929.681062960707,\n            \"group_package_paper\": 3933.296366984961,\n            \"group_package_plastic\": 6614.135878836407,\n            \"group_package_wood\": 5488.734377447528,\n            \"has_serial_numbers\": 5444,\n            \"height\": 2831.8053371812557,\n            \"id\": 7757,\n            \"is_gift_card\": 4385,\n            \"is_lot_product\": false,\n            \"is_regular_gift_card\": 7847,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 3430,\n            \"length\": 5075.106436517778,\n            \"location_in_warehouse_id\": 8457,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 1770.745077044038,\n            \"non_discountable\": 4192,\n            \"non_refundable\": 8020,\n            \"non_stock_product\": 7484,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 885,\n            \"parent_product_id\": 9608,\n            \"price\": 884.3867272727346,\n            \"price_with_tax\": 4016.138131469095,\n            \"priority_group_id\": 5016,\n            \"product_item_level_promotions_disabled\": 2213,\n            \"product_reorder_multiples\": 6702,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 3858,\n            \"sales_package_cardboard\": 8400.425321137462,\n            \"sales_package_clear_brown_glass\": 4777.7576083525955,\n            \"sales_package_green_other_glass\": 5881.21549443416,\n            \"sales_package_metal_al\": 4172.794731779758,\n            \"sales_package_metal_fe\": 1270.1079668282234,\n            \"sales_package_other_metal\": 778.8437821683092,\n            \"sales_package_paper_and_cardboard_mono\": 3085.706736299897,\n            \"sales_package_plastic_pet\": 1115.6534272605568,\n            \"sales_package_plastic_pp_pe\": 8911.560397456455,\n            \"sales_package_wood\": 7839.393668205017,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 3689,\n            \"sold_in_packages\": 1508,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 486.4596755430894,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 827,\n            \"tax_free\": 368,\n            \"tax_rate_id\": 7967,\n            \"transport_package_cardboard\": 1666.566911177304,\n            \"transport_package_ferrous_metal\": 765.9517276909322,\n            \"transport_package_non_ferrous_metal\": 4494.08524661804,\n            \"transport_package_plastic\": 4235.834376145167,\n            \"transport_package_wood\": 1114.3625655055444,\n            \"type\": \"string\",\n            \"unit_id\": 9723,\n            \"volume\": 2587.690331207797,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 2327.359198596686\n          }\n        ]\n      },\n      {\n        \"item\": {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"id\": 6369,\n          \"name\": {\n            \"en\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"order\": 4990,\n          \"parent_id\": 2388\n        },\n        \"products\": [\n          {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 3039,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 5536,\n            \"cashier_must_enter_price\": 8402,\n            \"category_id\": 7457,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 7124.031580719355,\n            \"country_of_origin_id\": 4961,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 735,\n            \"deposit_fee_id\": 7918,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 9809,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 9850,\n            \"extra_field2_id\": 1952,\n            \"extra_field3_id\": 6488,\n            \"extra_field4_id\": 1367,\n            \"family_id\": 2605,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 7218.784187741924,\n            \"group_id\": 9303,\n            \"group_package_ferrous_metal\": 7833.397916617589,\n            \"group_package_metal\": 6776.028101720396,\n            \"group_package_non_ferrous_metal\": 1762.1794240255063,\n            \"group_package_paper\": 7070.117829792855,\n            \"group_package_plastic\": 7700.62377054056,\n            \"group_package_wood\": 8475.611224404434,\n            \"has_serial_numbers\": 5346,\n            \"height\": 4957.417512641281,\n            \"id\": 3183,\n            \"is_gift_card\": 7349,\n            \"is_lot_product\": true,\n            \"is_regular_gift_card\": 1,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 738,\n            \"length\": 5810.099419804401,\n            \"location_in_warehouse_id\": 5124,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 2872.397305955813,\n            \"non_discountable\": 3817,\n            \"non_refundable\": 3105,\n            \"non_stock_product\": 9847,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 1500,\n            \"parent_product_id\": 307,\n            \"price\": 7585.181359447697,\n            \"price_with_tax\": 2942.777355203545,\n            \"priority_group_id\": 424,\n            \"product_item_level_promotions_disabled\": 6802,\n            \"product_reorder_multiples\": 5802,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 222,\n            \"sales_package_cardboard\": 3440.300208953946,\n            \"sales_package_clear_brown_glass\": 3255.62624247701,\n            \"sales_package_green_other_glass\": 2981.5842269941204,\n            \"sales_package_metal_al\": 4401.345322840983,\n            \"sales_package_metal_fe\": 8859.24123436814,\n            \"sales_package_other_metal\": 9595.894660335178,\n            \"sales_package_paper_and_cardboard_mono\": 7376.710137958667,\n            \"sales_package_plastic_pet\": 1796.9306343865155,\n            \"sales_package_plastic_pp_pe\": 3303.6347244321387,\n            \"sales_package_wood\": 1421.511121284792,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 4885,\n            \"sold_in_packages\": 6631,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 8125.551984013987,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 9559,\n            \"tax_free\": 1334,\n            \"tax_rate_id\": 3274,\n            \"transport_package_cardboard\": 2180.1609855927495,\n            \"transport_package_ferrous_metal\": 645.9562246977979,\n            \"transport_package_non_ferrous_metal\": 528.1096303583355,\n            \"transport_package_plastic\": 9334.57298766656,\n            \"transport_package_wood\": 3571.01161834806,\n            \"type\": \"string\",\n            \"unit_id\": 759,\n            \"volume\": 6296.02296754913,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 7648.63436537719\n          },\n          {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 6970,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 7297,\n            \"cashier_must_enter_price\": 5134,\n            \"category_id\": 1235,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 5586.119345009674,\n            \"country_of_origin_id\": 3879,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 6166,\n            \"deposit_fee_id\": 3192,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 476,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 1693,\n            \"extra_field2_id\": 17,\n            \"extra_field3_id\": 5930,\n            \"extra_field4_id\": 779,\n            \"family_id\": 5216,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 1202.4716722100993,\n            \"group_id\": 4857,\n            \"group_package_ferrous_metal\": 4067.209708118833,\n            \"group_package_metal\": 8487.622135182013,\n            \"group_package_non_ferrous_metal\": 3941.3867760334642,\n            \"group_package_paper\": 6280.844228492962,\n            \"group_package_plastic\": 7946.825637624649,\n            \"group_package_wood\": 5292.347585464674,\n            \"has_serial_numbers\": 3227,\n            \"height\": 9114.43860192236,\n            \"id\": 1938,\n            \"is_gift_card\": 4864,\n            \"is_lot_product\": true,\n            \"is_regular_gift_card\": 9795,\n            \"is_used_product\": true,\n            \"labels_not_needed\": 2251,\n            \"length\": 9983.08309990422,\n            \"location_in_warehouse_id\": 5909,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 1344.6873520013103,\n            \"non_discountable\": 4757,\n            \"non_refundable\": 4540,\n            \"non_stock_product\": 3566,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 198,\n            \"parent_product_id\": 5722,\n            \"price\": 3745.1990497060874,\n            \"price_with_tax\": 337.88555198349445,\n            \"priority_group_id\": 4246,\n            \"product_item_level_promotions_disabled\": 695,\n            \"product_reorder_multiples\": 1376,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 1823,\n            \"sales_package_cardboard\": 8630.507472569794,\n            \"sales_package_clear_brown_glass\": 5765.1317254425585,\n            \"sales_package_green_other_glass\": 3491.6074891018443,\n            \"sales_package_metal_al\": 3633.65822917424,\n            \"sales_package_metal_fe\": 4308.208763215789,\n            \"sales_package_other_metal\": 5656.164457054386,\n            \"sales_package_paper_and_cardboard_mono\": 8152.900204153863,\n            \"sales_package_plastic_pet\": 2469.682423609102,\n            \"sales_package_plastic_pp_pe\": 8272.975701732885,\n            \"sales_package_wood\": 9163.64301650985,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 8744,\n            \"sold_in_packages\": 2454,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 6083.293405386451,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 3647,\n            \"tax_free\": 723,\n            \"tax_rate_id\": 1163,\n            \"transport_package_cardboard\": 2469.696284318177,\n            \"transport_package_ferrous_metal\": 3193.572722358188,\n            \"transport_package_non_ferrous_metal\": 4383.531257414487,\n            \"transport_package_plastic\": 9188.74570275897,\n            \"transport_package_wood\": 7395.766182308272,\n            \"type\": \"string\",\n            \"unit_id\": 6337,\n            \"volume\": 7808.447676980904,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 7491.608158250532\n          }\n        ]\n      }\n    ],\n    \"item\": {\n      \"added\": 1595230999,\n      \"addedby\": \"k@erp.xyz\",\n      \"changed\": 1595230999,\n      \"changedby\": \"k@erp.xyz\",\n      \"id\": 7025,\n      \"name\": {\n        \"en\": \"<string>\"\n      },\n      \"order\": 5893,\n      \"parent_id\": 8507\n    },\n    \"products\": [\n      {\n        \"added\": 1595230999,\n        \"addedby\": \"k@erp.xyz\",\n        \"age_restriction\": 7971,\n        \"alcohol_percentage\": \"string\",\n        \"alcohol_registry_number\": \"string\",\n        \"batches\": \"string\",\n        \"brand_id\": 2954,\n        \"cashier_must_enter_price\": 4139,\n        \"category_id\": 9573,\n        \"changed\": 1595230999,\n        \"changedby\": \"k@erp.xyz\",\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"cost\": 7166.630524486228,\n        \"country_of_origin_id\": 7723,\n        \"delivery_time\": \"string\",\n        \"deposit_fee_amount\": 5457,\n        \"deposit_fee_id\": 84,\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": 9071,\n        \"excise_declaration_number\": \"string\",\n        \"extra_field1_id\": 2632,\n        \"extra_field2_id\": 5174,\n        \"extra_field3_id\": 9097,\n        \"extra_field4_id\": 2026,\n        \"family_id\": 4656,\n        \"formula_identifier\": \"string\",\n        \"gross_weight\": 5643.825897907422,\n        \"group_id\": 8178,\n        \"group_package_ferrous_metal\": 8728.934117210985,\n        \"group_package_metal\": 520.3604989996591,\n        \"group_package_non_ferrous_metal\": 3091.964859692412,\n        \"group_package_paper\": 6318.715476759214,\n        \"group_package_plastic\": 6164.557232049129,\n        \"group_package_wood\": 8706.025793999224,\n        \"has_serial_numbers\": 4323,\n        \"height\": 2385.5139320526673,\n        \"id\": 9281,\n        \"is_gift_card\": 9829,\n        \"is_lot_product\": false,\n        \"is_regular_gift_card\": 6369,\n        \"is_used_product\": true,\n        \"labels_not_needed\": 6104,\n        \"length\": 3999.101325031995,\n        \"location_in_warehouse_id\": 9806,\n        \"location_in_warehouse_text\": \"string\",\n        \"manufacturer_name\": \"string\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": 1795.614663197973,\n        \"non_discountable\": 8128,\n        \"non_refundable\": 5315,\n        \"non_stock_product\": 6878,\n        \"packaging_type\": \"string\",\n        \"packing_not_required\": 2059,\n        \"parent_product_id\": 8312,\n        \"price\": 3126.754988709393,\n        \"price_with_tax\": 6875.218030140548,\n        \"priority_group_id\": 8,\n        \"product_item_level_promotions_disabled\": 3388,\n        \"product_reorder_multiples\": 8504,\n        \"revenue_account\": \"string\",\n        \"reward_points_not_allowed\": 3079,\n        \"sales_package_cardboard\": 3116.9437552788017,\n        \"sales_package_clear_brown_glass\": 6808.442155880645,\n        \"sales_package_green_other_glass\": 5307.6036229324,\n        \"sales_package_metal_al\": 3071.304279678233,\n        \"sales_package_metal_fe\": 7452.3420040125775,\n        \"sales_package_other_metal\": 1001.700881074048,\n        \"sales_package_paper_and_cardboard_mono\": 3416.347897611591,\n        \"sales_package_plastic_pet\": 3344.6395133522287,\n        \"sales_package_plastic_pp_pe\": 7851.421713567593,\n        \"sales_package_wood\": 6519.319619738496,\n        \"serial_number\": \"string\",\n        \"shelf_life_days\": 1000,\n        \"sold_in_packages\": 982,\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": 3382.003703551155,\n        \"supplier_code\": \"string\",\n        \"supplier_id\": 9300,\n        \"tax_free\": 21,\n        \"tax_rate_id\": 8675,\n        \"transport_package_cardboard\": 3872.8838976886104,\n        \"transport_package_ferrous_metal\": 9833.633349487181,\n        \"transport_package_non_ferrous_metal\": 990.8271696493409,\n        \"transport_package_plastic\": 8892.245108168589,\n        \"transport_package_wood\": 1896.386716935351,\n        \"type\": \"string\",\n        \"unit_id\": 9010,\n        \"volume\": 4585.818668757867,\n        \"webshop_description\": \"string\",\n        \"webshop_keywords\": \"string\",\n        \"webshop_title\": \"string\",\n        \"webshop_url_slug\": \"string\",\n        \"width\": 4479.929014993507\n      },\n      {\n        \"added\": 1595230999,\n        \"addedby\": \"k@erp.xyz\",\n        \"age_restriction\": 5156,\n        \"alcohol_percentage\": \"string\",\n        \"alcohol_registry_number\": \"string\",\n        \"batches\": \"string\",\n        \"brand_id\": 4964,\n        \"cashier_must_enter_price\": 5356,\n        \"category_id\": 6300,\n        \"changed\": 1595230999,\n        \"changedby\": \"k@erp.xyz\",\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"cost\": 7269.870620632668,\n        \"country_of_origin_id\": 3181,\n        \"delivery_time\": \"string\",\n        \"deposit_fee_amount\": 8119,\n        \"deposit_fee_id\": 7508,\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": 2684,\n        \"excise_declaration_number\": \"string\",\n        \"extra_field1_id\": 1508,\n        \"extra_field2_id\": 9609,\n        \"extra_field3_id\": 5599,\n        \"extra_field4_id\": 6980,\n        \"family_id\": 4838,\n        \"formula_identifier\": \"string\",\n        \"gross_weight\": 5924.967657953924,\n        \"group_id\": 4900,\n        \"group_package_ferrous_metal\": 2350.8313380926425,\n        \"group_package_metal\": 2970.7515815360475,\n        \"group_package_non_ferrous_metal\": 3607.7759284548592,\n        \"group_package_paper\": 5323.917113493057,\n        \"group_package_plastic\": 3609.1264104986985,\n        \"group_package_wood\": 9321.517656032951,\n        \"has_serial_numbers\": 2864,\n        \"height\": 1009.2269216929251,\n        \"id\": 3866,\n        \"is_gift_card\": 1745,\n        \"is_lot_product\": false,\n        \"is_regular_gift_card\": 6683,\n        \"is_used_product\": false,\n        \"labels_not_needed\": 4114,\n        \"length\": 4675.57649914458,\n        \"location_in_warehouse_id\": 3703,\n        \"location_in_warehouse_text\": \"string\",\n        \"manufacturer_name\": \"string\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": 1286.963581095729,\n        \"non_discountable\": 9070,\n        \"non_refundable\": 3282,\n        \"non_stock_product\": 4728,\n        \"packaging_type\": \"string\",\n        \"packing_not_required\": 880,\n        \"parent_product_id\": 8822,\n        \"price\": 9776.038355100405,\n        \"price_with_tax\": 4150.989797342417,\n        \"priority_group_id\": 5141,\n        \"product_item_level_promotions_disabled\": 5242,\n        \"product_reorder_multiples\": 1978,\n        \"revenue_account\": \"string\",\n        \"reward_points_not_allowed\": 2146,\n        \"sales_package_cardboard\": 5916.07280252042,\n        \"sales_package_clear_brown_glass\": 3498.7896855952827,\n        \"sales_package_green_other_glass\": 9034.074716215606,\n        \"sales_package_metal_al\": 8966.9248604889,\n        \"sales_package_metal_fe\": 3792.7734341737682,\n        \"sales_package_other_metal\": 8027.537132833241,\n        \"sales_package_paper_and_cardboard_mono\": 5605.9530270789,\n        \"sales_package_plastic_pet\": 2364.0204437119482,\n        \"sales_package_plastic_pp_pe\": 222.0520462617104,\n        \"sales_package_wood\": 6837.495110865431,\n        \"serial_number\": \"string\",\n        \"shelf_life_days\": 8607,\n        \"sold_in_packages\": 8713,\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": 8649.084571100886,\n        \"supplier_code\": \"string\",\n        \"supplier_id\": 9639,\n        \"tax_free\": 2130,\n        \"tax_rate_id\": 4927,\n        \"transport_package_cardboard\": 3148.3550947317285,\n        \"transport_package_ferrous_metal\": 8887.464583135014,\n        \"transport_package_non_ferrous_metal\": 2636.1988644529765,\n        \"transport_package_plastic\": 3455.731299911733,\n        \"transport_package_wood\": 2183.1067348976308,\n        \"type\": \"string\",\n        \"unit_id\": 8327,\n        \"volume\": 4043.0411884896535,\n        \"webshop_description\": \"string\",\n        \"webshop_keywords\": \"string\",\n        \"webshop_title\": \"string\",\n        \"webshop_url_slug\": \"string\",\n        \"width\": 5194.880679563917\n      }\n    ]\n  },\n  {\n    \"children\": [\n      {\n        \"item\": {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"id\": 2675,\n          \"name\": {\n            \"en\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"order\": 9482,\n          \"parent_id\": 7209\n        },\n        \"products\": [\n          {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 4395,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 4828,\n            \"cashier_must_enter_price\": 2713,\n            \"category_id\": 8199,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 4852.437356957778,\n            \"country_of_origin_id\": 1294,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 9870,\n            \"deposit_fee_id\": 4766,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 5130,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 5997,\n            \"extra_field2_id\": 7113,\n            \"extra_field3_id\": 6841,\n            \"extra_field4_id\": 8652,\n            \"family_id\": 7836,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 7466.720371075857,\n            \"group_id\": 6884,\n            \"group_package_ferrous_metal\": 54.56488662250791,\n            \"group_package_metal\": 2946.204059308595,\n            \"group_package_non_ferrous_metal\": 3026.122305465775,\n            \"group_package_paper\": 7098.928499626718,\n            \"group_package_plastic\": 308.6507974412556,\n            \"group_package_wood\": 1171.9713594006653,\n            \"has_serial_numbers\": 5675,\n            \"height\": 935.1483429353113,\n            \"id\": 7960,\n            \"is_gift_card\": 3280,\n            \"is_lot_product\": true,\n            \"is_regular_gift_card\": 1973,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 2012,\n            \"length\": 1478.4465305356375,\n            \"location_in_warehouse_id\": 1322,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 4837.205376251784,\n            \"non_discountable\": 9870,\n            \"non_refundable\": 1900,\n            \"non_stock_product\": 6310,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 5926,\n            \"parent_product_id\": 8272,\n            \"price\": 5410.26118149153,\n            \"price_with_tax\": 9616.18638091807,\n            \"priority_group_id\": 57,\n            \"product_item_level_promotions_disabled\": 5017,\n            \"product_reorder_multiples\": 4280,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 2215,\n            \"sales_package_cardboard\": 7440.069124270124,\n            \"sales_package_clear_brown_glass\": 7332.121534012352,\n            \"sales_package_green_other_glass\": 3945.125688673685,\n            \"sales_package_metal_al\": 3553.017199605547,\n            \"sales_package_metal_fe\": 8517.508678364047,\n            \"sales_package_other_metal\": 9994.477945568062,\n            \"sales_package_paper_and_cardboard_mono\": 4705.718415901931,\n            \"sales_package_plastic_pet\": 6911.596551053559,\n            \"sales_package_plastic_pp_pe\": 9064.696958020235,\n            \"sales_package_wood\": 1548.8212156157522,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 2713,\n            \"sold_in_packages\": 8766,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 9161.535437035005,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 8937,\n            \"tax_free\": 3037,\n            \"tax_rate_id\": 7455,\n            \"transport_package_cardboard\": 7838.753299769547,\n            \"transport_package_ferrous_metal\": 9429.310835395925,\n            \"transport_package_non_ferrous_metal\": 3314.492058650583,\n            \"transport_package_plastic\": 5484.111225091266,\n            \"transport_package_wood\": 7572.326324723858,\n            \"type\": \"string\",\n            \"unit_id\": 3753,\n            \"volume\": 8670.808093493519,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 4105.7146032243145\n          },\n          {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 3973,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 7867,\n            \"cashier_must_enter_price\": 5558,\n            \"category_id\": 2424,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 9935.157373490525,\n            \"country_of_origin_id\": 7409,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 2733,\n            \"deposit_fee_id\": 9863,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 8726,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 8881,\n            \"extra_field2_id\": 9229,\n            \"extra_field3_id\": 1098,\n            \"extra_field4_id\": 6821,\n            \"family_id\": 3583,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 4180.23913385659,\n            \"group_id\": 9699,\n            \"group_package_ferrous_metal\": 8045.901237155225,\n            \"group_package_metal\": 5116.344613963687,\n            \"group_package_non_ferrous_metal\": 920.6360200523056,\n            \"group_package_paper\": 6439.080658956377,\n            \"group_package_plastic\": 1211.1838460255287,\n            \"group_package_wood\": 3524.0223781964164,\n            \"has_serial_numbers\": 7103,\n            \"height\": 253.7098953411221,\n            \"id\": 2529,\n            \"is_gift_card\": 9938,\n            \"is_lot_product\": false,\n            \"is_regular_gift_card\": 4796,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 9193,\n            \"length\": 3478.606337560589,\n            \"location_in_warehouse_id\": 5354,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 3308.807075885608,\n            \"non_discountable\": 9152,\n            \"non_refundable\": 6411,\n            \"non_stock_product\": 7804,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 3048,\n            \"parent_product_id\": 4003,\n            \"price\": 5034.925450063994,\n            \"price_with_tax\": 5714.595722832911,\n            \"priority_group_id\": 1114,\n            \"product_item_level_promotions_disabled\": 8552,\n            \"product_reorder_multiples\": 5039,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 6931,\n            \"sales_package_cardboard\": 1598.8975791367986,\n            \"sales_package_clear_brown_glass\": 8518.22834348087,\n            \"sales_package_green_other_glass\": 9196.040685342155,\n            \"sales_package_metal_al\": 1378.795771832214,\n            \"sales_package_metal_fe\": 6401.987630407758,\n            \"sales_package_other_metal\": 1546.313270069788,\n            \"sales_package_paper_and_cardboard_mono\": 70.92996221312097,\n            \"sales_package_plastic_pet\": 2475.4595256522584,\n            \"sales_package_plastic_pp_pe\": 9104.890494442341,\n            \"sales_package_wood\": 8672.93843132771,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 5017,\n            \"sold_in_packages\": 8566,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 9989.698999252283,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 5132,\n            \"tax_free\": 4336,\n            \"tax_rate_id\": 3571,\n            \"transport_package_cardboard\": 9244.6045490434,\n            \"transport_package_ferrous_metal\": 6244.236797569825,\n            \"transport_package_non_ferrous_metal\": 4650.369495286523,\n            \"transport_package_plastic\": 3954.445286522411,\n            \"transport_package_wood\": 1472.8498842351257,\n            \"type\": \"string\",\n            \"unit_id\": 4034,\n            \"volume\": 9356.410424519916,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 7710.252872334114\n          }\n        ]\n      },\n      {\n        \"item\": {\n          \"added\": 1595230999,\n          \"addedby\": \"k@erp.xyz\",\n          \"changed\": 1595230999,\n          \"changedby\": \"k@erp.xyz\",\n          \"id\": 9571,\n          \"name\": {\n            \"en\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"order\": 1878,\n          \"parent_id\": 6123\n        },\n        \"products\": [\n          {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 8078,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 5953,\n            \"cashier_must_enter_price\": 448,\n            \"category_id\": 7003,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 1650.9837233080736,\n            \"country_of_origin_id\": 4852,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 1708,\n            \"deposit_fee_id\": 8963,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 1916,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 9568,\n            \"extra_field2_id\": 1294,\n            \"extra_field3_id\": 5582,\n            \"extra_field4_id\": 2272,\n            \"family_id\": 6863,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 4223.489984622849,\n            \"group_id\": 1219,\n            \"group_package_ferrous_metal\": 3004.1528785636174,\n            \"group_package_metal\": 6527.783596769365,\n            \"group_package_non_ferrous_metal\": 7238.591482394556,\n            \"group_package_paper\": 3490.7048219605676,\n            \"group_package_plastic\": 6221.728701557867,\n            \"group_package_wood\": 2804.48982196243,\n            \"has_serial_numbers\": 9481,\n            \"height\": 4225.580857330171,\n            \"id\": 4441,\n            \"is_gift_card\": 7573,\n            \"is_lot_product\": true,\n            \"is_regular_gift_card\": 2917,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 6114,\n            \"length\": 4265.38131918392,\n            \"location_in_warehouse_id\": 7308,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 7581.31119343223,\n            \"non_discountable\": 2682,\n            \"non_refundable\": 2342,\n            \"non_stock_product\": 3551,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 9601,\n            \"parent_product_id\": 4334,\n            \"price\": 6915.727436258684,\n            \"price_with_tax\": 7202.409072255992,\n            \"priority_group_id\": 9072,\n            \"product_item_level_promotions_disabled\": 8820,\n            \"product_reorder_multiples\": 8527,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 1788,\n            \"sales_package_cardboard\": 6019.953992106375,\n            \"sales_package_clear_brown_glass\": 4110.61929043075,\n            \"sales_package_green_other_glass\": 6322.108241975556,\n            \"sales_package_metal_al\": 3964.227657789953,\n            \"sales_package_metal_fe\": 8304.070235678464,\n            \"sales_package_other_metal\": 3077.317208063428,\n            \"sales_package_paper_and_cardboard_mono\": 4711.493814026943,\n            \"sales_package_plastic_pet\": 9775.402178804037,\n            \"sales_package_plastic_pp_pe\": 3682.054878663813,\n            \"sales_package_wood\": 510.47276653421346,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 4583,\n            \"sold_in_packages\": 8732,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 1220.722419153396,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 1824,\n            \"tax_free\": 3370,\n            \"tax_rate_id\": 4245,\n            \"transport_package_cardboard\": 1931.7111078402327,\n            \"transport_package_ferrous_metal\": 9250.551477073874,\n            \"transport_package_non_ferrous_metal\": 3681.6528957905016,\n            \"transport_package_plastic\": 4777.295513884169,\n            \"transport_package_wood\": 4982.825814076127,\n            \"type\": \"string\",\n            \"unit_id\": 4108,\n            \"volume\": 4801.408280121813,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 9422.64918376674\n          },\n          {\n            \"added\": 1595230999,\n            \"addedby\": \"k@erp.xyz\",\n            \"age_restriction\": 9334,\n            \"alcohol_percentage\": \"string\",\n            \"alcohol_registry_number\": \"string\",\n            \"batches\": \"string\",\n            \"brand_id\": 2007,\n            \"cashier_must_enter_price\": 2888,\n            \"category_id\": 7906,\n            \"changed\": 1595230999,\n            \"changedby\": \"k@erp.xyz\",\n            \"code\": \"string\",\n            \"code2\": \"string\",\n            \"code3\": \"string\",\n            \"code5\": \"string\",\n            \"code6\": \"string\",\n            \"code7\": \"string\",\n            \"code8\": \"string\",\n            \"cost\": 5303.533645779395,\n            \"country_of_origin_id\": 6117,\n            \"delivery_time\": \"string\",\n            \"deposit_fee_amount\": 4644,\n            \"deposit_fee_id\": 8633,\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"displayed_in_webshop\": 5855,\n            \"excise_declaration_number\": \"string\",\n            \"extra_field1_id\": 184,\n            \"extra_field2_id\": 1505,\n            \"extra_field3_id\": 3119,\n            \"extra_field4_id\": 6204,\n            \"family_id\": 9743,\n            \"formula_identifier\": \"string\",\n            \"gross_weight\": 562.315150247108,\n            \"group_id\": 8848,\n            \"group_package_ferrous_metal\": 1521.0788544857646,\n            \"group_package_metal\": 9829.103109896641,\n            \"group_package_non_ferrous_metal\": 5122.278560164904,\n            \"group_package_paper\": 3656.092238847197,\n            \"group_package_plastic\": 8808.922081386814,\n            \"group_package_wood\": 3805.9086793997,\n            \"has_serial_numbers\": 6372,\n            \"height\": 4472.846436236262,\n            \"id\": 7111,\n            \"is_gift_card\": 29,\n            \"is_lot_product\": false,\n            \"is_regular_gift_card\": 5157,\n            \"is_used_product\": false,\n            \"labels_not_needed\": 56,\n            \"length\": 5348.790460894709,\n            \"location_in_warehouse_id\": 9654,\n            \"location_in_warehouse_text\": \"string\",\n            \"manufacturer_name\": \"string\",\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"net_weight\": 2739.3702876553384,\n            \"non_discountable\": 9237,\n            \"non_refundable\": 4294,\n            \"non_stock_product\": 2019,\n            \"packaging_type\": \"string\",\n            \"packing_not_required\": 8792,\n            \"parent_product_id\": 2783,\n            \"price\": 6756.851864524608,\n            \"price_with_tax\": 8886.946959818973,\n            \"priority_group_id\": 6853,\n            \"product_item_level_promotions_disabled\": 3865,\n            \"product_reorder_multiples\": 1089,\n            \"revenue_account\": \"string\",\n            \"reward_points_not_allowed\": 4358,\n            \"sales_package_cardboard\": 8947.537059457769,\n            \"sales_package_clear_brown_glass\": 656.7887087186297,\n            \"sales_package_green_other_glass\": 377.32246966573626,\n            \"sales_package_metal_al\": 9155.067408875731,\n            \"sales_package_metal_fe\": 5855.034017847111,\n            \"sales_package_other_metal\": 4527.166994314444,\n            \"sales_package_paper_and_cardboard_mono\": 1661.6269399481187,\n            \"sales_package_plastic_pet\": 764.2448194637519,\n            \"sales_package_plastic_pp_pe\": 3607.3690613526896,\n            \"sales_package_wood\": 4433.17793435802,\n            \"serial_number\": \"string\",\n            \"shelf_life_days\": 4572,\n            \"sold_in_packages\": 1404,\n            \"status\": \"ACTIVE\",\n            \"suggested_retail_price\": 2713.411235763292,\n            \"supplier_code\": \"string\",\n            \"supplier_id\": 2705,\n            \"tax_free\": 3608,\n            \"tax_rate_id\": 6465,\n            \"transport_package_cardboard\": 4770.374326265399,\n            \"transport_package_ferrous_metal\": 5865.22136056754,\n            \"transport_package_non_ferrous_metal\": 3049.3802031734053,\n            \"transport_package_plastic\": 8543.207436212637,\n            \"transport_package_wood\": 2999.317542241404,\n            \"type\": \"string\",\n            \"unit_id\": 7514,\n            \"volume\": 3828.2141083719544,\n            \"webshop_description\": \"string\",\n            \"webshop_keywords\": \"string\",\n            \"webshop_title\": \"string\",\n            \"webshop_url_slug\": \"string\",\n            \"width\": 8408.757534471726\n          }\n        ]\n      }\n    ],\n    \"item\": {\n      \"added\": 1595230999,\n      \"addedby\": \"k@erp.xyz\",\n      \"changed\": 1595230999,\n      \"changedby\": \"k@erp.xyz\",\n      \"id\": 1818,\n      \"name\": {\n        \"en\": \"<string>\"\n      },\n      \"order\": 1697,\n      \"parent_id\": 7202\n    },\n    \"products\": [\n      {\n        \"added\": 1595230999,\n        \"addedby\": \"k@erp.xyz\",\n        \"age_restriction\": 9993,\n        \"alcohol_percentage\": \"string\",\n        \"alcohol_registry_number\": \"string\",\n        \"batches\": \"string\",\n        \"brand_id\": 7350,\n        \"cashier_must_enter_price\": 6468,\n        \"category_id\": 7893,\n        \"changed\": 1595230999,\n        \"changedby\": \"k@erp.xyz\",\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"cost\": 6792.464876335318,\n        \"country_of_origin_id\": 8144,\n        \"delivery_time\": \"string\",\n        \"deposit_fee_amount\": 7699,\n        \"deposit_fee_id\": 6426,\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": 3807,\n        \"excise_declaration_number\": \"string\",\n        \"extra_field1_id\": 1459,\n        \"extra_field2_id\": 2459,\n        \"extra_field3_id\": 6449,\n        \"extra_field4_id\": 7805,\n        \"family_id\": 9016,\n        \"formula_identifier\": \"string\",\n        \"gross_weight\": 6260.499664466353,\n        \"group_id\": 2686,\n        \"group_package_ferrous_metal\": 9009.949677228471,\n        \"group_package_metal\": 3705.5055498199176,\n        \"group_package_non_ferrous_metal\": 3152.94439106649,\n        \"group_package_paper\": 8722.264357267024,\n        \"group_package_plastic\": 7869.531158027156,\n        \"group_package_wood\": 1283.6679847453324,\n        \"has_serial_numbers\": 5905,\n        \"height\": 29.75829802649099,\n        \"id\": 6782,\n        \"is_gift_card\": 7544,\n        \"is_lot_product\": true,\n        \"is_regular_gift_card\": 1403,\n        \"is_used_product\": true,\n        \"labels_not_needed\": 1342,\n        \"length\": 3300.3869523976227,\n        \"location_in_warehouse_id\": 2448,\n        \"location_in_warehouse_text\": \"string\",\n        \"manufacturer_name\": \"string\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": 2148.269099455866,\n        \"non_discountable\": 113,\n        \"non_refundable\": 9515,\n        \"non_stock_product\": 2514,\n        \"packaging_type\": \"string\",\n        \"packing_not_required\": 4416,\n        \"parent_product_id\": 893,\n        \"price\": 5460.452208713879,\n        \"price_with_tax\": 5846.454726152158,\n        \"priority_group_id\": 3574,\n        \"product_item_level_promotions_disabled\": 4176,\n        \"product_reorder_multiples\": 7030,\n        \"revenue_account\": \"string\",\n        \"reward_points_not_allowed\": 6047,\n        \"sales_package_cardboard\": 6814.814710807742,\n        \"sales_package_clear_brown_glass\": 6406.453978994136,\n        \"sales_package_green_other_glass\": 2388.407792351259,\n        \"sales_package_metal_al\": 4719.896119976525,\n        \"sales_package_metal_fe\": 1778.3205764206346,\n        \"sales_package_other_metal\": 7403.462561481886,\n        \"sales_package_paper_and_cardboard_mono\": 8225.885796630491,\n        \"sales_package_plastic_pet\": 7339.639579400379,\n        \"sales_package_plastic_pp_pe\": 1712.4752718187165,\n        \"sales_package_wood\": 6014.148687445041,\n        \"serial_number\": \"string\",\n        \"shelf_life_days\": 1057,\n        \"sold_in_packages\": 9789,\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": 3803.1320998709884,\n        \"supplier_code\": \"string\",\n        \"supplier_id\": 6753,\n        \"tax_free\": 788,\n        \"tax_rate_id\": 8679,\n        \"transport_package_cardboard\": 2593.7746581743313,\n        \"transport_package_ferrous_metal\": 9999.986718910124,\n        \"transport_package_non_ferrous_metal\": 6187.2597723090985,\n        \"transport_package_plastic\": 8651.07306810062,\n        \"transport_package_wood\": 237.76453155673116,\n        \"type\": \"string\",\n        \"unit_id\": 645,\n        \"volume\": 2213.637553418214,\n        \"webshop_description\": \"string\",\n        \"webshop_keywords\": \"string\",\n        \"webshop_title\": \"string\",\n        \"webshop_url_slug\": \"string\",\n        \"width\": 7846.646499711578\n      },\n      {\n        \"added\": 1595230999,\n        \"addedby\": \"k@erp.xyz\",\n        \"age_restriction\": 8527,\n        \"alcohol_percentage\": \"string\",\n        \"alcohol_registry_number\": \"string\",\n        \"batches\": \"string\",\n        \"brand_id\": 3097,\n        \"cashier_must_enter_price\": 5671,\n        \"category_id\": 6614,\n        \"changed\": 1595230999,\n        \"changedby\": \"k@erp.xyz\",\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"cost\": 6177.879736082652,\n        \"country_of_origin_id\": 9720,\n        \"delivery_time\": \"string\",\n        \"deposit_fee_amount\": 6225,\n        \"deposit_fee_id\": 9992,\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": 5259,\n        \"excise_declaration_number\": \"string\",\n        \"extra_field1_id\": 126,\n        \"extra_field2_id\": 584,\n        \"extra_field3_id\": 8979,\n        \"extra_field4_id\": 6163,\n        \"family_id\": 1268,\n        \"formula_identifier\": \"string\",\n        \"gross_weight\": 1604.3317278046743,\n        \"group_id\": 8225,\n        \"group_package_ferrous_metal\": 755.8050494635527,\n        \"group_package_metal\": 4958.95125474779,\n        \"group_package_non_ferrous_metal\": 8676.13376307825,\n        \"group_package_paper\": 308.64033880707797,\n        \"group_package_plastic\": 5262.974812033344,\n        \"group_package_wood\": 9352.12528705911,\n        \"has_serial_numbers\": 7222,\n        \"height\": 5167.831715297996,\n        \"id\": 3477,\n        \"is_gift_card\": 8778,\n        \"is_lot_product\": true,\n        \"is_regular_gift_card\": 1848,\n        \"is_used_product\": false,\n        \"labels_not_needed\": 5455,\n        \"length\": 6702.181639390148,\n        \"location_in_warehouse_id\": 5333,\n        \"location_in_warehouse_text\": \"string\",\n        \"manufacturer_name\": \"string\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": 1494.9351691925517,\n        \"non_discountable\": 5287,\n        \"non_refundable\": 3391,\n        \"non_stock_product\": 5199,\n        \"packaging_type\": \"string\",\n        \"packing_not_required\": 4857,\n        \"parent_product_id\": 8551,\n        \"price\": 2875.028568972552,\n        \"price_with_tax\": 7767.5588414725,\n        \"priority_group_id\": 880,\n        \"product_item_level_promotions_disabled\": 7066,\n        \"product_reorder_multiples\": 1807,\n        \"revenue_account\": \"string\",\n        \"reward_points_not_allowed\": 1229,\n        \"sales_package_cardboard\": 3165.2593972638333,\n        \"sales_package_clear_brown_glass\": 4626.392495430945,\n        \"sales_package_green_other_glass\": 6318.951206353395,\n        \"sales_package_metal_al\": 5672.46916043532,\n        \"sales_package_metal_fe\": 8296.33959724367,\n        \"sales_package_other_metal\": 1790.6814568444863,\n        \"sales_package_paper_and_cardboard_mono\": 8241.04148127248,\n        \"sales_package_plastic_pet\": 8678.264566611566,\n        \"sales_package_plastic_pp_pe\": 4898.8331995457165,\n        \"sales_package_wood\": 6224.994832747048,\n        \"serial_number\": \"string\",\n        \"shelf_life_days\": 7446,\n        \"sold_in_packages\": 6989,\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": 9937.067363248843,\n        \"supplier_code\": \"string\",\n        \"supplier_id\": 7866,\n        \"tax_free\": 4514,\n        \"tax_rate_id\": 2077,\n        \"transport_package_cardboard\": 5179.823942788805,\n        \"transport_package_ferrous_metal\": 7242.520448100168,\n        \"transport_package_non_ferrous_metal\": 985.7974598078933,\n        \"transport_package_plastic\": 5504.53972546227,\n        \"transport_package_wood\": 199.6634749558157,\n        \"type\": \"string\",\n        \"unit_id\": 1826,\n        \"volume\": 6972.978129261358,\n        \"webshop_description\": \"string\",\n        \"webshop_keywords\": \"string\",\n        \"webshop_title\": \"string\",\n        \"webshop_url_slug\": \"string\",\n        \"width\": 9515.280258322355\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1c08a54-127f-4d95-be16-4ecf9907d26e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    "tree"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "categoryFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "productFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "withProducts",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "languageCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "itemFilters",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "productFilters",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "302cac83-a613-42b4-84b7-07481ceef9f3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    "tree"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "categoryFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "productFields",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "withProducts",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "languageCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "itemFilters",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "productFilters",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f56d5bd1-58bb-4438-8f80-d4ffb2f47fae",
+          "name": "Delete Product Categories",
+          "request": {
+            "name": "Delete Product Categories",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "category",
+                ":ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) up to 100 semicolon delimited category IDs"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "85dd8359-75b4-4de3-80fe-2a39d10811ec",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited category IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1732995b-8dee-44f0-a21d-9a19634bef2e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited category IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56ab71cb-e754-4073-b58f-35d1e7dd9813",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) up to 100 semicolon delimited category IDs"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ebcae250-2a2d-40a2-92d6-90ba3d091754",
+          "name": "Update Product Category",
+          "request": {
+            "name": "Update Product Category",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "category",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) category ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"main_id\": \"<integer>\",\n  \"name\": {\n    \"en\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de2263ac-a26e-4b6f-a244-db996bf58800",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) category ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44015613-5084-4667-b3b1-db2cfe4b1b96",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) category ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d27944c-76fb-4ec2-8773-1750a78f2abf",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) category ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67623001-5826-4543-8c06-83f419d4c465",
+          "name": "Move Product Category",
+          "request": {
+            "name": "Move Product Category",
+            "description": {
+              "content": "position has to be one of the following:  `lastChild` | `before` | `after`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "category",
+                ":id",
+                "move"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Category ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"position\": \"<string>\",\n  \"target_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5e01fb2-e17c-4366-a33b-970c99d4926c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    ":id",
+                    "move"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Category ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"position\": \"after\",\n  \"target_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "677c13bf-d9a1-42c3-87a1-418390f318f0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    ":id",
+                    "move"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Category ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"position\": \"after\",\n  \"target_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8203c2f2-ebae-48ba-aa4d-38329dc96e98",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "category",
+                    ":id",
+                    "move"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Category ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"position\": \"after\",\n  \"target_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6dba1448-9154-497a-81d1-0a0449f8fda3",
+    "name": "assignments Assortment Product Category API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

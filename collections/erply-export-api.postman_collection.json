@@ -1,0 +1,950 @@
+{
+  "item": [
+    {
+      "id": "c2dfc1f2-25db-497a-8cb8-bf37dc2ff09e",
+      "name": "Export",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4e8bf09c-b160-40d4-970a-a33344056423",
+          "name": "Get Assortments Export",
+          "request": {
+            "name": "Get Assortments Export",
+            "description": {
+              "content": "You can export all the assortments, as well as filter by the ids.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "export",
+                "assortments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "assortmentID",
+                  "value": "<integer>",
+                  "description": "export by assortment IDs. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouseIds",
+                  "value": "<integer>,<integer>",
+                  "description": "Supply the warehouse IDs to get the values for stock, price and warehousePrice. The parameter can contain semicolon delimited IDs. To get a list of warehouse IDs, make an Account Admin API call GET /v1/warehouse, using corresponding endpoint for your account. https://api-am-eu10.erply.com/documentation/index.html#/warehouse/get_v1_warehouse"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "63f65f5c-5f3c-4076-93cb-4220c2523474",
+              "name": "binary xlsx file content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "export",
+                    "assortments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assortmentID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "warehouseIds",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "818501ae-4ab3-49de-b9a5-b63762e0f5df",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "export",
+                    "assortments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assortmentID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "warehouseIds",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2d38b6b-9ab7-437a-b1ed-a6c510c2b081",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "export",
+                    "assortments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assortmentID",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "warehouseIds",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "006f1165-3e82-480b-ad63-5441b5097a39",
+          "name": "Get Matrix Products Export",
+          "request": {
+            "name": "Get Matrix Products Export",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "export",
+                "matrix-products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the matrix product ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "filter by the status. By default all records except archived are returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the group ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "categoryIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the category ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "brandIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the brand ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "supplierIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the supplier ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityGroupIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the priority group ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "familyIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the family ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouseIds",
+                  "value": "<integer>,<integer>",
+                  "description": "Supply the warehouse IDs to get the values for stock, price and warehousePrice. The parameter can contain semicolon delimited IDs. To get a list of warehouse IDs, make an Account Admin API call GET /v1/warehouse, using corresponding endpoint for your account. https://api-am-eu10.erply.com/documentation/index.html#/warehouse/get_v1_warehouse"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "0e7d5408-354f-4092-822f-d5ac69abd10b",
+              "name": "binary xlsx file content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "export",
+                    "matrix-products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "categoryIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "brandIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "supplierIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "priorityGroupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "familyIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "warehouseIds",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cba385bd-8ebf-434e-98ea-ffadc4bcc252",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "export",
+                    "matrix-products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "categoryIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "brandIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "supplierIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "priorityGroupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "familyIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "warehouseIds",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2f52ece-ac6a-428d-8d93-fa833d936b1b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "export",
+                    "matrix-products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "categoryIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "brandIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "supplierIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "priorityGroupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "familyIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "warehouseIds",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa5e92ac-b597-47b0-b6a0-4359e96e4d90",
+          "name": "Get Products Export",
+          "request": {
+            "name": "Get Products Export",
+            "description": {
+              "content": "By default the endpoint exports all the products, but you can apply filtering with the parameters below",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "export",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>,<integer>",
+                  "description": "export only selected product IDs. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "filter by the status. By default all records except archived are returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the group ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "unitIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the unit ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "taxRateIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the tax rate ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "categoryIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the category ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "brandIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the brand ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "supplierIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the supplier ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "priorityGroupIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the priority group ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "countryIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the country ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouseIds",
+                  "value": "<integer>,<integer>",
+                  "description": "Supply the warehouse IDs to get the values for stock, price and warehousePrice. The parameter can contain semicolon delimited IDs. To get a list of warehouse IDs, make an Account Admin API call GET /v1/warehouse, using corresponding endpoint for your account. https://api-am-eu10.erply.com/documentation/index.html#/warehouse/get_v1_warehouse"
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouseLocationIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the warehouse location ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "parentProductIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the parent product ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "depositFeeIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the deposit fee ids. The parameter can contain semicolon delimited IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "familyIds",
+                  "value": "<integer>,<integer>",
+                  "description": "filter by the family ids. The parameter can contain semicolon delimited IDs."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "91262791-888b-4019-be55-8e7f053a0c05",
+              "name": "binary xlsx file content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "export",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "unitIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "taxRateIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "categoryIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "brandIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "supplierIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "priorityGroupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "countryIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "warehouseIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "warehouseLocationIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "parentProductIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "depositFeeIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "familyIds",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d8cfffc-59ab-4b6d-9843-7ce50f672d82",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "export",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "unitIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "taxRateIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "categoryIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "brandIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "supplierIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "priorityGroupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "countryIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "warehouseIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "warehouseLocationIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "parentProductIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "depositFeeIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "familyIds",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81ce23a2-5dc5-4c30-9f30-28162f0e159f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "export",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "unitIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "taxRateIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "categoryIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "brandIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "supplierIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "priorityGroupIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "countryIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "warehouseIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "warehouseLocationIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "parentProductIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "depositFeeIds",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "familyIds",
+                      "value": "<integer>,<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "87e0eded-0628-491e-a283-a298e3996b14",
+    "name": "assignments Assortment Export API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

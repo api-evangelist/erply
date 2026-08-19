@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Extra Field 1 API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Extra Field 1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Product Extra Field 1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/extra/field-1",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              }
+            ]
+          },
+          "docs": "Get Product Extra Field"
+        },
+        {
+          "info": {
+            "name": "Create an extra field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/extra/field-1"
+          },
+          "docs": "Extra fields 1 - 4 are just additional classifiers, without any meaning attached.\nBasically, if organizing products by brands, priority groups and families is not sufficient, users can have more such fields, up to 4 additional if they need."
+        },
+        {
+          "info": {
+            "name": "Create Extra Fields in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/extra/field-1/bulk"
+          },
+          "docs": "each request contains the created resource data"
+        },
+        {
+          "info": {
+            "name": "Get Extra Fields in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/extra/field-1/bulk/get"
+          },
+          "docs": "Get Extra Fields in bulk"
+        },
+        {
+          "info": {
+            "name": "Delete Product Extra Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/extra/field-1/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited Product Extra Field IDs"
+              }
+            ]
+          },
+          "docs": "Delete Product Extra Fields"
+        },
+        {
+          "info": {
+            "name": "Update a Product Extra Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/product/extra/field-1/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Product Extra Field ID"
+              }
+            ]
+          },
+          "docs": "Update a Product Extra Field"
+        },
+        {
+          "info": {
+            "name": "Move Product Extra Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/product/extra/field-1/:id/move",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Product Extra Field ID"
+              }
+            ]
+          },
+          "docs": "position has to be one of the following:  `before` | `after`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

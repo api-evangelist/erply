@@ -1,0 +1,243 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Category API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Category",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/category",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              }
+            ]
+          },
+          "docs": "Get Product Categories"
+        },
+        {
+          "info": {
+            "name": "Create Product Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/category"
+          },
+          "docs": "Create Product Category"
+        },
+        {
+          "info": {
+            "name": "Create categories in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/category/bulk"
+          },
+          "docs": "each request contains the category data"
+        },
+        {
+          "info": {
+            "name": "Get categories in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/category/bulk/get"
+          },
+          "docs": "Get categories in bulk"
+        },
+        {
+          "info": {
+            "name": "Get Indented List of Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/category/indented",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language code (ISO 639). Return the name in the requested language or leave empty for account default language."
+              }
+            ]
+          },
+          "docs": "The result is a indented list of category ids and names sorted by orders and  prefixed by the dash (―) sign if is a parent"
+        },
+        {
+          "info": {
+            "name": "Get Tree of product categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/category/tree",
+            "params": [
+              {
+                "name": "categoryFields",
+                "value": "",
+                "type": "query",
+                "description": "You must specify the fields to you want to get from the categories and products (models can be found under GET /product/group and GET /product)"
+              },
+              {
+                "name": "productFields",
+                "value": "",
+                "type": "query",
+                "description": "You must specify the fields to you want to get from the categories and products (models can be found under GET /product/group and GET /product)"
+              },
+              {
+                "name": "withProducts",
+                "value": "",
+                "type": "query",
+                "description": "Optionally you can get products that belong to each category"
+              },
+              {
+                "name": "languageCode",
+                "value": "",
+                "type": "query",
+                "description": "Optionally specify the language ISO 639-1 code for the translatable fields. Default is the default language of the account."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "itemFilters",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "productFilters",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              }
+            ]
+          },
+          "docs": "Optionally you can get products that belong to each category\nYou must specify the fields to you want to get from the categories and products (models can be found under GET /product/category and GET /product)"
+        },
+        {
+          "info": {
+            "name": "Delete Product Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/category/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited category IDs"
+              }
+            ]
+          },
+          "docs": "Delete Product Categories"
+        },
+        {
+          "info": {
+            "name": "Update Product Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/category/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "category ID"
+              }
+            ]
+          },
+          "docs": "Update Product Category"
+        },
+        {
+          "info": {
+            "name": "Move Product Category",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/category/:id/move",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Category ID"
+              }
+            ]
+          },
+          "docs": "position has to be one of the following:  `lastChild` | `before` | `after`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

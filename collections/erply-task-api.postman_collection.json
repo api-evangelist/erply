@@ -1,0 +1,2036 @@
+{
+  "item": [
+    {
+      "id": "fed49f90-b21c-41f0-b8c7-98558026d826",
+      "name": "task",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f077d1f-31b6-4d77-9f32-632a4dfb29f8",
+          "name": "Look up any tasks",
+          "request": {
+            "name": "Look up any tasks",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "task"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>,<integer>",
+                  "description": "Task ID-s"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>,<string>",
+                  "description": "Task types. By default returns all"
+                },
+                {
+                  "disabled": false,
+                  "key": "workorderId",
+                  "value": "<integer>,<integer>",
+                  "description": "List of workorder ID-s"
+                },
+                {
+                  "disabled": false,
+                  "key": "workorderCustomerId",
+                  "value": "<integer>,<integer>",
+                  "description": "Workorder customer ID-s"
+                },
+                {
+                  "disabled": false,
+                  "key": "workorderContactId",
+                  "value": "<integer>,<integer>",
+                  "description": "Workorder contact ID-s"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemId",
+                  "value": "<integer>,<integer>",
+                  "description": "List of item ID-s"
+                },
+                {
+                  "disabled": false,
+                  "key": "rowId",
+                  "value": "<integer>,<integer>",
+                  "description": "List of row ID-s"
+                },
+                {
+                  "disabled": false,
+                  "key": "rowProductId",
+                  "value": "<integer>,<integer>",
+                  "description": "List of row product ID-s"
+                },
+                {
+                  "disabled": false,
+                  "key": "rowProductCode",
+                  "value": "<string>,<string>",
+                  "description": "List of row product codes"
+                },
+                {
+                  "disabled": false,
+                  "key": "rowProductGroupId",
+                  "value": "<integer>,<integer>",
+                  "description": "List of row product group ID-s"
+                },
+                {
+                  "disabled": false,
+                  "key": "rowTitleLike",
+                  "value": "<string>",
+                  "description": "Row title matching"
+                },
+                {
+                  "disabled": false,
+                  "key": "warehouseId",
+                  "value": "<integer>,<integer>",
+                  "description": "List of workorder warehouse ID-s"
+                },
+                {
+                  "disabled": false,
+                  "key": "resourceId",
+                  "value": "<integer>,<integer>",
+                  "description": "List of resource ID-s"
+                },
+                {
+                  "disabled": false,
+                  "key": "assignedToId",
+                  "value": "<integer>,<integer>",
+                  "description": "List of assigned-to Employee ID-s"
+                },
+                {
+                  "disabled": false,
+                  "key": "rangeStart",
+                  "value": "<string>",
+                  "description": "Task time range lower bound (yyyy-mm-ddThh:mm:ssZ or a UNIX timestamp). Defaults to Unix Epoch. If no filtering by workorder, item or row ID is applied, difference between rangeStart and rangeEnd must be less than 61 days"
+                },
+                {
+                  "disabled": false,
+                  "key": "rangeEnd",
+                  "value": "<string>",
+                  "description": "Task time range upper bound (yyyy-mm-ddThh:mm:ssZ or a UNIX timestamp). Defaults to NOW. If no filtering by workorder, item or row ID is applied, difference between rangeStart and rangeEnd must be less than 61 days"
+                },
+                {
+                  "disabled": false,
+                  "key": "rangeStrict",
+                  "value": "<boolean>",
+                  "description": "If task start and end time must fit entirely inside the filter range"
+                },
+                {
+                  "disabled": false,
+                  "key": "withRowNotes",
+                  "value": "<boolean>",
+                  "description": "If linked row notes should also be returned in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "labelType",
+                  "value": "<string>",
+                  "description": "Label type"
+                },
+                {
+                  "disabled": false,
+                  "key": "label",
+                  "value": "<string>,<string>",
+                  "description": "Labels under the specified type that must match"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size. Defaults to 20"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number. Defaults to 1"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Allows specifying in which order the rows should be returned. Supported values are: `id`, `startAt`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "87cf70d1-4dc2-49dc-97bd-3c2aa2376ed8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "workorderId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "workorderCustomerId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "workorderContactId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "itemId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowProductId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowProductCode",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "rowProductGroupId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowTitleLike",
+                      "value": "1"
+                    },
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "resourceId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "assignedToId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rangeStart",
+                      "value": "2020-06-06T13:55:00Z"
+                    },
+                    {
+                      "key": "rangeEnd",
+                      "value": "2020-06-06T13:55:00Z"
+                    },
+                    {
+                      "key": "rangeStrict",
+                      "value": "true"
+                    },
+                    {
+                      "key": "withRowNotes",
+                      "value": "true"
+                    },
+                    {
+                      "key": "labelType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "label",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "true"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "2"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-id"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"assignedToId\": 1,\n    \"createdAt\": \"2022-01-01T00:00:00Z\",\n    \"createdById\": 1,\n    \"data\": {},\n    \"duration\": 1,\n    \"endAt\": \"2022-01-01T00:00:00Z\",\n    \"id\": 1,\n    \"itemId\": 1,\n    \"labels\": [\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 9051,\n        \"label\": \"string\",\n        \"labelType\": \"string\",\n        \"taskId\": 3280,\n        \"workorderId\": 8373\n      },\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 3696,\n        \"label\": \"string\",\n        \"labelType\": \"string\",\n        \"taskId\": 419,\n        \"workorderId\": 234\n      }\n    ],\n    \"repeatEndAt\": \"2022-01-01T00:00:00Z\",\n    \"repeatId\": 1,\n    \"repeatStartAt\": \"2022-01-01T00:00:00Z\",\n    \"resourceId\": 1,\n    \"rowId\": 1,\n    \"rowNotes\": [\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 8312,\n        \"data\": {},\n        \"id\": 5521,\n        \"itemId\": 9338,\n        \"rowId\": 4448,\n        \"taskId\": 4608,\n        \"text\": \"string\",\n        \"type\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 6576,\n        \"workorderId\": 8708\n      },\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 6570,\n        \"data\": {},\n        \"id\": 8258,\n        \"itemId\": 403,\n        \"rowId\": 2305,\n        \"taskId\": 4412,\n        \"text\": \"string\",\n        \"type\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 1149,\n        \"workorderId\": 8882\n      }\n    ],\n    \"rrule\": \"RRULE:FREQ=DAILY;UNTIL=20220919T063000Z\",\n    \"startAt\": \"2022-01-01T00:00:00Z\",\n    \"title\": \"Row A;Row B\",\n    \"type\": \"default\",\n    \"updatedAt\": \"2022-01-01T00:00:00Z\",\n    \"updatedById\": 1,\n    \"userDuration\": 1,\n    \"warehouseId\": 1,\n    \"workorderId\": 1\n  },\n  {\n    \"assignedToId\": 1,\n    \"createdAt\": \"2022-01-01T00:00:00Z\",\n    \"createdById\": 1,\n    \"data\": {},\n    \"duration\": 1,\n    \"endAt\": \"2022-01-01T00:00:00Z\",\n    \"id\": 1,\n    \"itemId\": 1,\n    \"labels\": [\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 783,\n        \"label\": \"string\",\n        \"labelType\": \"string\",\n        \"taskId\": 6704,\n        \"workorderId\": 2788\n      },\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 282,\n        \"label\": \"string\",\n        \"labelType\": \"string\",\n        \"taskId\": 54,\n        \"workorderId\": 8439\n      }\n    ],\n    \"repeatEndAt\": \"2022-01-01T00:00:00Z\",\n    \"repeatId\": 1,\n    \"repeatStartAt\": \"2022-01-01T00:00:00Z\",\n    \"resourceId\": 1,\n    \"rowId\": 1,\n    \"rowNotes\": [\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 7109,\n        \"data\": {},\n        \"id\": 5462,\n        \"itemId\": 2324,\n        \"rowId\": 7663,\n        \"taskId\": 7216,\n        \"text\": \"string\",\n        \"type\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 2709,\n        \"workorderId\": 272\n      },\n      {\n        \"createdAt\": \"string\",\n        \"createdById\": 6423,\n        \"data\": {},\n        \"id\": 8553,\n        \"itemId\": 9803,\n        \"rowId\": 2763,\n        \"taskId\": 3035,\n        \"text\": \"string\",\n        \"type\": \"string\",\n        \"updatedAt\": \"string\",\n        \"updatedById\": 4316,\n        \"workorderId\": 7515\n      }\n    ],\n    \"rrule\": \"RRULE:FREQ=DAILY;UNTIL=20220919T063000Z\",\n    \"startAt\": \"2022-01-01T00:00:00Z\",\n    \"title\": \"Row A;Row B\",\n    \"type\": \"default\",\n    \"updatedAt\": \"2022-01-01T00:00:00Z\",\n    \"updatedById\": 1,\n    \"userDuration\": 1,\n    \"warehouseId\": 1,\n    \"workorderId\": 1\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56d5480e-5b85-4290-89de-fcbb26e0caa2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "workorderId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "workorderCustomerId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "workorderContactId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "itemId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowProductId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowProductCode",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "rowProductGroupId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowTitleLike",
+                      "value": "1"
+                    },
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "resourceId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "assignedToId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rangeStart",
+                      "value": "2020-06-06T13:55:00Z"
+                    },
+                    {
+                      "key": "rangeEnd",
+                      "value": "2020-06-06T13:55:00Z"
+                    },
+                    {
+                      "key": "rangeStrict",
+                      "value": "true"
+                    },
+                    {
+                      "key": "withRowNotes",
+                      "value": "true"
+                    },
+                    {
+                      "key": "labelType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "label",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "true"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "2"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-id"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "99ceb82b-6f81-4c02-9406-43b26667084e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "workorderId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "workorderCustomerId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "workorderContactId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "itemId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowProductId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowProductCode",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "rowProductGroupId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowTitleLike",
+                      "value": "1"
+                    },
+                    {
+                      "key": "warehouseId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "resourceId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "assignedToId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rangeStart",
+                      "value": "2020-06-06T13:55:00Z"
+                    },
+                    {
+                      "key": "rangeEnd",
+                      "value": "2020-06-06T13:55:00Z"
+                    },
+                    {
+                      "key": "rangeStrict",
+                      "value": "true"
+                    },
+                    {
+                      "key": "withRowNotes",
+                      "value": "true"
+                    },
+                    {
+                      "key": "labelType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "label",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "true"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "2"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-id"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f29761ac-c92e-4be2-bae5-3817e2f55cb6",
+          "name": "Add a new task record",
+          "request": {
+            "name": "Add a new task record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "task"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assignedToId\": \"<integer>\",\n  \"data\": \"<object>\",\n  \"endAt\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"repeatId\": \"<integer>\",\n  \"resourceId\": \"<integer>\",\n  \"rowId\": \"<integer>\",\n  \"rrule\": \"<string>\",\n  \"startAt\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"userDuration\": \"<integer>\",\n  \"warehouseId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f250c3b0-daba-40fb-a299-245e919b7e46",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assignedToId\": 1,\n  \"createdAt\": \"2022-01-01T00:00:00Z\",\n  \"createdById\": 1,\n  \"data\": {},\n  \"duration\": 1,\n  \"endAt\": \"2022-01-01T00:00:00Z\",\n  \"id\": 1,\n  \"itemId\": 1,\n  \"labels\": [\n    {\n      \"createdAt\": \"string\",\n      \"createdById\": 7124,\n      \"label\": \"string\",\n      \"labelType\": \"string\",\n      \"taskId\": 9954,\n      \"workorderId\": 6194\n    },\n    {\n      \"createdAt\": \"string\",\n      \"createdById\": 8062,\n      \"label\": \"string\",\n      \"labelType\": \"string\",\n      \"taskId\": 7107,\n      \"workorderId\": 3140\n    }\n  ],\n  \"repeatEndAt\": \"2022-01-01T00:00:00Z\",\n  \"repeatId\": 1,\n  \"repeatStartAt\": \"2022-01-01T00:00:00Z\",\n  \"resourceId\": 1,\n  \"rowId\": 1,\n  \"rowNotes\": [\n    {\n      \"createdAt\": \"string\",\n      \"createdById\": 3933,\n      \"data\": {},\n      \"id\": 5539,\n      \"itemId\": 9800,\n      \"rowId\": 413,\n      \"taskId\": 8920,\n      \"text\": \"string\",\n      \"type\": \"string\",\n      \"updatedAt\": \"string\",\n      \"updatedById\": 1578,\n      \"workorderId\": 6369\n    },\n    {\n      \"createdAt\": \"string\",\n      \"createdById\": 6669,\n      \"data\": {},\n      \"id\": 4177,\n      \"itemId\": 6638,\n      \"rowId\": 2747,\n      \"taskId\": 4828,\n      \"text\": \"string\",\n      \"type\": \"string\",\n      \"updatedAt\": \"string\",\n      \"updatedById\": 7270,\n      \"workorderId\": 8110\n    }\n  ],\n  \"rrule\": \"RRULE:FREQ=DAILY;UNTIL=20220919T063000Z\",\n  \"startAt\": \"2022-01-01T00:00:00Z\",\n  \"title\": \"Row A;Row B\",\n  \"type\": \"default\",\n  \"updatedAt\": \"2022-01-01T00:00:00Z\",\n  \"updatedById\": 1,\n  \"userDuration\": 1,\n  \"warehouseId\": 1,\n  \"workorderId\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "337fa99a-d443-49f9-b68c-df8153cfef57",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d00358cb-5de6-4710-890d-fbb5192cdb27",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a4b6ae1c-f318-46ab-9c4e-91aeec82a1c4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bae445d0-f3c7-4945-8e7d-fcad6556e38e",
+          "name": "Reschedule tasks if so configured",
+          "request": {
+            "name": "Reschedule tasks if so configured",
+            "description": {
+              "content": "Allows to execute task rescheduling logic if the account has been configured accordingly. When triggered, tasks which were left unclosed (in states other that `done`) in the account's timezone yesterday, will be rescheduled for today and set to `blocked` state.\r\n\r\n#### Configuration ####\r\n\r\nFunctionality can be enabled or disabled in Cafa. If there is no configuration in Cafa, calling this function will generate a Cafa entry with default values.\r\n\r\n> Field         | Value&nbsp;       | Description\r\n> --------------|-------------------|----\r\n> `application` | assignments       | Application name. Has to be `assignments`\r\n> `level`       | Company           | Level is the operating level where the config will be stored. Has to be `Company`\r\n> `name`        | task_rescheduling | Name of the configuration. Has to be `task_rescheduling`\r\n> `value`       | true              | If task rescheduling is enabled or not. Must be parseable as a boolean. Will default to `false`\r\n>\r\n\r\nAdditionally, this functionality is affected by Erply configuration parameter `timezone` which is briefly described in Erply API docs: https://learn-api.erply.com/requests/getconfparameters\r\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "task",
+                "reschedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "569f54b9-f9b2-4adf-9fb4-d51bfb95cb63",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    "reschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "18ccaec2-f2cf-4a19-8c67-c2343b3ea941",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    "reschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5231dcf2-0af5-488d-b185-7a79dbaf2738",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    "reschedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a93caf06-6eeb-4297-88c3-0daffb91ae3d",
+          "name": "Delete one task record",
+          "request": {
+            "name": "Delete one task record",
+            "description": {
+              "content": "Delete one task record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "task",
+                ":taskId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "taskId",
+                  "description": "(Required) Task id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "34726a2a-a518-4b8e-b6e1-6561ce217b71",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a39ea7b-45ce-46e6-8295-251d6ad45da6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "09bc2247-302b-430a-a9cf-c51f6fd28549",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "df0f7731-6a5b-4810-9d47-9f2d018b1624",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0abf52e1-5211-43d6-86ca-7ee57985d90d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70deac6f-eb12-4da6-9261-fcaff52c4c2a",
+          "name": "Update task record",
+          "request": {
+            "name": "Update task record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "task",
+                ":taskId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "taskId",
+                  "description": "(Required) Task id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assignedToId\": \"<integer>\",\n  \"data\": \"<object>\",\n  \"endAt\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"repeatId\": \"<integer>\",\n  \"resourceId\": \"<integer>\",\n  \"rowId\": \"<integer>\",\n  \"rrule\": \"<string>\",\n  \"startAt\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"userDuration\": \"<integer>\",\n  \"warehouseId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "409e845d-7da1-4b78-be01-4634f73a9b89",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assignedToId\": 1,\n  \"createdAt\": \"2022-01-01T00:00:00Z\",\n  \"createdById\": 1,\n  \"data\": {},\n  \"duration\": 1,\n  \"endAt\": \"2022-01-01T00:00:00Z\",\n  \"id\": 1,\n  \"itemId\": 1,\n  \"labels\": [\n    {\n      \"createdAt\": \"string\",\n      \"createdById\": 7124,\n      \"label\": \"string\",\n      \"labelType\": \"string\",\n      \"taskId\": 9954,\n      \"workorderId\": 6194\n    },\n    {\n      \"createdAt\": \"string\",\n      \"createdById\": 8062,\n      \"label\": \"string\",\n      \"labelType\": \"string\",\n      \"taskId\": 7107,\n      \"workorderId\": 3140\n    }\n  ],\n  \"repeatEndAt\": \"2022-01-01T00:00:00Z\",\n  \"repeatId\": 1,\n  \"repeatStartAt\": \"2022-01-01T00:00:00Z\",\n  \"resourceId\": 1,\n  \"rowId\": 1,\n  \"rowNotes\": [\n    {\n      \"createdAt\": \"string\",\n      \"createdById\": 3933,\n      \"data\": {},\n      \"id\": 5539,\n      \"itemId\": 9800,\n      \"rowId\": 413,\n      \"taskId\": 8920,\n      \"text\": \"string\",\n      \"type\": \"string\",\n      \"updatedAt\": \"string\",\n      \"updatedById\": 1578,\n      \"workorderId\": 6369\n    },\n    {\n      \"createdAt\": \"string\",\n      \"createdById\": 6669,\n      \"data\": {},\n      \"id\": 4177,\n      \"itemId\": 6638,\n      \"rowId\": 2747,\n      \"taskId\": 4828,\n      \"text\": \"string\",\n      \"type\": \"string\",\n      \"updatedAt\": \"string\",\n      \"updatedById\": 7270,\n      \"workorderId\": 8110\n    }\n  ],\n  \"rrule\": \"RRULE:FREQ=DAILY;UNTIL=20220919T063000Z\",\n  \"startAt\": \"2022-01-01T00:00:00Z\",\n  \"title\": \"Row A;Row B\",\n  \"type\": \"default\",\n  \"updatedAt\": \"2022-01-01T00:00:00Z\",\n  \"updatedById\": 1,\n  \"userDuration\": 1,\n  \"warehouseId\": 1,\n  \"workorderId\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c510658-04a2-48b0-83c9-1d0f5ebe4894",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74a1d558-8aa4-45b1-8513-71ffa44be812",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e3c0455-b83e-4de8-a7df-09cd9d839c87",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6323bb43-e8de-40b5-a027-78effec702e2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7d43377-9657-4061-b04e-8974a98023b3",
+          "name": "Delete one task within a recurring task chain",
+          "request": {
+            "name": "Delete one task within a recurring task chain",
+            "description": {
+              "content": "Delete one task within a recurring task chain",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "task",
+                ":taskId",
+                ":repeatId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "taskId",
+                  "description": "(Required) Task id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "repeatId",
+                  "description": "(Required) Recurring task repeatId"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "98ff36ed-0f14-429a-a5a2-16f498a6d1cb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId",
+                    ":repeatId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "repeatId",
+                      "description": "(Required) Recurring task repeatId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fed8a206-5e3f-44d4-959b-9f2ff6bbabb4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId",
+                    ":repeatId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "repeatId",
+                      "description": "(Required) Recurring task repeatId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "337790b4-be3d-46b6-80e6-96e6ae7a5c19",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId",
+                    ":repeatId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "repeatId",
+                      "description": "(Required) Recurring task repeatId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dd5784a9-ce20-4b6b-94d9-f6f20f7729f7",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId",
+                    ":repeatId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "repeatId",
+                      "description": "(Required) Recurring task repeatId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1300e15c-d18f-4cab-8879-0809aeeb21db",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "task",
+                    ":taskId",
+                    ":repeatId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "taskId",
+                      "description": "(Required) Task id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "repeatId",
+                      "description": "(Required) Recurring task repeatId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5d588feb-25fb-40c0-8733-2dc32047d04f",
+    "name": "assignments Assortment task API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

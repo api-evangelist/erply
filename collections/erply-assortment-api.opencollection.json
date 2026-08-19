@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assortment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Assortments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/assortment",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              }
+            ]
+          },
+          "docs": "Get Assortments"
+        },
+        {
+          "info": {
+            "name": "Create Assortment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/assortment"
+          },
+          "docs": "Create Assortment"
+        },
+        {
+          "info": {
+            "name": "Delete Assortments & the related links to products and products.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/assortment/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited assortment ids"
+              }
+            ]
+          },
+          "docs": "Delete Assortments will also delete the links to products and the linked products if they are not used in any other assortment."
+        },
+        {
+          "info": {
+            "name": "Update Assortment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/assortment/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Assortment ID"
+              }
+            ]
+          },
+          "docs": "Update Assortment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

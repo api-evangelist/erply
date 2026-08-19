@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment printout API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "printout",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get printout example dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/printout/:templateId/data",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              },
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "path",
+                "description": "Template id"
+              }
+            ]
+          },
+          "docs": "Get printout example dataset"
+        },
+        {
+          "info": {
+            "name": "Generate and download printout file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/printout/:templateId/download",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              },
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "path",
+                "description": "Template id"
+              },
+              {
+                "name": "fileName",
+                "value": "",
+                "type": "query",
+                "description": "File name"
+              }
+            ]
+          },
+          "docs": "Generate and download printout file"
+        },
+        {
+          "info": {
+            "name": "Send printout to customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/printout/:templateId/send",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              },
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "path",
+                "description": "Template id"
+              }
+            ]
+          },
+          "docs": "Send printout to customer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

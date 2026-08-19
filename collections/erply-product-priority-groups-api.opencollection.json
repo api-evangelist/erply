@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Priority Groups API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Priority Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read Priority Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/priority/group",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              }
+            ]
+          },
+          "docs": "Priority groups are a product classifier. Priority groups are a flat list (no hierarchy) and have multilingual names. A product can be associated with only one priority group."
+        },
+        {
+          "info": {
+            "name": "Create a Priority Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/priority/group"
+          },
+          "docs": "Create a Priority Group"
+        },
+        {
+          "info": {
+            "name": "Create priority groups in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/priority/group/bulk"
+          },
+          "docs": "each request contains the created resource data"
+        },
+        {
+          "info": {
+            "name": "Get priority groups in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/priority/group/bulk/get"
+          },
+          "docs": "Get priority groups in bulk"
+        },
+        {
+          "info": {
+            "name": "Delete Priority Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/priority/group/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": " up to 100 semicolon delimited priority group IDs"
+              }
+            ]
+          },
+          "docs": "Delete Priority Groups"
+        },
+        {
+          "info": {
+            "name": "Update a Priority Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/priority/group/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "priority group ID"
+              }
+            ]
+          },
+          "docs": "Update a Priority Group"
+        },
+        {
+          "info": {
+            "name": "Move Priority Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/priority/group/:id/move",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "priority group ID"
+              }
+            ]
+          },
+          "docs": "position has to be one of the following:  `before` | `after`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

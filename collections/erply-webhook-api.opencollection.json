@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment webhook API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "webhook",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get recorded events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/event",
+            "params": [
+              {
+                "name": "table",
+                "value": "",
+                "type": "query",
+                "description": "Name of the table for the event"
+              },
+              {
+                "name": "action",
+                "value": "",
+                "type": "query",
+                "description": "Name of the action for the event"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the results. Default is 20 and max is 100."
+              }
+            ]
+          },
+          "docs": "# Get recorded events\nReturns events that have been recently recorded for the account.\nNote that event list is constantly purged, historic events are not stored.\nEvents are only stored if the account has a corresponding webhook configuration."
+        },
+        {
+          "info": {
+            "name": "Get recently sent webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/webhook",
+            "params": [
+              {
+                "name": "table",
+                "value": "",
+                "type": "query",
+                "description": "Name of the table for the webhook"
+              },
+              {
+                "name": "action",
+                "value": "",
+                "type": "query",
+                "description": "Name of the action for the webhook"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the results. Default is 20 and max is 100."
+              }
+            ]
+          },
+          "docs": "# Get recently sent webhooks\nGet current authenticated users recently sent webhooks.\nNote that this list only includes webhooks that have been attempted to be sent in the last hour (or less).\nAny webhooks that were supposed to be sent longer than 1 hour ago are not guaranteed to be returned with this request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2197 @@
+{
+  "item": [
+    {
+      "id": "f271334a-b834-4f7b-81fa-50403c215b67",
+      "name": "device",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "88af39a3-dd67-408a-ad36-846d0d9dd8b9",
+          "name": "Look up devices",
+          "request": {
+            "name": "Look up devices",
+            "description": {
+              "content": "Allows searching for devices matching specific criteria.\r\n\r\n> Param           | Default&nbsp; | Example&nbsp; | Description\r\n> ----------------|---------------|---------------|----\r\n> `id`            | -             | 11            | Filter by device ID-s\r\n> `registration`  | -             | 12            | Filter by registration number. Exact match\r\n> `serial`        | -             | 13            | Filter by serial number. Exact match\r\n> `brand`         | -             | Tesla         | Filter by brand. Exact match\r\n> `model`         | -             | Model S       | Filter by model. Exact match\r\n> `version`       | -             | 100 AWD       | Filter by version. Exact match\r\n> `year`          | -             | 2020          | Filter by year. Exact match\r\n> `color`         | -             | red           | Filter by device color. Exact match\r\n> `customerId`    | -             | 14            | Filter by customer ID-s\r\n> `customerName`  | -             | Tom           | Filter by customer name. Fuzzy search\r\n> `searchPhrase`  | -             | AWD           | Fuzzy search over fields `registration`, `serial`, `brand`, `model`, `version`, `year` and owner name.\r\n> `limitedAccess` | -             | true          | If devices with access restrictions should be returned\r\n> `callerAccess`  | -             | true          | If the query should return devices that are accessible to the user or those that are not accessible. Returns both by default\r\n> `withTotalCount` | false         | true          | If total count of matched records should be returned in response header `x-total-count` \r\n> `pageSize`      | 20            | 100           | Allows specifying how many records per page should be returned\r\n> `pageNr`        | 1             | 2             | Allows specifying which page should be returned for creating paginated views over the data.\r\n> `sort`          | id            | -id           | Allows specifying in which order the rows should be returned. Supported values are: `id`, `relevance`, `custFirstname`, `custName`, `dateSoldAt`, `registration`, `serial`, `brand`, `model`, `version`, `year`, `createdAt`, `updatedAt`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword.\r\n>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>,<integer>",
+                  "description": "Device ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "registration",
+                  "value": "<string>",
+                  "description": "Registration number"
+                },
+                {
+                  "disabled": false,
+                  "key": "serial",
+                  "value": "<string>",
+                  "description": "Serial number"
+                },
+                {
+                  "disabled": false,
+                  "key": "brand",
+                  "value": "<string>",
+                  "description": "Device brand"
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>",
+                  "description": "Device model"
+                },
+                {
+                  "disabled": false,
+                  "key": "version",
+                  "value": "<string>",
+                  "description": "Device version"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>",
+                  "description": "Device year"
+                },
+                {
+                  "disabled": false,
+                  "key": "color",
+                  "value": "<string>",
+                  "description": "Device color"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<integer>,<integer>",
+                  "description": "Customer ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerName",
+                  "value": "<string>",
+                  "description": "Customer name"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchPhrase",
+                  "value": "<string>",
+                  "description": "Fulltext search phrase"
+                },
+                {
+                  "disabled": false,
+                  "key": "hidden",
+                  "value": "<boolean>",
+                  "description": "If hidden or unhidden devices should be returned. If undefined, all are returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "limitedAccess",
+                  "value": "<boolean>",
+                  "description": "If device has access restrictions applied"
+                },
+                {
+                  "disabled": false,
+                  "key": "callerAccess",
+                  "value": "<boolean>",
+                  "description": "If caller has access to the device content"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `id`, `relevance`, `custFirstname`, `custName`, `dateSoldAt`, `registration`, `serial`, `brand`, `model`, `version`, `year`, `createdAt`, `updatedAt`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4c9d27bf-744e-402a-b717-779ee3e81fd8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "registration",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "color",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "customerName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPhrase",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hidden",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limitedAccess",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "callerAccess",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"brand\": \"Volvo\",\n    \"callerAccess\": false,\n    \"color\": \"yellow\",\n    \"createdAt\": \"2022-01-01T00:00:00Z\",\n    \"createdById\": 1,\n    \"customerId\": 1,\n    \"data\": {},\n    \"dateSoldAt\": \"2022-01-01T00:00:00Z\",\n    \"hidden\": false,\n    \"id\": 1,\n    \"invoiceId\": 1,\n    \"limitedAccess\": false,\n    \"model\": \"S90\",\n    \"notes\": \"Some notes\",\n    \"productId\": 1,\n    \"productName\": \"Some product\",\n    \"registration\": \"123 abc\",\n    \"relevance\": 0.5,\n    \"serial\": \"123\",\n    \"updatedAt\": \"2022-01-01T00:00:00Z\",\n    \"updatedById\": 1,\n    \"version\": \"1\",\n    \"warrantyEndAt\": \"2022-01-01T00:00:00Z\",\n    \"warrantyStartAt\": \"2022-01-01T00:00:00Z\",\n    \"year\": \"2020\"\n  },\n  {\n    \"brand\": \"Volvo\",\n    \"callerAccess\": false,\n    \"color\": \"yellow\",\n    \"createdAt\": \"2022-01-01T00:00:00Z\",\n    \"createdById\": 1,\n    \"customerId\": 1,\n    \"data\": {},\n    \"dateSoldAt\": \"2022-01-01T00:00:00Z\",\n    \"hidden\": false,\n    \"id\": 1,\n    \"invoiceId\": 1,\n    \"limitedAccess\": false,\n    \"model\": \"S90\",\n    \"notes\": \"Some notes\",\n    \"productId\": 1,\n    \"productName\": \"Some product\",\n    \"registration\": \"123 abc\",\n    \"relevance\": 0.5,\n    \"serial\": \"123\",\n    \"updatedAt\": \"2022-01-01T00:00:00Z\",\n    \"updatedById\": 1,\n    \"version\": \"1\",\n    \"warrantyEndAt\": \"2022-01-01T00:00:00Z\",\n    \"warrantyStartAt\": \"2022-01-01T00:00:00Z\",\n    \"year\": \"2020\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bdbf98a3-d16c-4ef6-b49a-ee07b8583e07",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "registration",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "color",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "customerName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPhrase",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hidden",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limitedAccess",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "callerAccess",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d8ea066-33aa-45e1-b7ae-2bbe28418c5d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "registration",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "color",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "customerName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPhrase",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hidden",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limitedAccess",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "callerAccess",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad5dc598-5fde-4cd6-bcd2-f45e87ba9d2d",
+          "name": "Add a new device record",
+          "request": {
+            "name": "Add a new device record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"<string>\",\n  \"color\": \"<string>\",\n  \"customerId\": \"<integer>\",\n  \"data\": \"<object>\",\n  \"dateSoldAt\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<integer>\",\n  \"invoiceId\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"productId\": \"<integer>\",\n  \"productName\": \"<string>\",\n  \"registration\": \"<string>\",\n  \"serial\": \"<string>\",\n  \"setAccessToken\": \"<string>\",\n  \"version\": \"<string>\",\n  \"warrantyEndAt\": \"<string>\",\n  \"warrantyStartAt\": \"<string>\",\n  \"year\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a4dd3950-1687-4c33-a60d-212251a626af",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"brand\": \"Volvo\",\n  \"callerAccess\": false,\n  \"color\": \"yellow\",\n  \"createdAt\": \"2022-01-01T00:00:00Z\",\n  \"createdById\": 1,\n  \"customerId\": 1,\n  \"data\": {},\n  \"dateSoldAt\": \"2022-01-01T00:00:00Z\",\n  \"hidden\": false,\n  \"id\": 1,\n  \"invoiceId\": 1,\n  \"limitedAccess\": false,\n  \"model\": \"S90\",\n  \"notes\": \"Some notes\",\n  \"productId\": 1,\n  \"productName\": \"Some product\",\n  \"registration\": \"123 abc\",\n  \"relevance\": 0.5,\n  \"serial\": \"123\",\n  \"updatedAt\": \"2022-01-01T00:00:00Z\",\n  \"updatedById\": 1,\n  \"version\": \"1\",\n  \"warrantyEndAt\": \"2022-01-01T00:00:00Z\",\n  \"warrantyStartAt\": \"2022-01-01T00:00:00Z\",\n  \"year\": \"2020\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8746ccaa-c034-407e-a8b8-f1ca06e7ac12",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9821e4c9-d85b-4a10-8ff9-3085af3a04c0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48adbdde-8b5e-41f0-b4aa-b64decec13e8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1a70a8d-f98e-4d8d-a50c-70803b8a6023",
+          "name": "Search for devices across all accessible tenants",
+          "request": {
+            "name": "Search for devices across all accessible tenants",
+            "description": {
+              "content": "Allows searching for devices matching specific criteria across all accessible tenants\r\n\r\n> Param           | Default&nbsp; | Example&nbsp; | Description\r\n> ----------------|---------|---------|----\r\n> `registration`  | -       | 11      | Filter by registration number. Exact match\r\n> `serial`        | -       | 22      | Filter by serial number. Exact match\r\n> `brand`         | -       | Tesla   | Filter by brand. Exact match\r\n> `model`         | -       | Model S | Filter by model. Exact match\r\n> `version`       | -       | 100 AWD | Filter by version. Exact match\r\n> `year`          | -       | 2020    | Filter by year. Exact match\r\n> `searchPhrase`  | -       | AWD     | Fuzzy search over fields `registration`, `serial`, `brand`, `model`, `version`, `year` and owner name.\r\n>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "device-global"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "registration",
+                  "value": "<string>",
+                  "description": "Registration number"
+                },
+                {
+                  "disabled": false,
+                  "key": "serial",
+                  "value": "<string>",
+                  "description": "Serial number"
+                },
+                {
+                  "disabled": false,
+                  "key": "brand",
+                  "value": "<string>",
+                  "description": "Device brand"
+                },
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>",
+                  "description": "Device model"
+                },
+                {
+                  "disabled": false,
+                  "key": "version",
+                  "value": "<string>",
+                  "description": "Device version"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>",
+                  "description": "Device year"
+                },
+                {
+                  "disabled": false,
+                  "key": "color",
+                  "value": "<string>",
+                  "description": "Device color"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<integer>,<integer>",
+                  "description": "Customer ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "customerName",
+                  "value": "<string>",
+                  "description": "Customer name"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchPhrase",
+                  "value": "<string>",
+                  "description": "Fulltext search phrase"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "65e93fda-897a-4327-ae3a-e4ebfab9c0e4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device-global"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "registration",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "color",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "customerName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPhrase",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"brand\": \"Volvo\",\n    \"callerAccess\": false,\n    \"color\": \"yellow\",\n    \"createdAt\": \"2022-01-01T00:00:00Z\",\n    \"createdById\": 1,\n    \"customerId\": 1,\n    \"data\": {},\n    \"dateSoldAt\": \"2022-01-01T00:00:00Z\",\n    \"hidden\": false,\n    \"id\": 1,\n    \"invoiceId\": 1,\n    \"limitedAccess\": false,\n    \"model\": \"S90\",\n    \"notes\": \"Some notes\",\n    \"productId\": 1,\n    \"productName\": \"Some product\",\n    \"registration\": \"123 abc\",\n    \"relevance\": 0.5,\n    \"serial\": \"123\",\n    \"updatedAt\": \"2022-01-01T00:00:00Z\",\n    \"updatedById\": 1,\n    \"version\": \"1\",\n    \"warrantyEndAt\": \"2022-01-01T00:00:00Z\",\n    \"warrantyStartAt\": \"2022-01-01T00:00:00Z\",\n    \"year\": \"2020\"\n  },\n  {\n    \"brand\": \"Volvo\",\n    \"callerAccess\": false,\n    \"color\": \"yellow\",\n    \"createdAt\": \"2022-01-01T00:00:00Z\",\n    \"createdById\": 1,\n    \"customerId\": 1,\n    \"data\": {},\n    \"dateSoldAt\": \"2022-01-01T00:00:00Z\",\n    \"hidden\": false,\n    \"id\": 1,\n    \"invoiceId\": 1,\n    \"limitedAccess\": false,\n    \"model\": \"S90\",\n    \"notes\": \"Some notes\",\n    \"productId\": 1,\n    \"productName\": \"Some product\",\n    \"registration\": \"123 abc\",\n    \"relevance\": 0.5,\n    \"serial\": \"123\",\n    \"updatedAt\": \"2022-01-01T00:00:00Z\",\n    \"updatedById\": 1,\n    \"version\": \"1\",\n    \"warrantyEndAt\": \"2022-01-01T00:00:00Z\",\n    \"warrantyStartAt\": \"2022-01-01T00:00:00Z\",\n    \"year\": \"2020\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b045787-9883-428f-bb68-9312cc124954",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device-global"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "registration",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "color",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "customerName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPhrase",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed6a29ae-a1f4-47e3-b275-8fe878a076b6",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device-global"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "registration",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "color",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "customerName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPhrase",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5bee5bd-132e-4106-86e9-357b5e54070e",
+          "name": "Delete one device record",
+          "request": {
+            "name": "Delete one device record",
+            "description": {
+              "content": "Delete one device record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "device",
+                ":deviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deviceId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "567228a6-e430-41fc-af7f-1208b757cb6c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "83030a94-897c-4221-be38-e08fd35e3e8c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28a71ef2-86c5-4725-84b3-8873d253a760",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1941565d-3d21-4b78-b490-24b6e7a68425",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23650fab-681b-4c69-83a5-6efd56b6caad",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a696492-fc47-4169-b029-6b2c44945d79",
+          "name": "Update device record",
+          "request": {
+            "name": "Update device record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "device",
+                ":deviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deviceId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"brand\": \"<string>\",\n  \"color\": \"<string>\",\n  \"customerId\": \"<integer>\",\n  \"data\": \"<object>\",\n  \"dateSoldAt\": \"<string>\",\n  \"hidden\": \"<boolean>\",\n  \"id\": \"<integer>\",\n  \"invoiceId\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"productId\": \"<integer>\",\n  \"productName\": \"<string>\",\n  \"registration\": \"<string>\",\n  \"serial\": \"<string>\",\n  \"setAccessToken\": \"<string>\",\n  \"version\": \"<string>\",\n  \"warrantyEndAt\": \"<string>\",\n  \"warrantyStartAt\": \"<string>\",\n  \"year\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f487975-d3fb-476e-8a09-6f9fc59e300e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"brand\": \"Volvo\",\n  \"callerAccess\": false,\n  \"color\": \"yellow\",\n  \"createdAt\": \"2022-01-01T00:00:00Z\",\n  \"createdById\": 1,\n  \"customerId\": 1,\n  \"data\": {},\n  \"dateSoldAt\": \"2022-01-01T00:00:00Z\",\n  \"hidden\": false,\n  \"id\": 1,\n  \"invoiceId\": 1,\n  \"limitedAccess\": false,\n  \"model\": \"S90\",\n  \"notes\": \"Some notes\",\n  \"productId\": 1,\n  \"productName\": \"Some product\",\n  \"registration\": \"123 abc\",\n  \"relevance\": 0.5,\n  \"serial\": \"123\",\n  \"updatedAt\": \"2022-01-01T00:00:00Z\",\n  \"updatedById\": 1,\n  \"version\": \"1\",\n  \"warrantyEndAt\": \"2022-01-01T00:00:00Z\",\n  \"warrantyStartAt\": \"2022-01-01T00:00:00Z\",\n  \"year\": \"2020\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e3e2f04-4340-430f-8d59-7f88fc9d23ed",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "39e84ddb-f7fa-43d2-af1e-6f99e5afc8bf",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f28783d-0226-4f48-9fec-979cb93efb30",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "35b0c2df-03ce-42ec-b748-405bf856a43d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6da498fd-9acc-42ac-8e05-99f09053c884",
+          "name": "Retrieve device record related logged values",
+          "request": {
+            "name": "Retrieve device record related logged values",
+            "description": {
+              "content": "Retrieve logged values for device record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "device",
+                ":deviceId",
+                "log"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Log type name"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateStart",
+                  "value": "<string>",
+                  "description": "Log entry time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateEnd",
+                  "value": "<string>",
+                  "description": "Log entry time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `id`, `deviceId`, `workorderId`, `date`, `name`, `createdAt`, `updatedAt`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "deviceId",
+                  "description": "(Required) Device id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c8c8cee2-e45c-4da9-a2df-c4dccd685c71",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId",
+                    "log"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Device id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"createdAt\": \"string\",\n    \"createdById\": 6575,\n    \"date\": \"string\",\n    \"deviceId\": 8351,\n    \"id\": 8723,\n    \"name\": \"string\",\n    \"updatedAt\": \"string\",\n    \"updatedById\": 4598,\n    \"valueInt\": 6957,\n    \"workorderId\": 1728\n  },\n  {\n    \"createdAt\": \"string\",\n    \"createdById\": 1919,\n    \"date\": \"string\",\n    \"deviceId\": 1268,\n    \"id\": 7912,\n    \"name\": \"string\",\n    \"updatedAt\": \"string\",\n    \"updatedById\": 8357,\n    \"valueInt\": 9897,\n    \"workorderId\": 312\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28a013e9-d625-406a-8010-13098ec6bc1d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId",
+                    "log"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Device id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bf129f41-4735-42cf-a99e-4d900af965c5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId",
+                    "log"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Device id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "734e3709-1251-4dcc-8fb9-9f04bab8f780",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "device",
+                    ":deviceId",
+                    "log"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateEnd",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "deviceId",
+                      "description": "(Required) Device id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a43937dd-94fd-4a4e-bae3-63b595b153fc",
+    "name": "assignments Assortment device API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

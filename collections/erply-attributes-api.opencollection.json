@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Attributes API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Attributes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/attribute",
+            "params": [
+              {
+                "name": "recordIDs",
+                "value": "",
+                "type": "query",
+                "description": "records are the objects that have the attributes. The parameter can contain semicolon delimited IDs."
+              },
+              {
+                "name": "entityName",
+                "value": "",
+                "type": "query",
+                "description": "attributes entity"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "amount to take"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              }
+            ]
+          },
+          "docs": "API client specifies record ID or multiple IDs and fetches attributes for all those records.\nFiltering & Sorting by Value is not supported."
+        },
+        {
+          "info": {
+            "name": "Attach / Update an Attribute",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/attribute"
+          },
+          "docs": "To Create an attribute you must leave the id field empty. To Update you must specify the ID field. RecordID refers to the object that the attribute will be attached to. Product / invoice / customer, etc.\nName cannot have spaces and is limited to 50 characters. One database record must not have multiple attributes with the same name.\n3 `types` are available - int, double, text. Based on the type the `value` should be number of text."
+        },
+        {
+          "info": {
+            "name": "Delete Attributes by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/attribute/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "semicolon delimited IDs"
+              }
+            ]
+          },
+          "docs": "Delete Attributes by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

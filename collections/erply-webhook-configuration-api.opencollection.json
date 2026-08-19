@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment webhook-configuration API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "webhook-configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get webhook configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/webhook-configuration"
+          },
+          "docs": "# Get webhook configurations\nGet current authenticated users existing webhook configurations"
+        },
+        {
+          "info": {
+            "name": "Add webhook configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/webhook-configuration"
+          },
+          "docs": "# Add new webhook configuration\nIn action field use: insert, update, delete or confirm (only usable on items that support it)"
+        },
+        {
+          "info": {
+            "name": "Update existing webhook configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/webhook-configuration/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the webhook configuration"
+              }
+            ]
+          },
+          "docs": "# Update existing webhook configuration\nUpdates an existing webhook configuration by its id"
+        },
+        {
+          "info": {
+            "name": "Remove existing webhook configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/webhook-configuration/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the webhook configuration"
+              }
+            ]
+          },
+          "docs": "# Remove existing webhook configuration\nRemoves an existing webhook configuration by its id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

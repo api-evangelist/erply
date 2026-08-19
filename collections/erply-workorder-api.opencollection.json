@@ -1,0 +1,632 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment workorder API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "workorder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up workorder records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workorder",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Record ID-s"
+              },
+              {
+                "name": "searchPhrase",
+                "value": "",
+                "type": "query",
+                "description": "Search by record number, document number, title, customer name, email, device serial, registration, make and model"
+              },
+              {
+                "name": "workorderNo",
+                "value": "",
+                "type": "query",
+                "description": "Workorder/Record number"
+              },
+              {
+                "name": "documentNo",
+                "value": "",
+                "type": "query",
+                "description": "Document number"
+              },
+              {
+                "name": "referenceNos",
+                "value": "",
+                "type": "query",
+                "description": "Reference numbers"
+              },
+              {
+                "name": "isTemplate",
+                "value": "",
+                "type": "query",
+                "description": "If templates or regular workorders should be returned. By default returns both"
+              },
+              {
+                "name": "entity",
+                "value": "",
+                "type": "query",
+                "description": "Record root entity (workorder, raji)"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Record types to return. If undefined, defaults to 'workorder'"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "Record title. Uses case insensitive partial matching"
+              },
+              {
+                "name": "groupIds",
+                "value": "",
+                "type": "query",
+                "description": "Record Group ID-s that must match"
+              },
+              {
+                "name": "groupIdNil",
+                "value": "",
+                "type": "query",
+                "description": "Group ID field should be filled or empty"
+              },
+              {
+                "name": "parentIds",
+                "value": "",
+                "type": "query",
+                "description": "Record Parent ID-s that must match"
+              },
+              {
+                "name": "parentIdNil",
+                "value": "",
+                "type": "query",
+                "description": "Parent ID field should be filled or empty"
+              },
+              {
+                "name": "childrenOfIds",
+                "value": "",
+                "type": "query",
+                "description": "Record ID-s for which child objects must be retrieved recursively"
+              },
+              {
+                "name": "parentsOfIds",
+                "value": "",
+                "type": "query",
+                "description": "Record ID-s for which parent objects must be retrieved recursively"
+              },
+              {
+                "name": "priorities",
+                "value": "",
+                "type": "query",
+                "description": "Record priorities that must match"
+              },
+              {
+                "name": "warehouseId",
+                "value": "",
+                "type": "query",
+                "description": "Warehouse ids"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Customer ids"
+              },
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "query",
+                "description": "Contact ids"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "query",
+                "description": "Device ids"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Record state codes (draft, confirmed, checked_in, checked_out, in_progress, blocked, done, cancelled)"
+              },
+              {
+                "name": "tranState",
+                "value": "",
+                "type": "query",
+                "description": "Record transactional state codes (preparation, estimated, prepaid, invoiced, paid)"
+              },
+              {
+                "name": "taskSchedState",
+                "value": "",
+                "type": "query",
+                "description": "Record task scheduled state codes (some_scheduled, nothing_scheduled)"
+              },
+              {
+                "name": "productStockState",
+                "value": "",
+                "type": "query",
+                "description": "Record row product stock state codes (parts_available, parts_not_ordered, need_po_finalization, awaiting_parts)"
+              },
+              {
+                "name": "createdById",
+                "value": "",
+                "type": "query",
+                "description": "ID-s of employees who created the record"
+              },
+              {
+                "name": "createdAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders created after the specified time (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)"
+              },
+              {
+                "name": "createdAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "\tSearch for workorders created before the specified time (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)"
+              },
+              {
+                "name": "updatedById",
+                "value": "",
+                "type": "query",
+                "description": "ID-s of employees who updated the record"
+              },
+              {
+                "name": "receivedById",
+                "value": "",
+                "type": "query",
+                "description": "ID-s of employees who marked the linked device as received"
+              },
+              {
+                "name": "receivedAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Device received time range lower bound (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)"
+              },
+              {
+                "name": "receivedAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "Device received time range upper bound (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)"
+              },
+              {
+                "name": "isReceived",
+                "value": "",
+                "type": "query",
+                "description": "Received or not received records"
+              },
+              {
+                "name": "returnedById",
+                "value": "",
+                "type": "query",
+                "description": "ID-s of employees who marked the linked device as returned"
+              },
+              {
+                "name": "returnedAtStart",
+                "value": "",
+                "type": "query",
+                "description": "Device returned time range lower bound (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)"
+              },
+              {
+                "name": "returnedAtEnd",
+                "value": "",
+                "type": "query",
+                "description": "Device returned time range upper bound (yyyy-mm-ddThh:mm:ssZ or UNIX timestamp)"
+              },
+              {
+                "name": "isReturned",
+                "value": "",
+                "type": "query",
+                "description": "Returned or not returned records"
+              },
+              {
+                "name": "isConfirmed",
+                "value": "",
+                "type": "query",
+                "description": "Confirmed or not confirmed records"
+              },
+              {
+                "name": "isCancelled",
+                "value": "",
+                "type": "query",
+                "description": "Cancelled or not cancelled records"
+              },
+              {
+                "name": "hasDocPrepay",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders with linked prepayment sales documents"
+              },
+              {
+                "name": "hasDocOffer",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders with linked offer sales documents"
+              },
+              {
+                "name": "hasDocInvoice",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders with linked invoice sales documents"
+              },
+              {
+                "name": "hasDocCredit",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders with linked credit documents"
+              },
+              {
+                "name": "isFullyPaid",
+                "value": "",
+                "type": "query",
+                "description": "Search for workorders which have been paid in full"
+              },
+              {
+                "name": "labelType",
+                "value": "",
+                "type": "query",
+                "description": "Label type"
+              },
+              {
+                "name": "label",
+                "value": "",
+                "type": "query",
+                "description": "Labels under the specified labelType that must match"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `workorderNo`, `referenceNo`, `netTotal`, `vatTotal`, `total`, `receivedAt`, `returnedAt`, `createdAt`, `updatedAt`, `registration`, `serial`, `brand`, `model`, `custFirstname`, `custName`, `stateCode`, `tranStateCode`, `priority`, `receiver`, `creator`, `type`"
+              }
+            ]
+          },
+          "docs": "Look up workorder records"
+        },
+        {
+          "info": {
+            "name": "Add a new workorder record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder"
+          },
+          "docs": "Add a new workorder record"
+        },
+        {
+          "info": {
+            "name": "Update workorder record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update workorder record"
+        },
+        {
+          "info": {
+            "name": "Delete one workorder record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one workorder record"
+        },
+        {
+          "info": {
+            "name": "Look up workorder backups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/backup",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              },
+              {
+                "name": "docNo",
+                "value": "",
+                "type": "query",
+                "description": "Search by associated sales document numbers"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values [backupId workorderId workorderNo createdAt]"
+              }
+            ]
+          },
+          "docs": "Look up workorder backups"
+        },
+        {
+          "info": {
+            "name": "Mark the workorder as cancelled",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/cancel",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Mark the workorder as cancelled"
+        },
+        {
+          "info": {
+            "name": "Mark the workorder as confirmed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/confirm",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Mark the workorder as confirmed"
+        },
+        {
+          "info": {
+            "name": "Create a copy of a workorder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/copy",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Create a copy of a workorder"
+        },
+        {
+          "info": {
+            "name": "Mark the device associated with the workorder as received",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/device-received",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Mark the device associated with the workorder as received"
+        },
+        {
+          "info": {
+            "name": "Mark the device associated with the workorder as returned",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/device-returned",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Mark the device associated with the workorder as returned"
+        },
+        {
+          "info": {
+            "name": "Change the order of one workorder within the grouping",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/order",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id that must be moved to new position"
+              }
+            ]
+          },
+          "docs": "Allows changing the order of workorders. A single record can be moved either in front of any other one in the same grouping, or to the end of the list"
+        },
+        {
+          "info": {
+            "name": "Create a prepayment document based on the specified workorder and optionally add payments to it",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/prepay",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Create a prepayment document based on the specified workorder and optionally add payments to it"
+        },
+        {
+          "info": {
+            "name": "Generates a quote from the workorder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/quote",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Generates a quote from the workorder"
+        },
+        {
+          "info": {
+            "name": "Settle workorders. Generate sales document and make payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/settle",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Settle workorders. Generate sales document and make payments"
+        },
+        {
+          "info": {
+            "name": "Mark the workorder as not cancelled",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/uncancel",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Mark the workorder as not cancelled"
+        },
+        {
+          "info": {
+            "name": "Mark the workorder as not confirmed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/unconfirm",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Mark the workorder as not confirmed"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

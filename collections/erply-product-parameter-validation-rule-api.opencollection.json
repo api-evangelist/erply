@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Parameter Validation Rule API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Parameter Validation Rule",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Product Parameter Validation Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/parameter/validation/rule"
+          },
+          "docs": "The validation rule types are: REQUIRED,  MIN_LENGTH, MAX_LENGTH, MIN_VALUE, MAX_VALUE, INPUT_CASE, PRECISION\nRule \"value\" or whatever to call this: the numeric qualifier that goes hand in hand with that particular rule type. Eg. I specify that my parameter must have at least a minimum number of characters and that minimum number is 5.\nFor type REQUIRED, leave empty.\nFor type MIN_LENGTH, input the required minimum length as an integer.\nFor type MAX_LENGTH, input the required maximum length as an"
+        },
+        {
+          "info": {
+            "name": "Delete Product Parameter Validation Rules by IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/parameter/validation/rule/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited validation rule IDs"
+              }
+            ]
+          },
+          "docs": "Delete Product Parameter Validation Rules by IDs"
+        },
+        {
+          "info": {
+            "name": "Update Product Parameter Validation Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/parameter/validation/rule/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ValidationRule ID"
+              }
+            ]
+          },
+          "docs": "Update Product Parameter Validation Rule"
+        },
+        {
+          "info": {
+            "name": "Get Product Parameter Validation Rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/parameter/:id/validation/rule",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "parameter ID"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "amount to take"
+              }
+            ]
+          },
+          "docs": "Get Product Parameter Validation Rule"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

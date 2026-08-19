@@ -1,0 +1,140 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment note API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "note",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/note",
+            "params": [
+              {
+                "name": "noteId",
+                "value": "",
+                "type": "query",
+                "description": "Note ids"
+              },
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "query",
+                "description": "Workorder ids"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "query",
+                "description": "Item ids"
+              },
+              {
+                "name": "rowId",
+                "value": "",
+                "type": "query",
+                "description": "Row ids"
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "query",
+                "description": "Task ids"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Note types to return. Defaults to returning the `type` that correspond to the provided ID filter. Eg. when `rowId` is defined, row notes are returned etc"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order"
+              }
+            ]
+          },
+          "docs": "Look up notes"
+        },
+        {
+          "info": {
+            "name": "Add a new note record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/note"
+          },
+          "docs": "Add a new note record"
+        },
+        {
+          "info": {
+            "name": "Update note record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/note/:noteId",
+            "params": [
+              {
+                "name": "noteId",
+                "value": "",
+                "type": "path",
+                "description": "Note id"
+              }
+            ]
+          },
+          "docs": "Update note record"
+        },
+        {
+          "info": {
+            "name": "Delete one note record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/note/:noteId",
+            "params": [
+              {
+                "name": "noteId",
+                "value": "",
+                "type": "path",
+                "description": "Note id"
+              }
+            ]
+          },
+          "docs": "Delete one note record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

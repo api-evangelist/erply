@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Fields API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read product fields that will be inherited from matrix products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/fields/inherited"
+          },
+          "docs": "There is an option to make matrix variations inherit specific field values from their parent product."
+        },
+        {
+          "info": {
+            "name": "Set product fields that will be inherited from matrix products",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/product/fields/inherited"
+          },
+          "docs": "There is an option to make matrix variations inherit specific field values from their parent product.\n\nThis setting is followed when editing matrix products. The variation fields will be overwritten automatically.\n\nSet field values for the fields you want to (re)configure only."
+        },
+        {
+          "info": {
+            "name": "Read permissions for product fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/fields/permissions",
+            "params": [
+              {
+                "name": "userGroupID",
+                "value": "",
+                "type": "query",
+                "description": "user group ID"
+              }
+            ]
+          },
+          "docs": "Read view, edit, add, delete permissions for product fields."
+        },
+        {
+          "info": {
+            "name": "Set permissions for product fields, permissions are user group based",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/product/fields/permissions",
+            "params": [
+              {
+                "name": "userGroupID",
+                "value": "",
+                "type": "query",
+                "description": "user group ID"
+              }
+            ]
+          },
+          "docs": "Set view, edit, add, delete permissions for product fields.\n\nSet field values for the fields you want to (re)configure only."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

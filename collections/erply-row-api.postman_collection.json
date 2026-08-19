@@ -1,0 +1,2305 @@
+{
+  "item": [
+    {
+      "id": "0b1af50a-9154-46a8-80e2-81eb9a9219db",
+      "name": "row",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b9abc12e-63c4-4b99-89ed-1c52cd60230d",
+          "name": "Look up rows",
+          "request": {
+            "name": "Look up rows",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "row"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "workorderId",
+                  "value": "<integer>,<integer>",
+                  "description": "Workorder id"
+                },
+                {
+                  "disabled": false,
+                  "key": "itemId",
+                  "value": "<integer>,<integer>",
+                  "description": "Item ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "rowId",
+                  "value": "<integer>,<integer>",
+                  "description": "Row ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "isNonStockProduct",
+                  "value": "<boolean>",
+                  "description": "Return only stock or non stock products"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>,<string>",
+                  "description": "States"
+                },
+                {
+                  "disabled": false,
+                  "key": "purchaseOrderRowId",
+                  "value": "<integer>,<integer>",
+                  "description": "Product purchase order row ids"
+                },
+                {
+                  "disabled": false,
+                  "key": "titleLike",
+                  "value": "<string>",
+                  "description": "Row title matching"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size. Defaults to 20"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number. Defaults to 1"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order. Supported values are: `id`, `order`. Defaults to `order`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8718cc2d-cc02-433a-93a1-a99085388643",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workorderId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "itemId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "isNonStockProduct",
+                      "value": "true"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "purchaseOrderRowId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "titleLike",
+                      "value": "title partial mat"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "true"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "2"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-order"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": 3064.638991435892,\n    \"confirmedAt\": \"string\",\n    \"confirmedById\": 5567,\n    \"createdAt\": \"string\",\n    \"createdById\": 3228,\n    \"data\": {},\n    \"discount\": 7660.735250361819,\n    \"id\": 7427,\n    \"isLinked\": false,\n    \"itemId\": 8902,\n    \"netTotal\": 3274.1856350081157,\n    \"nonStockProduct\": true,\n    \"order\": 6929,\n    \"parentLinkId\": 1932,\n    \"price\": 7849.230605401966,\n    \"productCode\": \"string\",\n    \"productId\": 9983,\n    \"productName\": \"string\",\n    \"productOriginalPrice\": 6843.719604842693,\n    \"productUnitId\": 2870,\n    \"productUpcEan\": \"string\",\n    \"purchaseOrderRowId\": 787,\n    \"state\": \"string\",\n    \"taxExempt\": true,\n    \"title\": \"string\",\n    \"total\": 2121.7722335845533,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 5135,\n    \"vatRateId\": 3298,\n    \"vatTotal\": 6806.621837348631,\n    \"workorderId\": 1324\n  },\n  {\n    \"amount\": 3583.7338335940995,\n    \"confirmedAt\": \"string\",\n    \"confirmedById\": 4286,\n    \"createdAt\": \"string\",\n    \"createdById\": 5499,\n    \"data\": {},\n    \"discount\": 2424.530545460271,\n    \"id\": 9570,\n    \"isLinked\": true,\n    \"itemId\": 8767,\n    \"netTotal\": 5511.947024217574,\n    \"nonStockProduct\": false,\n    \"order\": 6368,\n    \"parentLinkId\": 2123,\n    \"price\": 3879.1436783889276,\n    \"productCode\": \"string\",\n    \"productId\": 8854,\n    \"productName\": \"string\",\n    \"productOriginalPrice\": 5955.5495223103635,\n    \"productUnitId\": 5420,\n    \"productUpcEan\": \"string\",\n    \"purchaseOrderRowId\": 2800,\n    \"state\": \"string\",\n    \"taxExempt\": true,\n    \"title\": \"string\",\n    \"total\": 9331.764028343774,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 9634,\n    \"vatRateId\": 8586,\n    \"vatTotal\": 9477.397356607504,\n    \"workorderId\": 865\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1499118b-6d36-40eb-8dcf-47b961fc4f69",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workorderId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "itemId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "isNonStockProduct",
+                      "value": "true"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "purchaseOrderRowId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "titleLike",
+                      "value": "title partial mat"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "true"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "2"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-order"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bba65dbd-e856-4809-b288-ca8aa1f45563",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workorderId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "itemId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "rowId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "isNonStockProduct",
+                      "value": "true"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "purchaseOrderRowId",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "titleLike",
+                      "value": "title partial mat"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "true"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "30"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "2"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-order"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5933b38-9d9d-4caf-8809-8d938c50a870",
+          "name": "Add a new row record",
+          "request": {
+            "name": "Add a new row record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "row"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"data\": \"<object>\",\n  \"discount\": \"<number>\",\n  \"id\": \"<integer>\",\n  \"itemId\": \"<integer>\",\n  \"order\": \"<integer>\",\n  \"price\": \"<number>\",\n  \"productId\": \"<integer>\",\n  \"purchaseOrderRowId\": \"<integer>\",\n  \"state\": \"<string>\",\n  \"taxExempt\": \"<boolean>\",\n  \"title\": \"<string>\",\n  \"vatRateId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bf4054e2-3a3e-4c7e-a93b-b3f250b233bc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 1475.9200787848392,\n  \"confirmedAt\": \"string\",\n  \"confirmedById\": 1227,\n  \"createdAt\": \"string\",\n  \"createdById\": 164,\n  \"data\": {},\n  \"discount\": 6198.794564029871,\n  \"id\": 616,\n  \"isLinked\": true,\n  \"itemId\": 7808,\n  \"netTotal\": 5054.468422314573,\n  \"nonStockProduct\": false,\n  \"order\": 6196,\n  \"parentLinkId\": 5459,\n  \"price\": 8707.595043341636,\n  \"productCode\": \"string\",\n  \"productId\": 1752,\n  \"productName\": \"string\",\n  \"productOriginalPrice\": 1791.4279030388225,\n  \"productUnitId\": 5290,\n  \"productUpcEan\": \"string\",\n  \"purchaseOrderRowId\": 6511,\n  \"state\": \"string\",\n  \"taxExempt\": true,\n  \"title\": \"string\",\n  \"total\": 5566.655243623278,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 616,\n  \"vatRateId\": 7946,\n  \"vatTotal\": 8869.125843295633,\n  \"workorderId\": 5161\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5cff8db-c90a-473b-89b0-b0ff8177acd4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "be4c5a64-c9ce-4ed9-97dc-71e345f9eccb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f95ec83-c771-4b78-9d29-36ba9136e566",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b4d8e95-856d-42bb-85ad-a75f839337f4",
+          "name": "Delete one row record",
+          "request": {
+            "name": "Delete one row record",
+            "description": {
+              "content": "Delete one row record",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "row",
+                ":rowId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "rowId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ed6136e7-923c-4245-a33d-23bdfa0a3dc9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b0448997-514f-479a-b019-ce2c3a241a54",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a115968-9e8c-49c5-9574-b4dbc658f6eb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e7b30771-65d1-4105-b72e-1483c4cb030c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "43477182-e538-42a7-8de6-d69f56589a31",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1896f05-c113-4c52-8eaf-1a4082055e90",
+          "name": "Update row record",
+          "request": {
+            "name": "Update row record",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "row",
+                ":rowId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "rowId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"data\": \"<object>\",\n  \"discount\": \"<number>\",\n  \"id\": \"<integer>\",\n  \"itemId\": \"<integer>\",\n  \"order\": \"<integer>\",\n  \"price\": \"<number>\",\n  \"productId\": \"<integer>\",\n  \"purchaseOrderRowId\": \"<integer>\",\n  \"state\": \"<string>\",\n  \"taxExempt\": \"<boolean>\",\n  \"title\": \"<string>\",\n  \"vatRateId\": \"<integer>\",\n  \"workorderId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a3e0acd2-6d40-401c-871b-f9a4506205ff",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 1475.9200787848392,\n  \"confirmedAt\": \"string\",\n  \"confirmedById\": 1227,\n  \"createdAt\": \"string\",\n  \"createdById\": 164,\n  \"data\": {},\n  \"discount\": 6198.794564029871,\n  \"id\": 616,\n  \"isLinked\": true,\n  \"itemId\": 7808,\n  \"netTotal\": 5054.468422314573,\n  \"nonStockProduct\": false,\n  \"order\": 6196,\n  \"parentLinkId\": 5459,\n  \"price\": 8707.595043341636,\n  \"productCode\": \"string\",\n  \"productId\": 1752,\n  \"productName\": \"string\",\n  \"productOriginalPrice\": 1791.4279030388225,\n  \"productUnitId\": 5290,\n  \"productUpcEan\": \"string\",\n  \"purchaseOrderRowId\": 6511,\n  \"state\": \"string\",\n  \"taxExempt\": true,\n  \"title\": \"string\",\n  \"total\": 5566.655243623278,\n  \"updatedAt\": \"string\",\n  \"updatedById\": 616,\n  \"vatRateId\": 7946,\n  \"vatTotal\": 8869.125843295633,\n  \"workorderId\": 5161\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fcb0e692-399b-4869-8811-c6c651f08f97",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eed944b1-68da-424a-a3f1-f4bc44cfd535",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5cd8f542-6c9e-4f5c-ab95-6abc23a2cbce",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "43ad8b3c-ed8e-443a-9dc5-e5e53d30b2f9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75e7eabe-83c8-498f-88b1-34f4b9dc6356",
+          "name": "Change the order of one row",
+          "request": {
+            "name": "Change the order of one row",
+            "description": {
+              "content": "Allows changing the order of rows. A single record can be moved either in front of any other row in the same workorder, or to the end of the row list",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "row",
+                ":rowId",
+                "order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "rowId",
+                  "description": "(Required) Row id that must be moved to new position"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inFrontOfId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dda67bcc-485e-4723-a721-680d99849429",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Row id that must be moved to new position"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inFrontOfId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6f685fb-2317-4456-857a-843aa474c224",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Row id that must be moved to new position"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inFrontOfId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4181e0aa-9953-4ad9-a326-b46a65a49f4c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Row id that must be moved to new position"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inFrontOfId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0c3cacb6-9ffd-4129-99f6-e7bf88c15914",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Row id that must be moved to new position"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inFrontOfId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d22f0c7-1731-4ba3-a3f7-cb6c6d4114b4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "row",
+                    ":rowId",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "rowId",
+                      "description": "(Required) Row id that must be moved to new position"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inFrontOfId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d67f2d04-96e2-4d75-923d-601b2d2ce0a2",
+          "name": "Add row records",
+          "request": {
+            "name": "Add row records",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workorder",
+                ":workorderId",
+                "row"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workorderId",
+                  "description": "(Required) Workorder id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"amount\": \"<number>\",\n    \"data\": \"<object>\",\n    \"discount\": \"<number>\",\n    \"id\": \"<integer>\",\n    \"itemId\": \"<integer>\",\n    \"order\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"productId\": \"<integer>\",\n    \"purchaseOrderRowId\": \"<integer>\",\n    \"state\": \"<string>\",\n    \"taxExempt\": \"<boolean>\",\n    \"title\": \"<string>\",\n    \"vatRateId\": \"<integer>\",\n    \"workorderId\": \"<integer>\"\n  },\n  {\n    \"amount\": \"<number>\",\n    \"data\": \"<object>\",\n    \"discount\": \"<number>\",\n    \"id\": \"<integer>\",\n    \"itemId\": \"<integer>\",\n    \"order\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"productId\": \"<integer>\",\n    \"purchaseOrderRowId\": \"<integer>\",\n    \"state\": \"<string>\",\n    \"taxExempt\": \"<boolean>\",\n    \"title\": \"<string>\",\n    \"vatRateId\": \"<integer>\",\n    \"workorderId\": \"<integer>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ebb5b376-e319-40a3-9b8b-3bf329973d2f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": 3064.638991435892,\n    \"confirmedAt\": \"string\",\n    \"confirmedById\": 5567,\n    \"createdAt\": \"string\",\n    \"createdById\": 3228,\n    \"data\": {},\n    \"discount\": 7660.735250361819,\n    \"id\": 7427,\n    \"isLinked\": false,\n    \"itemId\": 8902,\n    \"netTotal\": 3274.1856350081157,\n    \"nonStockProduct\": true,\n    \"order\": 6929,\n    \"parentLinkId\": 1932,\n    \"price\": 7849.230605401966,\n    \"productCode\": \"string\",\n    \"productId\": 9983,\n    \"productName\": \"string\",\n    \"productOriginalPrice\": 6843.719604842693,\n    \"productUnitId\": 2870,\n    \"productUpcEan\": \"string\",\n    \"purchaseOrderRowId\": 787,\n    \"state\": \"string\",\n    \"taxExempt\": true,\n    \"title\": \"string\",\n    \"total\": 2121.7722335845533,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 5135,\n    \"vatRateId\": 3298,\n    \"vatTotal\": 6806.621837348631,\n    \"workorderId\": 1324\n  },\n  {\n    \"amount\": 3583.7338335940995,\n    \"confirmedAt\": \"string\",\n    \"confirmedById\": 4286,\n    \"createdAt\": \"string\",\n    \"createdById\": 5499,\n    \"data\": {},\n    \"discount\": 2424.530545460271,\n    \"id\": 9570,\n    \"isLinked\": true,\n    \"itemId\": 8767,\n    \"netTotal\": 5511.947024217574,\n    \"nonStockProduct\": false,\n    \"order\": 6368,\n    \"parentLinkId\": 2123,\n    \"price\": 3879.1436783889276,\n    \"productCode\": \"string\",\n    \"productId\": 8854,\n    \"productName\": \"string\",\n    \"productOriginalPrice\": 5955.5495223103635,\n    \"productUnitId\": 5420,\n    \"productUpcEan\": \"string\",\n    \"purchaseOrderRowId\": 2800,\n    \"state\": \"string\",\n    \"taxExempt\": true,\n    \"title\": \"string\",\n    \"total\": 9331.764028343774,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 9634,\n    \"vatRateId\": 8586,\n    \"vatTotal\": 9477.397356607504,\n    \"workorderId\": 865\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52647f4d-700d-471c-8454-28e702479974",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1016602b-9cfc-4da0-9f7d-c0e252faa34c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4460f64-8520-42b4-9e99-9f46d3839720",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e974f2c4-75ef-44d4-b3a7-affb4c9d041b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4330eabe-f5b9-4f4d-9e82-6cc5c28b89e8",
+          "name": "Update row records",
+          "request": {
+            "name": "Update row records",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workorder",
+                ":workorderId",
+                "row"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workorderId",
+                  "description": "(Required) Workorder id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"amount\": \"<number>\",\n    \"data\": \"<object>\",\n    \"discount\": \"<number>\",\n    \"id\": \"<integer>\",\n    \"itemId\": \"<integer>\",\n    \"order\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"productId\": \"<integer>\",\n    \"purchaseOrderRowId\": \"<integer>\",\n    \"state\": \"<string>\",\n    \"taxExempt\": \"<boolean>\",\n    \"title\": \"<string>\",\n    \"vatRateId\": \"<integer>\",\n    \"workorderId\": \"<integer>\"\n  },\n  {\n    \"amount\": \"<number>\",\n    \"data\": \"<object>\",\n    \"discount\": \"<number>\",\n    \"id\": \"<integer>\",\n    \"itemId\": \"<integer>\",\n    \"order\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"productId\": \"<integer>\",\n    \"purchaseOrderRowId\": \"<integer>\",\n    \"state\": \"<string>\",\n    \"taxExempt\": \"<boolean>\",\n    \"title\": \"<string>\",\n    \"vatRateId\": \"<integer>\",\n    \"workorderId\": \"<integer>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "13ab1274-ca54-4550-87e4-ffe9dabdbdbd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": 3064.638991435892,\n    \"confirmedAt\": \"string\",\n    \"confirmedById\": 5567,\n    \"createdAt\": \"string\",\n    \"createdById\": 3228,\n    \"data\": {},\n    \"discount\": 7660.735250361819,\n    \"id\": 7427,\n    \"isLinked\": false,\n    \"itemId\": 8902,\n    \"netTotal\": 3274.1856350081157,\n    \"nonStockProduct\": true,\n    \"order\": 6929,\n    \"parentLinkId\": 1932,\n    \"price\": 7849.230605401966,\n    \"productCode\": \"string\",\n    \"productId\": 9983,\n    \"productName\": \"string\",\n    \"productOriginalPrice\": 6843.719604842693,\n    \"productUnitId\": 2870,\n    \"productUpcEan\": \"string\",\n    \"purchaseOrderRowId\": 787,\n    \"state\": \"string\",\n    \"taxExempt\": true,\n    \"title\": \"string\",\n    \"total\": 2121.7722335845533,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 5135,\n    \"vatRateId\": 3298,\n    \"vatTotal\": 6806.621837348631,\n    \"workorderId\": 1324\n  },\n  {\n    \"amount\": 3583.7338335940995,\n    \"confirmedAt\": \"string\",\n    \"confirmedById\": 4286,\n    \"createdAt\": \"string\",\n    \"createdById\": 5499,\n    \"data\": {},\n    \"discount\": 2424.530545460271,\n    \"id\": 9570,\n    \"isLinked\": true,\n    \"itemId\": 8767,\n    \"netTotal\": 5511.947024217574,\n    \"nonStockProduct\": false,\n    \"order\": 6368,\n    \"parentLinkId\": 2123,\n    \"price\": 3879.1436783889276,\n    \"productCode\": \"string\",\n    \"productId\": 8854,\n    \"productName\": \"string\",\n    \"productOriginalPrice\": 5955.5495223103635,\n    \"productUnitId\": 5420,\n    \"productUpcEan\": \"string\",\n    \"purchaseOrderRowId\": 2800,\n    \"state\": \"string\",\n    \"taxExempt\": true,\n    \"title\": \"string\",\n    \"total\": 9331.764028343774,\n    \"updatedAt\": \"string\",\n    \"updatedById\": 9634,\n    \"vatRateId\": 8586,\n    \"vatTotal\": 9477.397356607504,\n    \"workorderId\": 865\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87512238-9501-42cc-bc61-48d2ae8a33d6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c40993f-c6dc-4c7b-8901-4687207af139",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb4601f2-2cb7-42fe-925e-db90b8997f50",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dfa634d2-844c-4686-aa71-8e031480e41d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "row"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7806e30e-b4c8-4f3e-b885-fa04cf346062",
+    "name": "assignments Assortment row API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

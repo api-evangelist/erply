@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Matrix Dimension Value API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Matrix Dimension Value",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Matrix Dimension Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/matrix/dimension/value",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              }
+            ]
+          },
+          "docs": "Get Matrix Dimension Value"
+        },
+        {
+          "info": {
+            "name": "Create Matrix Dimension Value",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/dimension/value"
+          },
+          "docs": "Create Matrix Dimension Value"
+        },
+        {
+          "info": {
+            "name": "Create dimension values in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/dimension/value/bulk"
+          },
+          "docs": "each request contains the created resource data"
+        },
+        {
+          "info": {
+            "name": "Get dimension values in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/matrix/dimension/value/bulk/get"
+          },
+          "docs": "Get dimension values in bulk"
+        },
+        {
+          "info": {
+            "name": "Delete Matrix Dimension Values if not used by any active product",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/matrix/dimension/value/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "semicolon delimited IDs"
+              }
+            ]
+          },
+          "docs": "Delete Matrix Dimension Values if not used by any active product"
+        },
+        {
+          "info": {
+            "name": "Update Matrix Dimension Value",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/matrix/dimension/value/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "dimension value ID"
+              }
+            ]
+          },
+          "docs": "Update Matrix Dimension Value"
+        },
+        {
+          "info": {
+            "name": "Move Dimension Value",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/matrix/dimension/value/:id/move",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              }
+            ]
+          },
+          "docs": "position has to be one of the following:  `before` | `after`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

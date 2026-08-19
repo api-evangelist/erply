@@ -1,0 +1,142 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment External IDs API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "External IDs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read external IDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/external-ids",
+            "params": [
+              {
+                "name": "externalIds",
+                "value": "",
+                "type": "query",
+                "description": "up to 100 external IDs"
+              },
+              {
+                "name": "objIds",
+                "value": "",
+                "type": "query",
+                "description": "up to 100 object IDs"
+              },
+              {
+                "name": "entityName",
+                "value": "",
+                "type": "query",
+                "description": "Entity name to filter by (currently supported: category)"
+              },
+              {
+                "name": "integrationName",
+                "value": "",
+                "type": "query",
+                "description": "integration name"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Currently supported entities: category"
+        },
+        {
+          "info": {
+            "name": "Delete external IDs of entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/external-ids/:entityName/:objIds",
+            "params": [
+              {
+                "name": "integrationName",
+                "value": "",
+                "type": "query",
+                "description": "Specify the integration name to delete the external ID associated with the integration only."
+              },
+              {
+                "name": "entityName",
+                "value": "",
+                "type": "path",
+                "description": "Entity name (currently supported: category)"
+              },
+              {
+                "name": "objIds",
+                "value": "",
+                "type": "path",
+                "description": "up to 100 semicolon delimited ids"
+              }
+            ]
+          },
+          "docs": "Currently supported entities: category"
+        },
+        {
+          "info": {
+            "name": "Update external ID of an entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v1/external-ids/:entityName/:objId",
+            "params": [
+              {
+                "name": "entityName",
+                "value": "",
+                "type": "path",
+                "description": "Entity name (currently supported: category)"
+              },
+              {
+                "name": "objId",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Currently supported entities: category"
+        },
+        {
+          "info": {
+            "name": "Attach external ID to an entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/external-ids/:objId",
+            "params": [
+              {
+                "name": "objId",
+                "value": "",
+                "type": "path",
+                "description": "Object ID"
+              }
+            ]
+          },
+          "docs": "Currently supported entities: category"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

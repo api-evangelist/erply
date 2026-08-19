@@ -1,0 +1,754 @@
+{
+  "item": [
+    {
+      "id": "8351c02e-a433-4a57-9100-52caea3a65a4",
+      "name": "Product Fields",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "720c950c-bcaf-4ffd-a477-906798c49e29",
+          "name": "Read product fields that will be inherited from matrix products",
+          "request": {
+            "name": "Read product fields that will be inherited from matrix products",
+            "description": {
+              "content": "There is an option to make matrix variations inherit specific field values from their parent product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "fields",
+                "inherited"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f898d668-c546-421d-9e02-03d06e1f5f39",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "inherited"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b691a5e-9816-49a6-8eab-09a639d81ab1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "inherited"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88302378-c05a-4ec9-8c6d-09e933be01d4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "inherited"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9dcc009c-e8dc-4591-a6d9-adf535bc6787",
+          "name": "Set product fields that will be inherited from matrix products",
+          "request": {
+            "name": "Set product fields that will be inherited from matrix products",
+            "description": {
+              "content": "There is an option to make matrix variations inherit specific field values from their parent product.\n\nThis setting is followed when editing matrix products. The variation fields will be overwritten automatically.\n\nSet field values for the fields you want to (re)configure only.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "fields",
+                "inherited"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"age_restriction\": \"<boolean>\",\n  \"alcohol_percentage\": \"<boolean>\",\n  \"alcohol_registry_number\": \"<boolean>\",\n  \"batches\": \"<boolean>\",\n  \"brand_id\": \"<boolean>\",\n  \"cashier_must_enter_price\": \"<boolean>\",\n  \"category_id\": \"<boolean>\",\n  \"code\": \"<boolean>\",\n  \"code2\": \"<boolean>\",\n  \"code3\": \"<boolean>\",\n  \"code5\": \"<boolean>\",\n  \"code6\": \"<boolean>\",\n  \"code7\": \"<boolean>\",\n  \"code8\": \"<boolean>\",\n  \"cost\": \"<boolean>\",\n  \"country_of_origin_id\": \"<boolean>\",\n  \"delivery_time\": \"<boolean>\",\n  \"deposit_fee_amount\": \"<boolean>\",\n  \"deposit_fee_id\": \"<boolean>\",\n  \"description\": \"<boolean>\",\n  \"displayed_in_webshop\": \"<boolean>\",\n  \"excise_declaration_number\": \"<boolean>\",\n  \"extra_field1_id\": \"<boolean>\",\n  \"extra_field2_id\": \"<boolean>\",\n  \"extra_field3_id\": \"<boolean>\",\n  \"extra_field4_id\": \"<boolean>\",\n  \"family_id\": \"<boolean>\",\n  \"gross_weight\": \"<boolean>\",\n  \"group_id\": \"<boolean>\",\n  \"has_serial_numbers\": \"<boolean>\",\n  \"height\": \"<boolean>\",\n  \"is_gift_card\": \"<boolean>\",\n  \"is_regular_gift_card\": \"<boolean>\",\n  \"labels_not_needed\": \"<boolean>\",\n  \"length\": \"<boolean>\",\n  \"location_in_warehouse_id\": \"<boolean>\",\n  \"location_in_warehouse_text\": \"<boolean>\",\n  \"manufacturer_name\": \"<boolean>\",\n  \"name\": \"<boolean>\",\n  \"net_weight\": \"<boolean>\",\n  \"non_discountable\": \"<boolean>\",\n  \"non_refundable\": \"<boolean>\",\n  \"non_stock_product\": \"<boolean>\",\n  \"packaging_type\": \"<boolean>\",\n  \"packing_not_required\": \"<boolean>\",\n  \"price\": \"<boolean>\",\n  \"price_with_tax\": \"<boolean>\",\n  \"priority_group_id\": \"<boolean>\",\n  \"product_reorder_multiples\": \"<boolean>\",\n  \"reward_points_not_allowed\": \"<boolean>\",\n  \"sold_in_packages\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"suggested_retail_price\": \"<boolean>\",\n  \"supplier_code\": \"<boolean>\",\n  \"supplier_id\": \"<boolean>\",\n  \"supplier_name\": \"<boolean>\",\n  \"tax_free\": \"<boolean>\",\n  \"tax_rate_id\": \"<boolean>\",\n  \"type\": \"<boolean>\",\n  \"unit_id\": \"<boolean>\",\n  \"volume\": \"<boolean>\",\n  \"width\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "35a85cb1-0b1a-4a7a-b296-ac89e3a89601",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "inherited"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"age_restriction\": \"<boolean>\",\n  \"alcohol_percentage\": \"<boolean>\",\n  \"alcohol_registry_number\": \"<boolean>\",\n  \"batches\": \"<boolean>\",\n  \"brand_id\": \"<boolean>\",\n  \"cashier_must_enter_price\": \"<boolean>\",\n  \"category_id\": \"<boolean>\",\n  \"code\": \"<boolean>\",\n  \"code2\": \"<boolean>\",\n  \"code3\": \"<boolean>\",\n  \"code5\": \"<boolean>\",\n  \"code6\": \"<boolean>\",\n  \"code7\": \"<boolean>\",\n  \"code8\": \"<boolean>\",\n  \"cost\": \"<boolean>\",\n  \"country_of_origin_id\": \"<boolean>\",\n  \"delivery_time\": \"<boolean>\",\n  \"deposit_fee_amount\": \"<boolean>\",\n  \"deposit_fee_id\": \"<boolean>\",\n  \"description\": \"<boolean>\",\n  \"displayed_in_webshop\": \"<boolean>\",\n  \"excise_declaration_number\": \"<boolean>\",\n  \"extra_field1_id\": \"<boolean>\",\n  \"extra_field2_id\": \"<boolean>\",\n  \"extra_field3_id\": \"<boolean>\",\n  \"extra_field4_id\": \"<boolean>\",\n  \"family_id\": \"<boolean>\",\n  \"gross_weight\": \"<boolean>\",\n  \"group_id\": \"<boolean>\",\n  \"has_serial_numbers\": \"<boolean>\",\n  \"height\": \"<boolean>\",\n  \"is_gift_card\": \"<boolean>\",\n  \"is_regular_gift_card\": \"<boolean>\",\n  \"labels_not_needed\": \"<boolean>\",\n  \"length\": \"<boolean>\",\n  \"location_in_warehouse_id\": \"<boolean>\",\n  \"location_in_warehouse_text\": \"<boolean>\",\n  \"manufacturer_name\": \"<boolean>\",\n  \"name\": \"<boolean>\",\n  \"net_weight\": \"<boolean>\",\n  \"non_discountable\": \"<boolean>\",\n  \"non_refundable\": \"<boolean>\",\n  \"non_stock_product\": \"<boolean>\",\n  \"packaging_type\": \"<boolean>\",\n  \"packing_not_required\": \"<boolean>\",\n  \"price\": \"<boolean>\",\n  \"price_with_tax\": \"<boolean>\",\n  \"priority_group_id\": \"<boolean>\",\n  \"product_reorder_multiples\": \"<boolean>\",\n  \"reward_points_not_allowed\": \"<boolean>\",\n  \"sold_in_packages\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"suggested_retail_price\": \"<boolean>\",\n  \"supplier_code\": \"<boolean>\",\n  \"supplier_id\": \"<boolean>\",\n  \"supplier_name\": \"<boolean>\",\n  \"tax_free\": \"<boolean>\",\n  \"tax_rate_id\": \"<boolean>\",\n  \"type\": \"<boolean>\",\n  \"unit_id\": \"<boolean>\",\n  \"volume\": \"<boolean>\",\n  \"width\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "011e5080-9bd5-4967-adf4-57d4a02a36e3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "inherited"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"age_restriction\": \"<boolean>\",\n  \"alcohol_percentage\": \"<boolean>\",\n  \"alcohol_registry_number\": \"<boolean>\",\n  \"batches\": \"<boolean>\",\n  \"brand_id\": \"<boolean>\",\n  \"cashier_must_enter_price\": \"<boolean>\",\n  \"category_id\": \"<boolean>\",\n  \"code\": \"<boolean>\",\n  \"code2\": \"<boolean>\",\n  \"code3\": \"<boolean>\",\n  \"code5\": \"<boolean>\",\n  \"code6\": \"<boolean>\",\n  \"code7\": \"<boolean>\",\n  \"code8\": \"<boolean>\",\n  \"cost\": \"<boolean>\",\n  \"country_of_origin_id\": \"<boolean>\",\n  \"delivery_time\": \"<boolean>\",\n  \"deposit_fee_amount\": \"<boolean>\",\n  \"deposit_fee_id\": \"<boolean>\",\n  \"description\": \"<boolean>\",\n  \"displayed_in_webshop\": \"<boolean>\",\n  \"excise_declaration_number\": \"<boolean>\",\n  \"extra_field1_id\": \"<boolean>\",\n  \"extra_field2_id\": \"<boolean>\",\n  \"extra_field3_id\": \"<boolean>\",\n  \"extra_field4_id\": \"<boolean>\",\n  \"family_id\": \"<boolean>\",\n  \"gross_weight\": \"<boolean>\",\n  \"group_id\": \"<boolean>\",\n  \"has_serial_numbers\": \"<boolean>\",\n  \"height\": \"<boolean>\",\n  \"is_gift_card\": \"<boolean>\",\n  \"is_regular_gift_card\": \"<boolean>\",\n  \"labels_not_needed\": \"<boolean>\",\n  \"length\": \"<boolean>\",\n  \"location_in_warehouse_id\": \"<boolean>\",\n  \"location_in_warehouse_text\": \"<boolean>\",\n  \"manufacturer_name\": \"<boolean>\",\n  \"name\": \"<boolean>\",\n  \"net_weight\": \"<boolean>\",\n  \"non_discountable\": \"<boolean>\",\n  \"non_refundable\": \"<boolean>\",\n  \"non_stock_product\": \"<boolean>\",\n  \"packaging_type\": \"<boolean>\",\n  \"packing_not_required\": \"<boolean>\",\n  \"price\": \"<boolean>\",\n  \"price_with_tax\": \"<boolean>\",\n  \"priority_group_id\": \"<boolean>\",\n  \"product_reorder_multiples\": \"<boolean>\",\n  \"reward_points_not_allowed\": \"<boolean>\",\n  \"sold_in_packages\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"suggested_retail_price\": \"<boolean>\",\n  \"supplier_code\": \"<boolean>\",\n  \"supplier_id\": \"<boolean>\",\n  \"supplier_name\": \"<boolean>\",\n  \"tax_free\": \"<boolean>\",\n  \"tax_rate_id\": \"<boolean>\",\n  \"type\": \"<boolean>\",\n  \"unit_id\": \"<boolean>\",\n  \"volume\": \"<boolean>\",\n  \"width\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4db7e28f-203a-4ce9-bc6a-64259f326664",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "inherited"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"age_restriction\": \"<boolean>\",\n  \"alcohol_percentage\": \"<boolean>\",\n  \"alcohol_registry_number\": \"<boolean>\",\n  \"batches\": \"<boolean>\",\n  \"brand_id\": \"<boolean>\",\n  \"cashier_must_enter_price\": \"<boolean>\",\n  \"category_id\": \"<boolean>\",\n  \"code\": \"<boolean>\",\n  \"code2\": \"<boolean>\",\n  \"code3\": \"<boolean>\",\n  \"code5\": \"<boolean>\",\n  \"code6\": \"<boolean>\",\n  \"code7\": \"<boolean>\",\n  \"code8\": \"<boolean>\",\n  \"cost\": \"<boolean>\",\n  \"country_of_origin_id\": \"<boolean>\",\n  \"delivery_time\": \"<boolean>\",\n  \"deposit_fee_amount\": \"<boolean>\",\n  \"deposit_fee_id\": \"<boolean>\",\n  \"description\": \"<boolean>\",\n  \"displayed_in_webshop\": \"<boolean>\",\n  \"excise_declaration_number\": \"<boolean>\",\n  \"extra_field1_id\": \"<boolean>\",\n  \"extra_field2_id\": \"<boolean>\",\n  \"extra_field3_id\": \"<boolean>\",\n  \"extra_field4_id\": \"<boolean>\",\n  \"family_id\": \"<boolean>\",\n  \"gross_weight\": \"<boolean>\",\n  \"group_id\": \"<boolean>\",\n  \"has_serial_numbers\": \"<boolean>\",\n  \"height\": \"<boolean>\",\n  \"is_gift_card\": \"<boolean>\",\n  \"is_regular_gift_card\": \"<boolean>\",\n  \"labels_not_needed\": \"<boolean>\",\n  \"length\": \"<boolean>\",\n  \"location_in_warehouse_id\": \"<boolean>\",\n  \"location_in_warehouse_text\": \"<boolean>\",\n  \"manufacturer_name\": \"<boolean>\",\n  \"name\": \"<boolean>\",\n  \"net_weight\": \"<boolean>\",\n  \"non_discountable\": \"<boolean>\",\n  \"non_refundable\": \"<boolean>\",\n  \"non_stock_product\": \"<boolean>\",\n  \"packaging_type\": \"<boolean>\",\n  \"packing_not_required\": \"<boolean>\",\n  \"price\": \"<boolean>\",\n  \"price_with_tax\": \"<boolean>\",\n  \"priority_group_id\": \"<boolean>\",\n  \"product_reorder_multiples\": \"<boolean>\",\n  \"reward_points_not_allowed\": \"<boolean>\",\n  \"sold_in_packages\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"suggested_retail_price\": \"<boolean>\",\n  \"supplier_code\": \"<boolean>\",\n  \"supplier_id\": \"<boolean>\",\n  \"supplier_name\": \"<boolean>\",\n  \"tax_free\": \"<boolean>\",\n  \"tax_rate_id\": \"<boolean>\",\n  \"type\": \"<boolean>\",\n  \"unit_id\": \"<boolean>\",\n  \"volume\": \"<boolean>\",\n  \"width\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba9324dd-e108-4221-b405-a97c81156dab",
+          "name": "Read permissions for product fields",
+          "request": {
+            "name": "Read permissions for product fields",
+            "description": {
+              "content": "Read view, edit, add, delete permissions for product fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "fields",
+                "permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userGroupID",
+                  "value": "<integer>",
+                  "description": "(Required) user group ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "ea71d654-c827-480d-8a3b-e2b68a037ad1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userGroupID",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"age_restriction\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"alcohol_percentage\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"alcohol_registry_number\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"batches\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"brand_id\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"cashier_must_enter_price\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"category_id\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"code\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"code2\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"code3\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"code5\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"code6\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"code7\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"code8\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"cost\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"country_of_origin_id\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"delivery_time\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"deposit_fee_amount\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"deposit_fee_id\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"description\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"displayed_in_webshop\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"excise_declaration_number\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"extra_field1_id\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"extra_field2_id\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"extra_field3_id\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"extra_field4_id\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"family_id\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"gross_weight\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"group_id\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"has_serial_numbers\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"height\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"is_gift_card\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"is_regular_gift_card\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"labels_not_needed\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"length\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"location_in_warehouse_id\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"location_in_warehouse_text\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"manufacturer_name\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"name\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"net_weight\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"non_discountable\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"non_refundable\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"non_stock_product\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"packaging_type\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"packing_not_required\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"price\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"price_with_tax\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"priority_group_id\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"product_reorder_multiples\": {\n    \"edit\": true,\n    \"view\": false\n  },\n  \"reward_points_not_allowed\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"sold_in_packages\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"status\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"suggested_retail_price\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"supplier_code\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"supplier_id\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"supplier_name\": {\n    \"edit\": false,\n    \"view\": true\n  },\n  \"tax_free\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"tax_rate_id\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"type\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"unit_id\": {\n    \"edit\": false,\n    \"view\": false\n  },\n  \"volume\": {\n    \"edit\": true,\n    \"view\": true\n  },\n  \"width\": {\n    \"edit\": false,\n    \"view\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e4aa350-6412-42b1-9f92-7631ac597a8f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userGroupID",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a20ef04-76f7-417e-afc7-d31136ef79e4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userGroupID",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8ae4bcb-24c9-45eb-8948-e86eb2160005",
+          "name": "Set permissions for product fields, permissions are user group based",
+          "request": {
+            "name": "Set permissions for product fields, permissions are user group based",
+            "description": {
+              "content": "Set view, edit, add, delete permissions for product fields.\n\nSet field values for the fields you want to (re)configure only.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "product",
+                "fields",
+                "permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userGroupID",
+                  "value": "<integer>",
+                  "description": "(Required) user group ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"age_restriction\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"alcohol_percentage\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"alcohol_registry_number\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"batches\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"brand_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"cashier_must_enter_price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"category_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code2\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code3\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code5\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code6\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code7\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code8\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"cost\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"country_of_origin_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"delivery_time\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"deposit_fee_amount\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"deposit_fee_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"description\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"displayed_in_webshop\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"excise_declaration_number\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field1_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field2_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field3_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field4_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"family_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"gross_weight\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"group_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"has_serial_numbers\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"height\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"is_gift_card\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"is_regular_gift_card\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"labels_not_needed\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"length\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"location_in_warehouse_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"location_in_warehouse_text\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"manufacturer_name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"net_weight\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_discountable\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_refundable\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_stock_product\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"packaging_type\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"packing_not_required\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"price_with_tax\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"priority_group_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"product_reorder_multiples\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"reward_points_not_allowed\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"sold_in_packages\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"status\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"suggested_retail_price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_code\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"tax_free\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"tax_rate_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"type\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"unit_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"volume\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"width\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cf821639-0664-4af2-8fcc-43be9e02516e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userGroupID",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"age_restriction\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"alcohol_percentage\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"alcohol_registry_number\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"batches\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"brand_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"cashier_must_enter_price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"category_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code2\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code3\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code5\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code6\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code7\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code8\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"cost\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"country_of_origin_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"delivery_time\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"deposit_fee_amount\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"deposit_fee_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"description\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"displayed_in_webshop\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"excise_declaration_number\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field1_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field2_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field3_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field4_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"family_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"gross_weight\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"group_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"has_serial_numbers\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"height\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"is_gift_card\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"is_regular_gift_card\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"labels_not_needed\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"length\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"location_in_warehouse_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"location_in_warehouse_text\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"manufacturer_name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"net_weight\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_discountable\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_refundable\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_stock_product\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"packaging_type\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"packing_not_required\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"price_with_tax\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"priority_group_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"product_reorder_multiples\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"reward_points_not_allowed\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"sold_in_packages\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"status\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"suggested_retail_price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_code\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"tax_free\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"tax_rate_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"type\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"unit_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"volume\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"width\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5a7a07c-be70-49fe-b37c-f6b70efed235",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userGroupID",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"age_restriction\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"alcohol_percentage\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"alcohol_registry_number\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"batches\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"brand_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"cashier_must_enter_price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"category_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code2\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code3\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code5\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code6\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code7\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code8\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"cost\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"country_of_origin_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"delivery_time\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"deposit_fee_amount\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"deposit_fee_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"description\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"displayed_in_webshop\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"excise_declaration_number\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field1_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field2_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field3_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field4_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"family_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"gross_weight\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"group_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"has_serial_numbers\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"height\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"is_gift_card\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"is_regular_gift_card\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"labels_not_needed\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"length\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"location_in_warehouse_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"location_in_warehouse_text\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"manufacturer_name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"net_weight\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_discountable\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_refundable\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_stock_product\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"packaging_type\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"packing_not_required\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"price_with_tax\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"priority_group_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"product_reorder_multiples\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"reward_points_not_allowed\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"sold_in_packages\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"status\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"suggested_retail_price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_code\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"tax_free\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"tax_rate_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"type\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"unit_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"volume\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"width\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5bfbabda-8abb-476d-846a-08fd4ce47c71",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "product",
+                    "fields",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userGroupID",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"age_restriction\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"alcohol_percentage\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"alcohol_registry_number\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"batches\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"brand_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"cashier_must_enter_price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"category_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code2\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code3\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code5\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code6\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code7\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"code8\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"cost\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"country_of_origin_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"delivery_time\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"deposit_fee_amount\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"deposit_fee_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"description\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"displayed_in_webshop\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"excise_declaration_number\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field1_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field2_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field3_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"extra_field4_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"family_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"gross_weight\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"group_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"has_serial_numbers\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"height\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"is_gift_card\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"is_regular_gift_card\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"labels_not_needed\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"length\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"location_in_warehouse_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"location_in_warehouse_text\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"manufacturer_name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"net_weight\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_discountable\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_refundable\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"non_stock_product\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"packaging_type\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"packing_not_required\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"price_with_tax\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"priority_group_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"product_reorder_multiples\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"reward_points_not_allowed\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"sold_in_packages\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"status\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"suggested_retail_price\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_code\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"supplier_name\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"tax_free\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"tax_rate_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"type\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"unit_id\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"volume\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  },\n  \"width\": {\n    \"edit\": \"<boolean>\",\n    \"view\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5988790e-b045-4ee3-987b-c53db458ef5f",
+    "name": "assignments Assortment Product Fields API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

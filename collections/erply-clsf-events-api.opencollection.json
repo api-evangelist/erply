@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment clsf-events API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "clsf-events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up event types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clsf/event-type",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Event type ids"
+              },
+              {
+                "name": "entity",
+                "value": "",
+                "type": "query",
+                "description": "Object type for which event types should be returned. One of [workorder raji]"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "Event type code to search for. Partial matching from the beginning of the code"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+              }
+            ]
+          },
+          "docs": "Look up event types"
+        },
+        {
+          "info": {
+            "name": "Add a new event type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clsf/event-type"
+          },
+          "docs": "Add a new event type"
+        },
+        {
+          "info": {
+            "name": "Update an existing event type record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/clsf/event-type/:typeId",
+            "params": [
+              {
+                "name": "typeId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update an existing event type record"
+        },
+        {
+          "info": {
+            "name": "Delete one event type record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/clsf/event-type/:typeId",
+            "params": [
+              {
+                "name": "typeId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one event type record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

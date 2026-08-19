@@ -1,0 +1,186 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment item API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "item",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/item",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order"
+              }
+            ]
+          },
+          "docs": "Allows searching for workorder items matching specific criteria.\r\n\r\n> Param           | Default&nbsp; | Example&nbsp; | Description\r\n> ----------------|---------|---------|----\r\n> `withTotalCount` | false  | true    | If total count of matched records should be returned in response header `x-total-count\r\n> `pageSize`      | 20      | 100     | Allows specifying how many records per page should be returned\r\n> `pageNr`        | 1       | 2       | Allows specifying which page should be returned fo"
+        },
+        {
+          "info": {
+            "name": "Add a new item record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/item",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              }
+            ]
+          },
+          "docs": "Add a new item record"
+        },
+        {
+          "info": {
+            "name": "Update item record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/item/:itemId",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update item record"
+        },
+        {
+          "info": {
+            "name": "Delete one item record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/item/:itemId",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one item record"
+        },
+        {
+          "info": {
+            "name": "Link rows together",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/item/:itemId/link",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Item id"
+              }
+            ]
+          },
+          "docs": "One or more rows in the same workorder and item can now be linked together. This is supported only for services, not regular products. Linked rows will be associated with the same task as a group and will share their state - performing task related or state change actions on one row will affect all of them."
+        },
+        {
+          "info": {
+            "name": "Unlink row from other rows",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/workorder/:workorderId/item/:itemId/link/:rowId",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "path",
+                "description": "Workorder id"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path",
+                "description": "Item id"
+              },
+              {
+                "name": "rowId",
+                "value": "",
+                "type": "path",
+                "description": "Row id"
+              }
+            ]
+          },
+          "docs": "Unlink row from other rows"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

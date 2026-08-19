@@ -1,0 +1,322 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment device API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "device",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/device",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Device ids"
+              },
+              {
+                "name": "registration",
+                "value": "",
+                "type": "query",
+                "description": "Registration number"
+              },
+              {
+                "name": "serial",
+                "value": "",
+                "type": "query",
+                "description": "Serial number"
+              },
+              {
+                "name": "brand",
+                "value": "",
+                "type": "query",
+                "description": "Device brand"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query",
+                "description": "Device model"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "Device version"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Device year"
+              },
+              {
+                "name": "color",
+                "value": "",
+                "type": "query",
+                "description": "Device color"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Customer ids"
+              },
+              {
+                "name": "customerName",
+                "value": "",
+                "type": "query",
+                "description": "Customer name"
+              },
+              {
+                "name": "searchPhrase",
+                "value": "",
+                "type": "query",
+                "description": "Fulltext search phrase"
+              },
+              {
+                "name": "hidden",
+                "value": "",
+                "type": "query",
+                "description": "If hidden or unhidden devices should be returned. If undefined, all are returned"
+              },
+              {
+                "name": "limitedAccess",
+                "value": "",
+                "type": "query",
+                "description": "If device has access restrictions applied"
+              },
+              {
+                "name": "callerAccess",
+                "value": "",
+                "type": "query",
+                "description": "If caller has access to the device content"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `relevance`, `custFirstname`, `custName`, `dateSoldAt`, `registration`, `serial`, `brand`, `model`, `version`, `year`, `createdAt`, `updatedAt`"
+              }
+            ]
+          },
+          "docs": "Allows searching for devices matching specific criteria.\r\n\r\n> Param           | Default&nbsp; | Example&nbsp; | Description\r\n> ----------------|---------------|---------------|----\r\n> `id`            | -             | 11            | Filter by device ID-s\r\n> `registration`  | -             | 12            | Filter by registration number. Exact match\r\n> `serial`        | -             | 13            | Filter by serial number. Exact match\r\n> `brand`         | -             | Tesla         | Filte"
+        },
+        {
+          "info": {
+            "name": "Add a new device record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/device"
+          },
+          "docs": "Add a new device record"
+        },
+        {
+          "info": {
+            "name": "Search for devices across all accessible tenants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/device-global",
+            "params": [
+              {
+                "name": "registration",
+                "value": "",
+                "type": "query",
+                "description": "Registration number"
+              },
+              {
+                "name": "serial",
+                "value": "",
+                "type": "query",
+                "description": "Serial number"
+              },
+              {
+                "name": "brand",
+                "value": "",
+                "type": "query",
+                "description": "Device brand"
+              },
+              {
+                "name": "model",
+                "value": "",
+                "type": "query",
+                "description": "Device model"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "Device version"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Device year"
+              },
+              {
+                "name": "color",
+                "value": "",
+                "type": "query",
+                "description": "Device color"
+              },
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "query",
+                "description": "Customer ids"
+              },
+              {
+                "name": "customerName",
+                "value": "",
+                "type": "query",
+                "description": "Customer name"
+              },
+              {
+                "name": "searchPhrase",
+                "value": "",
+                "type": "query",
+                "description": "Fulltext search phrase"
+              }
+            ]
+          },
+          "docs": "Allows searching for devices matching specific criteria across all accessible tenants\r\n\r\n> Param           | Default&nbsp; | Example&nbsp; | Description\r\n> ----------------|---------|---------|----\r\n> `registration`  | -       | 11      | Filter by registration number. Exact match\r\n> `serial`        | -       | 22      | Filter by serial number. Exact match\r\n> `brand`         | -       | Tesla   | Filter by brand. Exact match\r\n> `model`         | -       | Model S | Filter by model. Exact match\r"
+        },
+        {
+          "info": {
+            "name": "Update device record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/device/:deviceId",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update device record"
+        },
+        {
+          "info": {
+            "name": "Delete one device record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/device/:deviceId",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one device record"
+        },
+        {
+          "info": {
+            "name": "Retrieve device record related logged values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/device/:deviceId/log",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device id"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Log type name"
+              },
+              {
+                "name": "dateStart",
+                "value": "",
+                "type": "query",
+                "description": "Log entry time range lower bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "dateEnd",
+                "value": "",
+                "type": "query",
+                "description": "Log entry time range upper bound (yyyy-mm-ddThh:mm:ssZ)"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `deviceId`, `workorderId`, `date`, `name`, `createdAt`, `updatedAt`"
+              }
+            ]
+          },
+          "docs": "Retrieve logged values for device record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

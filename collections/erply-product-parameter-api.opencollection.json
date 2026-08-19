@@ -1,0 +1,178 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment Product Parameter API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product Parameter",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Product Parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/parameter",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "optionally return total number of records in the X-Total-Count response header"
+              },
+              {
+                "name": "withOptions",
+                "value": "",
+                "type": "query",
+                "description": "set to 1 return parameters with all their options"
+              }
+            ]
+          },
+          "docs": "Get Product ReadParameters `NB: filtering and sorting does not apply to the parameter's name`"
+        },
+        {
+          "info": {
+            "name": "A parameter always belongs to exactly one data set (not multiple data sets at the same time, and a parameter cannot exist without a set). A parameter has a name and a type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/product/parameter"
+          },
+          "docs": "The type can be one of the following: `TEXT, INTEGER, DECIMAL, BOOLEAN, LIST, MULTILIST`. After created parameter type can't be changed and parameter can't be reattached to a different dataset. Only parameter name can be adjusted."
+        },
+        {
+          "info": {
+            "name": "Delete Product Parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/product/parameter/:ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "Parameter IDs"
+              }
+            ]
+          },
+          "docs": "Deleting a parameter will delete it's options and values."
+        },
+        {
+          "info": {
+            "name": "Update Product Parameter",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/product/parameter/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Parameter ID"
+              }
+            ]
+          },
+          "docs": "Parameter's name can be updated."
+        },
+        {
+          "info": {
+            "name": "Get products that have values for this parameter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/parameter/:id/products",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Parameter ID"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "Get products that have values for this parameter"
+        },
+        {
+          "info": {
+            "name": "Get All Parameters for the Product by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/product/:id/parameters",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "product ID"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "skip n records"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "items to take, default: 20, max: 100000"
+              }
+            ]
+          },
+          "docs": "API reads product group and it's parents, fetches all the parameter sets associated with those groups\n(product can have values for parameters that are associated with it's linked group's parent group of that group's parent and so on),\nand fetches all parameters from all the fetched sets."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

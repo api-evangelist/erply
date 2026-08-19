@@ -1,0 +1,1637 @@
+{
+  "item": [
+    {
+      "id": "767af169-b3a3-4e03-9c5c-6b76cde85b4b",
+      "name": "Matrix Product",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0116528c-b658-4364-9252-72f05a01ece8",
+          "name": "API call for retrieving matrix variations",
+          "request": {
+            "name": "API call for retrieving matrix variations",
+            "description": {
+              "content": "Products are returned from the request only if they are a matrix variation. As an input there are 2 options. You can provide One or more product IDs, or one or more matrix product IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "matrixProductIDs",
+                  "value": "<integer>,<integer>",
+                  "description": "Limit: 1500 ids. Expected usage: API client has a matrix product ID and wants to get a complete list of variations. Format: 1 or many comma separated matrix product IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "productIDs",
+                  "value": "<integer>,<integer>",
+                  "description": "Limit: 1500 ids. Expected usage: API client will get a bunch of products from GET /v1/product and will want to fetch variation descriptions for the same items. Format: 1 or many comma separated product IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "9ac655b0-3ae7-4351-804f-7deacb1bd0cd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "matrixProductIDs",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "productIDs",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": \"string\",\n    \"code2\": \"string\",\n    \"code3\": \"string\",\n    \"code5\": \"string\",\n    \"code6\": \"string\",\n    \"code7\": \"string\",\n    \"code8\": \"string\",\n    \"displayed_in_webshop\": 2242,\n    \"id\": 7171,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"parent_product_id\": 2654,\n    \"parent_product_name\": {\n      \"en\": \"string\"\n    },\n    \"price\": 5206.8911388384095,\n    \"price_with_tax\": 7318.106402415773,\n    \"status\": \"string\",\n    \"tax_rate_id\": 7435,\n    \"variation_description\": [\n      {\n        \"dimension_id\": 2041,\n        \"dimension_name\": {\n          \"en\": \"string\"\n        },\n        \"dimension_value_code\": \"string\",\n        \"dimension_value_id\": 3736,\n        \"dimension_value_name\": {\n          \"en\": \"string\"\n        },\n        \"dimension_value_order\": 2264\n      },\n      {\n        \"dimension_id\": 6947,\n        \"dimension_name\": {\n          \"en\": \"string\"\n        },\n        \"dimension_value_code\": \"string\",\n        \"dimension_value_id\": 6287,\n        \"dimension_value_name\": {\n          \"en\": \"string\"\n        },\n        \"dimension_value_order\": 7128\n      }\n    ]\n  },\n  {\n    \"code\": \"string\",\n    \"code2\": \"string\",\n    \"code3\": \"string\",\n    \"code5\": \"string\",\n    \"code6\": \"string\",\n    \"code7\": \"string\",\n    \"code8\": \"string\",\n    \"displayed_in_webshop\": 4997,\n    \"id\": 1425,\n    \"name\": {\n      \"en\": \"string\"\n    },\n    \"parent_product_id\": 3816,\n    \"parent_product_name\": {\n      \"en\": \"string\"\n    },\n    \"price\": 272.8872170483765,\n    \"price_with_tax\": 1636.9857155617285,\n    \"status\": \"string\",\n    \"tax_rate_id\": 5968,\n    \"variation_description\": [\n      {\n        \"dimension_id\": 9778,\n        \"dimension_name\": {\n          \"en\": \"string\"\n        },\n        \"dimension_value_code\": \"string\",\n        \"dimension_value_id\": 9215,\n        \"dimension_value_name\": {\n          \"en\": \"string\"\n        },\n        \"dimension_value_order\": 7001\n      },\n      {\n        \"dimension_id\": 9939,\n        \"dimension_name\": {\n          \"en\": \"string\"\n        },\n        \"dimension_value_code\": \"string\",\n        \"dimension_value_id\": 7466,\n        \"dimension_value_name\": {\n          \"en\": \"string\"\n        },\n        \"dimension_value_order\": 9768\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26f1fc9c-52ab-490f-8cf9-984be2938bb2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "matrixProductIDs",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "productIDs",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed3d7d15-ca38-485f-bce9-6a1afae3786e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "matrixProductIDs",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "productIDs",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec3c4224-e25b-4967-a204-4d1f74ac3480",
+          "name": "Create Matrix Product",
+          "request": {
+            "name": "Create Matrix Product",
+            "description": {
+              "content": "Matrix items have 1...3 dimensions - color, size etc. Matrix dimensions can be defined in Erply backend A dimension has a name (eg. \"Letter Sizes\" or Spring 2013 Colors\") and a list of possible values (eg. S, M, L or Lime, Yellow, Fuchsia).\nTo create a matrix product, first pick the dimension(s) that apply to this particular product, eg \"Waist Size\" and \"Length\" for jeans. A matrix can have up to 3 dimensions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "generateCodeAutomatically",
+                  "value": "<boolean>",
+                  "description": "(Required) generate code automatically based on the preconfigured starting code or based on a generated code. If the code is not blank in the request, will override."
+                },
+                {
+                  "disabled": false,
+                  "key": "generateCode2Automatically",
+                  "value": "<boolean>",
+                  "description": "(Required) generate code2 (UPC/EAN automatically based on the preconfigured starting code + user's country or based on a generated code. If the code is not blank in the request, will override."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dimension_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"matrix_product\": {\n    \"age_restriction\": \"<integer>\",\n    \"alcohol_percentage\": \"<string>\",\n    \"alcohol_registry_number\": \"<string>\",\n    \"backup_id\": \"<integer>\",\n    \"batches\": \"<string>\",\n    \"brand_id\": \"<integer>\",\n    \"cashier_must_enter_price\": \"<integer>\",\n    \"category_id\": \"<integer>\",\n    \"code\": \"<string>\",\n    \"code2\": \"<string>\",\n    \"code3\": \"<string>\",\n    \"code5\": \"<string>\",\n    \"code6\": \"<string>\",\n    \"code7\": \"<string>\",\n    \"code8\": \"<string>\",\n    \"cost\": \"<number>\",\n    \"country_of_origin_id\": \"<integer>\",\n    \"delivery_time\": \"<string>\",\n    \"deposit_fee_amount\": \"<integer>\",\n    \"deposit_fee_id\": \"<integer>\",\n    \"description\": {\n      \"en\": {\n        \"html\": \"<string>\",\n        \"plain_text\": \"<string>\"\n      }\n    },\n    \"displayed_in_webshop\": \"<integer>\",\n    \"excise_declaration_number\": \"<string>\",\n    \"extra_field1_id\": \"<integer>\",\n    \"extra_field2_id\": \"<integer>\",\n    \"extra_field3_id\": \"<integer>\",\n    \"extra_field4_id\": \"<integer>\",\n    \"family_id\": \"<integer>\",\n    \"formula_identifier\": \"<string>\",\n    \"gross_weight\": \"<number>\",\n    \"group_id\": \"<integer>\",\n    \"group_package_ferrous_metal\": \"<number>\",\n    \"group_package_metal\": \"<number>\",\n    \"group_package_non_ferrous_metal\": \"<number>\",\n    \"group_package_paper\": \"<number>\",\n    \"group_package_plastic\": \"<number>\",\n    \"group_package_wood\": \"<number>\",\n    \"has_serial_numbers\": \"<integer>\",\n    \"height\": \"<number>\",\n    \"is_gift_card\": \"<integer>\",\n    \"is_lot_product\": \"<boolean>\",\n    \"is_regular_gift_card\": \"<integer>\",\n    \"is_used_product\": \"<boolean>\",\n    \"labels_not_needed\": \"<integer>\",\n    \"length\": \"<number>\",\n    \"location_in_warehouse_id\": \"<integer>\",\n    \"location_in_warehouse_text\": \"<string>\",\n    \"manufacturer_name\": \"<string>\",\n    \"name\": {\n      \"en\": \"<string>\"\n    },\n    \"net_weight\": \"<number>\",\n    \"non_discountable\": \"<integer>\",\n    \"non_refundable\": \"<integer>\",\n    \"non_stock_product\": \"<integer>\",\n    \"packaging_type\": \"<string>\",\n    \"packing_not_required\": \"<integer>\",\n    \"parent_product_id\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"priority_group_id\": \"<integer>\",\n    \"product_item_level_promotions_disabled\": \"<integer>\",\n    \"product_reorder_multiples\": \"<integer>\",\n    \"revenue_account\": \"<string>\",\n    \"reward_points_not_allowed\": \"<integer>\",\n    \"sales_package_cardboard\": \"<number>\",\n    \"sales_package_clear_brown_glass\": \"<number>\",\n    \"sales_package_green_other_glass\": \"<number>\",\n    \"sales_package_metal_al\": \"<number>\",\n    \"sales_package_metal_fe\": \"<number>\",\n    \"sales_package_other_metal\": \"<number>\",\n    \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n    \"sales_package_plastic_pet\": \"<number>\",\n    \"sales_package_plastic_pp_pe\": \"<number>\",\n    \"sales_package_wood\": \"<number>\",\n    \"serial_number\": \"<string>\",\n    \"shelf_life_days\": \"<integer>\",\n    \"sold_in_packages\": \"<integer>\",\n    \"status\": \"<string>\",\n    \"suggested_retail_price\": \"<number>\",\n    \"supplier_code\": \"<string>\",\n    \"supplier_id\": \"<integer>\",\n    \"tax_free\": \"<integer>\",\n    \"tax_rate_id\": \"<integer>\",\n    \"transport_package_cardboard\": \"<number>\",\n    \"transport_package_ferrous_metal\": \"<number>\",\n    \"transport_package_non_ferrous_metal\": \"<number>\",\n    \"transport_package_plastic\": \"<number>\",\n    \"transport_package_wood\": \"<number>\",\n    \"type\": \"<string>\",\n    \"unit_id\": \"<integer>\",\n    \"volume\": \"<number>\",\n    \"webshop_description\": \"<string>\",\n    \"webshop_keywords\": \"<string>\",\n    \"webshop_title\": \"<string>\",\n    \"webshop_url_slug\": \"<string>\",\n    \"width\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4f648a6b-e278-4145-b2da-1f375749a8c2",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "generateCodeAutomatically",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "generateCode2Automatically",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"matrix_product\": {\n    \"age_restriction\": \"<integer>\",\n    \"alcohol_percentage\": \"<string>\",\n    \"alcohol_registry_number\": \"<string>\",\n    \"backup_id\": \"<integer>\",\n    \"batches\": \"<string>\",\n    \"brand_id\": \"<integer>\",\n    \"cashier_must_enter_price\": \"<integer>\",\n    \"category_id\": \"<integer>\",\n    \"code\": \"<string>\",\n    \"code2\": \"<string>\",\n    \"code3\": \"<string>\",\n    \"code5\": \"<string>\",\n    \"code6\": \"<string>\",\n    \"code7\": \"<string>\",\n    \"code8\": \"<string>\",\n    \"cost\": \"<number>\",\n    \"country_of_origin_id\": \"<integer>\",\n    \"delivery_time\": \"<string>\",\n    \"deposit_fee_amount\": \"<integer>\",\n    \"deposit_fee_id\": \"<integer>\",\n    \"description\": {\n      \"en\": {\n        \"html\": \"<b>Very good product!</b>\",\n        \"plain_text\": \"Very good product!\"\n      }\n    },\n    \"displayed_in_webshop\": \"<integer>\",\n    \"excise_declaration_number\": \"<string>\",\n    \"extra_field1_id\": \"<integer>\",\n    \"extra_field2_id\": \"<integer>\",\n    \"extra_field3_id\": \"<integer>\",\n    \"extra_field4_id\": \"<integer>\",\n    \"family_id\": \"<integer>\",\n    \"formula_identifier\": \"<string>\",\n    \"gross_weight\": \"<number>\",\n    \"group_id\": \"<integer>\",\n    \"group_package_ferrous_metal\": \"<number>\",\n    \"group_package_metal\": \"<number>\",\n    \"group_package_non_ferrous_metal\": \"<number>\",\n    \"group_package_paper\": \"<number>\",\n    \"group_package_plastic\": \"<number>\",\n    \"group_package_wood\": \"<number>\",\n    \"has_serial_numbers\": \"<integer>\",\n    \"height\": \"<number>\",\n    \"is_gift_card\": \"<integer>\",\n    \"is_lot_product\": \"<boolean>\",\n    \"is_regular_gift_card\": \"<integer>\",\n    \"is_used_product\": \"<boolean>\",\n    \"labels_not_needed\": \"<integer>\",\n    \"length\": \"<number>\",\n    \"location_in_warehouse_id\": \"<integer>\",\n    \"location_in_warehouse_text\": \"<string>\",\n    \"manufacturer_name\": \"<string>\",\n    \"name\": {\n      \"en\": \"<string>\"\n    },\n    \"net_weight\": \"<number>\",\n    \"non_discountable\": \"<integer>\",\n    \"non_refundable\": \"<integer>\",\n    \"non_stock_product\": \"<integer>\",\n    \"packaging_type\": \"<string>\",\n    \"packing_not_required\": \"<integer>\",\n    \"parent_product_id\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"priority_group_id\": \"<integer>\",\n    \"product_item_level_promotions_disabled\": \"<integer>\",\n    \"product_reorder_multiples\": \"<integer>\",\n    \"revenue_account\": \"<string>\",\n    \"reward_points_not_allowed\": \"<integer>\",\n    \"sales_package_cardboard\": \"<number>\",\n    \"sales_package_clear_brown_glass\": \"<number>\",\n    \"sales_package_green_other_glass\": \"<number>\",\n    \"sales_package_metal_al\": \"<number>\",\n    \"sales_package_metal_fe\": \"<number>\",\n    \"sales_package_other_metal\": \"<number>\",\n    \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n    \"sales_package_plastic_pet\": \"<number>\",\n    \"sales_package_plastic_pp_pe\": \"<number>\",\n    \"sales_package_wood\": \"<number>\",\n    \"serial_number\": \"<string>\",\n    \"shelf_life_days\": \"<integer>\",\n    \"sold_in_packages\": \"<integer>\",\n    \"status\": \"ACTIVE\",\n    \"suggested_retail_price\": \"<number>\",\n    \"supplier_code\": \"<string>\",\n    \"supplier_id\": \"<integer>\",\n    \"tax_free\": \"<integer>\",\n    \"tax_rate_id\": \"<integer>\",\n    \"transport_package_cardboard\": \"<number>\",\n    \"transport_package_ferrous_metal\": \"<number>\",\n    \"transport_package_non_ferrous_metal\": \"<number>\",\n    \"transport_package_plastic\": \"<number>\",\n    \"transport_package_wood\": \"<number>\",\n    \"type\": \"<string>\",\n    \"unit_id\": \"<integer>\",\n    \"volume\": \"<number>\",\n    \"webshop_description\": \"<string>\",\n    \"webshop_keywords\": \"<string>\",\n    \"webshop_title\": \"<string>\",\n    \"webshop_url_slug\": \"<string>\",\n    \"width\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1946afc1-045c-4ffe-811c-714e410f7867",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "generateCodeAutomatically",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "generateCode2Automatically",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"matrix_product\": {\n    \"age_restriction\": \"<integer>\",\n    \"alcohol_percentage\": \"<string>\",\n    \"alcohol_registry_number\": \"<string>\",\n    \"backup_id\": \"<integer>\",\n    \"batches\": \"<string>\",\n    \"brand_id\": \"<integer>\",\n    \"cashier_must_enter_price\": \"<integer>\",\n    \"category_id\": \"<integer>\",\n    \"code\": \"<string>\",\n    \"code2\": \"<string>\",\n    \"code3\": \"<string>\",\n    \"code5\": \"<string>\",\n    \"code6\": \"<string>\",\n    \"code7\": \"<string>\",\n    \"code8\": \"<string>\",\n    \"cost\": \"<number>\",\n    \"country_of_origin_id\": \"<integer>\",\n    \"delivery_time\": \"<string>\",\n    \"deposit_fee_amount\": \"<integer>\",\n    \"deposit_fee_id\": \"<integer>\",\n    \"description\": {\n      \"en\": {\n        \"html\": \"<b>Very good product!</b>\",\n        \"plain_text\": \"Very good product!\"\n      }\n    },\n    \"displayed_in_webshop\": \"<integer>\",\n    \"excise_declaration_number\": \"<string>\",\n    \"extra_field1_id\": \"<integer>\",\n    \"extra_field2_id\": \"<integer>\",\n    \"extra_field3_id\": \"<integer>\",\n    \"extra_field4_id\": \"<integer>\",\n    \"family_id\": \"<integer>\",\n    \"formula_identifier\": \"<string>\",\n    \"gross_weight\": \"<number>\",\n    \"group_id\": \"<integer>\",\n    \"group_package_ferrous_metal\": \"<number>\",\n    \"group_package_metal\": \"<number>\",\n    \"group_package_non_ferrous_metal\": \"<number>\",\n    \"group_package_paper\": \"<number>\",\n    \"group_package_plastic\": \"<number>\",\n    \"group_package_wood\": \"<number>\",\n    \"has_serial_numbers\": \"<integer>\",\n    \"height\": \"<number>\",\n    \"is_gift_card\": \"<integer>\",\n    \"is_lot_product\": \"<boolean>\",\n    \"is_regular_gift_card\": \"<integer>\",\n    \"is_used_product\": \"<boolean>\",\n    \"labels_not_needed\": \"<integer>\",\n    \"length\": \"<number>\",\n    \"location_in_warehouse_id\": \"<integer>\",\n    \"location_in_warehouse_text\": \"<string>\",\n    \"manufacturer_name\": \"<string>\",\n    \"name\": {\n      \"en\": \"<string>\"\n    },\n    \"net_weight\": \"<number>\",\n    \"non_discountable\": \"<integer>\",\n    \"non_refundable\": \"<integer>\",\n    \"non_stock_product\": \"<integer>\",\n    \"packaging_type\": \"<string>\",\n    \"packing_not_required\": \"<integer>\",\n    \"parent_product_id\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"priority_group_id\": \"<integer>\",\n    \"product_item_level_promotions_disabled\": \"<integer>\",\n    \"product_reorder_multiples\": \"<integer>\",\n    \"revenue_account\": \"<string>\",\n    \"reward_points_not_allowed\": \"<integer>\",\n    \"sales_package_cardboard\": \"<number>\",\n    \"sales_package_clear_brown_glass\": \"<number>\",\n    \"sales_package_green_other_glass\": \"<number>\",\n    \"sales_package_metal_al\": \"<number>\",\n    \"sales_package_metal_fe\": \"<number>\",\n    \"sales_package_other_metal\": \"<number>\",\n    \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n    \"sales_package_plastic_pet\": \"<number>\",\n    \"sales_package_plastic_pp_pe\": \"<number>\",\n    \"sales_package_wood\": \"<number>\",\n    \"serial_number\": \"<string>\",\n    \"shelf_life_days\": \"<integer>\",\n    \"sold_in_packages\": \"<integer>\",\n    \"status\": \"ACTIVE\",\n    \"suggested_retail_price\": \"<number>\",\n    \"supplier_code\": \"<string>\",\n    \"supplier_id\": \"<integer>\",\n    \"tax_free\": \"<integer>\",\n    \"tax_rate_id\": \"<integer>\",\n    \"transport_package_cardboard\": \"<number>\",\n    \"transport_package_ferrous_metal\": \"<number>\",\n    \"transport_package_non_ferrous_metal\": \"<number>\",\n    \"transport_package_plastic\": \"<number>\",\n    \"transport_package_wood\": \"<number>\",\n    \"type\": \"<string>\",\n    \"unit_id\": \"<integer>\",\n    \"volume\": \"<number>\",\n    \"webshop_description\": \"<string>\",\n    \"webshop_keywords\": \"<string>\",\n    \"webshop_title\": \"<string>\",\n    \"webshop_url_slug\": \"<string>\",\n    \"width\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c6471c0-f7db-4604-9b4b-e0d8420bf7f8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "generateCodeAutomatically",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "generateCode2Automatically",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"matrix_product\": {\n    \"age_restriction\": \"<integer>\",\n    \"alcohol_percentage\": \"<string>\",\n    \"alcohol_registry_number\": \"<string>\",\n    \"backup_id\": \"<integer>\",\n    \"batches\": \"<string>\",\n    \"brand_id\": \"<integer>\",\n    \"cashier_must_enter_price\": \"<integer>\",\n    \"category_id\": \"<integer>\",\n    \"code\": \"<string>\",\n    \"code2\": \"<string>\",\n    \"code3\": \"<string>\",\n    \"code5\": \"<string>\",\n    \"code6\": \"<string>\",\n    \"code7\": \"<string>\",\n    \"code8\": \"<string>\",\n    \"cost\": \"<number>\",\n    \"country_of_origin_id\": \"<integer>\",\n    \"delivery_time\": \"<string>\",\n    \"deposit_fee_amount\": \"<integer>\",\n    \"deposit_fee_id\": \"<integer>\",\n    \"description\": {\n      \"en\": {\n        \"html\": \"<b>Very good product!</b>\",\n        \"plain_text\": \"Very good product!\"\n      }\n    },\n    \"displayed_in_webshop\": \"<integer>\",\n    \"excise_declaration_number\": \"<string>\",\n    \"extra_field1_id\": \"<integer>\",\n    \"extra_field2_id\": \"<integer>\",\n    \"extra_field3_id\": \"<integer>\",\n    \"extra_field4_id\": \"<integer>\",\n    \"family_id\": \"<integer>\",\n    \"formula_identifier\": \"<string>\",\n    \"gross_weight\": \"<number>\",\n    \"group_id\": \"<integer>\",\n    \"group_package_ferrous_metal\": \"<number>\",\n    \"group_package_metal\": \"<number>\",\n    \"group_package_non_ferrous_metal\": \"<number>\",\n    \"group_package_paper\": \"<number>\",\n    \"group_package_plastic\": \"<number>\",\n    \"group_package_wood\": \"<number>\",\n    \"has_serial_numbers\": \"<integer>\",\n    \"height\": \"<number>\",\n    \"is_gift_card\": \"<integer>\",\n    \"is_lot_product\": \"<boolean>\",\n    \"is_regular_gift_card\": \"<integer>\",\n    \"is_used_product\": \"<boolean>\",\n    \"labels_not_needed\": \"<integer>\",\n    \"length\": \"<number>\",\n    \"location_in_warehouse_id\": \"<integer>\",\n    \"location_in_warehouse_text\": \"<string>\",\n    \"manufacturer_name\": \"<string>\",\n    \"name\": {\n      \"en\": \"<string>\"\n    },\n    \"net_weight\": \"<number>\",\n    \"non_discountable\": \"<integer>\",\n    \"non_refundable\": \"<integer>\",\n    \"non_stock_product\": \"<integer>\",\n    \"packaging_type\": \"<string>\",\n    \"packing_not_required\": \"<integer>\",\n    \"parent_product_id\": \"<integer>\",\n    \"price\": \"<number>\",\n    \"priority_group_id\": \"<integer>\",\n    \"product_item_level_promotions_disabled\": \"<integer>\",\n    \"product_reorder_multiples\": \"<integer>\",\n    \"revenue_account\": \"<string>\",\n    \"reward_points_not_allowed\": \"<integer>\",\n    \"sales_package_cardboard\": \"<number>\",\n    \"sales_package_clear_brown_glass\": \"<number>\",\n    \"sales_package_green_other_glass\": \"<number>\",\n    \"sales_package_metal_al\": \"<number>\",\n    \"sales_package_metal_fe\": \"<number>\",\n    \"sales_package_other_metal\": \"<number>\",\n    \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n    \"sales_package_plastic_pet\": \"<number>\",\n    \"sales_package_plastic_pp_pe\": \"<number>\",\n    \"sales_package_wood\": \"<number>\",\n    \"serial_number\": \"<string>\",\n    \"shelf_life_days\": \"<integer>\",\n    \"sold_in_packages\": \"<integer>\",\n    \"status\": \"ACTIVE\",\n    \"suggested_retail_price\": \"<number>\",\n    \"supplier_code\": \"<string>\",\n    \"supplier_id\": \"<integer>\",\n    \"tax_free\": \"<integer>\",\n    \"tax_rate_id\": \"<integer>\",\n    \"transport_package_cardboard\": \"<number>\",\n    \"transport_package_ferrous_metal\": \"<number>\",\n    \"transport_package_non_ferrous_metal\": \"<number>\",\n    \"transport_package_plastic\": \"<number>\",\n    \"transport_package_wood\": \"<number>\",\n    \"type\": \"<string>\",\n    \"unit_id\": \"<integer>\",\n    \"volume\": \"<number>\",\n    \"webshop_description\": \"<string>\",\n    \"webshop_keywords\": \"<string>\",\n    \"webshop_title\": \"<string>\",\n    \"webshop_url_slug\": \"<string>\",\n    \"width\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d47679db-5445-4eae-9752-922932e881de",
+          "name": "Create matrix products in bulk",
+          "request": {
+            "name": "Create matrix products in bulk",
+            "description": {
+              "content": "Matrix items have 1...3 dimensions - color, size etc. Matrix dimensions can be defined in Erply backend A dimension has a name (eg. \"Letter Sizes\" or Spring 2013 Colors\") and a list of possible values (eg. S, M, L or Lime, Yellow, Fuchsia).\nTo create a matrix product, first pick the dimension(s) that apply to this particular product, eg \"Waist Size\" and \"Length\" for jeans. A matrix can have up to 3 dimensions.\nEach request contains the created resource data. The parameters to generate the product code/code2 automatically is embedded into the request body as the `generateCodeAutomatically` & `generateCode2Automatically` fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"dimension_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"generateCode2Automatically\": \"<boolean>\",\n      \"generateCodeAutomatically\": \"<boolean>\",\n      \"matrix_product\": {\n        \"age_restriction\": \"<integer>\",\n        \"alcohol_percentage\": \"<string>\",\n        \"alcohol_registry_number\": \"<string>\",\n        \"backup_id\": \"<integer>\",\n        \"batches\": \"<string>\",\n        \"brand_id\": \"<integer>\",\n        \"cashier_must_enter_price\": \"<integer>\",\n        \"category_id\": \"<integer>\",\n        \"code\": \"<string>\",\n        \"code2\": \"<string>\",\n        \"code3\": \"<string>\",\n        \"code5\": \"<string>\",\n        \"code6\": \"<string>\",\n        \"code7\": \"<string>\",\n        \"code8\": \"<string>\",\n        \"cost\": \"<number>\",\n        \"country_of_origin_id\": \"<integer>\",\n        \"delivery_time\": \"<string>\",\n        \"deposit_fee_amount\": \"<integer>\",\n        \"deposit_fee_id\": \"<integer>\",\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": \"<integer>\",\n        \"excise_declaration_number\": \"<string>\",\n        \"extra_field1_id\": \"<integer>\",\n        \"extra_field2_id\": \"<integer>\",\n        \"extra_field3_id\": \"<integer>\",\n        \"extra_field4_id\": \"<integer>\",\n        \"family_id\": \"<integer>\",\n        \"formula_identifier\": \"<string>\",\n        \"gross_weight\": \"<number>\",\n        \"group_id\": \"<integer>\",\n        \"group_package_ferrous_metal\": \"<number>\",\n        \"group_package_metal\": \"<number>\",\n        \"group_package_non_ferrous_metal\": \"<number>\",\n        \"group_package_paper\": \"<number>\",\n        \"group_package_plastic\": \"<number>\",\n        \"group_package_wood\": \"<number>\",\n        \"has_serial_numbers\": \"<integer>\",\n        \"height\": \"<number>\",\n        \"is_gift_card\": \"<integer>\",\n        \"is_lot_product\": \"<boolean>\",\n        \"is_regular_gift_card\": \"<integer>\",\n        \"is_used_product\": \"<boolean>\",\n        \"labels_not_needed\": \"<integer>\",\n        \"length\": \"<number>\",\n        \"location_in_warehouse_id\": \"<integer>\",\n        \"location_in_warehouse_text\": \"<string>\",\n        \"manufacturer_name\": \"<string>\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": \"<number>\",\n        \"non_discountable\": \"<integer>\",\n        \"non_refundable\": \"<integer>\",\n        \"non_stock_product\": \"<integer>\",\n        \"packaging_type\": \"<string>\",\n        \"packing_not_required\": \"<integer>\",\n        \"parent_product_id\": \"<integer>\",\n        \"price\": \"<number>\",\n        \"priority_group_id\": \"<integer>\",\n        \"product_item_level_promotions_disabled\": \"<integer>\",\n        \"product_reorder_multiples\": \"<integer>\",\n        \"revenue_account\": \"<string>\",\n        \"reward_points_not_allowed\": \"<integer>\",\n        \"sales_package_cardboard\": \"<number>\",\n        \"sales_package_clear_brown_glass\": \"<number>\",\n        \"sales_package_green_other_glass\": \"<number>\",\n        \"sales_package_metal_al\": \"<number>\",\n        \"sales_package_metal_fe\": \"<number>\",\n        \"sales_package_other_metal\": \"<number>\",\n        \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n        \"sales_package_plastic_pet\": \"<number>\",\n        \"sales_package_plastic_pp_pe\": \"<number>\",\n        \"sales_package_wood\": \"<number>\",\n        \"serial_number\": \"<string>\",\n        \"shelf_life_days\": \"<integer>\",\n        \"sold_in_packages\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"suggested_retail_price\": \"<number>\",\n        \"supplier_code\": \"<string>\",\n        \"supplier_id\": \"<integer>\",\n        \"tax_free\": \"<integer>\",\n        \"tax_rate_id\": \"<integer>\",\n        \"transport_package_cardboard\": \"<number>\",\n        \"transport_package_ferrous_metal\": \"<number>\",\n        \"transport_package_non_ferrous_metal\": \"<number>\",\n        \"transport_package_plastic\": \"<number>\",\n        \"transport_package_wood\": \"<number>\",\n        \"type\": \"<string>\",\n        \"unit_id\": \"<integer>\",\n        \"volume\": \"<number>\",\n        \"webshop_description\": \"<string>\",\n        \"webshop_keywords\": \"<string>\",\n        \"webshop_title\": \"<string>\",\n        \"webshop_url_slug\": \"<string>\",\n        \"width\": \"<number>\"\n      }\n    },\n    {\n      \"dimension_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"generateCode2Automatically\": \"<boolean>\",\n      \"generateCodeAutomatically\": \"<boolean>\",\n      \"matrix_product\": {\n        \"age_restriction\": \"<integer>\",\n        \"alcohol_percentage\": \"<string>\",\n        \"alcohol_registry_number\": \"<string>\",\n        \"backup_id\": \"<integer>\",\n        \"batches\": \"<string>\",\n        \"brand_id\": \"<integer>\",\n        \"cashier_must_enter_price\": \"<integer>\",\n        \"category_id\": \"<integer>\",\n        \"code\": \"<string>\",\n        \"code2\": \"<string>\",\n        \"code3\": \"<string>\",\n        \"code5\": \"<string>\",\n        \"code6\": \"<string>\",\n        \"code7\": \"<string>\",\n        \"code8\": \"<string>\",\n        \"cost\": \"<number>\",\n        \"country_of_origin_id\": \"<integer>\",\n        \"delivery_time\": \"<string>\",\n        \"deposit_fee_amount\": \"<integer>\",\n        \"deposit_fee_id\": \"<integer>\",\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": \"<integer>\",\n        \"excise_declaration_number\": \"<string>\",\n        \"extra_field1_id\": \"<integer>\",\n        \"extra_field2_id\": \"<integer>\",\n        \"extra_field3_id\": \"<integer>\",\n        \"extra_field4_id\": \"<integer>\",\n        \"family_id\": \"<integer>\",\n        \"formula_identifier\": \"<string>\",\n        \"gross_weight\": \"<number>\",\n        \"group_id\": \"<integer>\",\n        \"group_package_ferrous_metal\": \"<number>\",\n        \"group_package_metal\": \"<number>\",\n        \"group_package_non_ferrous_metal\": \"<number>\",\n        \"group_package_paper\": \"<number>\",\n        \"group_package_plastic\": \"<number>\",\n        \"group_package_wood\": \"<number>\",\n        \"has_serial_numbers\": \"<integer>\",\n        \"height\": \"<number>\",\n        \"is_gift_card\": \"<integer>\",\n        \"is_lot_product\": \"<boolean>\",\n        \"is_regular_gift_card\": \"<integer>\",\n        \"is_used_product\": \"<boolean>\",\n        \"labels_not_needed\": \"<integer>\",\n        \"length\": \"<number>\",\n        \"location_in_warehouse_id\": \"<integer>\",\n        \"location_in_warehouse_text\": \"<string>\",\n        \"manufacturer_name\": \"<string>\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": \"<number>\",\n        \"non_discountable\": \"<integer>\",\n        \"non_refundable\": \"<integer>\",\n        \"non_stock_product\": \"<integer>\",\n        \"packaging_type\": \"<string>\",\n        \"packing_not_required\": \"<integer>\",\n        \"parent_product_id\": \"<integer>\",\n        \"price\": \"<number>\",\n        \"priority_group_id\": \"<integer>\",\n        \"product_item_level_promotions_disabled\": \"<integer>\",\n        \"product_reorder_multiples\": \"<integer>\",\n        \"revenue_account\": \"<string>\",\n        \"reward_points_not_allowed\": \"<integer>\",\n        \"sales_package_cardboard\": \"<number>\",\n        \"sales_package_clear_brown_glass\": \"<number>\",\n        \"sales_package_green_other_glass\": \"<number>\",\n        \"sales_package_metal_al\": \"<number>\",\n        \"sales_package_metal_fe\": \"<number>\",\n        \"sales_package_other_metal\": \"<number>\",\n        \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n        \"sales_package_plastic_pet\": \"<number>\",\n        \"sales_package_plastic_pp_pe\": \"<number>\",\n        \"sales_package_wood\": \"<number>\",\n        \"serial_number\": \"<string>\",\n        \"shelf_life_days\": \"<integer>\",\n        \"sold_in_packages\": \"<integer>\",\n        \"status\": \"<string>\",\n        \"suggested_retail_price\": \"<number>\",\n        \"supplier_code\": \"<string>\",\n        \"supplier_id\": \"<integer>\",\n        \"tax_free\": \"<integer>\",\n        \"tax_rate_id\": \"<integer>\",\n        \"transport_package_cardboard\": \"<number>\",\n        \"transport_package_ferrous_metal\": \"<number>\",\n        \"transport_package_non_ferrous_metal\": \"<number>\",\n        \"transport_package_plastic\": \"<number>\",\n        \"transport_package_wood\": \"<number>\",\n        \"type\": \"<string>\",\n        \"unit_id\": \"<integer>\",\n        \"volume\": \"<number>\",\n        \"webshop_description\": \"<string>\",\n        \"webshop_keywords\": \"<string>\",\n        \"webshop_title\": \"<string>\",\n        \"webshop_url_slug\": \"<string>\",\n        \"width\": \"<number>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fd24fe46-552f-4791-8573-51164419b40c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"dimension_ids\": [\n        1,\n        2,\n        3\n      ],\n      \"generateCode2Automatically\": \"<boolean>\",\n      \"generateCodeAutomatically\": \"<boolean>\",\n      \"matrix_product\": {\n        \"age_restriction\": \"<integer>\",\n        \"alcohol_percentage\": \"<string>\",\n        \"alcohol_registry_number\": \"<string>\",\n        \"backup_id\": \"<integer>\",\n        \"batches\": \"<string>\",\n        \"brand_id\": \"<integer>\",\n        \"cashier_must_enter_price\": \"<integer>\",\n        \"category_id\": \"<integer>\",\n        \"code\": \"<string>\",\n        \"code2\": \"<string>\",\n        \"code3\": \"<string>\",\n        \"code5\": \"<string>\",\n        \"code6\": \"<string>\",\n        \"code7\": \"<string>\",\n        \"code8\": \"<string>\",\n        \"cost\": \"<number>\",\n        \"country_of_origin_id\": \"<integer>\",\n        \"delivery_time\": \"<string>\",\n        \"deposit_fee_amount\": \"<integer>\",\n        \"deposit_fee_id\": \"<integer>\",\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": \"<integer>\",\n        \"excise_declaration_number\": \"<string>\",\n        \"extra_field1_id\": \"<integer>\",\n        \"extra_field2_id\": \"<integer>\",\n        \"extra_field3_id\": \"<integer>\",\n        \"extra_field4_id\": \"<integer>\",\n        \"family_id\": \"<integer>\",\n        \"formula_identifier\": \"<string>\",\n        \"gross_weight\": \"<number>\",\n        \"group_id\": \"<integer>\",\n        \"group_package_ferrous_metal\": \"<number>\",\n        \"group_package_metal\": \"<number>\",\n        \"group_package_non_ferrous_metal\": \"<number>\",\n        \"group_package_paper\": \"<number>\",\n        \"group_package_plastic\": \"<number>\",\n        \"group_package_wood\": \"<number>\",\n        \"has_serial_numbers\": \"<integer>\",\n        \"height\": \"<number>\",\n        \"is_gift_card\": \"<integer>\",\n        \"is_lot_product\": \"<boolean>\",\n        \"is_regular_gift_card\": \"<integer>\",\n        \"is_used_product\": \"<boolean>\",\n        \"labels_not_needed\": \"<integer>\",\n        \"length\": \"<number>\",\n        \"location_in_warehouse_id\": \"<integer>\",\n        \"location_in_warehouse_text\": \"<string>\",\n        \"manufacturer_name\": \"<string>\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": \"<number>\",\n        \"non_discountable\": \"<integer>\",\n        \"non_refundable\": \"<integer>\",\n        \"non_stock_product\": \"<integer>\",\n        \"packaging_type\": \"<string>\",\n        \"packing_not_required\": \"<integer>\",\n        \"parent_product_id\": \"<integer>\",\n        \"price\": \"<number>\",\n        \"priority_group_id\": \"<integer>\",\n        \"product_item_level_promotions_disabled\": \"<integer>\",\n        \"product_reorder_multiples\": \"<integer>\",\n        \"revenue_account\": \"<string>\",\n        \"reward_points_not_allowed\": \"<integer>\",\n        \"sales_package_cardboard\": \"<number>\",\n        \"sales_package_clear_brown_glass\": \"<number>\",\n        \"sales_package_green_other_glass\": \"<number>\",\n        \"sales_package_metal_al\": \"<number>\",\n        \"sales_package_metal_fe\": \"<number>\",\n        \"sales_package_other_metal\": \"<number>\",\n        \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n        \"sales_package_plastic_pet\": \"<number>\",\n        \"sales_package_plastic_pp_pe\": \"<number>\",\n        \"sales_package_wood\": \"<number>\",\n        \"serial_number\": \"<string>\",\n        \"shelf_life_days\": \"<integer>\",\n        \"sold_in_packages\": \"<integer>\",\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": \"<number>\",\n        \"supplier_code\": \"<string>\",\n        \"supplier_id\": \"<integer>\",\n        \"tax_free\": \"<integer>\",\n        \"tax_rate_id\": \"<integer>\",\n        \"transport_package_cardboard\": \"<number>\",\n        \"transport_package_ferrous_metal\": \"<number>\",\n        \"transport_package_non_ferrous_metal\": \"<number>\",\n        \"transport_package_plastic\": \"<number>\",\n        \"transport_package_wood\": \"<number>\",\n        \"type\": \"<string>\",\n        \"unit_id\": \"<integer>\",\n        \"volume\": \"<number>\",\n        \"webshop_description\": \"<string>\",\n        \"webshop_keywords\": \"<string>\",\n        \"webshop_title\": \"<string>\",\n        \"webshop_url_slug\": \"<string>\",\n        \"width\": \"<number>\"\n      }\n    },\n    {\n      \"dimension_ids\": [\n        1,\n        2,\n        3\n      ],\n      \"generateCode2Automatically\": \"<boolean>\",\n      \"generateCodeAutomatically\": \"<boolean>\",\n      \"matrix_product\": {\n        \"age_restriction\": \"<integer>\",\n        \"alcohol_percentage\": \"<string>\",\n        \"alcohol_registry_number\": \"<string>\",\n        \"backup_id\": \"<integer>\",\n        \"batches\": \"<string>\",\n        \"brand_id\": \"<integer>\",\n        \"cashier_must_enter_price\": \"<integer>\",\n        \"category_id\": \"<integer>\",\n        \"code\": \"<string>\",\n        \"code2\": \"<string>\",\n        \"code3\": \"<string>\",\n        \"code5\": \"<string>\",\n        \"code6\": \"<string>\",\n        \"code7\": \"<string>\",\n        \"code8\": \"<string>\",\n        \"cost\": \"<number>\",\n        \"country_of_origin_id\": \"<integer>\",\n        \"delivery_time\": \"<string>\",\n        \"deposit_fee_amount\": \"<integer>\",\n        \"deposit_fee_id\": \"<integer>\",\n        \"description\": {\n          \"en\": {\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plain_text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"displayed_in_webshop\": \"<integer>\",\n        \"excise_declaration_number\": \"<string>\",\n        \"extra_field1_id\": \"<integer>\",\n        \"extra_field2_id\": \"<integer>\",\n        \"extra_field3_id\": \"<integer>\",\n        \"extra_field4_id\": \"<integer>\",\n        \"family_id\": \"<integer>\",\n        \"formula_identifier\": \"<string>\",\n        \"gross_weight\": \"<number>\",\n        \"group_id\": \"<integer>\",\n        \"group_package_ferrous_metal\": \"<number>\",\n        \"group_package_metal\": \"<number>\",\n        \"group_package_non_ferrous_metal\": \"<number>\",\n        \"group_package_paper\": \"<number>\",\n        \"group_package_plastic\": \"<number>\",\n        \"group_package_wood\": \"<number>\",\n        \"has_serial_numbers\": \"<integer>\",\n        \"height\": \"<number>\",\n        \"is_gift_card\": \"<integer>\",\n        \"is_lot_product\": \"<boolean>\",\n        \"is_regular_gift_card\": \"<integer>\",\n        \"is_used_product\": \"<boolean>\",\n        \"labels_not_needed\": \"<integer>\",\n        \"length\": \"<number>\",\n        \"location_in_warehouse_id\": \"<integer>\",\n        \"location_in_warehouse_text\": \"<string>\",\n        \"manufacturer_name\": \"<string>\",\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"net_weight\": \"<number>\",\n        \"non_discountable\": \"<integer>\",\n        \"non_refundable\": \"<integer>\",\n        \"non_stock_product\": \"<integer>\",\n        \"packaging_type\": \"<string>\",\n        \"packing_not_required\": \"<integer>\",\n        \"parent_product_id\": \"<integer>\",\n        \"price\": \"<number>\",\n        \"priority_group_id\": \"<integer>\",\n        \"product_item_level_promotions_disabled\": \"<integer>\",\n        \"product_reorder_multiples\": \"<integer>\",\n        \"revenue_account\": \"<string>\",\n        \"reward_points_not_allowed\": \"<integer>\",\n        \"sales_package_cardboard\": \"<number>\",\n        \"sales_package_clear_brown_glass\": \"<number>\",\n        \"sales_package_green_other_glass\": \"<number>\",\n        \"sales_package_metal_al\": \"<number>\",\n        \"sales_package_metal_fe\": \"<number>\",\n        \"sales_package_other_metal\": \"<number>\",\n        \"sales_package_paper_and_cardboard_mono\": \"<number>\",\n        \"sales_package_plastic_pet\": \"<number>\",\n        \"sales_package_plastic_pp_pe\": \"<number>\",\n        \"sales_package_wood\": \"<number>\",\n        \"serial_number\": \"<string>\",\n        \"shelf_life_days\": \"<integer>\",\n        \"sold_in_packages\": \"<integer>\",\n        \"status\": \"ACTIVE\",\n        \"suggested_retail_price\": \"<number>\",\n        \"supplier_code\": \"<string>\",\n        \"supplier_id\": \"<integer>\",\n        \"tax_free\": \"<integer>\",\n        \"tax_rate_id\": \"<integer>\",\n        \"transport_package_cardboard\": \"<number>\",\n        \"transport_package_ferrous_metal\": \"<number>\",\n        \"transport_package_non_ferrous_metal\": \"<number>\",\n        \"transport_package_plastic\": \"<number>\",\n        \"transport_package_wood\": \"<number>\",\n        \"type\": \"<string>\",\n        \"unit_id\": \"<integer>\",\n        \"volume\": \"<number>\",\n        \"webshop_description\": \"<string>\",\n        \"webshop_keywords\": \"<string>\",\n        \"webshop_title\": \"<string>\",\n        \"webshop_url_slug\": \"<string>\",\n        \"width\": \"<number>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    },\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef341c29-3097-476f-a397-762de43552f8",
+          "name": "Get matrix variations in bulk",
+          "request": {
+            "name": "Get matrix variations in bulk",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                "bulk",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"matrix_product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    {\n      \"matrix_product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bb6c612e-783f-4fda-94de-971b0b42c43b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    "bulk",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"matrix_product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    {\n      \"matrix_product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"resultId\": 5304,\n      \"variations\": [\n        {\n          \"code\": \"string\",\n          \"code2\": \"string\",\n          \"code3\": \"string\",\n          \"code5\": \"string\",\n          \"code6\": \"string\",\n          \"code7\": \"string\",\n          \"code8\": \"string\",\n          \"displayed_in_webshop\": 2882,\n          \"id\": 7498,\n          \"name\": {\n            \"en\": \"<string>\"\n          },\n          \"parent_product_id\": 5751,\n          \"parent_product_name\": {\n            \"en\": \"<string>\"\n          },\n          \"price\": 8094.718435862927,\n          \"price_with_tax\": 9893.168849462287,\n          \"status\": \"string\",\n          \"tax_rate_id\": 2408,\n          \"variation_description\": [\n            {\n              \"dimension_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_order\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"dimension_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_order\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"code\": \"string\",\n          \"code2\": \"string\",\n          \"code3\": \"string\",\n          \"code5\": \"string\",\n          \"code6\": \"string\",\n          \"code7\": \"string\",\n          \"code8\": \"string\",\n          \"displayed_in_webshop\": 7765,\n          \"id\": 3145,\n          \"name\": {\n            \"en\": \"<string>\"\n          },\n          \"parent_product_id\": 9348,\n          \"parent_product_name\": {\n            \"en\": \"<string>\"\n          },\n          \"price\": 776.6821350034902,\n          \"price_with_tax\": 6736.345566958909,\n          \"status\": \"string\",\n          \"tax_rate_id\": 9002,\n          \"variation_description\": [\n            {\n              \"dimension_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_order\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"dimension_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_order\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"message\": \"some message\",\n      \"resultId\": 6506,\n      \"variations\": [\n        {\n          \"code\": \"string\",\n          \"code2\": \"string\",\n          \"code3\": \"string\",\n          \"code5\": \"string\",\n          \"code6\": \"string\",\n          \"code7\": \"string\",\n          \"code8\": \"string\",\n          \"displayed_in_webshop\": 2147,\n          \"id\": 4467,\n          \"name\": {\n            \"en\": \"<string>\"\n          },\n          \"parent_product_id\": 9182,\n          \"parent_product_name\": {\n            \"en\": \"<string>\"\n          },\n          \"price\": 1622.3869568083414,\n          \"price_with_tax\": 9621.838256977455,\n          \"status\": \"string\",\n          \"tax_rate_id\": 9903,\n          \"variation_description\": [\n            {\n              \"dimension_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_order\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"dimension_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_order\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"code\": \"string\",\n          \"code2\": \"string\",\n          \"code3\": \"string\",\n          \"code5\": \"string\",\n          \"code6\": \"string\",\n          \"code7\": \"string\",\n          \"code8\": \"string\",\n          \"displayed_in_webshop\": 6972,\n          \"id\": 3932,\n          \"name\": {\n            \"en\": \"<string>\"\n          },\n          \"parent_product_id\": 584,\n          \"parent_product_name\": {\n            \"en\": \"<string>\"\n          },\n          \"price\": 8594.546494863458,\n          \"price_with_tax\": 5141.88887979884,\n          \"status\": \"string\",\n          \"tax_rate_id\": 2440,\n          \"variation_description\": [\n            {\n              \"dimension_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_order\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"dimension_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_code\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"dimension_value_order\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8d9c0b1-fc4c-4af3-9888-af2418c89631",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    "bulk",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"matrix_product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    {\n      \"matrix_product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c69ca9bc-17a7-45a3-afde-3f4b4f13c250",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    "bulk",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"matrix_product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    {\n      \"matrix_product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"paginationParameters\": {\n        \"skip\": \"<integer>\",\n        \"take\": \"<integer>\"\n      },\n      \"product_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f6446c8-7cce-4944-bd7a-37db245e1ed8",
+          "name": "Update matrix products dimensions in bulk",
+          "request": {
+            "name": "Update matrix products dimensions in bulk",
+            "description": {
+              "content": "each request contains the updated resource data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                "dimensions",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"dimension_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"matrix_product_id\": \"<integer>\"\n    },\n    {\n      \"dimension_ids\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"matrix_product_id\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aaa48864-baff-442e-9767-3afef8346d61",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    "dimensions",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"dimension_ids\": [\n        1,\n        2,\n        3\n      ],\n      \"matrix_product_id\": \"<integer>\"\n    },\n    {\n      \"dimension_ids\": [\n        1,\n        2,\n        3\n      ],\n      \"matrix_product_id\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    },\n    {\n      \"message\": \"some message\",\n      \"resourceId\": 2,\n      \"resultId\": 2\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "867ce6e9-aabf-433f-afcb-a1ffdecdc897",
+          "name": "Read matrix products dimensions in bulk",
+          "request": {
+            "name": "Read matrix products dimensions in bulk",
+            "description": {
+              "content": "each request contains the matrix product ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                "dimensions",
+                "bulk",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"matrix_product_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"paginationParameters\": {\n    \"skip\": \"<integer>\",\n    \"take\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "440cac07-4f4a-49e6-9edb-94f93c158eea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    "dimensions",
+                    "bulk",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"matrix_product_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"paginationParameters\": {\n    \"skip\": \"<integer>\",\n    \"take\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"dimension_ids\": [\n        1,\n        2,\n        3\n      ],\n      \"message\": \"some message\",\n      \"resourceId\": 969,\n      \"resultId\": 9894\n    },\n    {\n      \"dimension_ids\": [\n        1,\n        2,\n        3\n      ],\n      \"message\": \"some message\",\n      \"resourceId\": 327,\n      \"resultId\": 1311\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cd1df05-e3e9-4fda-8d81-0a285824fbe0",
+          "name": "API call for retrieving matrix products with variations",
+          "request": {
+            "name": "API call for retrieving matrix products with variations",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                "with-variations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting is applied to the matrix products only. The sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filtering is applied to the matrix products only. The filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "7b7f17d6-d1c8-46ee-a536-63a8c3066650",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    "with-variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"product\": {\n      \"added\": 1595230999,\n      \"addedby\": \"k@erp.xyz\",\n      \"age_restriction\": 2704,\n      \"alcohol_percentage\": \"string\",\n      \"alcohol_registry_number\": \"string\",\n      \"batches\": \"string\",\n      \"brand_id\": 5000,\n      \"cashier_must_enter_price\": 3060,\n      \"category_id\": 2943,\n      \"changed\": 1595230999,\n      \"changedby\": \"k@erp.xyz\",\n      \"code\": \"string\",\n      \"code2\": \"string\",\n      \"code3\": \"string\",\n      \"code5\": \"string\",\n      \"code6\": \"string\",\n      \"code7\": \"string\",\n      \"code8\": \"string\",\n      \"cost\": 5128.88942828379,\n      \"country_of_origin_id\": 411,\n      \"delivery_time\": \"string\",\n      \"deposit_fee_amount\": 3982,\n      \"deposit_fee_id\": 3259,\n      \"description\": {\n        \"en\": {\n          \"html\": \"<b>Very good product!</b>\",\n          \"plain_text\": \"Very good product!\"\n        }\n      },\n      \"displayed_in_webshop\": 6798,\n      \"excise_declaration_number\": \"string\",\n      \"extra_field1_id\": 2836,\n      \"extra_field2_id\": 7496,\n      \"extra_field3_id\": 3517,\n      \"extra_field4_id\": 1578,\n      \"family_id\": 5537,\n      \"formula_identifier\": \"string\",\n      \"gross_weight\": 8306.678145889418,\n      \"group_id\": 6214,\n      \"group_package_ferrous_metal\": 35.98427781345559,\n      \"group_package_metal\": 5239.90021176858,\n      \"group_package_non_ferrous_metal\": 1039.3016628768303,\n      \"group_package_paper\": 956.483850830696,\n      \"group_package_plastic\": 9746.541036952583,\n      \"group_package_wood\": 6946.562430430353,\n      \"has_serial_numbers\": 9704,\n      \"height\": 1703.3667173386036,\n      \"id\": 3248,\n      \"is_gift_card\": 4992,\n      \"is_lot_product\": false,\n      \"is_regular_gift_card\": 5785,\n      \"is_used_product\": false,\n      \"labels_not_needed\": 7781,\n      \"length\": 1390.049815840576,\n      \"location_in_warehouse_id\": 4399,\n      \"location_in_warehouse_text\": \"string\",\n      \"manufacturer_name\": \"string\",\n      \"name\": {\n        \"en\": \"<string>\"\n      },\n      \"net_weight\": 9606.858341363808,\n      \"non_discountable\": 6088,\n      \"non_refundable\": 4006,\n      \"non_stock_product\": 9001,\n      \"packaging_type\": \"string\",\n      \"packing_not_required\": 6588,\n      \"parent_product_id\": 6697,\n      \"price\": 325.13968335575186,\n      \"price_with_tax\": 8677.74587903378,\n      \"priority_group_id\": 8730,\n      \"product_item_level_promotions_disabled\": 6362,\n      \"product_reorder_multiples\": 4856,\n      \"revenue_account\": \"string\",\n      \"reward_points_not_allowed\": 9698,\n      \"sales_package_cardboard\": 3292.291664026239,\n      \"sales_package_clear_brown_glass\": 1885.5178853789546,\n      \"sales_package_green_other_glass\": 1521.1636241772665,\n      \"sales_package_metal_al\": 7355.3047188841765,\n      \"sales_package_metal_fe\": 2615.3594765639577,\n      \"sales_package_other_metal\": 9809.291776097514,\n      \"sales_package_paper_and_cardboard_mono\": 1405.5477231817804,\n      \"sales_package_plastic_pet\": 6114.693670714595,\n      \"sales_package_plastic_pp_pe\": 7233.703472439612,\n      \"sales_package_wood\": 5190.615527467729,\n      \"serial_number\": \"string\",\n      \"shelf_life_days\": 8358,\n      \"sold_in_packages\": 7939,\n      \"status\": \"ACTIVE\",\n      \"suggested_retail_price\": 7804.240067084101,\n      \"supplier_code\": \"string\",\n      \"supplier_id\": 5346,\n      \"tax_free\": 216,\n      \"tax_rate_id\": 4708,\n      \"transport_package_cardboard\": 9163.595470745331,\n      \"transport_package_ferrous_metal\": 4768.879965250494,\n      \"transport_package_non_ferrous_metal\": 9593.253776701453,\n      \"transport_package_plastic\": 2862.334052751784,\n      \"transport_package_wood\": 3272.3497398597947,\n      \"type\": \"string\",\n      \"unit_id\": 5215,\n      \"volume\": 1024.4683435827862,\n      \"webshop_description\": \"string\",\n      \"webshop_keywords\": \"string\",\n      \"webshop_title\": \"string\",\n      \"webshop_url_slug\": \"string\",\n      \"width\": 7255.338852815466\n    },\n    \"variations\": [\n      {\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"displayed_in_webshop\": 5820,\n        \"id\": 2228,\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"parent_product_id\": 7507,\n        \"parent_product_name\": {\n          \"en\": \"<string>\"\n        },\n        \"price\": 5668.414619751995,\n        \"price_with_tax\": 5216.01983178876,\n        \"status\": \"string\",\n        \"tax_rate_id\": 3226,\n        \"variation_description\": [\n          {\n            \"dimension_id\": 1616,\n            \"dimension_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_code\": \"string\",\n            \"dimension_value_id\": 3428,\n            \"dimension_value_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_order\": 4988\n          },\n          {\n            \"dimension_id\": 7421,\n            \"dimension_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_code\": \"string\",\n            \"dimension_value_id\": 8480,\n            \"dimension_value_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_order\": 3291\n          }\n        ]\n      },\n      {\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"displayed_in_webshop\": 7936,\n        \"id\": 1169,\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"parent_product_id\": 8313,\n        \"parent_product_name\": {\n          \"en\": \"<string>\"\n        },\n        \"price\": 782.6350878361832,\n        \"price_with_tax\": 8066.057385532088,\n        \"status\": \"string\",\n        \"tax_rate_id\": 6568,\n        \"variation_description\": [\n          {\n            \"dimension_id\": 1372,\n            \"dimension_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_code\": \"string\",\n            \"dimension_value_id\": 2081,\n            \"dimension_value_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_order\": 4903\n          },\n          {\n            \"dimension_id\": 4829,\n            \"dimension_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_code\": \"string\",\n            \"dimension_value_id\": 242,\n            \"dimension_value_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_order\": 6007\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"product\": {\n      \"added\": 1595230999,\n      \"addedby\": \"k@erp.xyz\",\n      \"age_restriction\": 2213,\n      \"alcohol_percentage\": \"string\",\n      \"alcohol_registry_number\": \"string\",\n      \"batches\": \"string\",\n      \"brand_id\": 4621,\n      \"cashier_must_enter_price\": 4096,\n      \"category_id\": 347,\n      \"changed\": 1595230999,\n      \"changedby\": \"k@erp.xyz\",\n      \"code\": \"string\",\n      \"code2\": \"string\",\n      \"code3\": \"string\",\n      \"code5\": \"string\",\n      \"code6\": \"string\",\n      \"code7\": \"string\",\n      \"code8\": \"string\",\n      \"cost\": 4903.21796402307,\n      \"country_of_origin_id\": 7402,\n      \"delivery_time\": \"string\",\n      \"deposit_fee_amount\": 6104,\n      \"deposit_fee_id\": 6420,\n      \"description\": {\n        \"en\": {\n          \"html\": \"<b>Very good product!</b>\",\n          \"plain_text\": \"Very good product!\"\n        }\n      },\n      \"displayed_in_webshop\": 4669,\n      \"excise_declaration_number\": \"string\",\n      \"extra_field1_id\": 590,\n      \"extra_field2_id\": 1897,\n      \"extra_field3_id\": 6966,\n      \"extra_field4_id\": 1025,\n      \"family_id\": 4238,\n      \"formula_identifier\": \"string\",\n      \"gross_weight\": 190.96863895887384,\n      \"group_id\": 7925,\n      \"group_package_ferrous_metal\": 3494.6628763400513,\n      \"group_package_metal\": 5612.934495786677,\n      \"group_package_non_ferrous_metal\": 1662.2456265347996,\n      \"group_package_paper\": 5766.869934772519,\n      \"group_package_plastic\": 3744.8512581539817,\n      \"group_package_wood\": 6576.203532764667,\n      \"has_serial_numbers\": 7532,\n      \"height\": 4663.384533976043,\n      \"id\": 6077,\n      \"is_gift_card\": 7270,\n      \"is_lot_product\": true,\n      \"is_regular_gift_card\": 8089,\n      \"is_used_product\": false,\n      \"labels_not_needed\": 8416,\n      \"length\": 3589.4841449767414,\n      \"location_in_warehouse_id\": 5307,\n      \"location_in_warehouse_text\": \"string\",\n      \"manufacturer_name\": \"string\",\n      \"name\": {\n        \"en\": \"<string>\"\n      },\n      \"net_weight\": 5658.411464278314,\n      \"non_discountable\": 2410,\n      \"non_refundable\": 2396,\n      \"non_stock_product\": 1990,\n      \"packaging_type\": \"string\",\n      \"packing_not_required\": 8022,\n      \"parent_product_id\": 2363,\n      \"price\": 8857.852779720715,\n      \"price_with_tax\": 8726.788083599416,\n      \"priority_group_id\": 8690,\n      \"product_item_level_promotions_disabled\": 9905,\n      \"product_reorder_multiples\": 5823,\n      \"revenue_account\": \"string\",\n      \"reward_points_not_allowed\": 5798,\n      \"sales_package_cardboard\": 6862.543154184373,\n      \"sales_package_clear_brown_glass\": 1749.6538033464603,\n      \"sales_package_green_other_glass\": 3413.4434562618244,\n      \"sales_package_metal_al\": 7471.001541335583,\n      \"sales_package_metal_fe\": 2594.550654882053,\n      \"sales_package_other_metal\": 8066.894100524388,\n      \"sales_package_paper_and_cardboard_mono\": 8179.352103985913,\n      \"sales_package_plastic_pet\": 3635.3554199624105,\n      \"sales_package_plastic_pp_pe\": 304.9908003350055,\n      \"sales_package_wood\": 367.4562271082316,\n      \"serial_number\": \"string\",\n      \"shelf_life_days\": 2239,\n      \"sold_in_packages\": 479,\n      \"status\": \"ACTIVE\",\n      \"suggested_retail_price\": 4651.209021789421,\n      \"supplier_code\": \"string\",\n      \"supplier_id\": 3416,\n      \"tax_free\": 2108,\n      \"tax_rate_id\": 2033,\n      \"transport_package_cardboard\": 647.91596876838,\n      \"transport_package_ferrous_metal\": 8682.08599413463,\n      \"transport_package_non_ferrous_metal\": 9479.761717476902,\n      \"transport_package_plastic\": 4094.6974591725702,\n      \"transport_package_wood\": 6588.984800393958,\n      \"type\": \"string\",\n      \"unit_id\": 6456,\n      \"volume\": 4051.495184847147,\n      \"webshop_description\": \"string\",\n      \"webshop_keywords\": \"string\",\n      \"webshop_title\": \"string\",\n      \"webshop_url_slug\": \"string\",\n      \"width\": 59.11178897219482\n    },\n    \"variations\": [\n      {\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"displayed_in_webshop\": 2958,\n        \"id\": 1139,\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"parent_product_id\": 6510,\n        \"parent_product_name\": {\n          \"en\": \"<string>\"\n        },\n        \"price\": 8528.430913213251,\n        \"price_with_tax\": 5113.796262770467,\n        \"status\": \"string\",\n        \"tax_rate_id\": 1580,\n        \"variation_description\": [\n          {\n            \"dimension_id\": 1570,\n            \"dimension_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_code\": \"string\",\n            \"dimension_value_id\": 7909,\n            \"dimension_value_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_order\": 6725\n          },\n          {\n            \"dimension_id\": 5736,\n            \"dimension_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_code\": \"string\",\n            \"dimension_value_id\": 3204,\n            \"dimension_value_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_order\": 2893\n          }\n        ]\n      },\n      {\n        \"code\": \"string\",\n        \"code2\": \"string\",\n        \"code3\": \"string\",\n        \"code5\": \"string\",\n        \"code6\": \"string\",\n        \"code7\": \"string\",\n        \"code8\": \"string\",\n        \"displayed_in_webshop\": 6849,\n        \"id\": 3130,\n        \"name\": {\n          \"en\": \"<string>\"\n        },\n        \"parent_product_id\": 6208,\n        \"parent_product_name\": {\n          \"en\": \"<string>\"\n        },\n        \"price\": 5925.157696767787,\n        \"price_with_tax\": 2747.436500813415,\n        \"status\": \"string\",\n        \"tax_rate_id\": 6537,\n        \"variation_description\": [\n          {\n            \"dimension_id\": 1873,\n            \"dimension_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_code\": \"string\",\n            \"dimension_value_id\": 638,\n            \"dimension_value_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_order\": 5745\n          },\n          {\n            \"dimension_id\": 192,\n            \"dimension_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_code\": \"string\",\n            \"dimension_value_id\": 8467,\n            \"dimension_value_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dimension_value_order\": 7035\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6d3bbfb-2c60-4814-912c-a59632188dc0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    "with-variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d398561-ddfd-4658-8892-ab1a48c3f429",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    "with-variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c8a13bb-658b-40e2-8841-977ba3bbd4af",
+          "name": "Read Matrix Product Dimensions",
+          "request": {
+            "name": "Read Matrix Product Dimensions",
+            "description": {
+              "content": "Matrix items have 1...3 dimensions - color, size etc. Matrix dimensions can be defined in Erply backend A dimension has a name (eg. \"Letter Sizes\" or Spring 2013 Colors\") and a list of possible values (eg. S, M, L or Lime, Yellow, Fuchsia).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                ":id",
+                "dimensions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "skip n records"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "items to take, default: 20, max: 100000"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) matrix product id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "3cdd004e-7a3a-4ee7-b92b-8c7f2f0e1655",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":id",
+                    "dimensions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) matrix product id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dimension_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f47ba256-bf79-419d-a740-42643958e62f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":id",
+                    "dimensions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) matrix product id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b989ec78-4bf9-4fd2-81dd-a197a1785e1f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":id",
+                    "dimensions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) matrix product id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42534352-27d9-4dae-b6f6-b1c60c922a12",
+          "name": "Update Matrix Product Dimensions",
+          "request": {
+            "name": "Update Matrix Product Dimensions",
+            "description": {
+              "content": "Matrix items have 1...3 dimensions - color, size etc. Matrix dimensions can be defined in Erply backend.\nA dimension has a name (eg. \"Letter Sizes\" or Spring 2013 Colors\") and a list of possible values (eg. S, M, L or Lime, Yellow, Fuchsia).\nTo update the matrix product dimensions, first pick the dimension(s) that apply to this particular product, eg \"Waist Size\" and \"Length\" for jeans and pass them to the request body.\nA matrix can have up to 3 dimensions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "matrix",
+                "product",
+                ":id",
+                "dimensions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) matrix product id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dimension_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5ad5b8a5-8474-43b6-93a1-06c7fb680fb6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":id",
+                    "dimensions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) matrix product id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 73\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8387fa82-b04a-4c73-aa6d-b334e1c850f8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":id",
+                    "dimensions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) matrix product id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0718748d-0cb1-494c-adb6-8b1da17b69b6",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "matrix",
+                    "product",
+                    ":id",
+                    "dimensions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) matrix product id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dimension_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"some message\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c4b735d0-e3af-46ee-ac78-965b4ff7e14d",
+    "name": "assignments Assortment Matrix Product API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

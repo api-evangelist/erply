@@ -1,0 +1,1501 @@
+{
+  "item": [
+    {
+      "id": "ff786be7-1bef-4354-84e2-709bb9e7d0a3",
+      "name": "v1",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1062a92d-37a6-458a-80f8-ae09a5b3527a",
+          "name": "Get all configurations or a sub-list.",
+          "request": {
+            "name": "Get all configurations or a sub-list.",
+            "description": {
+              "content": "All those parameters work like filters. You can search for all configs by type or by level. Or get all configs of Pos 1.\nWith `Look-Deeper` header set to `true` you will get the following logic of the request:\nWhen you request a config at a User or Warehouse levels, if it is not there it will check Company level as well. When you request a config at a POS level, if it is not there it will check Warehouse (if request to ERPLY API was ok to get the Warehouse ID) and Company levels as well.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "application",
+                  "value": "<string>",
+                  "description": "Application name that uses CAFA to store configs"
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "Level is the operating level where the config is stored"
+                },
+                {
+                  "disabled": false,
+                  "key": "level_id",
+                  "value": "<string>",
+                  "description": "LevelID is a unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  `Company level does not need level_id.`"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name of the configuration"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "UNIX timestamp used for the HMAC Auth method only",
+                "key": "timestamp",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "look for configuration on deeper levels. if CAFA does not find any configuration with the query parameters, CAFA will use the level_id(PointOfSaleID), to find which Warehouse the Pos belongs to and check for configuration with the same name(and type if present)",
+                "key": "Look-Deeper",
+                "value": "<boolean>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "128d14d7-7fbd-41c4-9d3f-e8e94a417ddf",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "application",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "look for configuration on deeper levels. if CAFA does not find any configuration with the query parameters, CAFA will use the level_id(PointOfSaleID), to find which Warehouse the Pos belongs to and check for configuration with the same name(and type if present)",
+                    "key": "Look-Deeper",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"added\": 3919,\n    \"addedby_id\": 1026,\n    \"application\": \"erply-to-woo-sync\",\n    \"changed\": 28,\n    \"changedby_id\": 9669,\n    \"id\": \"string\",\n    \"level\": \"Pos\",\n    \"level_id\": \"1\",\n    \"name\": \"adyen\",\n    \"type\": \"payment\",\n    \"value\": \"\"\n  },\n  {\n    \"added\": 6611,\n    \"addedby_id\": 2378,\n    \"application\": \"erply-to-woo-sync\",\n    \"changed\": 2464,\n    \"changedby_id\": 6342,\n    \"id\": \"string\",\n    \"level\": \"Pos\",\n    \"level_id\": \"1\",\n    \"name\": \"adyen\",\n    \"type\": \"payment\",\n    \"value\": \"\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84f91bbe-5732-418f-963e-3286a5553ad4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "application",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "look for configuration on deeper levels. if CAFA does not find any configuration with the query parameters, CAFA will use the level_id(PointOfSaleID), to find which Warehouse the Pos belongs to and check for configuration with the same name(and type if present)",
+                    "key": "Look-Deeper",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "440e52d7-f813-453a-9d06-97249f999eef",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "application",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "look for configuration on deeper levels. if CAFA does not find any configuration with the query parameters, CAFA will use the level_id(PointOfSaleID), to find which Warehouse the Pos belongs to and check for configuration with the same name(and type if present)",
+                    "key": "Look-Deeper",
+                    "value": "<boolean>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f08599b4-a687-41e9-ab53-ab85e09f46f7",
+          "name": "Update `value` only",
+          "request": {
+            "name": "Update `value` only",
+            "description": {
+              "content": "`level`, `level_id` and `type` are optional fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "UNIX timestamp used for the HMAC Auth method only",
+                "key": "timestamp",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"application\": \"<string>\",\n  \"level\": \"<string>\",\n  \"level_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"value\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ec3470db-dcf7-42b2-88d1-fd17ff30638a",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2961cd0-82b3-475a-bfdb-e95806e4e516",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92481dca-47c1-42e8-a364-b4f2442a294e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afdc2b78-1bdf-4fb5-95af-5e1cb6dcdcf5",
+          "name": "Save",
+          "request": {
+            "name": "Save",
+            "description": {
+              "content": "`NB`: You cannot have 2 configurations with the same level,level_id, type, name and application\nlevel, level_id and type are optional fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "UNIX timestamp used for the HMAC Auth method only",
+                "key": "timestamp",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"application\": \"<string>\",\n  \"level\": \"<string>\",\n  \"level_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"value\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7de4d77-05de-431c-a51e-fd48379ba8a6",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46eee9b8-d904-4456-9238-ec512de9de62",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e1022b3-9070-4231-b05c-e7c30746ce8b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6320ba5c-c7f7-4b94-a9b7-e4a85c2ba70a",
+          "name": "Delete",
+          "request": {
+            "name": "Delete",
+            "description": {
+              "content": "Delete will delete the configuration by strict match of the following fields: level, application, levelID, type and name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "application",
+                  "value": "<string>",
+                  "description": "(Required) Application (s) name that uses CAFA to store configs"
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "Level is the operating level where the config is stored. Has to be one of Company, Warehouse, Pos, User"
+                },
+                {
+                  "disabled": false,
+                  "key": "level_id",
+                  "value": "<string>",
+                  "description": "LevelID is an unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  Company level does not need level_id."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name of the configuration"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "UNIX timestamp used for the HMAC Auth method only",
+                "key": "timestamp",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "fe03696e-4ef8-45b6-b378-d3856e575966",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "application",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a48c2390-6416-40ba-b3b5-64304ffa51ec",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "application",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a67b451f-6368-4926-a72e-9651d809b649",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "application",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "349d9e7d-c569-43e7-bbac-c2f628bea8c5",
+          "name": "Get a list of all application names that the user has configurations for.",
+          "request": {
+            "name": "Get a list of all application names that the user has configurations for.",
+            "description": {
+              "content": "Get a list of all application names that the user has configurations for.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "configuration",
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "e87d6cc1-b9a7-40e7-953a-1a5e2a4696c3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"applications\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"applications\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fb968d9-16f9-4d37-b224-aec0ab0912e1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "460104b7-996c-4553-80ba-3b1bc17b42aa",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "551dea3f-e53b-475c-8a52-6b309dc87523",
+          "name": "Get all configurations for an application.",
+          "request": {
+            "name": "Get all configurations for an application.",
+            "description": {
+              "content": "The endpoint allows you to get all the configurations in an application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "configuration",
+                ":applicationName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "applicationName",
+                  "description": "(Required) Application name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "UNIX timestamp used for the HMAC Auth method only",
+                "key": "timestamp",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "62beb88f-1aee-4300-b1b7-4fad718d834b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    ":applicationName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationName",
+                      "description": "(Required) Application name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"added\": 3919,\n    \"addedby_id\": 1026,\n    \"application\": \"erply-to-woo-sync\",\n    \"changed\": 28,\n    \"changedby_id\": 9669,\n    \"id\": \"string\",\n    \"level\": \"Pos\",\n    \"level_id\": \"1\",\n    \"name\": \"adyen\",\n    \"type\": \"payment\",\n    \"value\": \"\"\n  },\n  {\n    \"added\": 6611,\n    \"addedby_id\": 2378,\n    \"application\": \"erply-to-woo-sync\",\n    \"changed\": 2464,\n    \"changedby_id\": 6342,\n    \"id\": \"string\",\n    \"level\": \"Pos\",\n    \"level_id\": \"1\",\n    \"name\": \"adyen\",\n    \"type\": \"payment\",\n    \"value\": \"\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f2a10e5-006c-4b00-baba-0e9dc03dc4a7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    ":applicationName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationName",
+                      "description": "(Required) Application name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "baf5befa-2606-4f3b-8f52-380e019e19af",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    ":applicationName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "applicationName",
+                      "description": "(Required) Application name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bd427da-f578-4807-afcd-ad45182a0fd0",
+          "name": "Moving means changing the level_id.",
+          "request": {
+            "name": "Moving means changing the level_id.",
+            "description": {},
+            "url": {
+              "path": [
+                "configuration",
+                ":id",
+                "move"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ConfigurationDbRecord ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "UNIX timestamp used for the HMAC Auth method only",
+                "key": "timestamp",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"level_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "668e21ba-f984-46d7-a000-43ceb04277a0",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    ":id",
+                    "move"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ConfigurationDbRecord ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"level_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d400ea3f-519f-4cba-93dd-a9cd971b1961",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    ":id",
+                    "move"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ConfigurationDbRecord ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"level_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "026c07e8-162d-4c84-8441-f56bfa77036e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "configuration",
+                    ":id",
+                    "move"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ConfigurationDbRecord ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "UNIX timestamp used for the HMAC Auth method only",
+                    "key": "timestamp",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"level_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8206,\n  \"message\": \"string\",\n  \"statusCode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7f729f88-6498-400f-a2b2-ee4b3044709b",
+    "name": "assignments Assortment v1 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

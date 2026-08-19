@@ -1,0 +1,600 @@
+{
+  "item": [
+    {
+      "id": "9051989d-dd75-4641-87bd-85c4248bb7d9",
+      "name": "event",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d94dba43-03bf-460f-8ff1-2aad8231dc5a",
+          "name": "Look up events",
+          "request": {
+            "name": "Look up events",
+            "description": {
+              "content": "Allows searching for workorder events matching specific criteria.\r\n\r\n> Param           | Default&nbsp; | Example&nbsp; | Description\r\n> ----------------|---------|---------|----\r\n> `eventType`     |         | task_created | Event codes that should be returned\r\n> `withTotalCount` | false  | true    | If total count of matched records should be returned in response header `x-total-count\r\n> `pageSize`      | 20      | 100     | Allows specifying how many records per page should be returned\r\n> `pageNr`        | 1       | 2       | Allows specifying which page should be returned for creating paginated views over the data.\r\n> `sort`          | id      | -id     | Allows specifying in which order the rows should be returned. Supported values are: `id`. It is possible to reverse the order by adding a `-` prefix to the sorting keyword.\r\n>\r\n>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workorder",
+                ":workorderId",
+                "event"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "eventType",
+                  "value": "<string>,<string>",
+                  "description": "Event types"
+                },
+                {
+                  "disabled": false,
+                  "key": "withTotalCount",
+                  "value": "<boolean>",
+                  "description": "If total matching record count should be return in response header"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Result page size"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNr",
+                  "value": "<integer>",
+                  "description": "Result page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting order"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workorderId",
+                  "description": "(Required) Workorder id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f4ed8909-6a2c-41d0-8845-b19de80a479b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eventType",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"createdAt\": \"string\",\n    \"createdById\": 7151,\n    \"data\": {},\n    \"description\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"eventType\": \"string\",\n    \"id\": 7183,\n    \"workorderId\": 4248\n  },\n  {\n    \"createdAt\": \"string\",\n    \"createdById\": 5337,\n    \"data\": {},\n    \"description\": {\n      \"ar\": \" \",\n      \"cs\": \" \",\n      \"da\": \" \",\n      \"de\": \" \",\n      \"default\": \" \",\n      \"el\": \" \",\n      \"en\": \" \",\n      \"es\": \" \",\n      \"et\": \" \",\n      \"fi\": \" \",\n      \"fo\": \" \",\n      \"fr\": \" \",\n      \"it\": \" \",\n      \"lt\": \" \",\n      \"lv\": \" \",\n      \"nl\": \" \",\n      \"no\": \" \",\n      \"pl\": \" \",\n      \"ru\": \" \",\n      \"sv\": \" \",\n      \"th\": \" \",\n      \"tr\": \" \",\n      \"vi\": \" \",\n      \"zh_Hans\": \" \",\n      \"zh_Hant\": \" \"\n    },\n    \"eventType\": \"string\",\n    \"id\": 9014,\n    \"workorderId\": 7996\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff0a9a9a-d7e6-4294-9c2f-b91656b139ab",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eventType",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c9daf83-020a-412b-971d-65b837e150ff",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eventType",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "withTotalCount",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNr",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Workorder id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d57cf6f-8d8e-45a0-8625-346b1e228ffc",
+          "name": "Log an event with the workorder",
+          "request": {
+            "name": "Log an event with the workorder",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "workorder",
+                ":workorderId",
+                "event"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "workorderId",
+                  "description": "(Required) Record id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "clientCode"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": \"<object>\",\n  \"eventType\": \"<string>\",\n  \"workorderId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "988b1345-ad78-4f02-8730-d805e08ee272",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": \"<object>\",\n  \"eventType\": \"<string>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"string\",\n  \"createdById\": 79,\n  \"data\": {},\n  \"description\": {\n    \"ar\": \" \",\n    \"cs\": \" \",\n    \"da\": \" \",\n    \"de\": \" \",\n    \"default\": \" \",\n    \"el\": \" \",\n    \"en\": \" \",\n    \"es\": \" \",\n    \"et\": \" \",\n    \"fi\": \" \",\n    \"fo\": \" \",\n    \"fr\": \" \",\n    \"it\": \" \",\n    \"lt\": \" \",\n    \"lv\": \" \",\n    \"nl\": \" \",\n    \"no\": \" \",\n    \"pl\": \" \",\n    \"ru\": \" \",\n    \"sv\": \" \",\n    \"th\": \" \",\n    \"tr\": \" \",\n    \"vi\": \" \",\n    \"zh_Hans\": \" \",\n    \"zh_Hant\": \" \"\n  },\n  \"eventType\": \"string\",\n  \"id\": 4440,\n  \"workorderId\": 753\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8555144d-2d23-4a10-8c9b-b7d94e54b752",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": \"<object>\",\n  \"eventType\": \"<string>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e41a4595-9258-4be8-92e3-1907cf814f14",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "workorder",
+                    ":workorderId",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "workorderId",
+                      "description": "(Required) Record id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "clientCode",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": \"<object>\",\n  \"eventType\": \"<string>\",\n  \"workorderId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d4f04f04-11e1-4f37-891c-d6bc0ed7337b",
+    "name": "assignments Assortment event API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n",
+      "type": "text/plain"
+    }
+  }
+}

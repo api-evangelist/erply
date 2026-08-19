@@ -1,0 +1,373 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment clsf API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "clsf",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up priorities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clsf/priority",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Priority ids"
+              },
+              {
+                "name": "entity",
+                "value": "",
+                "type": "query",
+                "description": "Entity for which priority should be returned (`raji`)"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "Priority code to search for. Partial matching from the beginning of the code"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+              }
+            ]
+          },
+          "docs": "Look up priorities"
+        },
+        {
+          "info": {
+            "name": "Add a new priority",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clsf/priority"
+          },
+          "docs": "Add a new priority"
+        },
+        {
+          "info": {
+            "name": "Update an existing priority record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/clsf/priority/:priorityId",
+            "params": [
+              {
+                "name": "priorityId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update an existing priority record"
+        },
+        {
+          "info": {
+            "name": "Delete one priority record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/clsf/priority/:priorityId",
+            "params": [
+              {
+                "name": "priorityId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one priority record"
+        },
+        {
+          "info": {
+            "name": "Look up states",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clsf/state",
+            "params": [
+              {
+                "name": "entity",
+                "value": "",
+                "type": "query",
+                "description": "Object type for which states should be returned. One of [workorder row_work row_product transaction task_schedule product_stock raji]"
+              },
+              {
+                "name": "typeCode",
+                "value": "",
+                "type": "query",
+                "description": "Type code for which states should be returned"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "State ids"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language to use when sorting by name"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "State code to search for. Partial matching from the beginning of the code"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+              }
+            ]
+          },
+          "docs": "Look up states"
+        },
+        {
+          "info": {
+            "name": "Add a new state record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clsf/state"
+          },
+          "docs": "Add a new state record"
+        },
+        {
+          "info": {
+            "name": "Update an existing state record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/clsf/state/:stateId",
+            "params": [
+              {
+                "name": "stateId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update an existing state record"
+        },
+        {
+          "info": {
+            "name": "Delete one state record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/clsf/state/:stateId",
+            "params": [
+              {
+                "name": "stateId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one state record"
+        },
+        {
+          "info": {
+            "name": "Look up product units",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clsf/unit",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Device brand ids"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order"
+              }
+            ]
+          },
+          "docs": "Look up product units"
+        },
+        {
+          "info": {
+            "name": "Look up workorder types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/clsf/workorder-type",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Workorder type ids"
+              },
+              {
+                "name": "entity",
+                "value": "",
+                "type": "query",
+                "description": "Entity for which workorder types should be returned (`workorder`, `raji`). Defaults to `workorder`"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language to use when sorting by name (`en`, `et`, `ru` etc.)"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "Type code to search for. Partial matching from the beginning of the code"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Result page size"
+              },
+              {
+                "name": "pageNr",
+                "value": "",
+                "type": "query",
+                "description": "Result page number"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting order. Supported values are: `id`, `name`. Defaults to `id`"
+              }
+            ]
+          },
+          "docs": "Look up workorder types"
+        },
+        {
+          "info": {
+            "name": "Add a new workorder type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/clsf/workorder-type"
+          },
+          "docs": "Add a new workorder type"
+        },
+        {
+          "info": {
+            "name": "Update an existing workorder type record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v1/clsf/workorder-type/:typeId",
+            "params": [
+              {
+                "name": "typeId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Update an existing workorder type record"
+        },
+        {
+          "info": {
+            "name": "Delete one workorder type record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/clsf/workorder-type/:typeId",
+            "params": [
+              {
+                "name": "typeId",
+                "value": "",
+                "type": "path",
+                "description": "Record id"
+              }
+            ]
+          },
+          "docs": "Delete one workorder type record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

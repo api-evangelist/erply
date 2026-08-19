@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "assignments Assortment label API",
+    "version": "2.36.5"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "label",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v1/label",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "query",
+                "description": "Workorder ID for which labels should be returned"
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "query",
+                "description": "Task ID for which labels should be returned"
+              },
+              {
+                "name": "labelType",
+                "value": "",
+                "type": "query",
+                "description": "Label type"
+              },
+              {
+                "name": "withTotalCount",
+                "value": "",
+                "type": "query",
+                "description": "If total matching record count should be return in response header"
+              }
+            ]
+          },
+          "docs": "Look up labels"
+        },
+        {
+          "info": {
+            "name": "Add a new label record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v1/label"
+          },
+          "docs": "Add a new label record"
+        },
+        {
+          "info": {
+            "name": "Set multiple labels on the same object. If a label does not exist on the object, it will be added. Existing labels that are not specified in the call will be removed from the object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v1/label"
+          },
+          "docs": "Set multiple labels on the same object. If a label does not exist on the object, it will be added. Existing labels that are not specified in the call will be removed from the object"
+        },
+        {
+          "info": {
+            "name": "Delete one label record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v1/label",
+            "params": [
+              {
+                "name": "workorderId",
+                "value": "",
+                "type": "query",
+                "description": "Workorder ID"
+              },
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "query",
+                "description": "Task ID"
+              },
+              {
+                "name": "labelType",
+                "value": "",
+                "type": "query",
+                "description": "Label type"
+              },
+              {
+                "name": "label",
+                "value": "",
+                "type": "query",
+                "description": "Label code"
+              }
+            ]
+          },
+          "docs": "Delete one label record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
