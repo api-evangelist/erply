@@ -27,6 +27,16 @@ modified: '2026-07-19'
 image: https://cdn.erply.com/images/533252/erplyIcon-1.webp
 tags:
 - Retail
+- Point-of-Sale
+- Inventory
+- Product Information Management
+- CRM
+- E-Commerce
+- Warehouse Management
+- Webhook
+- Company
+tags_raw:
+- Retail
 - Point of Sale
 - Inventory
 - Product Information Management
@@ -100,6 +110,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Authentication
+  tags_raw:
   - auth
   properties:
   - type: OpenAPI
@@ -226,6 +238,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Device
+  tags_raw:
   - device
   properties:
   - type: OpenAPI
@@ -244,6 +258,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Event
+  tags_raw:
   - event
   properties:
   - type: OpenAPI
@@ -298,6 +314,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Form
+  tags_raw:
   - form
   properties:
   - type: OpenAPI
@@ -352,6 +370,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Item
+  tags_raw:
   - item
   properties:
   - type: OpenAPI
@@ -370,6 +390,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Label
+  tags_raw:
   - label
   properties:
   - type: OpenAPI
@@ -497,6 +519,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Note
+  tags_raw:
   - note
   properties:
   - type: OpenAPI
@@ -918,6 +942,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -936,6 +962,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Report
+  tags_raw:
   - report
   properties:
   - type: OpenAPI
@@ -954,6 +982,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Resource
+  tags_raw:
   - resource
   properties:
   - type: OpenAPI
@@ -1026,6 +1056,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Sync
+  tags_raw:
   - sync
   properties:
   - type: OpenAPI
@@ -1044,6 +1076,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Task
+  tags_raw:
   - task
   properties:
   - type: OpenAPI
@@ -1062,6 +1096,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
@@ -1080,6 +1116,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Template
+  tags_raw:
   - template
   properties:
   - type: OpenAPI
@@ -1116,6 +1154,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - V3
+  tags_raw:
   - v3
   properties:
   - type: OpenAPI
@@ -1152,6 +1192,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Webhook
+  tags_raw:
   - webhook
   properties:
   - type: OpenAPI
@@ -1170,6 +1212,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Webhook Configuration
+  tags_raw:
   - webhook-configuration
   properties:
   - type: OpenAPI
