@@ -1,0 +1,128 @@
+slug: erply
+provider: Erply
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 11
+edges:
+- tag: Permissions
+  spec_file: erply-permissions-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: PATCH /v1/permissions "Set / Update a permission"; GET /v1/permissions/{userID} "Get user
+    permissions"; schema permissions.UserPermission
+  reason: Grants and reads per-user permissions — access management. Mapped to Identity & Access Management;
+    the alternative reading (tenant-level authorisation) is unsupported since it is plain user permission
+    administration.
+- tag: Matrix Product
+  spec_file: erply-matrix-product-api-openapi.yml
+  capability_id: BC-820.40
+  capability_id_l1: BC-820
+  capability_name: Product Configuration & Variant Management
+  confidence: 0.75
+  evidence: GET /v1/matrix/product/with-variations "API call for retrieving matrix products with variations";
+    schema matrixmodels.ProductWithVariations
+  reason: Creates and reads matrix (parent) products and their dimension assignments and variations —
+    configuration and variant management of products.
+- tag: Matrix Product Variation
+  spec_file: erply-matrix-product-variation-api-openapi.yml
+  capability_id: BC-820.40
+  capability_id_l1: BC-820
+  capability_name: Product Configuration & Variant Management
+  confidence: 0.75
+  evidence: POST /v1/matrix/product/{id}/variation "Create Matrix Product Variation"; PATCH ".../dimension-values"
+    "Update a matrix product variation's dimension values"
+  reason: Explicitly manages product variations and their parent/dimension-value relationships, which
+    is variant management within the product lifecycle.
+- tag: Matrix Dimension
+  spec_file: erply-matrix-dimension-api-openapi.yml
+  capability_id: BC-820.40
+  capability_id_l1: BC-820
+  capability_name: Product Configuration & Variant Management
+  confidence: 0.7
+  evidence: POST /v1/matrix/dimension "Create Matrix Dimension"; schema matrixmodels.DimensionRequest
+  reason: Matrix dimensions in a retail PIM are the axes (e.g. size, colour) used to define product variants,
+    matching Product Configuration & Variant Management. Could alternatively be seen as pure product master
+    data, hence 0.7.
+- tag: Matrix Dimension Value
+  spec_file: erply-matrix-dimension-value-api-openapi.yml
+  capability_id: BC-820.40
+  capability_id_l1: BC-820
+  capability_name: Product Configuration & Variant Management
+  confidence: 0.7
+  evidence: POST /v1/matrix/dimension/value "Create Matrix Dimension Value"; DELETE "Delete Matrix Dimension
+    Values if not used by any active product"
+  reason: Manages the permissible values of product variant dimensions, directly serving variant/option
+    definition for products.
+- tag: Product Family
+  spec_file: erply-product-family-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.7
+  evidence: POST /v1/product/family "Create Family"; GET /v1/product/family "Get Families"; familymodels.Response
+  reason: Product families are a PIM classification/grouping construct for product master records (matrix/variant
+    families in Erply). Maintenance of this classification structure is product master data management.
+- tag: Product Group
+  spec_file: erply-product-group-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.7
+  evidence: POST /v1/product/group "Create Product Group"; GET /v1/product/group/tree "Get Tree of product
+    groups"
+  reason: Manages the product group hierarchy (tree, indented list, external IDs) used to classify product
+    master records in the PIM — product master data classification management.
+- tag: Product Parameter
+  spec_file: erply-product-parameter-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.7
+  evidence: GET /v1/product/parameter "Get Product Parameters"; GET /v1/product/{id}/parameters "Get All
+    Parameters for the Product by ID"
+  reason: Product parameters are the PIM's structured attribute definitions bound to products and data
+    sets; creating, updating and querying them is product master data attribute management.
+- tag: Product Parameter Option
+  spec_file: erply-product-parameter-option-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.7
+  evidence: POST /v1/product/parameter/option "Create Product Parameter Option"; models.ParameterOptionWithProductsResponse
+  reason: Manages the allowed value options for product attribute parameters and their association with
+    products — maintenance of the product master data attribute value domains.
+- tag: Products
+  spec_file: erply-products-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.7
+  evidence: '"Get Products", "Create Products in bulk", "Get product codes", "Merge a Product to another
+    Product", "Get Deleted Product IDs"'
+  reason: 'Core product record lifecycle for Erply''s PIM: bulk create/update, code assignment, merge
+    of duplicate products, deleted-ID feeds and restore — these are hallmark master data management operations
+    (golden record, deduplication) rather than product design or assortment strategy.'
+- tag: webhook-configuration
+  spec_file: erply-webhook-configuration-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.7
+  evidence: POST /v1/webhook-configuration  addWebhookConfiguration  Add webhook configuration; DELETE
+    /v1/webhook-configuration/{id}  removeWebhookConfiguration
+  reason: Full lifecycle (create/update/remove) of outbound webhook subscriptions that Erply's integrators
+    register against the platform, matching 'Lifecycle of outbound webhook subscriptions, event schemas,
+    and delivery reliability'. Mapped rather than abstained because the frame carries an explicit capability
+    for exactly this; confidence moderate since webhook config is also arguable as generic integration
+    plumbing.

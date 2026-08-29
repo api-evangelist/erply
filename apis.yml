@@ -1262,6 +1262,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/erply-capability-edges.yml
+  name: Erply Business Capability Map
 - type: Overlay
   url: overlays/erply-assignments-overlay.yaml
 - type: Website
