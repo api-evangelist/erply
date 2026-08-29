@@ -3,7 +3,7 @@ provider: Erply
 generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
-- Software & Technology
+- Retail & Consumer Goods
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -11,118 +11,245 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 11
+edge_count: 24
 edges:
+- tag: Products
+  spec_file: erply-products-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.92
+  evidence: GET /v1/product    Get Products; GET /v1/product/codes    Get product codes; POST /v1/product/merge    Merge
+    a Product to another Product
+  reason: Core product record CRUD, product codes, bulk maintenance and merge/dedup — this is the canonical
+    item master record for a retail platform.
 - tag: Permissions
   spec_file: erply-permissions-api-openapi.yml
   capability_id: BC-620.20
   capability_id_l1: BC-620
   capability_name: Identity & Access Management
-  confidence: 0.8
-  evidence: PATCH /v1/permissions "Set / Update a permission"; GET /v1/permissions/{userID} "Get user
+  confidence: 0.82
+  evidence: PATCH /v1/permissions — "Set / Update a permission"; GET /v1/permissions/{userID} — "Get user
     permissions"; schema permissions.UserPermission
-  reason: Grants and reads per-user permissions — access management. Mapped to Identity & Access Management;
-    the alternative reading (tenant-level authorisation) is unsupported since it is plain user permission
-    administration.
-- tag: Matrix Product
-  spec_file: erply-matrix-product-api-openapi.yml
-  capability_id: BC-820.40
-  capability_id_l1: BC-820
-  capability_name: Product Configuration & Variant Management
-  confidence: 0.75
-  evidence: GET /v1/matrix/product/with-variations "API call for retrieving matrix products with variations";
-    schema matrixmodels.ProductWithVariations
-  reason: Creates and reads matrix (parent) products and their dimension assignments and variations —
-    configuration and variant management of products.
-- tag: Matrix Product Variation
-  spec_file: erply-matrix-product-variation-api-openapi.yml
-  capability_id: BC-820.40
-  capability_id_l1: BC-820
-  capability_name: Product Configuration & Variant Management
-  confidence: 0.75
-  evidence: POST /v1/matrix/product/{id}/variation "Create Matrix Product Variation"; PATCH ".../dimension-values"
-    "Update a matrix product variation's dimension values"
-  reason: Explicitly manages product variations and their parent/dimension-value relationships, which
-    is variant management within the product lifecycle.
-- tag: Matrix Dimension
-  spec_file: erply-matrix-dimension-api-openapi.yml
-  capability_id: BC-820.40
-  capability_id_l1: BC-820
-  capability_name: Product Configuration & Variant Management
-  confidence: 0.7
-  evidence: POST /v1/matrix/dimension "Create Matrix Dimension"; schema matrixmodels.DimensionRequest
-  reason: Matrix dimensions in a retail PIM are the axes (e.g. size, colour) used to define product variants,
-    matching Product Configuration & Variant Management. Could alternatively be seen as pure product master
-    data, hence 0.7.
-- tag: Matrix Dimension Value
-  spec_file: erply-matrix-dimension-value-api-openapi.yml
-  capability_id: BC-820.40
-  capability_id_l1: BC-820
-  capability_name: Product Configuration & Variant Management
-  confidence: 0.7
-  evidence: POST /v1/matrix/dimension/value "Create Matrix Dimension Value"; DELETE "Delete Matrix Dimension
-    Values if not used by any active product"
-  reason: Manages the permissible values of product variant dimensions, directly serving variant/option
-    definition for products.
-- tag: Product Family
-  spec_file: erply-product-family-api-openapi.yml
-  capability_id: BC-610.20
-  capability_id_l1: BC-610
-  capability_name: Master Data Management
-  confidence: 0.7
-  evidence: POST /v1/product/family "Create Family"; GET /v1/product/family "Get Families"; familymodels.Response
-  reason: Product families are a PIM classification/grouping construct for product master records (matrix/variant
-    families in Erply). Maintenance of this classification structure is product master data management.
+  reason: User authorisation administration — assigning and reading per-user permissions — which is identity
+    and access management plumbing, not a retail business capability.
 - tag: Product Group
   spec_file: erply-product-group-api-openapi.yml
-  capability_id: BC-610.20
-  capability_id_l1: BC-610
-  capability_name: Master Data Management
-  confidence: 0.7
-  evidence: POST /v1/product/group "Create Product Group"; GET /v1/product/group/tree "Get Tree of product
-    groups"
-  reason: Manages the product group hierarchy (tree, indented list, external IDs) used to classify product
-    master records in the PIM — product master data classification management.
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.82
+  evidence: GET /v1/product/group/tree "Get Tree of product groups"; "Attach external group ID to a Product
+    Group"; groupmodels.GroupResponse
+  reason: Maintains the product group hierarchy/tree, external identifiers and group-level tax rates —
+    canonical product taxonomy and hierarchy maintenance, i.e. item master data management within PIM.
 - tag: Product Parameter
   spec_file: erply-product-parameter-api-openapi.yml
-  capability_id: BC-610.20
-  capability_id_l1: BC-610
-  capability_name: Master Data Management
-  confidence: 0.7
-  evidence: GET /v1/product/parameter "Get Product Parameters"; GET /v1/product/{id}/parameters "Get All
-    Parameters for the Product by ID"
-  reason: Product parameters are the PIM's structured attribute definitions bound to products and data
-    sets; creating, updating and querying them is product master data attribute management.
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.82
+  evidence: GET /v1/product/{id}/parameters "Get All Parameters for the Product by ID"; parametermodels.ParameterWithOptionsResponse
+  reason: Parameters are product attribute definitions belonging to attribute sets and linked to products
+    — classic item master attribute modelling in a PIM.
+- tag: Assortment To Product Linking
+  spec_file: erply-assortment-to-product-linking-api-openapi.yml
+  capability_id: BC-2300.10
+  capability_id_l1: BC-2300
+  capability_name: Assortment & Range Planning
+  confidence: 0.8
+  evidence: POST /v1/assortment/{id}/products    Add Product to Assortment; GET /v1/product/{id}/assortments    Get
+    Assortments for Product
+  reason: Operations bind SKUs to assortments and query which assortments carry a product — this is the
+    assortment/range definition layer of retail merchandising.
+- tag: Product Category
+  spec_file: erply-product-category-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.8
+  evidence: POST /v1/product/category — "Create Product Category"; GET /v1/product/category/tree — "Get
+    Tree of product categories"
+  reason: Maintenance of the product category hierarchy/taxonomy in the retail product master. This is
+    master data structure (item hierarchies/taxonomy), not category business-unit management (BC-2300.20),
+    which would involve strategy and performance.
+- tag: Product Parameter Value
+  spec_file: erply-product-parameter-value-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.8
+  evidence: POST /v1/product/{productId}/parameter/{parameterId}/value "Assign Value to Product's Parameter";
+    GET /v1/product/{ids}/parameter/value
+  reason: Assigns and maintains attribute values on individual products — direct population of the canonical
+    item record, i.e. item master data management.
+- tag: Matrix Product
+  spec_file: erply-matrix-product-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.78
+  evidence: POST /v1/matrix/product — "Create Matrix Product"; GET /v1/matrix/product/with-variations
+    — "retrieving matrix products with variations"; schema products.ProductRequest
+  reason: Creation and maintenance of matrix (variant-parent) product records and their dimensions in
+    the retail product master — item master data management. Product variant/configuration (BC-820.40)
+    is a plausible alternative but this is retail PIM data, not engineering configuration.
+- tag: Product Extra Field 3
+  spec_file: erply-product-extra-field-3-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.78
+  evidence: GET /v1/product/extra/field-3 "Get Product Extra Fields"; POST "Create an extra field"; schema
+    products.ExtraFieldResponse, Translatable
+  reason: Erply is a retail platform with PIM; these operations create, update and delete additional attribute
+    fields on the product record — extension of item master attributes, i.e. Product Information Management
+    / Item Master Data. Not a technical plumbing tag despite the generic 'field' wording, since the entity
+    is explicitly a product attribute.
+- tag: Product Extra Field 4
+  spec_file: erply-product-extra-field-4-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.78
+  evidence: POST /v1/product/extra/field-4 "Create an extra field"; DELETE /v1/product/extra/field-4/{ids}
+    "Delete Product Extra Fields"
+  reason: Identical surface to extra field 3 — CRUD over supplementary product attribute fields in the
+    item master, which is item master data management within PIM.
+- tag: Product Family
+  spec_file: erply-product-family-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.78
+  evidence: GET /v1/product/family "Get Families"; POST /v1/product/family "Create Family"; schema familymodels.Response
+  reason: Product families are a product master grouping/hierarchy construct maintained in the PIM; CRUD
+    over them is item master data management, not merchandising decision-making.
 - tag: Product Parameter Option
   spec_file: erply-product-parameter-option-api-openapi.yml
-  capability_id: BC-610.20
-  capability_id_l1: BC-610
-  capability_name: Master Data Management
-  confidence: 0.7
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.78
   evidence: POST /v1/product/parameter/option "Create Product Parameter Option"; models.ParameterOptionWithProductsResponse
-  reason: Manages the allowed value options for product attribute parameters and their association with
-    products — maintenance of the product master data attribute value domains.
-- tag: Products
-  spec_file: erply-products-api-openapi.yml
-  capability_id: BC-610.20
-  capability_id_l1: BC-610
-  capability_name: Master Data Management
+  reason: Manages the permitted value list for product attributes and the products associated with each
+    option — attribute/taxonomy maintenance in the product master.
+- tag: Assortment
+  spec_file: erply-assortment-api-openapi.yml
+  capability_id: BC-2300.10
+  capability_id_l1: BC-2300
+  capability_name: Assortment & Range Planning
+  confidence: 0.75
+  evidence: POST /v1/assortment    Create Assortment; DELETE /v1/assortment/{ids}    Delete Assortments
+    & the related links to products
+  reason: Erply is a retail management platform and this tag manages assortment records that define which
+    products are carried, matching assortment/range planning. Confidence moderated because the API is
+    CRUD-level rather than planning analytics.
+- tag: Linked Products
+  spec_file: erply-linked-products-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.75
+  evidence: POST /v1/product/linked-products — "Link 2 products for cross-sell or substitute purposes"
+  reason: Maintains product master relationships (cross-sell/substitute links) as part of the item master
+    record in Erply's PIM. Product Information Management / Item Master Data is the closest fit; the merchandising
+    cross-sell intent is metadata on the item record rather than a selling process.
+- tag: Matrix Dimension
+  spec_file: erply-matrix-dimension-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.75
+  evidence: POST /v1/matrix/dimension — "Create Matrix Dimension"; schemas matrixmodels.DimensionRequest,
+    Translatable
+  reason: Matrix dimensions (e.g. size, colour) are product master attribute definitions used to structure
+    variant products in Erply's PIM — item master data management.
+- tag: Matrix Dimension Value
+  spec_file: erply-matrix-dimension-value-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.75
+  evidence: DELETE /v1/matrix/dimension/value/{ids} — "Delete Matrix Dimension Values if not used by any
+    active product"
+  reason: Manages the allowed values of product variant dimensions in the product master, i.e. item master
+    attribute/taxonomy maintenance in a retail PIM.
+- tag: Matrix Product Variation
+  spec_file: erply-matrix-product-variation-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.75
+  evidence: POST /v1/matrix/product/{id}/variation — "Create Matrix Product Variation"; PATCH .../dimension-values
+    — "Update a matrix product variation's dimension values"
+  reason: Maintains SKU-level variations under a matrix parent product with their dimension values — canonical
+    product record/hierarchy maintenance in the retail PIM.
+- tag: Product Parameter Set
+  spec_file: erply-product-parameter-set-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.75
+  evidence: GET /v1/product/parameter/set "Get Parameter Sets"; POST /v1/product/parameter/set "Create
+    Parameter Set"
+  reason: Parameter sets group product attribute definitions; CRUD over them is product master attribute
+    structure management within PIM.
+- tag: Product Package
+  spec_file: erply-product-package-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.72
+  evidence: GET /v1/product/package "Get Packages"; "Get Package Categories"; packages.PackageResponse
+  reason: Packages here are packaging/unit definitions attached to product records in the PIM (create,
+    update, delete packages and package categories) — part of the canonical item record attributes rather
+    than logistics execution.
+- tag: Brand
+  spec_file: erply-brand-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
   confidence: 0.7
-  evidence: '"Get Products", "Create Products in bulk", "Get product codes", "Merge a Product to another
-    Product", "Get Deleted Product IDs"'
-  reason: 'Core product record lifecycle for Erply''s PIM: bulk create/update, code assignment, merge
-    of duplicate products, deleted-ID feeds and restore — these are hallmark master data management operations
-    (golden record, deduplication) rather than product design or assortment strategy.'
+  evidence: POST /v1/brand    Create brand; POST /v1/brand/bulk    Create brands in bulk
+  reason: Brand here is a product master-data reference entity in a retail PIM (bulk create/read of brand
+    records), not brand strategy or equity management — hence item master data rather than BC-400.20.
+- tag: Product Extra Field 1
+  spec_file: erply-product-extra-field-1-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.7
+  evidence: POST /v1/product/extra/field-1 — "Create an extra field"; schemas products.CreateExtraFieldRequest,
+    products.ExtraFieldResponse
+  reason: Definition and maintenance of custom product attribute fields in the product master — item master
+    data attribute management in Erply's PIM.
+- tag: Product Extra Field 2
+  spec_file: erply-product-extra-field-2-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.7
+  evidence: GET /v1/product/extra/field-2 — "Get Product Extra Fields"; products.UpdateExtraFieldRequest
+  reason: 'Same as Extra Field 1: CRUD over additional custom product attributes forming part of the canonical
+    item record in the retail PIM.'
+- tag: Product Units
+  spec_file: erply-product-units-api-openapi.yml
+  capability_id: BC-2370.10
+  capability_id_l1: BC-2370
+  capability_name: Item Master Data Management
+  confidence: 0.7
+  evidence: GET /v1/product/unit    Get Units; POST /v1/product/unit    Create a Product Unit; products.UnitRequest
+  reason: Units of measure are canonical product master attributes maintained in the PIM surface, i.e.
+    item master data management, not a technical concern.
 - tag: webhook-configuration
   spec_file: erply-webhook-configuration-api-openapi.yml
   capability_id: BC-4270.80
   capability_id_l1: BC-4270
   capability_name: Webhook & Event Subscription Management
   confidence: 0.7
-  evidence: POST /v1/webhook-configuration  addWebhookConfiguration  Add webhook configuration; DELETE
-    /v1/webhook-configuration/{id}  removeWebhookConfiguration
-  reason: Full lifecycle (create/update/remove) of outbound webhook subscriptions that Erply's integrators
-    register against the platform, matching 'Lifecycle of outbound webhook subscriptions, event schemas,
-    and delivery reliability'. Mapped rather than abstained because the frame carries an explicit capability
-    for exactly this; confidence moderate since webhook config is also arguable as generic integration
-    plumbing.
+  evidence: POST /v1/webhook-configuration addWebhookConfiguration "Add webhook configuration"; DELETE
+    /v1/webhook-configuration/{id} removeWebhookConfiguration
+  reason: Full lifecycle (create, update, remove) of outbound webhook subscriptions exposed to integrators,
+    which is exactly webhook & event subscription management on a developer/API platform; not a retail
+    business capability.
