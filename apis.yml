@@ -250,7 +250,7 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
-  - Device
+  - device
   tags_raw:
   - device
   properties:
@@ -326,7 +326,7 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
-  - Form
+  - form
   tags_raw:
   - form
   properties:
@@ -402,7 +402,7 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
-  - Label
+  - label
   tags_raw:
   - label
   properties:
@@ -1224,7 +1224,7 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
-  - Webhook Configuration
+  - webhook-configuration
   tags_raw:
   - webhook-configuration
   properties:
