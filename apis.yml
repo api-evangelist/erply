@@ -360,24 +360,6 @@ apis:
     url: https://api-cafa-eu.erply.com/index.html
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
-- aid: erply:erply-import-export-api
-  name: Erply Import & Export API
-  description: The Import & Export API from Erply — 2 operation(s) for import & export.
-  humanURL: https://wiki.erply.com/article/1322-pim-api
-  baseURL: https://api-pim-eu.erply.com
-  tags:
-  - Import & Export
-  properties:
-  - type: OpenAPI
-    url: openapi/erply-import-export-api-openapi.yml
-  - type: Swagger
-    url: https://api-pim-eu.erply.com/index.html
-  - type: Swagger
-    url: https://api-as-eu10.erply.com/documentation/index.html
-  - type: Swagger
-    url: https://api-cafa-eu.erply.com/index.html
-  - type: Webhooks
-    url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-item-api
   name: Erply item API
   description: The item API from Erply — 4 operation(s) for item.
@@ -1250,6 +1232,24 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/erply-workorder-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-import-and-export-api
+  name: Erply Import And Export API
+  description: The Import And Export API from Erply — 2 operation(s) for import and export.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Import And Export
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-import-and-export-api-openapi.yml
   - type: Swagger
     url: https://api-pim-eu.erply.com/index.html
   - type: Swagger
