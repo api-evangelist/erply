@@ -144,6 +144,8 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
+  - Brands
+  tags_raw:
   - Brand
   properties:
   - type: OpenAPI
@@ -1112,7 +1114,7 @@ apis:
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
   tags:
-  - Template
+  - Templates
   tags_raw:
   - template
   properties:
