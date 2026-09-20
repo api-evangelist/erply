@@ -1,0 +1,66 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://erply.com/pricing
+sources:
+- https://erply.com/pricing
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+published: true
+note: Retail POS/ERP subscription plans with monthly and annual toggles; API access listed as an included
+  feature, not priced separately.
+plan_count: 6
+currency: USD
+plans:
+- name: Giftshop & Grocery chain (Monthly)
+  price_text: $59/store
+  price: 59
+  currency: USD
+  period: month
+  unit: store
+  included_quota: Includes 1 User Account, 1 Point of Sale Terminal; Company's net sales turnover up to
+    $25 000 a month
+- name: Multichannel chains (Monthly)
+  price_text: $199/store
+  price: 199
+  currency: USD
+  period: month
+  unit: store
+  included_quota: Includes 2 User Accounts, 1 Warehouse License; Company's net sales turnover up to $25
+    000 a month
+- name: Giftshop & Grocery chain (Annual)
+  price_text: $49/store
+  price: 49
+  currency: USD
+  period: month
+  unit: store
+  included_quota: Includes 1 User Account, 1 Point of Sale Terminal
+- name: Multichannel chains (Annual)
+  price_text: $179/store
+  price: 179
+  currency: USD
+  period: month
+  unit: store
+  included_quota: Includes 2 User Accounts, 1 Warehouse License
+- name: POS for NETSUITE
+  price_text: From $1800
+  price: 1800
+  currency: USD
+  period: none
+  included_quota: Includes 2 User Accounts, 1 POS with Inventory License, API Access, Advanced Customer
+    Database + API - 1M customers
+- name: Franchise & Chain
+  price_text: From $3500
+  price: 3500
+  currency: USD
+  period: none
+  included_quota: Franchise HQ Module, Chain HQ Module, API Access, Advanced Customer Database + API -
+    10M customers
+rate_limit_statements:
+- Advanced Customer Database + API - 1M customers
+- Advanced Customer Database + API - 10M customers
+- Company's net sales turnover up to $25 000 a month
