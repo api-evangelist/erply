@@ -1,14 +1,14 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
-  title: assignments Assortment label API
+  description: '## Overview
+
+
+    This application offers an API for managing assignments and tasks.'
+  title: assignments Label API
   contact: {}
   version: 2.36.5
-host: ''
-basePath: ''
-schemes: []
 tags:
-- name: label
+- name: Label
 paths:
   /api/v1/label:
     get:
@@ -17,138 +17,142 @@ paths:
       - ErplySession: []
       - ErplyJWT: []
       - AccessToken: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
-      - label
+      - Label
       summary: Look up labels
       parameters:
-      - type: integer
-        description: Workorder ID for which labels should be returned
+      - description: Workorder ID for which labels should be returned
         name: workorderId
         in: query
-      - type: integer
-        description: Task ID for which labels should be returned
+        schema:
+          type: integer
+      - description: Task ID for which labels should be returned
         name: taskId
         in: query
-      - type: string
-        description: Label type
+        schema:
+          type: integer
+      - description: Label type
         name: labelType
         in: query
         required: true
-      - type: boolean
-        description: If total matching record count should be return in response header
+        schema:
+          type: string
+      - description: If total matching record count should be return in response header
         name: withTotalCount
         in: query
+        schema:
+          type: boolean
       responses:
         '200':
           description: OK
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/LabelResponse'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LabelResponse'
         '401':
           description: Forbidden
         '500':
           description: Internal Server Error
+      operationId: getApiV1Label
+      x-operation-id-source: derived
     put:
       security:
       - ErplyClientCode: []
       - ErplySession: []
       - ErplyJWT: []
       - AccessToken: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
-      - label
-      summary: Set multiple labels on the same object. If a label does not exist on the object, it will be added. Existing labels that are not specified in the call will be removed from the object
-      parameters:
-      - description: Labels to set
-        name: record
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/LabelBulkRequest'
+      - Label
+      summary: Set multiple labels on the same object.
       responses:
         '202':
           description: Accepted
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/LabelResponse'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LabelResponse'
         '400':
           description: Bad Request
         '401':
           description: Forbidden
         '500':
           description: Internal Server Error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LabelBulkRequest'
+        description: Labels to set
+        required: true
+      operationId: putApiV1Label
+      x-operation-id-source: derived
     post:
       security:
       - ErplyClientCode: []
       - ErplySession: []
       - ErplyJWT: []
       - AccessToken: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
-      - label
+      - Label
       summary: Add a new label record
-      parameters:
-      - description: Label record
-        name: record
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/LabelRequest'
       responses:
         '201':
           description: Created
-          schema:
-            $ref: '#/definitions/LabelResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelResponse'
         '400':
           description: Bad Request
         '401':
           description: Forbidden
         '500':
           description: Internal Server Error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LabelRequest'
+        description: Label record
+        required: true
+      operationId: postApiV1Label
+      x-operation-id-source: derived
     delete:
       security:
       - ErplyClientCode: []
       - ErplySession: []
       - ErplyJWT: []
       - AccessToken: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
-      - label
+      - Label
       summary: Delete one label record
       parameters:
-      - type: integer
-        description: Workorder ID
+      - description: Workorder ID
         name: workorderId
         in: query
-      - type: integer
-        description: Task ID
+        schema:
+          type: integer
+      - description: Task ID
         name: taskId
         in: query
-      - type: string
-        description: Label type
+        schema:
+          type: integer
+      - description: Label type
         name: labelType
         in: query
         required: true
-      - type: string
-        description: Label code
+        schema:
+          type: string
+      - description: Label code
         name: label
         in: query
         required: true
+        schema:
+          type: string
       responses:
         '200':
           description: OK
@@ -160,64 +164,67 @@ paths:
           description: Not Found
         '500':
           description: Internal Server Error
-definitions:
-  LabelRequest:
-    type: object
-    properties:
-      label:
-        type: string
-      labelType:
-        type: string
-      taskId:
-        type: integer
-      workorderId:
-        type: integer
-  LabelResponse:
-    type: object
-    properties:
-      createdAt:
-        type: string
-      createdById:
-        type: integer
-      label:
-        type: string
-      labelType:
-        type: string
-      taskId:
-        type: integer
-      workorderId:
-        type: integer
-  LabelBulkRequest:
-    type: object
-    properties:
-      labelType:
-        type: string
-      labels:
-        type: array
-        items:
+      operationId: deleteApiV1Label
+      x-operation-id-source: derived
+components:
+  schemas:
+    LabelRequest:
+      type: object
+      properties:
+        label:
           type: string
-      taskId:
-        type: integer
-      workorderId:
-        type: integer
-securityDefinitions:
-  AccessToken:
-    type: apiKey
-    name: accessToken
-    in: header
-  ErplyClientCode:
-    type: apiKey
-    name: clientCode
-    in: header
-  ErplyJWT:
-    type: apiKey
-    name: jwt
-    in: header
-  ErplySession:
-    type: apiKey
-    name: sessionKey
-    in: header
-  RequestKey:
-    type: apiKey
-    name: requestKey
-    in: header
+        labelType:
+          type: string
+        taskId:
+          type: integer
+        workorderId:
+          type: integer
+    LabelResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        label:
+          type: string
+        labelType:
+          type: string
+        taskId:
+          type: integer
+        workorderId:
+          type: integer
+    LabelBulkRequest:
+      type: object
+      properties:
+        labelType:
+          type: string
+        labels:
+          type: array
+          items:
+            type: string
+        taskId:
+          type: integer
+        workorderId:
+          type: integer
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      name: accessToken
+      in: header
+    ErplyClientCode:
+      type: apiKey
+      name: clientCode
+      in: header
+    ErplyJWT:
+      type: apiKey
+      name: jwt
+      in: header
+    ErplySession:
+      type: apiKey
+      name: sessionKey
+      in: header
+    RequestKey:
+      type: apiKey
+      name: requestKey
+      in: header

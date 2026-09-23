@@ -1,12 +1,18 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
-  title: assignments Assortment Product Family API
-  contact: {}
-  version: 2.36.5
-host: ''
-basePath: ''
-schemes: []
+  description: 'Product information management API
+
+    -------
+
+
+    Summary
+
+
+    It is built top of Erply''s current product database.'
+  title: PIM Product Family API
+  contact:
+    email: david.zingerman@erply.com
+  version: 1.143.20
 tags:
 - name: Product Family
 paths:
@@ -17,83 +23,96 @@ paths:
       - cc: []
       - jwt: []
       description: Get Product Family
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
       - Product Family
       summary: Get Families
       parameters:
-      - type: boolean
-        description: show archived families?
+      - description: show archived families?
         name: withArchived
         in: query
         required: true
-      - type: integer
-        description: skip n records
+        schema:
+          type: boolean
+      - description: skip n records
         name: skip
         in: query
-      - type: integer
-        description: 'items to take, default: 20, max: 100000'
+        schema:
+          type: integer
+      - description: 'items to take, default: 20, max: 100000'
         name: take
         in: query
-      - type: string
-        description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        schema:
+          type: integer
+      - description: the sort parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
         name: sort
         in: query
-      - type: string
-        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        schema:
+          type: string
+      - description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
         name: filter
         in: query
+        schema:
+          type: string
       responses:
         '200':
           description: OK
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/familymodels.Response'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/familymodels.Response'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
+      operationId: getV1ProductFamily
+      x-operation-id-source: derived
     post:
       security:
       - sk: []
       - cc: []
       - jwt: []
       description: Create Product Family
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
       - Product Family
       summary: Create Family
-      parameters:
-      - description: Name
-        name: name
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/requests.Archivable'
       responses:
         '201':
           description: Created
-          schema:
-            $ref: '#/definitions/responses.Response'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.Response'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/requests.Archivable'
+        description: Name
+        required: true
+      operationId: postV1ProductFamily
+      x-operation-id-source: derived
   /v1/product/family/bulk:
     post:
       security:
@@ -101,50 +120,50 @@ paths:
       - cc: []
       - jwt: []
       description: each request contains the created resource data
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
       - Product Family
       summary: Create families in bulk
-      parameters:
-      - description: bulk create request
-        name: request
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/familymodels.BulkCreateRequest'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/responses.BulkResponseWithResults'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.BulkResponseWithResults'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/familymodels.BulkCreateRequest'
+        description: bulk create request
+        required: true
+      operationId: postV1ProductFamilyBulk
+      x-operation-id-source: derived
   /v1/product/family/bulk/get:
     post:
       security:
       - sk: []
       - cc: []
       - jwt: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
       - Product Family
       summary: Get families in bulk
-      parameters:
-      - description: requests have the parameters that the original get request has, but in json format. This way you can apply the parameters to each request separately.
-        name: request
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/familymodels.BulkReadRequest'
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/familymodels.BulkReadResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/familymodels.BulkReadResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/familymodels.BulkReadRequest'
+        description: requests have the parameters that the original get request has, but in json format. This way you can apply the parameters to each request separately.
+        required: true
+      operationId: postV1ProductFamilyBulkGet
+      x-operation-id-source: derived
   /v1/product/family/{id}:
     put:
       security:
@@ -152,219 +171,218 @@ paths:
       - cc: []
       - jwt: []
       description: By updating a product family you can "delete" it by archiving
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
       - Product Family
       summary: Update Family
       parameters:
-      - description: Name
-        name: name
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/requests.Archivable'
-      - type: integer
-        description: family ID
+      - description: family ID
         name: id
         in: path
         required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/responses.Response'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.Response'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
-definitions:
-  responses.Response:
-    type: object
-    properties:
-      id:
-        type: integer
-        example: 73
-  familymodels.BulkReadResponseItem:
-    type: object
-    properties:
-      families:
-        type: array
-        items:
-          $ref: '#/definitions/familymodels.Response'
-      message:
-        type: string
-        example: some message
-      resultId:
-        description: id of the response, if requested 3 read requests each ID represents 1 response item
-        type: integer
-  parammodels.FilterJSON:
-    type: object
-    properties:
-      fieldName:
-        type: string
-        example: group_id
-      operandBefore:
-        description: supported values are "and", "or"
-        type: string
-        example: or
-      operator:
-        type: string
-        example: '='
-      sliceValue:
-        description: to be used if the value is a slice
-        type: array
-        items: {}
-      value:
-        type: object
-  familymodels.Response:
-    type: object
-    properties:
-      added:
-        description: Unix timestamp
-        type: integer
-        example: 1595230999
-      addedby_id:
-        description: user ID
-        type: integer
-        example: 1
-      archived:
-        type: integer
-      changed:
-        description: Unix timestamp
-        type: integer
-        example: 1595230999
-      changedby_id:
-        description: user ID
-        type: integer
-        example: 1
-      id:
-        type: integer
-      name:
-        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-        $ref: '#/definitions/Translatable'
-  familymodels.BulkReadRequest:
-    type: object
-    properties:
-      requests:
-        type: array
-        items:
-          $ref: '#/definitions/familymodels.ReadRequest'
-  responses.MessageResponse:
-    type: object
-    properties:
-      message:
-        type: string
-        example: some message
-  familymodels.BulkReadResponse:
-    type: object
-    properties:
-      results:
-        type: array
-        items:
-          $ref: '#/definitions/familymodels.BulkReadResponseItem'
-  parammodels.SortRequest:
-    type: object
-    properties:
-      desc:
-        description: If true - descending, if false - ascending
-        type: boolean
-      language:
-        description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
-        type: string
-        example: en
-      selector:
-        description: 'JSON field. For description: description_plain or description_html'
-        type: string
-        example: name
-  parammodels.PaginationParameters:
-    type: object
-    properties:
-      skip:
-        type: integer
-      take:
-        type: integer
-  Translatable:
-    type: object
-    properties:
-      en:
-        description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-        type: string
-  requests.Archivable:
-    type: object
-    properties:
-      archived:
-        description: Archived ..
-        type: boolean
-        example: false
-      name:
-        description: Names translations
-        $ref: '#/definitions/Translatable'
-  familymodels.BulkCreateRequest:
-    type: object
-    properties:
-      requests:
-        type: array
-        items:
-          $ref: '#/definitions/requests.Archivable'
-  responses.BulkResult:
-    type: object
-    properties:
-      message:
-        type: string
-        example: some message
-      resourceId:
-        description: identifier of the REST-ful response
-        type: integer
-        example: 2
-      resultId:
-        description: identifier of the result item
-        type: integer
-        example: 2
-  familymodels.ReadRequest:
-    type: object
-    properties:
-      filters:
-        type: array
-        items:
-          $ref: '#/definitions/parammodels.FilterJSON'
-      paginationParameters:
-        $ref: '#/definitions/parammodels.PaginationParameters'
-      sortingParameters:
-        $ref: '#/definitions/parammodels.SortRequest'
-      withArchived:
-        type: boolean
-  responses.BulkResponseWithResults:
-    type: object
-    properties:
-      results:
-        type: array
-        items:
-          $ref: '#/definitions/responses.BulkResult'
-securityDefinitions:
-  AccessToken:
-    type: apiKey
-    name: accessToken
-    in: header
-  ErplyClientCode:
-    type: apiKey
-    name: clientCode
-    in: header
-  ErplyJWT:
-    type: apiKey
-    name: jwt
-    in: header
-  ErplySession:
-    type: apiKey
-    name: sessionKey
-    in: header
-  RequestKey:
-    type: apiKey
-    name: requestKey
-    in: header
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/requests.Archivable'
+        description: Name
+        required: true
+      operationId: putV1ProductFamilyById
+      x-operation-id-source: derived
+components:
+  schemas:
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+    familymodels.BulkReadRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/familymodels.ReadRequest'
+    parammodels.SortRequest:
+      type: object
+      properties:
+        desc:
+          description: If true - descending, if false - ascending
+          type: boolean
+        language:
+          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
+          type: string
+          example: en
+        selector:
+          description: 'JSON field. For description: description_plain or description_html'
+          type: string
+          example: name
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    familymodels.BulkReadResponseItem:
+      type: object
+      properties:
+        families:
+          type: array
+          items:
+            $ref: '#/components/schemas/familymodels.Response'
+        message:
+          type: string
+          example: some message
+        resultId:
+          description: id of the response, if requested 3 read requests each ID represents 1 response item
+          type: integer
+    parammodels.FilterJSON:
+      type: object
+      properties:
+        fieldName:
+          type: string
+          example: group_id
+        operandBefore:
+          description: supported values are "and", "or"
+          type: string
+          example: or
+        operator:
+          type: string
+          example: '='
+        sliceValue:
+          description: to be used if the value is a slice
+          type: array
+          items: {}
+        value:
+          type: object
+    requests.Archivable:
+      type: object
+      properties:
+        archived:
+          description: Archived ..
+          type: boolean
+          example: false
+        name:
+          description: Names translations
+          $ref: '#/components/schemas/Translatable'
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    parammodels.PaginationParameters:
+      type: object
+      properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    familymodels.BulkCreateRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/requests.Archivable'
+    familymodels.BulkReadResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/familymodels.BulkReadResponseItem'
+    familymodels.Response:
+      type: object
+      properties:
+        added:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        addedby_id:
+          description: user ID
+          type: integer
+          example: 1
+        archived:
+          type: integer
+        changed:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        changedby_id:
+          description: user ID
+          type: integer
+          example: 1
+        id:
+          type: integer
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
+    familymodels.ReadRequest:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.FilterJSON'
+        paginationParameters:
+          $ref: '#/components/schemas/parammodels.PaginationParameters'
+        sortingParameters:
+          $ref: '#/components/schemas/parammodels.SortRequest'
+        withArchived:
+          type: boolean
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+  securitySchemes:
+    cc:
+      type: apiKey
+      name: clientCode
+      in: header
+    jwt:
+      type: apiKey
+      name: jwt
+      in: header
+    sk:
+      type: apiKey
+      name: sessionKey
+      in: header

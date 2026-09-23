@@ -1,0 +1,163 @@
+openapi: 3.2.0
+info:
+  description: '### Configuration API with a tree-like hierarchy.'
+  title: CAFA Import & Export API
+  contact:
+    email: david.zingerman@erply.com
+  version: 4.19.2
+tags:
+- name: Import And Export
+paths:
+  /configurations/export:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      tags:
+      - Import And Export
+      summary: Export configurations to files
+      parameters:
+      - description: Application name that uses CAFA to store configs
+        name: application
+        in: query
+        schema:
+          type: string
+      - description: Level is the operating level where the config is stored. Has to be one of Company, Warehouse, Pos, User. Default is Company
+        name: level
+        in: query
+        schema:
+          type: string
+      - description: LevelID is a unique value, used to identify the instance of the level. for User level, user id, for Pos - Point of Sale ID. Warehouse can use any unique string to identify the instance of its level,  `Company level does not need level_id.`
+        name: level_id
+        in: query
+        schema:
+          type: string
+      - description: Type is an optional grouping property, in this case its 'payment', indicating that this configuration belongs to payment integrations group used to query groups of related configurations
+        name: type
+        in: query
+        schema:
+          type: string
+      - description: Name of the configuration
+        name: name
+        in: query
+        schema:
+          type: string
+      - description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: binary .json file content
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+      operationId: getConfigurationsExport
+      x-operation-id-source: derived
+  /configurations/import:
+    post:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      tags:
+      - Import And Export
+      summary: Import configurations from file
+      parameters:
+      - description: If true, existing configurations will not be updated, otherwise they will be updated with the imported data
+        name: preserveExistingConfigurations
+        in: query
+        schema:
+          type: boolean
+      - description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/server.importResult'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  description: File that contains the data for the import (should be .json)
+                  format: binary
+              required:
+              - file
+      operationId: postConfigurationsImport
+      x-operation-id-source: derived
+components:
+  schemas:
+    response:
+      type: object
+      properties:
+        id:
+          type: integer
+        message:
+          type: string
+        statusCode:
+          type: string
+    server.importResult:
+      type: object
+      properties:
+        error:
+          type: string
+        id:
+          type: string
+  securitySchemes:
+    cc:
+      type: apiKey
+      name: clientCode
+      in: header
+    hmac-auth:
+      type: apiKey
+      name: hmac-auth
+      in: header
+    jwt:
+      type: apiKey
+      name: jwt
+      in: header
+    sk:
+      type: apiKey
+      name: sessionKey
+      in: header

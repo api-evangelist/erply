@@ -1,14 +1,14 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
-  title: assignments Assortment form API
+  description: '## Overview
+
+
+    This application offers an API for managing assignments and tasks.'
+  title: assignments Form API
   contact: {}
   version: 2.36.5
-host: ''
-basePath: ''
-schemes: []
 tags:
-- name: form
+- name: Form
 paths:
   /api/v1/form/registration:
     post:
@@ -17,20 +17,9 @@ paths:
       - ErplySession: []
       - ErplyJWT: []
       - AccessToken: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
-      - form
+      - Form
       summary: Submit a registration form
-      parameters:
-      - description: Registration data
-        name: record
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/RegistrationFormRequest'
       responses:
         '201':
           description: Created
@@ -40,48 +29,58 @@ paths:
           description: Forbidden
         '500':
           description: Internal Server Error
-definitions:
-  RegistrationFormRequest:
-    type: object
-    properties:
-      brand:
-        type: string
-      data:
-        type: object
-      email:
-        type: string
-      firstname:
-        type: string
-      model:
-        type: string
-      name:
-        type: string
-      phone:
-        type: string
-      registration:
-        type: string
-      serviceName:
-        type: string
-      year:
-        type: string
-securityDefinitions:
-  AccessToken:
-    type: apiKey
-    name: accessToken
-    in: header
-  ErplyClientCode:
-    type: apiKey
-    name: clientCode
-    in: header
-  ErplyJWT:
-    type: apiKey
-    name: jwt
-    in: header
-  ErplySession:
-    type: apiKey
-    name: sessionKey
-    in: header
-  RequestKey:
-    type: apiKey
-    name: requestKey
-    in: header
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationFormRequest'
+        description: Registration data
+        required: true
+      operationId: postApiV1FormRegistration
+      x-operation-id-source: derived
+components:
+  schemas:
+    RegistrationFormRequest:
+      type: object
+      properties:
+        brand:
+          type: string
+        data:
+          type: object
+        email:
+          type: string
+        firstname:
+          type: string
+        model:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        registration:
+          type: string
+        serviceName:
+          type: string
+        year:
+          type: string
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      name: accessToken
+      in: header
+    ErplyClientCode:
+      type: apiKey
+      name: clientCode
+      in: header
+    ErplyJWT:
+      type: apiKey
+      name: jwt
+      in: header
+    ErplySession:
+      type: apiKey
+      name: sessionKey
+      in: header
+    RequestKey:
+      type: apiKey
+      name: requestKey
+      in: header

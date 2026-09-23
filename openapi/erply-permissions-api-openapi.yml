@@ -1,12 +1,18 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
-  title: assignments Assortment Permissions API
-  contact: {}
-  version: 2.36.5
-host: ''
-basePath: ''
-schemes: []
+  description: 'Product information management API
+
+    -------
+
+
+    Summary
+
+
+    It is built top of Erply''s current product database.'
+  title: PIM Permissions API
+  contact:
+    email: david.zingerman@erply.com
+  version: 1.143.20
 tags:
 - name: Permissions
 paths:
@@ -18,134 +24,139 @@ paths:
       - jwt: []
       description: 'Some entities support setting up permissions on the user level. They include product groups and categpries.
 
-        Response is the userID of the updated user
-
-        '
-      consumes:
-      - application/json
-      produces:
-      - application/json
+        Response is the userID of the updated user'
       tags:
       - Permissions
       summary: Set / Update a permission
       parameters:
-      - type: string
-        description: 'values: ''product group'' or ''product category'''
+      - description: 'values: ''product group'' or ''product category'''
         name: entity
         in: query
         required: true
-      - description: request
-        name: request
-        in: body
-        required: true
         schema:
-          $ref: '#/definitions/permissions.SetUserPermissionRequest'
+          type: string
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/responses.Response'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.Response'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/permissions.SetUserPermissionRequest'
+        description: request
+        required: true
+      operationId: patchV1Permissions
+      x-operation-id-source: derived
   /v1/permissions/{userID}:
     get:
       security:
       - sk: []
       - cc: []
       - jwt: []
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
       - Permissions
       summary: Get user permissions
       parameters:
-      - type: integer
-        description: user ID
+      - description: user ID
         name: userID
         in: path
-      - type: string
-        description: 'values: ''product group'' or ''product category'''
+        schema:
+          type: integer
+        required: true
+      - description: 'values: ''product group'' or ''product category'''
         name: entity
         in: query
         required: true
+        schema:
+          type: string
       responses:
         '200':
           description: OK
-          schema:
-            $ref: '#/definitions/permissions.UserPermission'
           headers:
             X-Total-Count:
-              type: uint
               description: total number of records (ignores skip & take parameters)
+              schema:
+                type: uint
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/permissions.UserPermission'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
-definitions:
-  responses.Response:
-    type: object
-    properties:
-      id:
-        type: integer
-        example: 73
-  permissions.UserPermission:
-    type: object
-    properties:
-      isCreateEnabled:
-        type: boolean
-      isDeleteEnabled:
-        type: boolean
-      isUpdateEnabled:
-        type: boolean
-      userID:
-        type: integer
-  permissions.SetUserPermissionRequest:
-    type: object
-    properties:
-      isCreateEnabled:
-        type: boolean
-      isDeleteEnabled:
-        type: boolean
-      isUpdateEnabled:
-        type: boolean
-      userID:
-        type: integer
-  responses.MessageResponse:
-    type: object
-    properties:
-      message:
-        type: string
-        example: some message
-securityDefinitions:
-  AccessToken:
-    type: apiKey
-    name: accessToken
-    in: header
-  ErplyClientCode:
-    type: apiKey
-    name: clientCode
-    in: header
-  ErplyJWT:
-    type: apiKey
-    name: jwt
-    in: header
-  ErplySession:
-    type: apiKey
-    name: sessionKey
-    in: header
-  RequestKey:
-    type: apiKey
-    name: requestKey
-    in: header
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
+      operationId: getV1PermissionsByUserID
+      x-operation-id-source: derived
+components:
+  schemas:
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    permissions.SetUserPermissionRequest:
+      type: object
+      properties:
+        isCreateEnabled:
+          type: boolean
+        isDeleteEnabled:
+          type: boolean
+        isUpdateEnabled:
+          type: boolean
+        userID:
+          type: integer
+    permissions.UserPermission:
+      type: object
+      properties:
+        isCreateEnabled:
+          type: boolean
+        isDeleteEnabled:
+          type: boolean
+        isUpdateEnabled:
+          type: boolean
+        userID:
+          type: integer
+  securitySchemes:
+    cc:
+      type: apiKey
+      name: clientCode
+      in: header
+    jwt:
+      type: apiKey
+      name: jwt
+      in: header
+    sk:
+      type: apiKey
+      name: sessionKey
+      in: header

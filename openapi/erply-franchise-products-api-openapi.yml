@@ -1,12 +1,18 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  description: "\n\n## Overview\n\n\n\nThis application offers an API for managing assignments and tasks.\n\n\n\nGraphQL endpoint for the same API is [also available](/graph)\n\n\n\n<details><summary>Authentication</summary>\n\n\n\n> \n\n> Authenticate using your Erply credentials and get a sessionKey. This sessionKey and your Erply clientCode must be provided in the HTTP headers of every request. You do not have to authenticate against this API - valid Erply sessionKey-s from other sources are also acceptable. To authenticate using this API, use the `POST /api/v1/auth` endpoint.\n\n>\n\n</details>\n\n"
-  title: assignments Assortment Franchise Products API
-  contact: {}
-  version: 2.36.5
-host: ''
-basePath: ''
-schemes: []
+  description: 'Product information management API
+
+    -------
+
+
+    Summary
+
+
+    It is built top of Erply''s current product database.'
+  title: PIM Franchise Products API
+  contact:
+    email: david.zingerman@erply.com
+  version: 1.143.20
 tags:
 - name: Franchise Products
 paths:
@@ -17,32 +23,37 @@ paths:
       - cc: []
       - jwt: []
       description: Takes an id of the hq product and creates a copy of it to the store.
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
       - Franchise Products
       summary: Copies the hq product to the store
       parameters:
-      - type: integer
-        description: hq product ID
+      - description: hq product ID
         name: hqProductId
         in: path
         required: true
+        schema:
+          type: integer
       responses:
         '201':
           description: Created
-          schema:
-            $ref: '#/definitions/products.ProductCopiedToStoreResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/products.ProductCopiedToStoreResponse'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
+      operationId: postV1FranchiseProductHqToStoreByHqProductId
+      x-operation-id-source: derived
   /v1/franchise-product/search:
     get:
       security:
@@ -56,145 +67,148 @@ paths:
         it needs to be moved there with the _/v1/franchise-product/hq-to-store/{hqProductId}_ call.
 
         Note that the results here cannot be paginated or sorted and the amount of records returned is limited.'
-      consumes:
-      - application/json
-      produces:
-      - application/json
       tags:
       - Franchise Products
       summary: Search product with special franchise rules
       parameters:
-      - type: integer
-        description: Supply the warehouse ID to get the pricing api price for.
+      - description: Supply the warehouse ID to get the pricing api price for.
         name: warehouseId
         in: query
         required: true
-      - type: integer
-        description: Customer ID. Used to calculate the pricing api price when provided.
+        schema:
+          type: integer
+      - description: Customer ID. Used to calculate the pricing api price when provided.
         name: customerId
         in: query
-      - enum:
-        - all
-        - only
-        - exclude
-        type: string
-        description: Include or exclude non-stock products. Both will be returned by default.
+        schema:
+          type: integer
+      - description: Include or exclude non-stock products. Both will be returned by default.
         name: nonStockProducts
         in: query
-      - type: boolean
-        description: Return only products that are in stock.
+        schema:
+          type: string
+          enum:
+          - all
+          - only
+          - exclude
+      - description: Return only products that are in stock.
         name: isInStock
         in: query
-      - type: integer
-        description: 'items to take, default: 20, max: 200'
+        schema:
+          type: boolean
+      - description: 'items to take, default: 20, max: 200'
         name: take
         in: query
-      - type: string
-        description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
+        schema:
+          type: integer
+      - description: the filter parameter is explained in the `Filtering & Sorting` section on top of the Swagger documentation
         name: filter
         in: query
+        schema:
+          type: string
       responses:
         '200':
           description: OK
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/products.ProductFranchiseSearchResponse'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/products.ProductFranchiseSearchResponse'
         '400':
           description: Bad Request
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
         '500':
           description: Internal Server Error
-          schema:
-            $ref: '#/definitions/responses.MessageResponse'
-definitions:
-  products.ProductFranchiseSearchResponse:
-    type: object
-    properties:
-      code:
-        type: string
-      group:
-        $ref: '#/definitions/products.ProductFranchiseGroup'
-      hq_product_id:
-        type: integer
-      name:
-        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-        $ref: '#/definitions/Translatable'
-      price:
-        type: number
-      pricing_api_price:
-        type: number
-      pricing_api_price_with_tax:
-        type: number
-      stock:
-        $ref: '#/definitions/products.ProductFranchiseStockResponse'
-      store_product_id:
-        type: integer
-      suggested_retail_price:
-        type: number
-      unit:
-        $ref: '#/definitions/products.ProductFranchiseUnit'
-  responses.MessageResponse:
-    type: object
-    properties:
-      message:
-        type: string
-        example: some message
-  products.ProductFranchiseStockResponse:
-    type: object
-    properties:
-      stock:
-        type: number
-      warehouseId:
-        type: integer
-  Translatable:
-    type: object
-    properties:
-      en:
-        description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-        type: string
-  products.ProductCopiedToStoreResponse:
-    type: object
-    properties:
-      hq_product_id:
-        type: integer
-      store_product_id:
-        type: integer
-  products.ProductFranchiseGroup:
-    type: object
-    properties:
-      id:
-        type: integer
-      name:
-        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-        $ref: '#/definitions/Translatable'
-  products.ProductFranchiseUnit:
-    type: object
-    properties:
-      id:
-        type: integer
-      name:
-        description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-        $ref: '#/definitions/Translatable'
-securityDefinitions:
-  AccessToken:
-    type: apiKey
-    name: accessToken
-    in: header
-  ErplyClientCode:
-    type: apiKey
-    name: clientCode
-    in: header
-  ErplyJWT:
-    type: apiKey
-    name: jwt
-    in: header
-  ErplySession:
-    type: apiKey
-    name: sessionKey
-    in: header
-  RequestKey:
-    type: apiKey
-    name: requestKey
-    in: header
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responses.MessageResponse'
+      operationId: getV1FranchiseProductSearch
+      x-operation-id-source: derived
+components:
+  schemas:
+    products.ProductCopiedToStoreResponse:
+      type: object
+      properties:
+        hq_product_id:
+          type: integer
+        store_product_id:
+          type: integer
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+    products.ProductFranchiseSearchResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        group:
+          $ref: '#/components/schemas/products.ProductFranchiseGroup'
+        hq_product_id:
+          type: integer
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+        price:
+          type: number
+        pricing_api_price:
+          type: number
+        pricing_api_price_with_tax:
+          type: number
+        stock:
+          $ref: '#/components/schemas/products.ProductFranchiseStockResponse'
+        store_product_id:
+          type: integer
+        suggested_retail_price:
+          type: number
+        unit:
+          $ref: '#/components/schemas/products.ProductFranchiseUnit'
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    products.ProductFranchiseStockResponse:
+      type: object
+      properties:
+        stock:
+          type: number
+        warehouseId:
+          type: integer
+    products.ProductFranchiseGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+    products.ProductFranchiseUnit:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+  securitySchemes:
+    cc:
+      type: apiKey
+      name: clientCode
+      in: header
+    jwt:
+      type: apiKey
+      name: jwt
+      in: header
+    sk:
+      type: apiKey
+      name: sessionKey
+      in: header
