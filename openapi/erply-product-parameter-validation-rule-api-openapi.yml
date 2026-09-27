@@ -203,55 +203,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    parametermodels.ValidationRuleRequest:
-      type: object
-      properties:
-        parameter_id:
-          type: integer
-          example: 1
-        rule:
-          description: 'Rule "value" or whatever to call this: the numeric qualifier that goes hand in hand with that particular rule type. Eg. I specify that my parameter must have at least a minimum number of characters and that minimum number is 5.
-
-            For type REQUIRED, leave empty.
-
-            For type MIN_LENGTH, input the required minimum length as an integer.
-
-            For type MAX_LENGTH, input the required maximum length as an integer.
-
-            For type MIN_VALUE, input the minimum allowed value as a signed integer or decimal (eg. “0”, “-1”, “25.6”, “-9.999999” etc.)
-
-            For type MAX_VALUE, input the maximum allowed value as a signed integer or decimal.
-
-            For type INPUT_CASE, input 0 for "LOWERCASE" or 1 for “UPPERCASE”.
-
-            For type PRECISION, input the number of allowed decimal places as an integer (eg. “0”, “1”, or “2”)'
-          type: number
-          example: 25
-        type:
-          description: Type of the validation rule. Can be REQUIRED, MIN_LENGTH, MAX_LENGTH, MIN_VALUE, MAX_VALUE, INPUT_CASE and PRECISION
-          type: string
-          example: MIN_LENGTH
-    parametermodels.ValidationRuleUpdateRequest:
-      type: object
-      properties:
-        rule:
-          description: 'Rule "value" or whatever to call this: the numeric qualifier that goes hand in hand with that particular rule type. Eg. I specify that my parameter must have at least a minimum number of characters and that minimum number is 5.
-
-            For type REQUIRED, leave empty.
-
-            For type MIN_LENGTH, input the required minimum length as an integer.
-
-            For type MAX_LENGTH, input the required maximum length as an integer.
-
-            For type MIN_VALUE, input the minimum allowed value as a signed integer or decimal (eg. “0”, “-1”, “25.6”, “-9.999999” etc.)
-
-            For type MAX_VALUE, input the maximum allowed value as a signed integer or decimal.
-
-            For type INPUT_CASE, input 0 for "LOWERCASE" or 1 for “UPPERCASE”.
-
-            For type PRECISION, input the number of allowed decimal places as an integer (eg. “0”, “1”, or “2”)'
-          type: number
-          example: 25.6
     responses.MessageResponse:
       type: object
       properties:
@@ -284,12 +235,61 @@ components:
         rule: {}
         type:
           type: string
+    parametermodels.ValidationRuleRequest:
+      type: object
+      properties:
+        parameter_id:
+          type: integer
+          example: 1
+        rule:
+          description: 'Rule "value" or whatever to call this: the numeric qualifier that goes hand in hand with that particular rule type. Eg. I specify that my parameter must have at least a minimum number of characters and that minimum number is 5.
+
+            For type REQUIRED, leave empty.
+
+            For type MIN_LENGTH, input the required minimum length as an integer.
+
+            For type MAX_LENGTH, input the required maximum length as an integer.
+
+            For type MIN_VALUE, input the minimum allowed value as a signed integer or decimal (eg. “0”, “-1”, “25.6”, “-9.999999” etc.)
+
+            For type MAX_VALUE, input the maximum allowed value as a signed integer or decimal.
+
+            For type INPUT_CASE, input 0 for "LOWERCASE" or 1 for “UPPERCASE”.
+
+            For type PRECISION, input the number of allowed decimal places as an integer (eg. “0”, “1”, or “2”)'
+          type: number
+          example: 25
+        type:
+          description: Type of the validation rule. Can be REQUIRED, MIN_LENGTH, MAX_LENGTH, MIN_VALUE, MAX_VALUE, INPUT_CASE and PRECISION
+          type: string
+          example: MIN_LENGTH
     responses.Response:
       type: object
       properties:
         id:
           type: integer
           example: 73
+    parametermodels.ValidationRuleUpdateRequest:
+      type: object
+      properties:
+        rule:
+          description: 'Rule "value" or whatever to call this: the numeric qualifier that goes hand in hand with that particular rule type. Eg. I specify that my parameter must have at least a minimum number of characters and that minimum number is 5.
+
+            For type REQUIRED, leave empty.
+
+            For type MIN_LENGTH, input the required minimum length as an integer.
+
+            For type MAX_LENGTH, input the required maximum length as an integer.
+
+            For type MIN_VALUE, input the minimum allowed value as a signed integer or decimal (eg. “0”, “-1”, “25.6”, “-9.999999” etc.)
+
+            For type MAX_VALUE, input the maximum allowed value as a signed integer or decimal.
+
+            For type INPUT_CASE, input 0 for "LOWERCASE" or 1 for “UPPERCASE”.
+
+            For type PRECISION, input the number of allowed decimal places as an integer (eg. “0”, “1”, or “2”)'
+          type: number
+          example: 25.6
   securitySchemes:
     cc:
       type: apiKey

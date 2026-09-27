@@ -288,6 +288,19 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
     parammodels.ReadRequestWithTotalCount:
       type: object
       properties:
@@ -301,23 +314,6 @@ components:
           $ref: '#/components/schemas/parammodels.SortRequest'
         withTotalCount:
           type: boolean
-    models.MoveRequest:
-      type: object
-      properties:
-        position:
-          description: Position has to be  lastChild | before | after
-          type: string
-          example: after
-        target_id:
-          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
-          type: integer
-    products.BulkReadExtraFieldsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.BulkReadExtraFieldsResponseItem'
     parammodels.SortRequest:
       type: object
       properties:
@@ -339,6 +335,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/products.CreateExtraFieldRequest'
+    parammodels.BulkReadRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
     parammodels.PaginationParameters:
       type: object
       properties:
@@ -346,6 +349,93 @@ components:
           type: integer
         take:
           type: integer
+    models.MoveRequest:
+      type: object
+      properties:
+        position:
+          description: Position has to be  lastChild | before | after
+          type: string
+          example: after
+        target_id:
+          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
+          type: integer
+    products.BulkReadExtraFieldsResponseItem:
+      type: object
+      properties:
+        extraFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.ExtraFieldResponse'
+        message:
+          type: string
+          example: some message
+        resultId:
+          description: id of the response, if requested 3 read requests each ID represents 1 response item
+          type: integer
+        totalCount:
+          description: total number of records (ignores skip & take parameters)
+          type: integer
+    products.UpdateExtraFieldRequest:
+      type: object
+      properties:
+        code:
+          description: code of the extra field
+          type: string
+          example: code
+        is_active:
+          description: Is the field active?
+          type: boolean
+          example: true
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
+    products.CreateExtraFieldRequest:
+      type: object
+      properties:
+        code:
+          description: code of the extra field
+          type: string
+          example: code
+        is_active:
+          description: Is the field active?
+          type: boolean
+          example: true
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+    products.BulkReadExtraFieldsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.BulkReadExtraFieldsResponseItem'
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
     parammodels.FilterJSON:
       type: object
       properties:
@@ -365,46 +455,6 @@ components:
           items: {}
         value:
           type: object
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    parammodels.BulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
-    products.CreateExtraFieldRequest:
-      type: object
-      properties:
-        code:
-          description: code of the extra field
-          type: string
-          example: code
-        is_active:
-          description: Is the field active?
-          type: boolean
-          example: true
-        name:
-          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/Translatable'
     products.ExtraFieldResponse:
       type: object
       properties:
@@ -442,56 +492,6 @@ components:
         order:
           type: integer
           example: 15
-    products.UpdateExtraFieldRequest:
-      type: object
-      properties:
-        code:
-          description: code of the extra field
-          type: string
-          example: code
-        is_active:
-          description: Is the field active?
-          type: boolean
-          example: true
-        name:
-          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/Translatable'
-    responses.BulkResult:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
-    products.BulkReadExtraFieldsResponseItem:
-      type: object
-      properties:
-        extraFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.ExtraFieldResponse'
-        message:
-          type: string
-          example: some message
-        resultId:
-          description: id of the response, if requested 3 read requests each ID represents 1 response item
-          type: integer
-        totalCount:
-          description: total number of records (ignores skip & take parameters)
-          type: integer
   securitySchemes:
     cc:
       type: apiKey

@@ -480,29 +480,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    model.DeviceReport:
-      type: object
-      properties:
-        brand:
-          description: Device brand
-          type: string
-          example: ford
-        deviceCount:
-          description: Number of devices matching the specified criteria
-          type: integer
-          example: 5
-        model:
-          description: Device model
-          type: string
-          example: transit
-        version:
-          description: Device version
-          type: string
-          example: cargo van
-        year:
-          description: Device year
-          type: string
-          example: '2022'
     model.WorkorderReport:
       type: object
       properties:
@@ -637,6 +614,29 @@ components:
           description: VAT total of all matching rows
           type: number
           example: 20
+    model.DeviceReport:
+      type: object
+      properties:
+        brand:
+          description: Device brand
+          type: string
+          example: ford
+        deviceCount:
+          description: Number of devices matching the specified criteria
+          type: integer
+          example: 5
+        model:
+          description: Device model
+          type: string
+          example: transit
+        version:
+          description: Device version
+          type: string
+          example: cargo van
+        year:
+          description: Device year
+          type: string
+          example: '2022'
   securitySchemes:
     AccessToken:
       type: apiKey

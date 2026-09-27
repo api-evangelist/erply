@@ -119,7 +119,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-auth-api
-  name: Erply auth API
+  name: Erply Auth API
   description: The auth API from Erply — 1 operation(s) for auth.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -159,7 +159,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-clsf-api
-  name: Erply clsf API
+  name: Erply Clsf API
   description: The clsf API from Erply — 7 operation(s) for clsf.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -177,7 +177,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-clsf-device-properties-api
-  name: Erply clsf-device-properties API
+  name: Erply Clsf Device Properties API
   description: The clsf-device-properties API from Erply — 6 operation(s) for clsf-device-properties.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -195,7 +195,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-clsf-events-api
-  name: Erply clsf-events API
+  name: Erply Clsf Events API
   description: The clsf-events API from Erply — 2 operation(s) for clsf-events.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -213,7 +213,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-clsf-labels-api
-  name: Erply clsf-labels API
+  name: Erply Clsf Labels API
   description: The clsf-labels API from Erply — 4 operation(s) for clsf-labels.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -249,7 +249,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-device-api
-  name: Erply device API
+  name: Erply Device API
   description: The device API from Erply — 4 operation(s) for device.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -269,7 +269,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-event-api
-  name: Erply event API
+  name: Erply Event API
   description: The event API from Erply — 1 operation(s) for event.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -325,7 +325,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-form-api
-  name: Erply form API
+  name: Erply Form API
   description: The form API from Erply — 1 operation(s) for form.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -363,7 +363,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-item-api
-  name: Erply item API
+  name: Erply Item API
   description: The item API from Erply — 4 operation(s) for item.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -383,7 +383,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-label-api
-  name: Erply label API
+  name: Erply Label API
   description: The label API from Erply — 1 operation(s) for label.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -512,7 +512,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-note-api
-  name: Erply note API
+  name: Erply Note API
   description: The note API from Erply — 2 operation(s) for note.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -589,7 +589,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-printout-api
-  name: Erply printout API
+  name: Erply Printout API
   description: The printout API from Erply — 3 operation(s) for printout.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -955,7 +955,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-report-api
-  name: Erply report API
+  name: Erply Report API
   description: The report API from Erply — 4 operation(s) for report.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -975,7 +975,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-resource-api
-  name: Erply resource API
+  name: Erply Resource API
   description: The resource API from Erply — 3 operation(s) for resource.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -995,7 +995,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-row-api
-  name: Erply row API
+  name: Erply Row API
   description: The row API from Erply — 4 operation(s) for row.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -1049,7 +1049,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-sync-api
-  name: Erply sync API
+  name: Erply Sync API
   description: The sync API from Erply — 3 operation(s) for sync.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -1069,7 +1069,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-task-api
-  name: Erply task API
+  name: Erply Task API
   description: The task API from Erply — 4 operation(s) for task.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -1109,7 +1109,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-template-api
-  name: Erply template API
+  name: Erply Template API
   description: The template API from Erply — 3 operation(s) for template.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -1120,44 +1120,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/erply-template-api-openapi.yml
-  - type: Swagger
-    url: https://api-pim-eu.erply.com/index.html
-  - type: Swagger
-    url: https://api-as-eu10.erply.com/documentation/index.html
-  - type: Swagger
-    url: https://api-cafa-eu.erply.com/index.html
-  - type: Webhooks
-    url: asyncapi/erply-webhooks.yml
-- aid: erply:erply-v1-api
-  name: Erply v1 API
-  description: The v1 API from Erply — 4 operation(s) for v1.
-  humanURL: https://wiki.erply.com/article/1322-pim-api
-  baseURL: https://api-pim-eu.erply.com
-  tags:
-  - v1
-  properties:
-  - type: OpenAPI
-    url: openapi/erply-v1-api-openapi.yml
-  - type: Swagger
-    url: https://api-pim-eu.erply.com/index.html
-  - type: Swagger
-    url: https://api-as-eu10.erply.com/documentation/index.html
-  - type: Swagger
-    url: https://api-cafa-eu.erply.com/index.html
-  - type: Webhooks
-    url: asyncapi/erply-webhooks.yml
-- aid: erply:erply-v3-api
-  name: Erply v3 API
-  description: The v3 API from Erply — 2 operation(s) for v3.
-  humanURL: https://wiki.erply.com/article/1322-pim-api
-  baseURL: https://api-pim-eu.erply.com
-  tags:
-  - v3
-  tags_raw:
-  - v3
-  properties:
-  - type: OpenAPI
-    url: openapi/erply-v3-api-openapi.yml
   - type: Swagger
     url: https://api-pim-eu.erply.com/index.html
   - type: Swagger
@@ -1185,7 +1147,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-webhook-api
-  name: Erply webhook API
+  name: Erply Webhook API
   description: The webhook API from Erply — 2 operation(s) for webhook.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -1205,7 +1167,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-webhook-configuration-api
-  name: Erply webhook-configuration API
+  name: Erply Webhook Configuration API
   description: The webhook-configuration API from Erply — 2 operation(s) for webhook-configuration.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -1225,7 +1187,7 @@ apis:
   - type: Webhooks
     url: asyncapi/erply-webhooks.yml
 - aid: erply:erply-workorder-api
-  name: Erply workorder API
+  name: Erply Workorder API
   description: The workorder API from Erply — 14 operation(s) for workorder.
   humanURL: https://wiki.erply.com/article/1322-pim-api
   baseURL: https://api-pim-eu.erply.com
@@ -1234,6 +1196,24 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/erply-workorder-api-openapi.yml
+  - type: Swagger
+    url: https://api-pim-eu.erply.com/index.html
+  - type: Swagger
+    url: https://api-as-eu10.erply.com/documentation/index.html
+  - type: Swagger
+    url: https://api-cafa-eu.erply.com/index.html
+  - type: Webhooks
+    url: asyncapi/erply-webhooks.yml
+- aid: erply:erply-configuration-api
+  name: Erply Configuration API
+  description: The Configuration API from Erply — 6 operation(s) for configuration.
+  humanURL: https://wiki.erply.com/article/1322-pim-api
+  baseURL: https://api-pim-eu.erply.com
+  tags:
+  - Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/erply-configuration-api-openapi.yml
   - type: Swagger
     url: https://api-pim-eu.erply.com/index.html
   - type: Swagger

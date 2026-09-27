@@ -131,13 +131,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    products.ProductCopiedToStoreResponse:
-      type: object
-      properties:
-        hq_product_id:
-          type: integer
-        store_product_id:
-          type: integer
     responses.MessageResponse:
       type: object
       properties:
@@ -170,27 +163,6 @@ components:
           type: number
         unit:
           $ref: '#/components/schemas/products.ProductFranchiseUnit'
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    products.ProductFranchiseStockResponse:
-      type: object
-      properties:
-        stock:
-          type: number
-        warehouseId:
-          type: integer
-    products.ProductFranchiseGroup:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/Translatable'
     products.ProductFranchiseUnit:
       type: object
       properties:
@@ -199,6 +171,34 @@ components:
         name:
           description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
           $ref: '#/components/schemas/Translatable'
+    products.ProductFranchiseGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+    products.ProductCopiedToStoreResponse:
+      type: object
+      properties:
+        hq_product_id:
+          type: integer
+        store_product_id:
+          type: integer
+    products.ProductFranchiseStockResponse:
+      type: object
+      properties:
+        stock:
+          type: number
+        warehouseId:
+          type: integer
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
   securitySchemes:
     cc:
       type: apiKey

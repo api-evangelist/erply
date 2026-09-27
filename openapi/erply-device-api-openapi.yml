@@ -451,83 +451,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    DeviceResponse:
-      type: object
-      properties:
-        brand:
-          type: string
-          example: Volvo
-        callerAccess:
-          type: boolean
-          example: false
-        color:
-          type: string
-          example: yellow
-        createdAt:
-          type: string
-          example: '2022-01-01T00:00:00Z'
-        createdById:
-          type: integer
-          example: 1
-        customerId:
-          type: integer
-          example: 1
-        data:
-          type: object
-        dateSoldAt:
-          type: string
-          example: '2022-01-01T00:00:00Z'
-        hidden:
-          type: boolean
-          example: false
-        id:
-          type: integer
-          example: 1
-        invoiceId:
-          type: integer
-          example: 1
-        limitedAccess:
-          type: boolean
-          example: false
-        model:
-          type: string
-          example: S90
-        notes:
-          type: string
-          example: Some notes
-        productId:
-          type: integer
-          example: 1
-        productName:
-          type: string
-          example: Some product
-        registration:
-          type: string
-          example: 123 abc
-        relevance:
-          type: number
-          example: 0.5
-        serial:
-          type: string
-          example: '123'
-        updatedAt:
-          type: string
-          example: '2022-01-01T00:00:00Z'
-        updatedById:
-          type: integer
-          example: 1
-        version:
-          type: string
-          example: '1'
-        warrantyEndAt:
-          type: string
-          example: '2022-01-01T00:00:00Z'
-        warrantyStartAt:
-          type: string
-          example: '2022-01-01T00:00:00Z'
-        year:
-          type: string
-          example: '2020'
     DeviceRequest:
       type: object
       properties:
@@ -610,6 +533,83 @@ components:
           type: integer
         workorderId:
           type: integer
+    DeviceResponse:
+      type: object
+      properties:
+        brand:
+          type: string
+          example: Volvo
+        callerAccess:
+          type: boolean
+          example: false
+        color:
+          type: string
+          example: yellow
+        createdAt:
+          type: string
+          example: '2022-01-01T00:00:00Z'
+        createdById:
+          type: integer
+          example: 1
+        customerId:
+          type: integer
+          example: 1
+        data:
+          type: object
+        dateSoldAt:
+          type: string
+          example: '2022-01-01T00:00:00Z'
+        hidden:
+          type: boolean
+          example: false
+        id:
+          type: integer
+          example: 1
+        invoiceId:
+          type: integer
+          example: 1
+        limitedAccess:
+          type: boolean
+          example: false
+        model:
+          type: string
+          example: S90
+        notes:
+          type: string
+          example: Some notes
+        productId:
+          type: integer
+          example: 1
+        productName:
+          type: string
+          example: Some product
+        registration:
+          type: string
+          example: 123 abc
+        relevance:
+          type: number
+          example: 0.5
+        serial:
+          type: string
+          example: '123'
+        updatedAt:
+          type: string
+          example: '2022-01-01T00:00:00Z'
+        updatedById:
+          type: integer
+          example: 1
+        version:
+          type: string
+          example: '1'
+        warrantyEndAt:
+          type: string
+          example: '2022-01-01T00:00:00Z'
+        warrantyStartAt:
+          type: string
+          example: '2022-01-01T00:00:00Z'
+        year:
+          type: string
+          example: '2020'
   securitySchemes:
     AccessToken:
       type: apiKey

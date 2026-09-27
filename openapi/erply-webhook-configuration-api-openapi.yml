@@ -185,12 +185,6 @@ components:
         message:
           type: string
           example: configuration removed
-    models.OutputError:
-      type: object
-      properties:
-        error:
-          type: string
-          example: Description of the failure
     models.InputWebhookConfiguration:
       type: object
       required:
@@ -219,6 +213,12 @@ components:
           description: Table references a database table or a custom event name
           type: string
           example: product
+    models.OutputError:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Description of the failure
     models.WebhookConfiguration:
       type: object
       properties:

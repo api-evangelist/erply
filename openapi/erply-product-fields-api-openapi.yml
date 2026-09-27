@@ -179,6 +179,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
     products.PermissionSet:
       type: object
       properties:
@@ -348,12 +354,12 @@ components:
           $ref: '#/components/schemas/products.PermissionSet'
         width:
           $ref: '#/components/schemas/products.PermissionSet'
-    responses.MessageResponse:
+    responses.Response:
       type: object
       properties:
-        message:
-          type: string
-          example: some message
+        id:
+          type: integer
+          example: 73
     products.ProductInheritedFieldsRequest:
       type: object
       properties:
@@ -516,12 +522,6 @@ components:
           type: boolean
         width:
           type: boolean
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
   securitySchemes:
     cc:
       type: apiKey

@@ -288,38 +288,19 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    matrixmodels.DimensionRequest:
-      type: object
-      properties:
-        dimension_name:
-          $ref: '#/components/schemas/Translatable'
-        status:
-          description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
-          type: string
-          example: ACTIVE
-    matrixmodels.DimensionBulkReadResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/matrixmodels.DimensionBulkReadResponseItem'
-    models.MoveRequest:
-      type: object
-      properties:
-        position:
-          description: Position has to be  lastChild | before | after
-          type: string
-          example: after
-        target_id:
-          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
-          type: integer
     responses.MessageResponse:
       type: object
       properties:
         message:
           type: string
           example: some message
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
     parammodels.SortRequest:
       type: object
       properties:
@@ -334,79 +315,6 @@ components:
           description: 'JSON field. For description: description_plain or description_html'
           type: string
           example: name
-    parammodels.BulkReadRequestNoTotalCount:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.ReadRequest'
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    parammodels.FilterJSON:
-      type: object
-      properties:
-        fieldName:
-          type: string
-          example: group_id
-        operandBefore:
-          description: supported values are "and", "or"
-          type: string
-          example: or
-        operator:
-          type: string
-          example: '='
-        sliceValue:
-          description: to be used if the value is a slice
-          type: array
-          items: {}
-        value:
-          type: object
-    parammodels.PaginationParameters:
-      type: object
-      properties:
-        skip:
-          type: integer
-        take:
-          type: integer
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    responses.BulkResult:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
-    matrixmodels.DimensionBulkReadResponseItem:
-      type: object
-      properties:
-        dimensions:
-          type: array
-          items:
-            $ref: '#/components/schemas/matrixmodels.DimensionResponse'
-        message:
-          type: string
-          example: some message
-        resultId:
-          description: id of the response, if requested 3 read requests each ID represents 1 response item
-          type: integer
     parammodels.ReadRequest:
       type: object
       properties:
@@ -418,19 +326,13 @@ components:
           $ref: '#/components/schemas/parammodels.PaginationParameters'
         sortingParameters:
           $ref: '#/components/schemas/parammodels.SortRequest'
-    matrixmodels.DimensionBulkCreateRequest:
+    matrixmodels.DimensionBulkReadResponse:
       type: object
       properties:
-        requests:
+        results:
           type: array
           items:
-            $ref: '#/components/schemas/matrixmodels.DimensionRequest'
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
+            $ref: '#/components/schemas/matrixmodels.DimensionBulkReadResponseItem'
     matrixmodels.DimensionResponse:
       type: object
       properties:
@@ -460,6 +362,104 @@ components:
           description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
           type: string
           example: ACTIVE
+    parammodels.PaginationParameters:
+      type: object
+      properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    models.MoveRequest:
+      type: object
+      properties:
+        position:
+          description: Position has to be  lastChild | before | after
+          type: string
+          example: after
+        target_id:
+          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
+          type: integer
+    matrixmodels.DimensionBulkReadResponseItem:
+      type: object
+      properties:
+        dimensions:
+          type: array
+          items:
+            $ref: '#/components/schemas/matrixmodels.DimensionResponse'
+        message:
+          type: string
+          example: some message
+        resultId:
+          description: id of the response, if requested 3 read requests each ID represents 1 response item
+          type: integer
+    parammodels.BulkReadRequestNoTotalCount:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.ReadRequest'
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    matrixmodels.DimensionRequest:
+      type: object
+      properties:
+        dimension_name:
+          $ref: '#/components/schemas/Translatable'
+        status:
+          description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+          type: string
+          example: ACTIVE
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    parammodels.FilterJSON:
+      type: object
+      properties:
+        fieldName:
+          type: string
+          example: group_id
+        operandBefore:
+          description: supported values are "and", "or"
+          type: string
+          example: or
+        operator:
+          type: string
+          example: '='
+        sliceValue:
+          description: to be used if the value is a slice
+          type: array
+          items: {}
+        value:
+          type: object
+    matrixmodels.DimensionBulkCreateRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/matrixmodels.DimensionRequest'
   securitySchemes:
     cc:
       type: apiKey

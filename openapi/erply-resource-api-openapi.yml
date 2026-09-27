@@ -206,29 +206,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ResourceOrderRequest:
-      type: object
-      properties:
-        inFrontOfId:
-          description: 'ID of the record in front of which the moved resource should be placed. Must belong to a record associated
-
-            with the same warehouse. If left nil, the resource will be moved to the last place'
-          type: integer
-    ResourceRequest:
-      type: object
-      properties:
-        code:
-          type: string
-        data:
-          type: object
-        defaultAssignedToId:
-          type: integer
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-        warehouseId:
-          type: integer
     core.Translatable:
       type: object
       properties:
@@ -331,6 +308,29 @@ components:
         updatedById:
           type: integer
         warehouseId:
+          type: integer
+    ResourceRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          type: object
+        defaultAssignedToId:
+          type: integer
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+        warehouseId:
+          type: integer
+    ResourceOrderRequest:
+      type: object
+      properties:
+        inFrontOfId:
+          description: 'ID of the record in front of which the moved resource should be placed. Must belong to a record associated
+
+            with the same warehouse. If left nil, the resource will be moved to the last place'
           type: integer
   securitySchemes:
     AccessToken:

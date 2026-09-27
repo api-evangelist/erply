@@ -251,32 +251,6 @@ components:
           example: ACTIVE
         tax_rate_id:
           type: integer
-    models.PriceListPrice:
-      type: object
-      properties:
-        id:
-          type: integer
-        price:
-          type: number
-        product_id:
-          type: integer
-    ProductDescription:
-      type: object
-      properties:
-        html:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: <b>Very good product!</b>
-        plain_text:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: Very good product!
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
     products.ProductResponseForUI:
       type: object
       properties:
@@ -504,6 +478,23 @@ components:
           type: string
         width:
           type: number
+    ProductDescription:
+      type: object
+      properties:
+        html:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: <b>Very good product!</b>
+        plain_text:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: Very good product!
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
     models.AttributeResponse:
       type: object
       properties:
@@ -528,6 +519,15 @@ components:
           example: text
         value:
           description: based on the type value can be number of text
+    models.PriceListPrice:
+      type: object
+      properties:
+        id:
+          type: integer
+        price:
+          type: number
+        product_id:
+          type: integer
     Description:
       type: object
       properties:

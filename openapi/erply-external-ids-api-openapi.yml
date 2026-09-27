@@ -234,18 +234,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
     models.ExternalIDResponse:
       type: object
       properties:
@@ -280,6 +268,18 @@ components:
           type: string
         integration_name:
           type: string
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
   securitySchemes:
     cc:
       type: apiKey

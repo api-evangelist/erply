@@ -218,6 +218,23 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    NoteRequest:
+      type: object
+      properties:
+        data:
+          type: object
+        id:
+          type: integer
+        itemId:
+          type: integer
+        rowId:
+          type: integer
+        taskId:
+          type: integer
+        text:
+          type: string
+        workorderId:
+          type: integer
     NoteResponse:
       type: object
       properties:
@@ -243,23 +260,6 @@ components:
           type: string
         updatedById:
           type: integer
-        workorderId:
-          type: integer
-    NoteRequest:
-      type: object
-      properties:
-        data:
-          type: object
-        id:
-          type: integer
-        itemId:
-          type: integer
-        rowId:
-          type: integer
-        taskId:
-          type: integer
-        text:
-          type: string
         workorderId:
           type: integer
   securitySchemes:

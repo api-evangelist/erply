@@ -119,23 +119,6 @@ components:
         message:
           type: string
           example: some message
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
-    permissions.SetUserPermissionRequest:
-      type: object
-      properties:
-        isCreateEnabled:
-          type: boolean
-        isDeleteEnabled:
-          type: boolean
-        isUpdateEnabled:
-          type: boolean
-        userID:
-          type: integer
     permissions.UserPermission:
       type: object
       properties:
@@ -147,6 +130,23 @@ components:
           type: boolean
         userID:
           type: integer
+    permissions.SetUserPermissionRequest:
+      type: object
+      properties:
+        isCreateEnabled:
+          type: boolean
+        isDeleteEnabled:
+          type: boolean
+        isUpdateEnabled:
+          type: boolean
+        userID:
+          type: integer
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
   securitySchemes:
     cc:
       type: apiKey

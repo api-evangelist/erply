@@ -41,21 +41,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    APIAuthRequest:
-      type: object
-      properties:
-        clientCode:
-          type: string
-          example: '123456'
-        password:
-          type: string
-          example: secret
-        setCookie:
-          type: boolean
-          example: true
-        username:
-          type: string
-          example: username
     APIAuthResponse:
       type: object
       properties:
@@ -81,6 +66,21 @@ components:
           type: string
           example: '1'
         userName:
+          type: string
+          example: username
+    APIAuthRequest:
+      type: object
+      properties:
+        clientCode:
+          type: string
+          example: '123456'
+        password:
+          type: string
+          example: secret
+        setCookie:
+          type: boolean
+          example: true
+        username:
           type: string
           example: username
   securitySchemes:

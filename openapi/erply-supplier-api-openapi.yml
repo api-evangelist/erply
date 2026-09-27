@@ -302,6 +302,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
     models.SupplierResponse:
       type: object
       properties:
@@ -384,6 +390,13 @@ components:
           type: integer
         website:
           type: string
+    models.BulkCreateSupplierRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/models.SupplierRequest'
     parammodels.ReadRequestWithTotalCount:
       type: object
       properties:
@@ -397,6 +410,34 @@ components:
           $ref: '#/components/schemas/parammodels.SortRequest'
         withTotalCount:
           type: boolean
+    parammodels.SortRequest:
+      type: object
+      properties:
+        desc:
+          description: If true - descending, if false - ascending
+          type: boolean
+        language:
+          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
+          type: string
+          example: en
+        selector:
+          description: 'JSON field. For description: description_plain or description_html'
+          type: string
+          example: name
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    parammodels.BulkReadRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
     models.BulkReadSuppliersResponseItem:
       type: object
       properties:
@@ -413,6 +454,71 @@ components:
         totalCount:
           description: total number of records (ignores skip & take parameters)
           type: integer
+    parammodels.PaginationParameters:
+      type: object
+      properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    models.SupplierTypeResponse:
+      type: object
+      properties:
+        added:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        addedby:
+          description: username
+          type: string
+          example: k@erp.xyz
+        changed:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        changedby:
+          description: username
+          type: string
+          example: k@erp.xyz
+        id:
+          description: object ID
+          type: integer
+          example: 1234
+        issupplier:
+          type: integer
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+        order:
+          type: integer
+          example: 15
+    models.BulkReadSuppliersResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/models.BulkReadSuppliersResponseItem'
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
     models.SupplierRequest:
       type: object
       properties:
@@ -482,40 +588,12 @@ components:
           type: integer
         website:
           type: string
-    models.BulkCreateSupplierRequest:
+    Translatable:
       type: object
       properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/models.SupplierRequest'
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
           type: string
-          example: some message
-    parammodels.SortRequest:
-      type: object
-      properties:
-        desc:
-          description: If true - descending, if false - ascending
-          type: boolean
-        language:
-          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
-          type: string
-          example: en
-        selector:
-          description: 'JSON field. For description: description_plain or description_html'
-          type: string
-          example: name
-    parammodels.PaginationParameters:
-      type: object
-      properties:
-        skip:
-          type: integer
-        take:
-          type: integer
     parammodels.FilterJSON:
       type: object
       properties:
@@ -535,84 +613,6 @@ components:
           items: {}
         value:
           type: object
-    models.SupplierTypeResponse:
-      type: object
-      properties:
-        added:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        addedby:
-          description: username
-          type: string
-          example: k@erp.xyz
-        changed:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        changedby:
-          description: username
-          type: string
-          example: k@erp.xyz
-        id:
-          description: object ID
-          type: integer
-          example: 1234
-        issupplier:
-          type: integer
-        name:
-          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/Translatable'
-        order:
-          type: integer
-          example: 15
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    parammodels.BulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
-    responses.BulkResult:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
-    models.BulkReadSuppliersResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/models.BulkReadSuppliersResponseItem'
   securitySchemes:
     cc:
       type: apiKey

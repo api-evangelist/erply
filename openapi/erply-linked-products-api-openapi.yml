@@ -268,9 +268,49 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    linkedproductmodels.CreateRequest:
+    responses.MessageResponse:
       type: object
       properties:
+        message:
+          type: string
+          example: some message
+    products.BulkReadResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.BulkReadResponseItem'
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    linkedproductmodels.Response:
+      type: object
+      properties:
+        added:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        addedby:
+          description: username
+          type: string
+          example: k@erp.xyz
+        changed:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        changedby:
+          description: username
+          type: string
+          example: k@erp.xyz
+        id:
+          description: object ID
+          type: integer
+          example: 1234
         linked_product_id:
           type: integer
         product_id:
@@ -279,19 +319,6 @@ components:
           description: Link type can be cross-sell or substitute
           type: string
           example: cross-sell
-    products.BulkReadResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.BulkReadResponseItem'
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
     linkedproductmodels.UpdateRequest:
       type: object
       properties:
@@ -299,20 +326,13 @@ components:
           type: integer
         product_id:
           type: integer
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    linkedproductmodels.BulkCreateRequest:
+    products.BulkReadRequest:
       type: object
       properties:
         requests:
           type: array
           items:
-            $ref: '#/components/schemas/linkedproductmodels.CreateRequest'
+            $ref: '#/components/schemas/products.BulkReadRequestItem'
     products.BulkReadRequestItem:
       type: object
       properties:
@@ -338,6 +358,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/linkedproductmodels.Response'
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    linkedproductmodels.BulkCreateRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/linkedproductmodels.CreateRequest'
     responses.BulkResult:
       type: object
       properties:
@@ -352,42 +385,9 @@ components:
           description: identifier of the result item
           type: integer
           example: 2
-    products.BulkReadRequest:
+    linkedproductmodels.CreateRequest:
       type: object
       properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.BulkReadRequestItem'
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
-    linkedproductmodels.Response:
-      type: object
-      properties:
-        added:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        addedby:
-          description: username
-          type: string
-          example: k@erp.xyz
-        changed:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        changedby:
-          description: username
-          type: string
-          example: k@erp.xyz
-        id:
-          description: object ID
-          type: integer
-          example: 1234
         linked_product_id:
           type: integer
         product_id:

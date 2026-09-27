@@ -129,15 +129,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    EventRequest:
-      type: object
-      properties:
-        data:
-          type: object
-        eventType:
-          type: string
-        workorderId:
-          type: integer
     core.Translatable:
       type: object
       properties:
@@ -231,6 +222,15 @@ components:
           type: string
         id:
           type: integer
+        workorderId:
+          type: integer
+    EventRequest:
+      type: object
+      properties:
+        data:
+          type: object
+        eventType:
+          type: string
         workorderId:
           type: integer
   securitySchemes:

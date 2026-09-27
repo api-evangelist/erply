@@ -234,10 +234,6 @@ components:
         id:
           type: integer
           example: 73
-    requests.ValueRequest:
-      type: object
-      properties:
-        value: {}
     parametermodels.ValueResponse:
       type: object
       properties:
@@ -265,6 +261,10 @@ components:
           type: integer
         value:
           description: can be any type. Can be parameter option also
+    requests.ValueRequest:
+      type: object
+      properties:
+        value: {}
   securitySchemes:
     cc:
       type: apiKey

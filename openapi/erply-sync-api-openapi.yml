@@ -165,21 +165,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    LabelResponse:
-      type: object
-      properties:
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        label:
-          type: string
-        labelType:
-          type: string
-        taskId:
-          type: integer
-        workorderId:
-          type: integer
     NoteResponse:
       type: object
       properties:
@@ -206,17 +191,6 @@ components:
         updatedById:
           type: integer
         workorderId:
-          type: integer
-    DeviceListResponse:
-      type: object
-      properties:
-        identity:
-          type: integer
-        records:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceResponse'
-        totalCount:
           type: integer
     SyncResponse:
       type: object
@@ -415,6 +389,109 @@ components:
         workorderId:
           type: integer
           example: 1
+    ItemResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        data:
+          type: object
+        id:
+          type: integer
+        templateId:
+          type: integer
+        templateSourceId:
+          type: integer
+        text:
+          type: string
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
+        workorderId:
+          type: integer
+    RowResponse:
+      type: object
+      properties:
+        amount:
+          type: number
+        confirmedAt:
+          type: string
+        confirmedById:
+          type: integer
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        data:
+          type: object
+        discount:
+          type: number
+        id:
+          type: integer
+        isLinked:
+          type: boolean
+        itemId:
+          type: integer
+        netTotal:
+          type: number
+        nonStockProduct:
+          type: boolean
+        order:
+          type: integer
+        parentLinkId:
+          type: integer
+        price:
+          type: number
+        productCode:
+          type: string
+        productId:
+          type: integer
+        productName:
+          type: string
+        productOriginalPrice:
+          type: number
+        productUnitId:
+          type: integer
+        productUpcEan:
+          type: string
+        purchaseOrderRowId:
+          type: integer
+        state:
+          type: string
+        taxExempt:
+          type: boolean
+        title:
+          type: string
+        total:
+          type: number
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
+        vatRateId:
+          type: integer
+        vatTotal:
+          type: number
+        workorderId:
+          type: integer
+    LabelResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        label:
+          type: string
+        labelType:
+          type: string
+        taskId:
+          type: integer
+        workorderId:
+          type: integer
     DeviceResponse:
       type: object
       properties:
@@ -492,103 +569,17 @@ components:
         year:
           type: string
           example: '2020'
-    RowResponse:
+    DeviceListResponse:
       type: object
       properties:
-        amount:
-          type: number
-        confirmedAt:
-          type: string
-        confirmedById:
+        identity:
           type: integer
-        createdAt:
-          type: string
-        createdById:
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceResponse'
+        totalCount:
           type: integer
-        data:
-          type: object
-        discount:
-          type: number
-        id:
-          type: integer
-        isLinked:
-          type: boolean
-        itemId:
-          type: integer
-        netTotal:
-          type: number
-        nonStockProduct:
-          type: boolean
-        order:
-          type: integer
-        parentLinkId:
-          type: integer
-        price:
-          type: number
-        productCode:
-          type: string
-        productId:
-          type: integer
-        productName:
-          type: string
-        productOriginalPrice:
-          type: number
-        productUnitId:
-          type: integer
-        productUpcEan:
-          type: string
-        purchaseOrderRowId:
-          type: integer
-        state:
-          type: string
-        taxExempt:
-          type: boolean
-        title:
-          type: string
-        total:
-          type: number
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
-        vatRateId:
-          type: integer
-        vatTotal:
-          type: number
-        workorderId:
-          type: integer
-    ItemResponse:
-      type: object
-      properties:
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        data:
-          type: object
-        id:
-          type: integer
-        templateId:
-          type: integer
-        templateSourceId:
-          type: integer
-        text:
-          type: string
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
-        workorderId:
-          type: integer
-    response:
-      type: object
-      properties:
-        id:
-          type: integer
-        message:
-          type: string
-        statusCode:
-          type: string
     configuration:
       type: object
       properties:
@@ -621,6 +612,15 @@ components:
           type: string
           example: payment
         value: {}
+    response:
+      type: object
+      properties:
+        id:
+          type: integer
+        message:
+          type: string
+        statusCode:
+          type: string
   securitySchemes:
     AccessToken:
       type: apiKey

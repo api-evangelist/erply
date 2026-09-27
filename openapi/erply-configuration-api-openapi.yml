@@ -1,12 +1,12 @@
 openapi: 3.2.0
 info:
   description: '### Configuration API with a tree-like hierarchy.'
-  title: CAFA V1 API
+  title: CAFA Configuration API
   contact:
     email: david.zingerman@erply.com
   version: 4.19.2
 tags:
-- name: v1
+- name: Configuration
 paths:
   /configuration:
     get:
@@ -21,7 +21,7 @@ paths:
 
         When you request a config at a User or Warehouse levels, if it is not there it will check Company level as well. When you request a config at a POS level, if it is not there it will check Warehouse (if request to ERPLY API was ok to get the Warehouse ID) and Company levels as well.'
       tags:
-      - v1
+      - Configuration
       summary: Get all configurations or a sub-list
       parameters:
       - description: UNIX timestamp used for the HMAC Auth method only
@@ -96,7 +96,7 @@ paths:
       - jwt: []
       description: '`level`, `level_id` and `type` are optional fields.'
       tags:
-      - v1
+      - Configuration
       summary: Update `value` only
       deprecated: true
       parameters:
@@ -143,7 +143,7 @@ paths:
 
         level, level_id and type are optional fields.'
       tags:
-      - v1
+      - Configuration
       summary: Save
       deprecated: true
       parameters:
@@ -188,7 +188,7 @@ paths:
       - jwt: []
       description: 'Delete will delete the configuration by strict match of the following fields: level, application, levelID, type and name.'
       tags:
-      - v1
+      - Configuration
       summary: Delete
       deprecated: true
       parameters:
@@ -253,7 +253,7 @@ paths:
       - jwt: []
       description: Get a list of all application names that the user has configurations for.
       tags:
-      - v1
+      - Configuration
       summary: Get a list of all application names that the user has configurations for
       responses:
         '200':
@@ -287,7 +287,7 @@ paths:
       - jwt: []
       description: The endpoint allows you to get all the configurations in an application
       tags:
-      - v1
+      - Configuration
       summary: Get all configurations for an application
       parameters:
       - description: UNIX timestamp used for the HMAC Auth method only
@@ -332,7 +332,7 @@ paths:
       - hmac-auth: []
       - jwt: []
       tags:
-      - v1
+      - Configuration
       summary: Moving means changing the level_id
       parameters:
       - description: UNIX timestamp used for the HMAC Auth method only
@@ -374,8 +374,198 @@ paths:
         required: true
       operationId: putConfigurationByIdMove
       x-operation-id-source: derived
+  /v3/configuration:
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      description: '`NB`: You cannot have 2 configurations with the same level,level_id, type, name and application
+
+        level, level_id and type are optional fields.'
+      tags:
+      - Configuration
+      summary: Save or update a configuration
+      parameters:
+      - description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/configurationRequest'
+        description: ConfigurationDbRecord
+        required: true
+      operationId: putV3Configuration
+      x-operation-id-source: derived
+  /v3/configuration/{id}:
+    get:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      tags:
+      - Configuration
+      summary: Get by ID
+      parameters:
+      - description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+        schema:
+          type: string
+      - description: Configuration ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/configuration'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+      operationId: getV3ConfigurationById
+      x-operation-id-source: derived
+    put:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      tags:
+      - Configuration
+      summary: Update `value` by ID
+      parameters:
+      - description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+        schema:
+          type: string
+      - description: Configuration ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/valueRequest'
+        description: new configuration value
+        required: true
+      operationId: putV3ConfigurationById
+      x-operation-id-source: derived
+    delete:
+      security:
+      - sk: []
+      - cc: []
+      - hmac-auth: []
+      - jwt: []
+      tags:
+      - Configuration
+      summary: Delete By ID
+      parameters:
+      - description: UNIX timestamp used for the HMAC Auth method only
+        name: timestamp
+        in: header
+        schema:
+          type: string
+      - description: configuration ID
+        name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response'
+      operationId: deleteV3ConfigurationById
+      x-operation-id-source: derived
 components:
   schemas:
+    appsResponse:
+      type: object
+      properties:
+        applications:
+          type: array
+          items:
+            type: string
     response:
       type: object
       properties:
@@ -384,44 +574,6 @@ components:
         message:
           type: string
         statusCode:
-          type: string
-    configuration:
-      type: object
-      properties:
-        added:
-          type: integer
-        addedby_id:
-          type: integer
-        application:
-          type: string
-          example: erply-to-woo-sync
-        changed:
-          type: integer
-        changedby_id:
-          type: integer
-        id:
-          type: string
-        level:
-          description: Level is optional
-          type: string
-          example: Pos
-        level_id:
-          description: LevelID is optional
-          type: string
-          example: '1'
-        name:
-          type: string
-          example: adyen
-        type:
-          description: Type is optional
-          type: string
-          example: payment
-        value: {}
-    moveRequest:
-      type: object
-      properties:
-        level_id:
-          description: LevelID is new level_id to set for the config
           type: string
     configurationRequest:
       type: object
@@ -460,13 +612,49 @@ components:
           example: payment
         value:
           description: 'Value stored by the configuration. Supported types: JSON, JSON array, string'
-    appsResponse:
+    moveRequest:
       type: object
       properties:
-        applications:
-          type: array
-          items:
-            type: string
+        level_id:
+          description: LevelID is new level_id to set for the config
+          type: string
+    configuration:
+      type: object
+      properties:
+        added:
+          type: integer
+        addedby_id:
+          type: integer
+        application:
+          type: string
+          example: erply-to-woo-sync
+        changed:
+          type: integer
+        changedby_id:
+          type: integer
+        id:
+          type: string
+        level:
+          description: Level is optional
+          type: string
+          example: Pos
+        level_id:
+          description: LevelID is optional
+          type: string
+          example: '1'
+        name:
+          type: string
+          example: adyen
+        type:
+          description: Type is optional
+          type: string
+          example: payment
+        value: {}
+    valueRequest:
+      type: object
+      properties:
+        value:
+          description: 'Value stored by the configuration. Supported types: JSON, JSON array, string'
   securitySchemes:
     cc:
       type: apiKey

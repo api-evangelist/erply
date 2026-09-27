@@ -26,9 +26,8 @@
     "erply-task-api-openapi.yml",
     "erply-template-api-openapi.yml",
     "erply-workorder-api-openapi.yml",
+    "erply-configuration-api-openapi.yml",
     "erply-import-export-api-openapi.yml",
-    "erply-v1-api-openapi.yml",
-    "erply-v3-api-openapi.yml",
     "erply-assortment-api-openapi.yml",
     "erply-assortment-to-product-linking-api-openapi.yml",
     "erply-attributes-api-openapi.yml",
@@ -73,7 +72,7 @@
     "erply-webhook-configuration-api-openapi.yml"
   ],
   "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
+    "deleted 3 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
@@ -81,10 +80,20 @@
     "sourced from openapi/_original/ (4 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "erply-assignments-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
     "erply-cafa-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "erply-cafa-openapi.json: tagged paths GET /configuration -> Configuration",
+    "erply-cafa-openapi.json: tagged paths PUT /configuration -> Configuration",
+    "erply-cafa-openapi.json: tagged paths POST /configuration -> Configuration",
+    "erply-cafa-openapi.json: tagged paths DELETE /configuration -> Configuration",
+    "erply-cafa-openapi.json: tagged paths GET /configuration/apps -> Configuration",
+    "erply-cafa-openapi.json: tagged paths GET /configuration/{applicationName} -> Configuration",
+    "erply-cafa-openapi.json: tagged paths PUT /configuration/{id}/move -> Configuration",
+    "erply-cafa-openapi.json: tagged paths PUT /v3/configuration -> Configuration",
+    "erply-cafa-openapi.json: tagged paths GET /v3/configuration/{id} -> Configuration",
+    "erply-cafa-openapi.json: tagged paths PUT /v3/configuration/{id} -> Configuration",
+    "erply-cafa-openapi.json: tagged paths DELETE /v3/configuration/{id} -> Configuration",
+    "erply-cafa-openapi.json: declared missing tag: Configuration",
     "erply-cafa-openapi.json: declared missing tag: Import & Export",
     "erply-cafa-openapi.json: declared missing tag: Sync",
-    "erply-cafa-openapi.json: declared missing tag: v1",
-    "erply-cafa-openapi.json: declared missing tag: v3",
     "erply-pim-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
     "erply-pim-openapi.json: declared missing tag: Assortment",
     "erply-pim-openapi.json: declared missing tag: Assortment To Product Linking",
@@ -125,8 +134,8 @@
     "erply-webhook-openapi.json: declared missing tag: webhook",
     "erply-webhook-openapi.json: declared missing tag: webhook-configuration",
     "tag 'sync' spans 2 source specs (erply-assignments-openapi.json, erply-cafa-openapi.json): per-path servers applied",
-    "superseded outputs removed: erply-import-and-export-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 64 total)"
+    "superseded outputs removed: erply-import-and-export-api-openapi.yml, erply-v1-api-openapi.yml, erply-v3-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 63 total)"
   ],
   "skipped": [
     "erply-assortment-api-openapi.yml: previously refined output, superseded by openapi/_original/",

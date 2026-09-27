@@ -288,6 +288,24 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    RowLinkRequest:
+      type: object
+      properties:
+        rowIds:
+          type: array
+          items:
+            type: integer
+    ItemRequest:
+      type: object
+      properties:
+        data:
+          type: object
+        id:
+          type: integer
+        text:
+          type: string
+        workorderId:
+          type: integer
     ItemResponse:
       type: object
       properties:
@@ -309,24 +327,6 @@ components:
           type: string
         updatedById:
           type: integer
-        workorderId:
-          type: integer
-    RowLinkRequest:
-      type: object
-      properties:
-        rowIds:
-          type: array
-          items:
-            type: integer
-    ItemRequest:
-      type: object
-      properties:
-        data:
-          type: object
-        id:
-          type: integer
-        text:
-          type: string
         workorderId:
           type: integer
   securitySchemes:

@@ -190,21 +190,6 @@ components:
         message:
           type: string
           example: some message
-    models.AssortmentRequest:
-      type: object
-      properties:
-        code:
-          description: Code
-          type: string
-        name:
-          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/Translatable'
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
     responses.Response:
       type: object
       properties:
@@ -237,6 +222,21 @@ components:
         name:
           description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
           $ref: '#/components/schemas/Translatable'
+    models.AssortmentRequest:
+      type: object
+      properties:
+        code:
+          description: Code
+          type: string
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
   securitySchemes:
     cc:
       type: apiKey

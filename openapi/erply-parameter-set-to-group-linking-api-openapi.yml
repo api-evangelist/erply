@@ -165,18 +165,6 @@ components:
         message:
           type: string
           example: some message
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
-    requests.IDRequest:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 1
     models.SetToGroupResponse:
       type: object
       properties:
@@ -202,6 +190,18 @@ components:
           type: integer
         id:
           type: integer
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    requests.IDRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
   securitySchemes:
     cc:
       type: apiKey
