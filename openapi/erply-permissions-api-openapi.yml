@@ -113,24 +113,7 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
     permissions.UserPermission:
-      type: object
-      properties:
-        isCreateEnabled:
-          type: boolean
-        isDeleteEnabled:
-          type: boolean
-        isUpdateEnabled:
-          type: boolean
-        userID:
-          type: integer
-    permissions.SetUserPermissionRequest:
       type: object
       properties:
         isCreateEnabled:
@@ -147,6 +130,23 @@ components:
         id:
           type: integer
           example: 73
+    permissions.SetUserPermissionRequest:
+      type: object
+      properties:
+        isCreateEnabled:
+          type: boolean
+        isDeleteEnabled:
+          type: boolean
+        isUpdateEnabled:
+          type: boolean
+        userID:
+          type: integer
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
   securitySchemes:
     cc:
       type: apiKey

@@ -498,6 +498,58 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    DeviceBrandRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+    ClsfChildResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        type:
+          type: string
+    ClsfResponse:
+      type: object
+      properties:
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClsfChildResponse'
+        code:
+          type: string
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        entity:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+        parentId:
+          type: integer
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
+    DeviceModelRequest:
+      type: object
+      properties:
+        brand:
+          type: string
+        code:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
     core.Translatable:
       type: object
       properties:
@@ -576,26 +628,6 @@ components:
         zh_Hant:
           type: string
           example: ' '
-    DeviceModelRequest:
-      type: object
-      properties:
-        brand:
-          type: string
-        code:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-    DeviceBrandRequest:
-      type: object
-      properties:
-        code:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
     DeviceVersionRequest:
       type: object
       properties:
@@ -609,38 +641,6 @@ components:
           type: string
         name:
           $ref: '#/components/schemas/core.Translatable'
-    ClsfResponse:
-      type: object
-      properties:
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClsfChildResponse'
-        code:
-          type: string
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        entity:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-        parentId:
-          type: integer
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
-    ClsfChildResponse:
-      type: object
-      properties:
-        code:
-          type: string
-        type:
-          type: string
   securitySchemes:
     AccessToken:
       type: apiKey

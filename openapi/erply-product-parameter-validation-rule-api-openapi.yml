@@ -203,38 +203,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    parametermodels.ValidationRuleResponse:
-      type: object
-      properties:
-        added:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        addedby_id:
-          description: user ID
-          type: integer
-          example: 1
-        changed:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        changedby_id:
-          description: user ID
-          type: integer
-          example: 1
-        id:
-          type: integer
-        parameter_id:
-          type: integer
-        rule: {}
-        type:
-          type: string
     parametermodels.ValidationRuleRequest:
       type: object
       properties:
@@ -290,6 +258,38 @@ components:
             For type PRECISION, input the number of allowed decimal places as an integer (eg. “0”, “1”, or “2”)'
           type: number
           example: 25.6
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+    parametermodels.ValidationRuleResponse:
+      type: object
+      properties:
+        added:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        addedby_id:
+          description: user ID
+          type: integer
+          example: 1
+        changed:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        changedby_id:
+          description: user ID
+          type: integer
+          example: 1
+        id:
+          type: integer
+        parameter_id:
+          type: integer
+        rule: {}
+        type:
+          type: string
   securitySchemes:
     cc:
       type: apiKey

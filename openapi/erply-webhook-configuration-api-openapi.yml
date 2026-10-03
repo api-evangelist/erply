@@ -179,46 +179,18 @@ paths:
                 $ref: '#/components/schemas/models.OutputError'
 components:
   schemas:
-    models.OutputOK:
-      type: object
-      properties:
-        message:
-          type: string
-          example: configuration removed
-    models.InputWebhookConfiguration:
-      type: object
-      required:
-      - action
-      - endpoint
-      - secret
-      - table
-      properties:
-        action:
-          description: Action of the event insert, update, delete or confirm (only usable on items that support it)
-          type: string
-          example: insert
-        disabled:
-          description: Disabled optional input, can be used to create inactive configurations for later use - false by default
-          type: boolean
-          example: false
-        endpoint:
-          description: Endpoint full url of the server where the webhook will be sent to
-          type: string
-          example: https://my.receiver
-        secret:
-          description: Secret optional secret that can be used to authenticate the webhooks
-          type: string
-          example: mySecretWord
-        table:
-          description: Table references a database table or a custom event name
-          type: string
-          example: product
     models.OutputError:
       type: object
       properties:
         error:
           type: string
           example: Description of the failure
+    models.OutputOK:
+      type: object
+      properties:
+        message:
+          type: string
+          example: configuration removed
     models.WebhookConfiguration:
       type: object
       properties:
@@ -249,6 +221,34 @@ components:
         updatedat:
           type: string
           example: '2019-11-21T14:01:13.471Z'
+    models.InputWebhookConfiguration:
+      type: object
+      required:
+      - action
+      - endpoint
+      - secret
+      - table
+      properties:
+        action:
+          description: Action of the event insert, update, delete or confirm (only usable on items that support it)
+          type: string
+          example: insert
+        disabled:
+          description: Disabled optional input, can be used to create inactive configurations for later use - false by default
+          type: boolean
+          example: false
+        endpoint:
+          description: Endpoint full url of the server where the webhook will be sent to
+          type: string
+          example: https://my.receiver
+        secret:
+          description: Secret optional secret that can be used to authenticate the webhooks
+          type: string
+          example: mySecretWord
+        table:
+          description: Table references a database table or a custom event name
+          type: string
+          example: product
   securitySchemes:
     ClientCode:
       type: apiKey

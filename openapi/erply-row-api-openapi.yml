@@ -352,6 +352,45 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    RowRequest:
+      type: object
+      properties:
+        amount:
+          type: number
+        data:
+          type: object
+        discount:
+          type: number
+        id:
+          type: integer
+        itemId:
+          type: integer
+        order:
+          type: integer
+        price:
+          type: number
+        productId:
+          type: integer
+        purchaseOrderRowId:
+          type: integer
+        state:
+          type: string
+        taxExempt:
+          type: boolean
+        title:
+          type: string
+        vatRateId:
+          type: integer
+        workorderId:
+          type: integer
+    RowOrderRequest:
+      type: object
+      properties:
+        inFrontOfId:
+          description: 'ID of the record in front of which the moved row should be placed. Must belong to a record associated
+
+            with the same workorder. If left nil, the row will be moved to the last place'
+          type: integer
     RowResponse:
       type: object
       properties:
@@ -416,45 +455,6 @@ components:
         vatTotal:
           type: number
         workorderId:
-          type: integer
-    RowRequest:
-      type: object
-      properties:
-        amount:
-          type: number
-        data:
-          type: object
-        discount:
-          type: number
-        id:
-          type: integer
-        itemId:
-          type: integer
-        order:
-          type: integer
-        price:
-          type: number
-        productId:
-          type: integer
-        purchaseOrderRowId:
-          type: integer
-        state:
-          type: string
-        taxExempt:
-          type: boolean
-        title:
-          type: string
-        vatRateId:
-          type: integer
-        workorderId:
-          type: integer
-    RowOrderRequest:
-      type: object
-      properties:
-        inFrontOfId:
-          description: 'ID of the record in front of which the moved row should be placed. Must belong to a record associated
-
-            with the same workorder. If left nil, the row will be moved to the last place'
           type: integer
   securitySchemes:
     AccessToken:

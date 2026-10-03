@@ -243,58 +243,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
     responses.MessageResponse:
       type: object
       properties:
         message:
           type: string
           example: some message
-    packages.PackageResponse:
-      type: object
-      properties:
-        added:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        addedby:
-          description: username
-          type: string
-          example: k@erp.xyz
-        changed:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        changedby:
-          description: username
-          type: string
-          example: k@erp.xyz
-        code:
-          description: To be used if the package has a different code than the product itself.
-          type: string
-        gross_weight:
-          description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
-          type: number
-        height:
-          type: number
-        id:
-          description: object ID
-          type: integer
-          example: 1234
-        length:
-          description: Length is Item's physical dimensions.
-          type: number
-        net_weight:
-          type: string
-        package_category_id:
-          description: Package Category ID
-          type: integer
-        product_id:
-          type: integer
-        units:
-          description: Size of the package (how many pcs it contains)
-          type: number
-        width:
-          type: number
     packages.PackageCategoryResponse:
       type: object
       properties:
@@ -350,12 +310,58 @@ components:
           type: number
         width:
           type: number
-    responses.Response:
+    Translatable:
       type: object
       properties:
-        id:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    packages.PackageResponse:
+      type: object
+      properties:
+        added:
+          description: Unix timestamp
           type: integer
-          example: 73
+          example: 1595230999
+        addedby:
+          description: username
+          type: string
+          example: k@erp.xyz
+        changed:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        changedby:
+          description: username
+          type: string
+          example: k@erp.xyz
+        code:
+          description: To be used if the package has a different code than the product itself.
+          type: string
+        gross_weight:
+          description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+          type: number
+        height:
+          type: number
+        id:
+          description: object ID
+          type: integer
+          example: 1234
+        length:
+          description: Length is Item's physical dimensions.
+          type: number
+        net_weight:
+          type: string
+        package_category_id:
+          description: Package Category ID
+          type: integer
+        product_id:
+          type: integer
+        units:
+          description: Size of the package (how many pcs it contains)
+          type: number
+        width:
+          type: number
     packages.PackageUpdateRequest:
       type: object
       properties:
@@ -380,12 +386,6 @@ components:
           type: number
         width:
           type: number
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
   securitySchemes:
     cc:
       type: apiKey

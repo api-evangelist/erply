@@ -72,7 +72,7 @@
     "erply-webhook-configuration-api-openapi.yml"
   ],
   "archived": [
-    "deleted 3 superseded output(s) from the previous generation"
+    "deleted 1 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
@@ -134,8 +134,8 @@
     "erply-webhook-openapi.json: declared missing tag: webhook",
     "erply-webhook-openapi.json: declared missing tag: webhook-configuration",
     "tag 'sync' spans 2 source specs (erply-assignments-openapi.json, erply-cafa-openapi.json): per-path servers applied",
-    "superseded outputs removed: erply-import-and-export-api-openapi.yml, erply-v1-api-openapi.yml, erply-v3-api-openapi.yml",
-    "apis.yml register: written (+2 apis, 63 total)"
+    "superseded outputs removed: erply-import-and-export-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 63 total)"
   ],
   "skipped": [
     "erply-assortment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -147,6 +147,7 @@
     "erply-clsf-device-properties-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "erply-clsf-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "erply-clsf-labels-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "erply-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "erply-country-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "erply-device-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "erply-event-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -196,8 +197,6 @@
     "erply-task-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "erply-tasks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "erply-template-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "erply-v1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "erply-v3-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "erply-warehouse-locations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "erply-webhook-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "erply-webhook-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/",

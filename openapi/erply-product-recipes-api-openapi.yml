@@ -219,58 +219,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    recipemodels.BulkCreateRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/recipemodels.Request'
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    parammodels.SortRequest:
-      type: object
-      properties:
-        desc:
-          description: If true - descending, if false - ascending
-          type: boolean
-        language:
-          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
-          type: string
-          example: en
-        selector:
-          description: 'JSON field. For description: description_plain or description_html'
-          type: string
-          example: name
-    recipemodels.BulkReadRequestItem:
-      type: object
-      properties:
-        filters:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.FilterJSON'
-        paginationParameters:
-          $ref: '#/components/schemas/parammodels.PaginationParameters'
-        product_ids:
-          description: API client specifies one or more product IDs and wants components for these products. Can contain semicolon delimited IDs."
-          type: array
-          items:
-            type: integer
-        sortingParameters:
-          $ref: '#/components/schemas/parammodels.SortRequest'
-        withTotalCount:
-          type: boolean
     recipemodels.BulkReadResponseItem:
       type: object
       properties:
@@ -287,31 +235,45 @@ components:
         totalCount:
           description: total number of records (ignores skip & take parameters)
           type: integer
-    parammodels.PaginationParameters:
+    recipemodels.Response:
       type: object
       properties:
-        skip:
+        added:
+          description: Unix timestamp
           type: integer
-        take:
+          example: 1595230999
+        addedby:
+          description: username
+          type: string
+          example: k@erp.xyz
+        amount:
+          type: number
+          example: 5
+        changed:
+          description: Unix timestamp
           type: integer
-    ProductDescription:
-      type: object
-      properties:
-        html:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          example: 1595230999
+        changedby:
+          description: username
           type: string
-          example: <b>Very good product!</b>
-        plain_text:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: Very good product!
-    recipemodels.BulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/recipemodels.BulkReadRequestItem'
+          example: k@erp.xyz
+        component_product:
+          $ref: '#/components/schemas/products.ProductResponse'
+        id:
+          description: object ID
+          type: integer
+          example: 1234
+        order:
+          type: integer
+          example: 15
+        product:
+          $ref: '#/components/schemas/products.ProductResponse'
+        product_id:
+          type: integer
+          example: 77
+        product_id_component:
+          type: integer
+          example: 79
     products.ProductResponse:
       type: object
       properties:
@@ -537,70 +499,88 @@ components:
           type: string
         width:
           type: number
-    recipemodels.Response:
+    ProductDescription:
       type: object
       properties:
-        added:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        addedby:
-          description: username
+        html:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
           type: string
-          example: k@erp.xyz
-        amount:
-          type: number
-          example: 5
-        changed:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        changedby:
-          description: username
+          example: <b>Very good product!</b>
+        plain_text:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
           type: string
-          example: k@erp.xyz
-        component_product:
-          $ref: '#/components/schemas/products.ProductResponse'
-        id:
-          description: object ID
-          type: integer
-          example: 1234
-        order:
-          type: integer
-          example: 15
-        product:
-          $ref: '#/components/schemas/products.ProductResponse'
-        product_id:
-          type: integer
-          example: 77
-        product_id_component:
-          type: integer
-          example: 79
-    recipemodels.Request:
+          example: Very good product!
+    parammodels.SortRequest:
       type: object
       properties:
-        amount:
-          type: number
-          example: 5
-        product_id:
+        desc:
+          description: If true - descending, if false - ascending
+          type: boolean
+        language:
+          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
+          type: string
+          example: en
+        selector:
+          description: 'JSON field. For description: description_plain or description_html'
+          type: string
+          example: name
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
           type: integer
-          example: 77
-        product_id_component:
+          example: 2
+        resultId:
+          description: identifier of the result item
           type: integer
-          example: 79
+          example: 2
+    recipemodels.BulkReadRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipemodels.BulkReadRequestItem'
     responses.Response:
       type: object
       properties:
         id:
           type: integer
           example: 73
-    recipemodels.BulkReadResponse:
+    responses.MessageResponse:
       type: object
       properties:
-        results:
+        message:
+          type: string
+          example: some message
+    Description:
+      type: object
+      properties:
+        en:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/ProductDescription'
+    recipemodels.BulkReadRequestItem:
+      type: object
+      properties:
+        filters:
           type: array
           items:
-            $ref: '#/components/schemas/recipemodels.BulkReadResponseItem'
+            $ref: '#/components/schemas/parammodels.FilterJSON'
+        paginationParameters:
+          $ref: '#/components/schemas/parammodels.PaginationParameters'
+        product_ids:
+          description: API client specifies one or more product IDs and wants components for these products. Can contain semicolon delimited IDs."
+          type: array
+          items:
+            type: integer
+        sortingParameters:
+          $ref: '#/components/schemas/parammodels.SortRequest'
+        withTotalCount:
+          type: boolean
     parammodels.FilterJSON:
       type: object
       properties:
@@ -620,32 +600,52 @@ components:
           items: {}
         value:
           type: object
+    parammodels.PaginationParameters:
+      type: object
+      properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    recipemodels.BulkReadResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipemodels.BulkReadResponseItem'
     Translatable:
       type: object
       properties:
         en:
           description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
           type: string
-    responses.BulkResult:
+    responses.BulkResponseWithResults:
       type: object
       properties:
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
-    Description:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    recipemodels.BulkCreateRequest:
       type: object
       properties:
-        en:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/ProductDescription'
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipemodels.Request'
+    recipemodels.Request:
+      type: object
+      properties:
+        amount:
+          type: number
+          example: 5
+        product_id:
+          type: integer
+          example: 77
+        product_id_component:
+          type: integer
+          example: 79
   securitySchemes:
     cc:
       type: apiKey

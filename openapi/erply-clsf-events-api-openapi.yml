@@ -253,21 +253,13 @@ components:
         zh_Hant:
           type: string
           example: ' '
-    ClsfEventTypeRequest:
+    ClsfChildResponse:
       type: object
       properties:
         code:
           type: string
-        entity:
+        type:
           type: string
-        eventVariables:
-          type: array
-          items:
-            type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
     ClsfResponse:
       type: object
       properties:
@@ -293,13 +285,21 @@ components:
           type: string
         updatedById:
           type: integer
-    ClsfChildResponse:
+    ClsfEventTypeRequest:
       type: object
       properties:
         code:
           type: string
-        type:
+        entity:
           type: string
+        eventVariables:
+          type: array
+          items:
+            type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
   securitySchemes:
     AccessToken:
       type: apiKey

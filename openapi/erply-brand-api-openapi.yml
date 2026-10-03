@@ -249,26 +249,24 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    brandmodels.BulkResponse:
+    parammodels.ReadRequest:
       type: object
       properties:
-        results:
+        filters:
           type: array
           items:
-            $ref: '#/components/schemas/brandmodels.BulkResponseItem'
-    responses.MessageResponse:
+            $ref: '#/components/schemas/parammodels.FilterJSON'
+        paginationParameters:
+          $ref: '#/components/schemas/parammodels.PaginationParameters'
+        sortingParameters:
+          $ref: '#/components/schemas/parammodels.SortRequest'
+    brandmodels.Request:
       type: object
       properties:
-        message:
+        description:
+          $ref: '#/components/schemas/Translatable'
+        name:
           type: string
-          example: some message
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
     parammodels.SortRequest:
       type: object
       properties:
@@ -283,17 +281,26 @@ components:
           description: 'JSON field. For description: description_plain or description_html'
           type: string
           example: name
-    parammodels.ReadRequest:
+    responses.BulkResult:
       type: object
       properties:
-        filters:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.FilterJSON'
-        paginationParameters:
-          $ref: '#/components/schemas/parammodels.PaginationParameters'
-        sortingParameters:
-          $ref: '#/components/schemas/parammodels.SortRequest'
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
     brandmodels.Response:
       type: object
       properties:
@@ -319,20 +326,12 @@ components:
           type: integer
         name:
           type: string
-    brandmodels.Request:
+    responses.MessageResponse:
       type: object
       properties:
-        description:
-          $ref: '#/components/schemas/Translatable'
-        name:
+        message:
           type: string
-    parammodels.PaginationParameters:
-      type: object
-      properties:
-        skip:
-          type: integer
-        take:
-          type: integer
+          example: some message
     parammodels.BulkReadRequestNoTotalCount:
       type: object
       properties:
@@ -340,26 +339,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/parammodels.ReadRequest'
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
-    responses.BulkResult:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
     brandmodels.BulkResponseItem:
       type: object
       properties:
@@ -373,12 +352,13 @@ components:
         resultId:
           description: id of the response, if requested 3 read requests each ID represents 1 response item
           type: integer
-    Translatable:
+    brandmodels.BulkCreateRequest:
       type: object
       properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/brandmodels.Request'
     parammodels.FilterJSON:
       type: object
       properties:
@@ -398,13 +378,33 @@ components:
           items: {}
         value:
           type: object
-    brandmodels.BulkCreateRequest:
+    parammodels.PaginationParameters:
       type: object
       properties:
-        requests:
+        skip:
+          type: integer
+        take:
+          type: integer
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
           type: array
           items:
-            $ref: '#/components/schemas/brandmodels.Request'
+            $ref: '#/components/schemas/responses.BulkResult'
+    brandmodels.BulkResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/brandmodels.BulkResponseItem'
   securitySchemes:
     cc:
       type: apiKey

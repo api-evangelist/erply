@@ -480,6 +480,112 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    model.ProductReport:
+      type: object
+      properties:
+        amount:
+          description: Total amount of products over the matching rows
+          type: number
+          example: 1
+        groupId:
+          description: ID of the product group. If nil, the specific product group can vary
+          type: integer
+          example: 28
+        groupName:
+          description: Group name
+          type: string
+        level:
+          description: Result level. Ranges from 0 to 100. 0 being grand total values and 100 being specific product values. Levels 1-99 indicate product group hierarchy depth
+          type: integer
+          example: 1
+        netTotal:
+          description: Net total of all matching rows
+          type: number
+          example: 80
+        parentGroupId:
+          description: ID of the parent group of this product group in case of product group hierarchies
+          type: integer
+          example: 27
+        parentGroupName:
+          description: Parent group name
+          type: string
+        productId:
+          description: ID of the product. If nil, the specific product can vary
+          type: integer
+          example: 62
+        productName:
+          description: Product name
+          type: string
+        total:
+          description: Total of all matching rows
+          type: number
+          example: 100
+        vatTotal:
+          description: VAT total of all matching rows
+          type: number
+          example: 20
+    model.TaskReport:
+      type: object
+      properties:
+        assignedToId:
+          description: User ID who is assigned to the task
+          type: integer
+          example: 2
+        avgPlannedDuration:
+          description: Average planned duration
+          type: integer
+          example: 100
+        avgRealDuration:
+          description: Average real duration as specified by user (with fallback to default duration)
+          type: integer
+          example: 100
+        resourceId:
+          description: ID of the resource linked to the task
+          type: integer
+          example: 1
+        rowCount:
+          description: Number of rows
+          type: integer
+          example: 5
+        state:
+          description: State of the row linked to the task
+          type: string
+          example: planned
+        sumPlannedDuration:
+          description: Total planned duration
+          type: integer
+          example: 100
+        sumRealDuration:
+          description: Total real duration as defined by user (with fallback to default duration)
+          type: integer
+          example: 100
+        taskCount:
+          description: Number of tasks
+          type: integer
+          example: 5
+    model.DeviceReport:
+      type: object
+      properties:
+        brand:
+          description: Device brand
+          type: string
+          example: ford
+        deviceCount:
+          description: Number of devices matching the specified criteria
+          type: integer
+          example: 5
+        model:
+          description: Device model
+          type: string
+          example: transit
+        version:
+          description: Device version
+          type: string
+          example: cargo van
+        year:
+          description: Device year
+          type: string
+          example: '2022'
     model.WorkorderReport:
       type: object
       properties:
@@ -527,112 +633,6 @@ components:
           description: Number of workorders
           type: integer
           example: 4
-        year:
-          description: Device year
-          type: string
-          example: '2022'
-    model.TaskReport:
-      type: object
-      properties:
-        assignedToId:
-          description: User ID who is assigned to the task
-          type: integer
-          example: 2
-        avgPlannedDuration:
-          description: Average planned duration
-          type: integer
-          example: 100
-        avgRealDuration:
-          description: Average real duration as specified by user (with fallback to default duration)
-          type: integer
-          example: 100
-        resourceId:
-          description: ID of the resource linked to the task
-          type: integer
-          example: 1
-        rowCount:
-          description: Number of rows
-          type: integer
-          example: 5
-        state:
-          description: State of the row linked to the task
-          type: string
-          example: planned
-        sumPlannedDuration:
-          description: Total planned duration
-          type: integer
-          example: 100
-        sumRealDuration:
-          description: Total real duration as defined by user (with fallback to default duration)
-          type: integer
-          example: 100
-        taskCount:
-          description: Number of tasks
-          type: integer
-          example: 5
-    model.ProductReport:
-      type: object
-      properties:
-        amount:
-          description: Total amount of products over the matching rows
-          type: number
-          example: 1
-        groupId:
-          description: ID of the product group. If nil, the specific product group can vary
-          type: integer
-          example: 28
-        groupName:
-          description: Group name
-          type: string
-        level:
-          description: Result level. Ranges from 0 to 100. 0 being grand total values and 100 being specific product values. Levels 1-99 indicate product group hierarchy depth
-          type: integer
-          example: 1
-        netTotal:
-          description: Net total of all matching rows
-          type: number
-          example: 80
-        parentGroupId:
-          description: ID of the parent group of this product group in case of product group hierarchies
-          type: integer
-          example: 27
-        parentGroupName:
-          description: Parent group name
-          type: string
-        productId:
-          description: ID of the product. If nil, the specific product can vary
-          type: integer
-          example: 62
-        productName:
-          description: Product name
-          type: string
-        total:
-          description: Total of all matching rows
-          type: number
-          example: 100
-        vatTotal:
-          description: VAT total of all matching rows
-          type: number
-          example: 20
-    model.DeviceReport:
-      type: object
-      properties:
-        brand:
-          description: Device brand
-          type: string
-          example: ford
-        deviceCount:
-          description: Number of devices matching the specified criteria
-          type: integer
-          example: 5
-        model:
-          description: Device model
-          type: string
-          example: transit
-        version:
-          description: Device version
-          type: string
-          example: cargo van
         year:
           description: Device year
           type: string

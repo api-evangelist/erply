@@ -135,6 +135,197 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    PrintoutItem:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        data:
+          type: object
+        id:
+          type: integer
+        netTotal:
+          type: number
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrintoutNote'
+        notesMerged:
+          type: string
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrintoutRow'
+        text:
+          type: string
+        total:
+          type: number
+        updatedAt:
+          type: string
+        vatTotal:
+          type: number
+    PrintoutCompany:
+      type: object
+      properties:
+        account:
+          type: string
+        account2:
+          type: string
+        bank:
+          type: string
+        bank2:
+          type: string
+        code:
+          type: string
+        email:
+          type: string
+        fax:
+          type: string
+        fullName:
+          type: string
+        fullName2:
+          type: string
+        iban:
+          type: string
+        iban2:
+          type: string
+        id:
+          type: integer
+        mobile:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        swift:
+          type: string
+        swift2:
+          type: string
+        vatrateId:
+          type: integer
+    PrintoutRowTotal:
+      type: object
+      properties:
+        netTotal:
+          type: number
+        total:
+          type: number
+        vatTotal:
+          type: number
+    PrintoutAddress:
+      type: object
+      properties:
+        address:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        id:
+          type: integer
+        postcode:
+          type: string
+        state:
+          type: string
+        typeId:
+          type: integer
+    PrintoutVatRateTotal:
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+        netTotal:
+          type: number
+        rate:
+          type: number
+        total:
+          type: number
+        vatRateId:
+          type: integer
+        vatTotal:
+          type: number
+    PrintoutParty:
+      type: object
+      properties:
+        email:
+          type: string
+        firstname:
+          type: string
+        fullName:
+          type: string
+        fullName2:
+          type: string
+        id:
+          type: integer
+        mobile:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        userId:
+          type: integer
+    PrintoutWorkorderData:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/PrintoutAddress'
+        company:
+          $ref: '#/components/schemas/PrintoutCompany'
+        createdAt:
+          type: string
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrintoutDocument'
+        invoiceLogoUrl:
+          type: string
+        payments:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrintoutPayment'
+        workorder:
+          $ref: '#/components/schemas/PrintoutWorkorder'
+    PrintoutDocument:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/PrintoutParty'
+        date:
+          type: string
+        deadline:
+          type: integer
+        documentNo:
+          type: integer
+        id:
+          type: integer
+        round:
+          type: number
+        time:
+          type: string
+        type:
+          type: string
+    model.EmailPrintoutRequest:
+      type: object
+      properties:
+        fileName:
+          type: string
+        messageBody:
+          type: string
+        messageSubject:
+          type: string
+        recipientEmail:
+          type: string
+        senderEmail:
+          type: string
+        senderName:
+          type: string
+        templateId:
+          type: integer
+        workorderId:
+          type: integer
     core.Translatable:
       type: object
       properties:
@@ -213,201 +404,6 @@ components:
         zh_Hant:
           type: string
           example: ' '
-    PrintoutDevice:
-      type: object
-      properties:
-        brand:
-          type: string
-        color:
-          type: string
-        createdAt:
-          type: string
-        customer:
-          $ref: '#/components/schemas/PrintoutParty'
-        customerId:
-          type: integer
-        data:
-          type: object
-        dateSoldAt:
-          type: string
-        deviceUse:
-          type: integer
-        id:
-          type: integer
-        invoiceId:
-          type: integer
-        model:
-          type: string
-        notes:
-          type: string
-        productId:
-          type: integer
-        productName:
-          type: string
-        registration:
-          type: string
-        serial:
-          type: string
-        updatedAt:
-          type: string
-        version:
-          type: string
-        warrantyEndAt:
-          type: string
-        warrantyStartAt:
-          type: string
-        year:
-          type: string
-    PrintoutWorkorderData:
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/PrintoutAddress'
-        company:
-          $ref: '#/components/schemas/PrintoutCompany'
-        createdAt:
-          type: string
-        documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrintoutDocument'
-        invoiceLogoUrl:
-          type: string
-        payments:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrintoutPayment'
-        workorder:
-          $ref: '#/components/schemas/PrintoutWorkorder'
-    PrintoutPayment:
-      type: object
-      properties:
-        authorizationCode:
-          type: string
-        cardHolder:
-          type: string
-        cardNumber:
-          type: string
-        cardType:
-          type: string
-        cashChange:
-          type: number
-        cashPaid:
-          type: number
-        date:
-          type: string
-        id:
-          type: integer
-        referenceNumber:
-          type: string
-        sum:
-          type: number
-        type:
-          type: string
-        typeId:
-          type: integer
-    PrintoutDocument:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/PrintoutParty'
-        date:
-          type: string
-        deadline:
-          type: integer
-        documentNo:
-          type: integer
-        id:
-          type: integer
-        round:
-          type: number
-        time:
-          type: string
-        type:
-          type: string
-    model.EmailPrintoutRequest:
-      type: object
-      properties:
-        fileName:
-          type: string
-        messageBody:
-          type: string
-        messageSubject:
-          type: string
-        recipientEmail:
-          type: string
-        senderEmail:
-          type: string
-        senderName:
-          type: string
-        templateId:
-          type: integer
-        workorderId:
-          type: integer
-    PrintoutParty:
-      type: object
-      properties:
-        email:
-          type: string
-        firstname:
-          type: string
-        fullName:
-          type: string
-        fullName2:
-          type: string
-        id:
-          type: integer
-        mobile:
-          type: string
-        name:
-          type: string
-        phone:
-          type: string
-        userId:
-          type: integer
-    PrintoutVatRateTotal:
-      type: object
-      properties:
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-        netTotal:
-          type: number
-        rate:
-          type: number
-        total:
-          type: number
-        vatRateId:
-          type: integer
-        vatTotal:
-          type: number
-    PrintoutRowTotal:
-      type: object
-      properties:
-        netTotal:
-          type: number
-        total:
-          type: number
-        vatTotal:
-          type: number
-    PrintoutAddress:
-      type: object
-      properties:
-        address:
-          type: string
-        address2:
-          type: string
-        city:
-          type: string
-        country:
-          type: string
-        id:
-          type: integer
-        postcode:
-          type: string
-        state:
-          type: string
-        typeId:
-          type: integer
     PrintoutRow:
       type: object
       properties:
@@ -467,21 +463,33 @@ components:
           type: number
         vatTotal:
           type: number
-    PrintoutNote:
+    PrintoutPayment:
       type: object
       properties:
-        createdAt:
+        authorizationCode:
           type: string
-        createdBy:
-          $ref: '#/components/schemas/PrintoutParty'
-        data:
-          type: object
+        cardHolder:
+          type: string
+        cardNumber:
+          type: string
+        cardType:
+          type: string
+        cashChange:
+          type: number
+        cashPaid:
+          type: number
+        date:
+          type: string
         id:
           type: integer
-        text:
+        referenceNumber:
           type: string
-        updatedAt:
+        sum:
+          type: number
+        type:
           type: string
+        typeId:
+          type: integer
     PrintoutWorkorder:
       type: object
       properties:
@@ -545,74 +553,66 @@ components:
           $ref: '#/components/schemas/PrintoutRowTotal'
         workorderNo:
           type: string
-    PrintoutItem:
+    PrintoutDevice:
+      type: object
+      properties:
+        brand:
+          type: string
+        color:
+          type: string
+        createdAt:
+          type: string
+        customer:
+          $ref: '#/components/schemas/PrintoutParty'
+        customerId:
+          type: integer
+        data:
+          type: object
+        dateSoldAt:
+          type: string
+        deviceUse:
+          type: integer
+        id:
+          type: integer
+        invoiceId:
+          type: integer
+        model:
+          type: string
+        notes:
+          type: string
+        productId:
+          type: integer
+        productName:
+          type: string
+        registration:
+          type: string
+        serial:
+          type: string
+        updatedAt:
+          type: string
+        version:
+          type: string
+        warrantyEndAt:
+          type: string
+        warrantyStartAt:
+          type: string
+        year:
+          type: string
+    PrintoutNote:
       type: object
       properties:
         createdAt:
           type: string
+        createdBy:
+          $ref: '#/components/schemas/PrintoutParty'
         data:
           type: object
         id:
           type: integer
-        netTotal:
-          type: number
-        notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrintoutNote'
-        notesMerged:
-          type: string
-        rows:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrintoutRow'
         text:
           type: string
-        total:
-          type: number
         updatedAt:
           type: string
-        vatTotal:
-          type: number
-    PrintoutCompany:
-      type: object
-      properties:
-        account:
-          type: string
-        account2:
-          type: string
-        bank:
-          type: string
-        bank2:
-          type: string
-        code:
-          type: string
-        email:
-          type: string
-        fax:
-          type: string
-        fullName:
-          type: string
-        fullName2:
-          type: string
-        iban:
-          type: string
-        iban2:
-          type: string
-        id:
-          type: integer
-        mobile:
-          type: string
-        name:
-          type: string
-        phone:
-          type: string
-        swift:
-          type: string
-        swift2:
-          type: string
-        vatrateId:
-          type: integer
   securitySchemes:
     AccessToken:
       type: apiKey

@@ -92,12 +92,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
     models.TaxRateUpdateInput:
       type: object
       properties:
@@ -120,6 +114,12 @@ components:
           type: number
         preservePricesWithTax:
           type: boolean
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
   securitySchemes:
     cc:
       type: apiKey

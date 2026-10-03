@@ -129,6 +129,12 @@ paths:
                 $ref: '#/components/schemas/models.OutputError'
 components:
   schemas:
+    models.OutputError:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Description of the failure
     models.OutputEvent:
       type: object
       properties:
@@ -157,12 +163,6 @@ components:
         table:
           description: Table the webhook was registered for
           type: string
-    models.OutputError:
-      type: object
-      properties:
-        error:
-          type: string
-          example: Description of the failure
     models.OutputWebhook:
       type: object
       properties:

@@ -222,12 +222,10 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.MessageResponse:
+    requests.ValueRequest:
       type: object
       properties:
-        message:
-          type: string
-          example: some message
+        value: {}
     responses.Response:
       type: object
       properties:
@@ -261,10 +259,12 @@ components:
           type: integer
         value:
           description: can be any type. Can be parameter option also
-    requests.ValueRequest:
+    responses.MessageResponse:
       type: object
       properties:
-        value: {}
+        message:
+          type: string
+          example: some message
   securitySchemes:
     cc:
       type: apiKey

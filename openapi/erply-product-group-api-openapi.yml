@@ -802,175 +802,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    groupmodels.AdditionalGroupJSON:
-      type: object
-      properties:
-        added:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        addedby_id:
-          description: user ID
-          type: integer
-          example: 1
-        changed:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        changedby_id:
-          description: user ID
-          type: integer
-          example: 1
-        group_id:
-          type: integer
-        id:
-          type: integer
-        product_id:
-          type: integer
-    groupmodels.LocationSpecificTaxRequest:
-      type: object
-      properties:
-        taxrate_id:
-          type: integer
-        warehouse_id:
-          type: integer
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    groupmodels.AdditionalGroupsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/groupmodels.AdditionalGroupJSON'
-    Description:
-      type: object
-      properties:
-        en:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/ProductDescription'
-    groupmodels.ExternalIDRequest:
-      type: object
-      properties:
-        external_id:
-          type: string
-        integration_name:
-          type: string
-    parammodels.BulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
-    parammodels.PaginationParameters:
-      type: object
-      properties:
-        skip:
-          type: integer
-        take:
-          type: integer
-    ProductDescription:
-      type: object
-      properties:
-        html:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: <b>Very good product!</b>
-        plain_text:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: Very good product!
-    groupmodels.GroupResponse:
-      type: object
-      properties:
-        added:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        addedby:
-          description: username
-          type: string
-          example: k@erp.xyz
-        changed:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        changedby:
-          description: username
-          type: string
-          example: k@erp.xyz
-        description:
-          $ref: '#/components/schemas/Translatable'
-        formula_identifier:
-          type: string
-        id:
-          type: integer
-        location_tax_rates:
-          type: array
-          items:
-            $ref: '#/components/schemas/groupmodels.LocationTaxRate'
-        name:
-          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/Translatable'
-        non_discountable:
-          type: integer
-        order:
-          type: integer
-        parent_id:
-          type: integer
-        quick_books_credit_account:
-          type: string
-        quick_books_debit_account:
-          type: string
-        reward_points:
-          type: number
-        show_in_webshop:
-          type: integer
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    parammodels.ReadRequestWithTotalCount:
-      type: object
-      properties:
-        filters:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.FilterJSON'
-        paginationParameters:
-          $ref: '#/components/schemas/parammodels.PaginationParameters'
-        sortingParameters:
-          $ref: '#/components/schemas/parammodels.SortRequest'
-        withTotalCount:
-          type: boolean
-    parammodels.SortRequest:
-      type: object
-      properties:
-        desc:
-          description: If true - descending, if false - ascending
-          type: boolean
-        language:
-          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
-          type: string
-          example: en
-        selector:
-          description: 'JSON field. For description: description_plain or description_html'
-          type: string
-          example: name
     groupmodels.BulkReadGroupsResponseItem:
       type: object
       properties:
@@ -987,13 +818,6 @@ components:
         totalCount:
           description: total number of records (ignores skip & take parameters)
           type: integer
-    groupmodels.LocationTaxRate:
-      type: object
-      properties:
-        tax_rate_id:
-          type: integer
-        warehouse_id:
-          type: integer
     responses.BulkResult:
       type: object
       properties:
@@ -1008,70 +832,6 @@ components:
           description: identifier of the result item
           type: integer
           example: 2
-    groupmodels.GroupRequest:
-      type: object
-      properties:
-        description:
-          $ref: '#/components/schemas/Translatable'
-        formula_identifier:
-          type: string
-        main_id:
-          description: ParentGroupID Refers to the parent group
-          type: integer
-        name:
-          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/Translatable'
-        non_discountable:
-          description: 'Binary flag (1/0): if set to true, products of this group (and also products belonging to all its sub-groups and sub-sub-groups) must not be discounted by promotions (eg. “15% off all items”)'
-          type: integer
-        quick_books_credit_account:
-          type: string
-        quick_books_debit_account:
-          type: string
-        reward_points:
-          type: number
-        show_in_webshop:
-          description: 'Binary flag (1/0): should products of this group be displayed in a web shop or not.'
-          type: integer
-    groupmodels.ExternalIDResponse:
-      type: object
-      properties:
-        added:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        addedby_id:
-          description: user ID
-          type: integer
-          example: 1
-        changed:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        changedby_id:
-          description: user ID
-          type: integer
-          example: 1
-        external_id:
-          type: string
-        group_id:
-          type: integer
-        integration_name:
-          type: string
-    groupmodels.BulkCreateGroupsRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/groupmodels.GroupRequest'
-    groupmodels.AdditionalGroupRequest:
-      type: object
-      properties:
-        group_ids:
-          type: array
-          items:
-            type: integer
     indentation.Result:
       type: object
       properties:
@@ -1090,38 +850,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/groupmodels.BulkReadGroupsResponseItem'
-    models.MoveRequest:
+    groupmodels.LocationSpecificTaxRequest:
       type: object
       properties:
-        position:
-          description: Position has to be  lastChild | before | after
-          type: string
-          example: after
-        target_id:
-          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
+        taxrate_id:
           type: integer
-    indentation.GroupTreeResultSampleNoChildren:
-      type: object
-      properties:
-        item:
-          $ref: '#/components/schemas/groupmodels.GroupResponse'
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.ProductResponse'
-    indentation.GroupTreeResultSample:
-      type: object
-      properties:
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/indentation.GroupTreeResultSampleNoChildren'
-        item:
-          $ref: '#/components/schemas/groupmodels.GroupResponse'
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.ProductResponse'
+        warehouse_id:
+          type: integer
     products.ProductResponse:
       type: object
       properties:
@@ -1347,12 +1082,199 @@ components:
           type: string
         width:
           type: number
+    ProductDescription:
+      type: object
+      properties:
+        html:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: <b>Very good product!</b>
+        plain_text:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: Very good product!
+    parammodels.BulkReadRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
+    groupmodels.LocationTaxRate:
+      type: object
+      properties:
+        tax_rate_id:
+          type: integer
+        warehouse_id:
+          type: integer
+    groupmodels.ExternalIDRequest:
+      type: object
+      properties:
+        external_id:
+          type: string
+        integration_name:
+          type: string
+    indentation.GroupTreeResultSample:
+      type: object
+      properties:
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/indentation.GroupTreeResultSampleNoChildren'
+        item:
+          $ref: '#/components/schemas/groupmodels.GroupResponse'
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.ProductResponse'
+    parammodels.PaginationParameters:
+      type: object
+      properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    Description:
+      type: object
+      properties:
+        en:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/ProductDescription'
+    groupmodels.AdditionalGroupsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/groupmodels.AdditionalGroupJSON'
     responses.Response:
       type: object
       properties:
         id:
           type: integer
           example: 73
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+    groupmodels.GroupRequest:
+      type: object
+      properties:
+        description:
+          $ref: '#/components/schemas/Translatable'
+        formula_identifier:
+          type: string
+        main_id:
+          description: ParentGroupID Refers to the parent group
+          type: integer
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+        non_discountable:
+          description: 'Binary flag (1/0): if set to true, products of this group (and also products belonging to all its sub-groups and sub-sub-groups) must not be discounted by promotions (eg. “15% off all items”)'
+          type: integer
+        quick_books_credit_account:
+          type: string
+        quick_books_debit_account:
+          type: string
+        reward_points:
+          type: number
+        show_in_webshop:
+          description: 'Binary flag (1/0): should products of this group be displayed in a web shop or not.'
+          type: integer
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    groupmodels.BulkCreateGroupsRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/groupmodels.GroupRequest'
+    indentation.GroupTreeResultSampleNoChildren:
+      type: object
+      properties:
+        item:
+          $ref: '#/components/schemas/groupmodels.GroupResponse'
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.ProductResponse'
+    groupmodels.AdditionalGroupJSON:
+      type: object
+      properties:
+        added:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        addedby_id:
+          description: user ID
+          type: integer
+          example: 1
+        changed:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        changedby_id:
+          description: user ID
+          type: integer
+          example: 1
+        group_id:
+          type: integer
+        id:
+          type: integer
+        product_id:
+          type: integer
+    parammodels.ReadRequestWithTotalCount:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.FilterJSON'
+        paginationParameters:
+          $ref: '#/components/schemas/parammodels.PaginationParameters'
+        sortingParameters:
+          $ref: '#/components/schemas/parammodels.SortRequest'
+        withTotalCount:
+          type: boolean
+    parammodels.SortRequest:
+      type: object
+      properties:
+        desc:
+          description: If true - descending, if false - ascending
+          type: boolean
+        language:
+          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
+          type: string
+          example: en
+        selector:
+          description: 'JSON field. For description: description_plain or description_html'
+          type: string
+          example: name
+    models.MoveRequest:
+      type: object
+      properties:
+        position:
+          description: Position has to be  lastChild | before | after
+          type: string
+          example: after
+        target_id:
+          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
+          type: integer
     parammodels.FilterJSON:
       type: object
       properties:
@@ -1372,6 +1294,84 @@ components:
           items: {}
         value:
           type: object
+    groupmodels.GroupResponse:
+      type: object
+      properties:
+        added:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        addedby:
+          description: username
+          type: string
+          example: k@erp.xyz
+        changed:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        changedby:
+          description: username
+          type: string
+          example: k@erp.xyz
+        description:
+          $ref: '#/components/schemas/Translatable'
+        formula_identifier:
+          type: string
+        id:
+          type: integer
+        location_tax_rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/groupmodels.LocationTaxRate'
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+        non_discountable:
+          type: integer
+        order:
+          type: integer
+        parent_id:
+          type: integer
+        quick_books_credit_account:
+          type: string
+        quick_books_debit_account:
+          type: string
+        reward_points:
+          type: number
+        show_in_webshop:
+          type: integer
+    groupmodels.ExternalIDResponse:
+      type: object
+      properties:
+        added:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        addedby_id:
+          description: user ID
+          type: integer
+          example: 1
+        changed:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        changedby_id:
+          description: user ID
+          type: integer
+          example: 1
+        external_id:
+          type: string
+        group_id:
+          type: integer
+        integration_name:
+          type: string
+    groupmodels.AdditionalGroupRequest:
+      type: object
+      properties:
+        group_ids:
+          type: array
+          items:
+            type: integer
   securitySchemes:
     cc:
       type: apiKey

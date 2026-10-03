@@ -179,19 +179,174 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.MessageResponse:
+    products.ProductInheritedFieldsRequest:
       type: object
       properties:
-        message:
-          type: string
-          example: some message
-    products.PermissionSet:
+        age_restriction:
+          type: boolean
+        alcohol_percentage:
+          type: boolean
+        alcohol_registry_number:
+          type: boolean
+        batches:
+          type: boolean
+        brand_id:
+          description: ID of product brand. To get the list of brandmodels, use getBrands.
+          type: boolean
+        cashier_must_enter_price:
+          description: boolean flag 0 or 1
+          type: boolean
+        category_id:
+          type: boolean
+        code:
+          description: Product's code. Must be UNIQUE, unless the account is configured otherwise.
+          type: boolean
+        code2:
+          type: boolean
+        code3:
+          description: Third code of the item (note that this field may not be visible on product card by default).
+          type: boolean
+        code5:
+          type: boolean
+        code6:
+          type: boolean
+        code7:
+          type: boolean
+        code8:
+          type: boolean
+        cost:
+          description: Cost is Product cost
+          type: boolean
+        country_of_origin_id:
+          type: boolean
+        delivery_time:
+          type: boolean
+        deposit_fee_amount:
+          type: boolean
+        deposit_fee_id:
+          description: ContainerID is ID of another product, a beverage container that is always sold together with this item.
+          type: boolean
+        description:
+          description: '//PlainTextDescription is translatable plain text description
+
+            PlainTextDescription map[string]string `json:"plain_text_description"`
+
+            //HTMLDescription is translatable html description
+
+            HTMLDescription map[string]string `json:"html_description"`
+
+            Description is translatable and of 2 types: plain text, HTML. Languages should be in ISO 639-1 Code'
+          type: boolean
+        displayed_in_webshop:
+          description: 0 or 1
+          type: boolean
+        excise_declaration_number:
+          type: boolean
+        extra_field1_id:
+          type: boolean
+        extra_field2_id:
+          type: boolean
+        extra_field3_id:
+          type: boolean
+        extra_field4_id:
+          type: boolean
+        family_id:
+          type: boolean
+        gross_weight:
+          description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+          type: boolean
+        group_id:
+          description: ID of product group. To get the list of product groups, use getProductGroups.
+          type: boolean
+        has_serial_numbers:
+          type: boolean
+        height:
+          type: boolean
+        is_gift_card:
+          description: 0 or 1
+          type: boolean
+        is_regular_gift_card:
+          description: boolean flag 0 or 1
+          type: boolean
+        labels_not_needed:
+          description: boolean flag 0 or 1
+          type: boolean
+        length:
+          description: Length is Item's physical dimensions.
+          type: boolean
+        location_in_warehouse_id:
+          description: LocationInWarehouseID is ID of selected location in warehouse.
+          type: boolean
+        location_in_warehouse_text:
+          description: LocationInWarehouseText is Product's specific text added to location in warehouse.
+          type: boolean
+        manufacturer_name:
+          type: boolean
+        name:
+          type: boolean
+        net_weight:
+          description: NetWeight is Item's net weight. Unit depends on region, check your Erply account (typically lbs or kg).
+          type: boolean
+        non_discountable:
+          description: 0 or 1
+          type: boolean
+        non_refundable:
+          description: 0 or 1
+          type: boolean
+        non_stock_product:
+          description: boolean flag 0 or 1
+          type: boolean
+        packaging_type:
+          type: boolean
+        packing_not_required:
+          type: boolean
+        price:
+          description: 'Price is just the default price of a product and the actual price applied in a particular location, to a particular customer, depends on price lists and promotions: https://learn-api.erply.com/concepts/pricing'
+          type: boolean
+        price_with_tax:
+          type: boolean
+        priority_group_id:
+          type: boolean
+        product_reorder_multiples:
+          type: boolean
+        reward_points_not_allowed:
+          description: boolean flag 0 or 1
+          type: boolean
+        sold_in_packages:
+          type: boolean
+        status:
+          type: boolean
+        suggested_retail_price:
+          type: boolean
+        supplier_code:
+          description: Supplier's product code
+          type: boolean
+        supplier_id:
+          type: boolean
+        supplier_name:
+          type: boolean
+        tax_free:
+          description: boolean flag 0 or 1
+          type: boolean
+        tax_rate_id:
+          description: 'TaxRateID is just the default tax rate of a product and the actual tax applied in a particular location depends on multiple rules: https://learn-api.erply.com/concepts/taxes.'
+          type: boolean
+        type:
+          type: boolean
+        unit_id:
+          description: ID of product unit. To get the list of units, use getProductUnits.
+          type: boolean
+        volume:
+          description: Volume is Item's fluid volume, eg. for beverages or perfumery. Unit depends on locale, check your Erply account (typically mL or fl oz).
+          type: boolean
+        width:
+          type: boolean
+    responses.Response:
       type: object
       properties:
-        edit:
-          type: boolean
-        view:
-          type: boolean
+        id:
+          type: integer
+          example: 73
     products.ProductFieldsPermissions:
       type: object
       properties:
@@ -354,173 +509,18 @@ components:
           $ref: '#/components/schemas/products.PermissionSet'
         width:
           $ref: '#/components/schemas/products.PermissionSet'
-    responses.Response:
+    responses.MessageResponse:
       type: object
       properties:
-        id:
-          type: integer
-          example: 73
-    products.ProductInheritedFieldsRequest:
+        message:
+          type: string
+          example: some message
+    products.PermissionSet:
       type: object
       properties:
-        age_restriction:
+        edit:
           type: boolean
-        alcohol_percentage:
-          type: boolean
-        alcohol_registry_number:
-          type: boolean
-        batches:
-          type: boolean
-        brand_id:
-          description: ID of product brand. To get the list of brandmodels, use getBrands.
-          type: boolean
-        cashier_must_enter_price:
-          description: boolean flag 0 or 1
-          type: boolean
-        category_id:
-          type: boolean
-        code:
-          description: Product's code. Must be UNIQUE, unless the account is configured otherwise.
-          type: boolean
-        code2:
-          type: boolean
-        code3:
-          description: Third code of the item (note that this field may not be visible on product card by default).
-          type: boolean
-        code5:
-          type: boolean
-        code6:
-          type: boolean
-        code7:
-          type: boolean
-        code8:
-          type: boolean
-        cost:
-          description: Cost is Product cost
-          type: boolean
-        country_of_origin_id:
-          type: boolean
-        delivery_time:
-          type: boolean
-        deposit_fee_amount:
-          type: boolean
-        deposit_fee_id:
-          description: ContainerID is ID of another product, a beverage container that is always sold together with this item.
-          type: boolean
-        description:
-          description: '//PlainTextDescription is translatable plain text description
-
-            PlainTextDescription map[string]string `json:"plain_text_description"`
-
-            //HTMLDescription is translatable html description
-
-            HTMLDescription map[string]string `json:"html_description"`
-
-            Description is translatable and of 2 types: plain text, HTML. Languages should be in ISO 639-1 Code'
-          type: boolean
-        displayed_in_webshop:
-          description: 0 or 1
-          type: boolean
-        excise_declaration_number:
-          type: boolean
-        extra_field1_id:
-          type: boolean
-        extra_field2_id:
-          type: boolean
-        extra_field3_id:
-          type: boolean
-        extra_field4_id:
-          type: boolean
-        family_id:
-          type: boolean
-        gross_weight:
-          description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
-          type: boolean
-        group_id:
-          description: ID of product group. To get the list of product groups, use getProductGroups.
-          type: boolean
-        has_serial_numbers:
-          type: boolean
-        height:
-          type: boolean
-        is_gift_card:
-          description: 0 or 1
-          type: boolean
-        is_regular_gift_card:
-          description: boolean flag 0 or 1
-          type: boolean
-        labels_not_needed:
-          description: boolean flag 0 or 1
-          type: boolean
-        length:
-          description: Length is Item's physical dimensions.
-          type: boolean
-        location_in_warehouse_id:
-          description: LocationInWarehouseID is ID of selected location in warehouse.
-          type: boolean
-        location_in_warehouse_text:
-          description: LocationInWarehouseText is Product's specific text added to location in warehouse.
-          type: boolean
-        manufacturer_name:
-          type: boolean
-        name:
-          type: boolean
-        net_weight:
-          description: NetWeight is Item's net weight. Unit depends on region, check your Erply account (typically lbs or kg).
-          type: boolean
-        non_discountable:
-          description: 0 or 1
-          type: boolean
-        non_refundable:
-          description: 0 or 1
-          type: boolean
-        non_stock_product:
-          description: boolean flag 0 or 1
-          type: boolean
-        packaging_type:
-          type: boolean
-        packing_not_required:
-          type: boolean
-        price:
-          description: 'Price is just the default price of a product and the actual price applied in a particular location, to a particular customer, depends on price lists and promotions: https://learn-api.erply.com/concepts/pricing'
-          type: boolean
-        price_with_tax:
-          type: boolean
-        priority_group_id:
-          type: boolean
-        product_reorder_multiples:
-          type: boolean
-        reward_points_not_allowed:
-          description: boolean flag 0 or 1
-          type: boolean
-        sold_in_packages:
-          type: boolean
-        status:
-          type: boolean
-        suggested_retail_price:
-          type: boolean
-        supplier_code:
-          description: Supplier's product code
-          type: boolean
-        supplier_id:
-          type: boolean
-        supplier_name:
-          type: boolean
-        tax_free:
-          description: boolean flag 0 or 1
-          type: boolean
-        tax_rate_id:
-          description: 'TaxRateID is just the default tax rate of a product and the actual tax applied in a particular location depends on multiple rules: https://learn-api.erply.com/concepts/taxes.'
-          type: boolean
-        type:
-          type: boolean
-        unit_id:
-          description: ID of product unit. To get the list of units, use getProductUnits.
-          type: boolean
-        volume:
-          description: Volume is Item's fluid volume, eg. for beverages or perfumery. Unit depends on locale, check your Erply account (typically mL or fl oz).
-          type: boolean
-        width:
+        view:
           type: boolean
   securitySchemes:
     cc:

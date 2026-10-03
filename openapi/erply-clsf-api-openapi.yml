@@ -554,6 +554,73 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    StateRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        entity:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+        type:
+          type: string
+    PriorityRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        entity:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+    WorkorderTypeRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        entity:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+    ClsfChildResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        type:
+          type: string
+    ClsfResponse:
+      type: object
+      properties:
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClsfChildResponse'
+        code:
+          type: string
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        entity:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+        parentId:
+          type: integer
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
     core.Translatable:
       type: object
       properties:
@@ -632,73 +699,6 @@ components:
         zh_Hant:
           type: string
           example: ' '
-    WorkorderTypeRequest:
-      type: object
-      properties:
-        code:
-          type: string
-        entity:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-    StateRequest:
-      type: object
-      properties:
-        code:
-          type: string
-        entity:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-        type:
-          type: string
-    PriorityRequest:
-      type: object
-      properties:
-        code:
-          type: string
-        entity:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-    ClsfResponse:
-      type: object
-      properties:
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClsfChildResponse'
-        code:
-          type: string
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        entity:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-        parentId:
-          type: integer
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
-    ClsfChildResponse:
-      type: object
-      properties:
-        code:
-          type: string
-        type:
-          type: string
   securitySchemes:
     AccessToken:
       type: apiKey

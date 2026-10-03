@@ -559,22 +559,38 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    appsResponse:
+    configuration:
       type: object
       properties:
-        applications:
-          type: array
-          items:
-            type: string
-    response:
-      type: object
-      properties:
-        id:
+        added:
           type: integer
-        message:
+        addedby_id:
+          type: integer
+        application:
           type: string
-        statusCode:
+          example: erply-to-woo-sync
+        changed:
+          type: integer
+        changedby_id:
+          type: integer
+        id:
           type: string
+        level:
+          description: Level is optional
+          type: string
+          example: Pos
+        level_id:
+          description: LevelID is optional
+          type: string
+          example: '1'
+        name:
+          type: string
+          example: adyen
+        type:
+          description: Type is optional
+          type: string
+          example: payment
+        value: {}
     configurationRequest:
       type: object
       properties:
@@ -612,49 +628,33 @@ components:
           example: payment
         value:
           description: 'Value stored by the configuration. Supported types: JSON, JSON array, string'
+    response:
+      type: object
+      properties:
+        id:
+          type: integer
+        message:
+          type: string
+        statusCode:
+          type: string
+    appsResponse:
+      type: object
+      properties:
+        applications:
+          type: array
+          items:
+            type: string
+    valueRequest:
+      type: object
+      properties:
+        value:
+          description: 'Value stored by the configuration. Supported types: JSON, JSON array, string'
     moveRequest:
       type: object
       properties:
         level_id:
           description: LevelID is new level_id to set for the config
           type: string
-    configuration:
-      type: object
-      properties:
-        added:
-          type: integer
-        addedby_id:
-          type: integer
-        application:
-          type: string
-          example: erply-to-woo-sync
-        changed:
-          type: integer
-        changedby_id:
-          type: integer
-        id:
-          type: string
-        level:
-          description: Level is optional
-          type: string
-          example: Pos
-        level_id:
-          description: LevelID is optional
-          type: string
-          example: '1'
-        name:
-          type: string
-          example: adyen
-        type:
-          description: Type is optional
-          type: string
-          example: payment
-        value: {}
-    valueRequest:
-      type: object
-      properties:
-        value:
-          description: 'Value stored by the configuration. Supported types: JSON, JSON array, string'
   securitySchemes:
     cc:
       type: apiKey

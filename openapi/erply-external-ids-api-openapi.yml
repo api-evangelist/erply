@@ -234,6 +234,19 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    models.ExternalIDPatchRequest:
+      type: object
+      properties:
+        external_id:
+          type: string
+        integration_name:
+          type: string
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
     models.ExternalIDResponse:
       type: object
       properties:
@@ -261,19 +274,6 @@ components:
           type: string
         obj_id:
           type: integer
-    models.ExternalIDPatchRequest:
-      type: object
-      properties:
-        external_id:
-          type: string
-        integration_name:
-          type: string
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
     responses.MessageResponse:
       type: object
       properties:

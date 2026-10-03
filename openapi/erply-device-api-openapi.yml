@@ -451,65 +451,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    DeviceRequest:
-      type: object
-      properties:
-        brand:
-          type: string
-          example: Volvo
-        color:
-          type: string
-          example: yellow
-        customerId:
-          type: integer
-          example: 1
-        data:
-          type: object
-        dateSoldAt:
-          type: string
-          example: '2022-01-01T00:00:00Z'
-        hidden:
-          type: boolean
-          example: false
-        id:
-          type: integer
-          example: 1
-        invoiceId:
-          type: integer
-          example: 1
-        model:
-          type: string
-          example: S90
-        notes:
-          type: string
-          example: Some notes
-        productId:
-          type: integer
-          example: 1
-        productName:
-          type: string
-          example: Some product
-        registration:
-          type: string
-          example: 123 abc
-        serial:
-          type: string
-          example: '123'
-        setAccessToken:
-          type: string
-          example: secret
-        version:
-          type: string
-          example: '1'
-        warrantyEndAt:
-          type: string
-          example: '2022-01-01T00:00:00Z'
-        warrantyStartAt:
-          type: string
-          example: '2022-01-01T00:00:00Z'
-        year:
-          type: string
-          example: '2020'
     DeviceLogResponse:
       type: object
       properties:
@@ -598,6 +539,65 @@ components:
         updatedById:
           type: integer
           example: 1
+        version:
+          type: string
+          example: '1'
+        warrantyEndAt:
+          type: string
+          example: '2022-01-01T00:00:00Z'
+        warrantyStartAt:
+          type: string
+          example: '2022-01-01T00:00:00Z'
+        year:
+          type: string
+          example: '2020'
+    DeviceRequest:
+      type: object
+      properties:
+        brand:
+          type: string
+          example: Volvo
+        color:
+          type: string
+          example: yellow
+        customerId:
+          type: integer
+          example: 1
+        data:
+          type: object
+        dateSoldAt:
+          type: string
+          example: '2022-01-01T00:00:00Z'
+        hidden:
+          type: boolean
+          example: false
+        id:
+          type: integer
+          example: 1
+        invoiceId:
+          type: integer
+          example: 1
+        model:
+          type: string
+          example: S90
+        notes:
+          type: string
+          example: Some notes
+        productId:
+          type: integer
+          example: 1
+        productName:
+          type: string
+          example: Some product
+        registration:
+          type: string
+          example: 123 abc
+        serial:
+          type: string
+          example: '123'
+        setAccessToken:
+          type: string
+          example: secret
         version:
           type: string
           example: '1'

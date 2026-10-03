@@ -234,21 +234,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    models.ParameterOptionWithProductsResponse:
-      type: object
-      properties:
-        parameter_option:
-          $ref: '#/components/schemas/parametermodels.OptionResponse'
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.ProductResponse'
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
     parametermodels.OptionResponse:
       type: object
       properties:
@@ -275,33 +260,6 @@ components:
           $ref: '#/components/schemas/Translatable'
         parameter_id:
           type: integer
-    ProductDescription:
-      type: object
-      properties:
-        html:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: <b>Very good product!</b>
-        plain_text:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: Very good product!
-    requests.ParameterOptionRequest:
-      type: object
-      properties:
-        name:
-          description: Names translations
-          $ref: '#/components/schemas/Translatable'
-        parameter_id:
-          description: for parameter options
-          type: integer
-          example: 1
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
     products.ProductResponse:
       type: object
       properties:
@@ -527,18 +485,60 @@ components:
           type: string
         width:
           type: number
-    requests.Request:
+    ProductDescription:
+      type: object
+      properties:
+        html:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: <b>Very good product!</b>
+        plain_text:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: Very good product!
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    requests.ParameterOptionRequest:
       type: object
       properties:
         name:
           description: Names translations
           $ref: '#/components/schemas/Translatable'
+        parameter_id:
+          description: for parameter options
+          type: integer
+          example: 1
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+    models.ParameterOptionWithProductsResponse:
+      type: object
+      properties:
+        parameter_option:
+          $ref: '#/components/schemas/parametermodels.OptionResponse'
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.ProductResponse'
     Translatable:
       type: object
       properties:
         en:
           description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
           type: string
+    requests.Request:
+      type: object
+      properties:
+        name:
+          description: Names translations
+          $ref: '#/components/schemas/Translatable'
     Description:
       type: object
       properties:
