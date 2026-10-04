@@ -498,15 +498,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    DeviceBrandRequest:
-      type: object
-      properties:
-        code:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
     ClsfChildResponse:
       type: object
       properties:
@@ -514,36 +505,9 @@ components:
           type: string
         type:
           type: string
-    ClsfResponse:
+    DeviceBrandRequest:
       type: object
       properties:
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClsfChildResponse'
-        code:
-          type: string
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        entity:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-        parentId:
-          type: integer
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
-    DeviceModelRequest:
-      type: object
-      properties:
-        brand:
-          type: string
         code:
           type: string
         id:
@@ -628,6 +592,42 @@ components:
         zh_Hant:
           type: string
           example: ' '
+    DeviceModelRequest:
+      type: object
+      properties:
+        brand:
+          type: string
+        code:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+    ClsfResponse:
+      type: object
+      properties:
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClsfChildResponse'
+        code:
+          type: string
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        entity:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+        parentId:
+          type: integer
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
     DeviceVersionRequest:
       type: object
       properties:

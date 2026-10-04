@@ -142,18 +142,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    warehouses.UpdateLocationRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          example: loc1
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
     warehouses.CreateLocationRequest:
       type: object
       properties:
@@ -166,6 +154,18 @@ components:
         message:
           type: string
           example: some message
+    warehouses.UpdateLocationRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          example: loc1
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
   securitySchemes:
     cc:
       type: apiKey

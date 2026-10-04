@@ -211,26 +211,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    familymodels.BulkReadResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/familymodels.BulkReadResponseItem'
-    familymodels.ReadRequest:
-      type: object
-      properties:
-        filters:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.FilterJSON'
-        paginationParameters:
-          $ref: '#/components/schemas/parammodels.PaginationParameters'
-        sortingParameters:
-          $ref: '#/components/schemas/parammodels.SortRequest'
-        withArchived:
-          type: boolean
     familymodels.BulkCreateRequest:
       type: object
       properties:
@@ -238,6 +218,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/requests.Archivable'
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
     parammodels.SortRequest:
       type: object
       properties:
@@ -252,6 +238,94 @@ components:
           description: 'JSON field. For description: description_plain or description_html'
           type: string
           example: name
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+    requests.Archivable:
+      type: object
+      properties:
+        archived:
+          description: Archived ..
+          type: boolean
+          example: false
+        name:
+          description: Names translations
+          $ref: '#/components/schemas/Translatable'
+    parammodels.PaginationParameters:
+      type: object
+      properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    parammodels.FilterJSON:
+      type: object
+      properties:
+        fieldName:
+          type: string
+          example: group_id
+        operandBefore:
+          description: supported values are "and", "or"
+          type: string
+          example: or
+        operator:
+          type: string
+          example: '='
+        sliceValue:
+          description: to be used if the value is a slice
+          type: array
+          items: {}
+        value:
+          type: object
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    familymodels.BulkReadRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/familymodels.ReadRequest'
+    familymodels.ReadRequest:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.FilterJSON'
+        paginationParameters:
+          $ref: '#/components/schemas/parammodels.PaginationParameters'
+        sortingParameters:
+          $ref: '#/components/schemas/parammodels.SortRequest'
+        withArchived:
+          type: boolean
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    familymodels.BulkReadResponseItem:
+      type: object
+      properties:
+        families:
+          type: array
+          items:
+            $ref: '#/components/schemas/familymodels.Response'
+        message:
+          type: string
+          example: some message
+        resultId:
+          description: id of the response, if requested 3 read requests each ID represents 1 response item
+          type: integer
     familymodels.Response:
       type: object
       properties:
@@ -292,87 +366,13 @@ components:
           description: identifier of the result item
           type: integer
           example: 2
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
-    familymodels.BulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/familymodels.ReadRequest'
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    parammodels.FilterJSON:
-      type: object
-      properties:
-        fieldName:
-          type: string
-          example: group_id
-        operandBefore:
-          description: supported values are "and", "or"
-          type: string
-          example: or
-        operator:
-          type: string
-          example: '='
-        sliceValue:
-          description: to be used if the value is a slice
-          type: array
-          items: {}
-        value:
-          type: object
-    familymodels.BulkReadResponseItem:
-      type: object
-      properties:
-        families:
-          type: array
-          items:
-            $ref: '#/components/schemas/familymodels.Response'
-        message:
-          type: string
-          example: some message
-        resultId:
-          description: id of the response, if requested 3 read requests each ID represents 1 response item
-          type: integer
-    parammodels.PaginationParameters:
-      type: object
-      properties:
-        skip:
-          type: integer
-        take:
-          type: integer
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    responses.BulkResponseWithResults:
+    familymodels.BulkReadResponse:
       type: object
       properties:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    requests.Archivable:
-      type: object
-      properties:
-        archived:
-          description: Archived ..
-          type: boolean
-          example: false
-        name:
-          description: Names translations
-          $ref: '#/components/schemas/Translatable'
+            $ref: '#/components/schemas/familymodels.BulkReadResponseItem'
   securitySchemes:
     cc:
       type: apiKey

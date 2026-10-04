@@ -135,33 +135,68 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    PrintoutItem:
+    PrintoutNote:
       type: object
       properties:
         createdAt:
           type: string
+        createdBy:
+          $ref: '#/components/schemas/PrintoutParty'
         data:
           type: object
         id:
           type: integer
-        netTotal:
-          type: number
-        notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrintoutNote'
-        notesMerged:
-          type: string
-        rows:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrintoutRow'
         text:
           type: string
-        total:
-          type: number
         updatedAt:
           type: string
+    PrintoutParty:
+      type: object
+      properties:
+        email:
+          type: string
+        firstname:
+          type: string
+        fullName:
+          type: string
+        fullName2:
+          type: string
+        id:
+          type: integer
+        mobile:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        userId:
+          type: integer
+    PrintoutDocument:
+      type: object
+      properties:
+        createdBy:
+          $ref: '#/components/schemas/PrintoutParty'
+        date:
+          type: string
+        deadline:
+          type: integer
+        documentNo:
+          type: integer
+        id:
+          type: integer
+        round:
+          type: number
+        time:
+          type: string
+        type:
+          type: string
+    PrintoutRowTotal:
+      type: object
+      properties:
+        netTotal:
+          type: number
+        total:
+          type: number
         vatTotal:
           type: number
     PrintoutCompany:
@@ -203,110 +238,6 @@ components:
           type: string
         vatrateId:
           type: integer
-    PrintoutRowTotal:
-      type: object
-      properties:
-        netTotal:
-          type: number
-        total:
-          type: number
-        vatTotal:
-          type: number
-    PrintoutAddress:
-      type: object
-      properties:
-        address:
-          type: string
-        address2:
-          type: string
-        city:
-          type: string
-        country:
-          type: string
-        id:
-          type: integer
-        postcode:
-          type: string
-        state:
-          type: string
-        typeId:
-          type: integer
-    PrintoutVatRateTotal:
-      type: object
-      properties:
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-        netTotal:
-          type: number
-        rate:
-          type: number
-        total:
-          type: number
-        vatRateId:
-          type: integer
-        vatTotal:
-          type: number
-    PrintoutParty:
-      type: object
-      properties:
-        email:
-          type: string
-        firstname:
-          type: string
-        fullName:
-          type: string
-        fullName2:
-          type: string
-        id:
-          type: integer
-        mobile:
-          type: string
-        name:
-          type: string
-        phone:
-          type: string
-        userId:
-          type: integer
-    PrintoutWorkorderData:
-      type: object
-      properties:
-        address:
-          $ref: '#/components/schemas/PrintoutAddress'
-        company:
-          $ref: '#/components/schemas/PrintoutCompany'
-        createdAt:
-          type: string
-        documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrintoutDocument'
-        invoiceLogoUrl:
-          type: string
-        payments:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrintoutPayment'
-        workorder:
-          $ref: '#/components/schemas/PrintoutWorkorder'
-    PrintoutDocument:
-      type: object
-      properties:
-        createdBy:
-          $ref: '#/components/schemas/PrintoutParty'
-        date:
-          type: string
-        deadline:
-          type: integer
-        documentNo:
-          type: integer
-        id:
-          type: integer
-        round:
-          type: number
-        time:
-          type: string
-        type:
-          type: string
     model.EmailPrintoutRequest:
       type: object
       properties:
@@ -404,92 +335,27 @@ components:
         zh_Hant:
           type: string
           example: ' '
-    PrintoutRow:
+    PrintoutWorkorderData:
       type: object
       properties:
-        amount:
-          type: number
-        confirmedAt:
-          type: string
+        address:
+          $ref: '#/components/schemas/PrintoutAddress'
+        company:
+          $ref: '#/components/schemas/PrintoutCompany'
         createdAt:
           type: string
-        data:
-          type: object
-        discount:
-          type: number
-        id:
-          type: integer
-        itemId:
-          type: integer
-        netTotal:
-          type: number
-        nonStockProduct:
-          type: boolean
-        notes:
+        documents:
           type: array
           items:
-            $ref: '#/components/schemas/PrintoutNote'
-        notesMerged:
+            $ref: '#/components/schemas/PrintoutDocument'
+        invoiceLogoUrl:
           type: string
-        price:
-          type: number
-        productCode:
-          type: string
-        productId:
-          type: integer
-        productName:
-          type: string
-        productOriginalPrice:
-          type: number
-        productUnitId:
-          type: integer
-        productUpcEan:
-          type: string
-        purchaseOrderRowId:
-          type: integer
-        taxExempt:
-          type: boolean
-        title:
-          type: string
-        total:
-          type: number
-        updatedAt:
-          type: string
-        vatRateId:
-          type: integer
-        vatRateName:
-          $ref: '#/components/schemas/core.Translatable'
-        vatRateRate:
-          type: number
-        vatTotal:
-          type: number
-    PrintoutPayment:
-      type: object
-      properties:
-        authorizationCode:
-          type: string
-        cardHolder:
-          type: string
-        cardNumber:
-          type: string
-        cardType:
-          type: string
-        cashChange:
-          type: number
-        cashPaid:
-          type: number
-        date:
-          type: string
-        id:
-          type: integer
-        referenceNumber:
-          type: string
-        sum:
-          type: number
-        type:
-          type: string
-        typeId:
-          type: integer
+        payments:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrintoutPayment'
+        workorder:
+          $ref: '#/components/schemas/PrintoutWorkorder'
     PrintoutWorkorder:
       type: object
       properties:
@@ -598,21 +464,155 @@ components:
           type: string
         year:
           type: string
-    PrintoutNote:
+    PrintoutItem:
       type: object
       properties:
         createdAt:
           type: string
-        createdBy:
-          $ref: '#/components/schemas/PrintoutParty'
         data:
           type: object
         id:
           type: integer
+        netTotal:
+          type: number
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrintoutNote'
+        notesMerged:
+          type: string
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrintoutRow'
         text:
           type: string
+        total:
+          type: number
         updatedAt:
           type: string
+        vatTotal:
+          type: number
+    PrintoutVatRateTotal:
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+        netTotal:
+          type: number
+        rate:
+          type: number
+        total:
+          type: number
+        vatRateId:
+          type: integer
+        vatTotal:
+          type: number
+    PrintoutAddress:
+      type: object
+      properties:
+        address:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+        id:
+          type: integer
+        postcode:
+          type: string
+        state:
+          type: string
+        typeId:
+          type: integer
+    PrintoutRow:
+      type: object
+      properties:
+        amount:
+          type: number
+        confirmedAt:
+          type: string
+        createdAt:
+          type: string
+        data:
+          type: object
+        discount:
+          type: number
+        id:
+          type: integer
+        itemId:
+          type: integer
+        netTotal:
+          type: number
+        nonStockProduct:
+          type: boolean
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrintoutNote'
+        notesMerged:
+          type: string
+        price:
+          type: number
+        productCode:
+          type: string
+        productId:
+          type: integer
+        productName:
+          type: string
+        productOriginalPrice:
+          type: number
+        productUnitId:
+          type: integer
+        productUpcEan:
+          type: string
+        purchaseOrderRowId:
+          type: integer
+        taxExempt:
+          type: boolean
+        title:
+          type: string
+        total:
+          type: number
+        updatedAt:
+          type: string
+        vatRateId:
+          type: integer
+        vatRateName:
+          $ref: '#/components/schemas/core.Translatable'
+        vatRateRate:
+          type: number
+        vatTotal:
+          type: number
+    PrintoutPayment:
+      type: object
+      properties:
+        authorizationCode:
+          type: string
+        cardHolder:
+          type: string
+        cardNumber:
+          type: string
+        cardType:
+          type: string
+        cashChange:
+          type: number
+        cashPaid:
+          type: number
+        date:
+          type: string
+        id:
+          type: integer
+        referenceNumber:
+          type: string
+        sum:
+          type: number
+        type:
+          type: string
+        typeId:
+          type: integer
   securitySchemes:
     AccessToken:
       type: apiKey

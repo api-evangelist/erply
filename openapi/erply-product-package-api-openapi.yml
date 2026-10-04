@@ -243,12 +243,36 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.Response:
+    packages.PackageUpdateRequest:
       type: object
       properties:
-        id:
+        code:
+          description: To be used if the package has a different code than the product itself.
+          type: string
+        gross_weight:
+          description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
+          type: number
+        height:
+          type: number
+        length:
+          description: Length is Item's physical dimensions.
+          type: number
+        net_weight:
+          type: string
+        package_category_id:
+          description: Package Category ID
           type: integer
-          example: 73
+        units:
+          description: Size of the package (how many pcs it contains)
+          type: number
+        width:
+          type: number
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
     responses.MessageResponse:
       type: object
       properties:
@@ -284,38 +308,12 @@ components:
         order:
           type: integer
           example: 15
-    packages.PackageRequest:
+    responses.Response:
       type: object
       properties:
-        code:
-          description: To be used if the package has a different code than the product itself.
-          type: string
-        gross_weight:
-          description: GrossWeight is Item's gross weight (with packaging). Unit depends on region, check your Erply account (typically lbs or kg).
-          type: number
-        height:
-          type: number
-        length:
-          description: Length is Item's physical dimensions.
-          type: number
-        net_weight:
-          type: string
-        package_category_id:
-          description: Package Category ID
+        id:
           type: integer
-        product_id:
-          type: integer
-        units:
-          description: Size of the package (how many pcs it contains)
-          type: number
-        width:
-          type: number
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
+          example: 73
     packages.PackageResponse:
       type: object
       properties:
@@ -362,7 +360,7 @@ components:
           type: number
         width:
           type: number
-    packages.PackageUpdateRequest:
+    packages.PackageRequest:
       type: object
       properties:
         code:
@@ -380,6 +378,8 @@ components:
           type: string
         package_category_id:
           description: Package Category ID
+          type: integer
+        product_id:
           type: integer
         units:
           description: Size of the package (how many pcs it contains)

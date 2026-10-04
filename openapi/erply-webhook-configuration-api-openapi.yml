@@ -179,12 +179,6 @@ paths:
                 $ref: '#/components/schemas/models.OutputError'
 components:
   schemas:
-    models.OutputError:
-      type: object
-      properties:
-        error:
-          type: string
-          example: Description of the failure
     models.OutputOK:
       type: object
       properties:
@@ -221,6 +215,12 @@ components:
         updatedat:
           type: string
           example: '2019-11-21T14:01:13.471Z'
+    models.OutputError:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Description of the failure
     models.InputWebhookConfiguration:
       type: object
       required:

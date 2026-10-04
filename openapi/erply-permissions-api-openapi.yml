@@ -124,12 +124,6 @@ components:
           type: boolean
         userID:
           type: integer
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
     permissions.SetUserPermissionRequest:
       type: object
       properties:
@@ -147,6 +141,12 @@ components:
         message:
           type: string
           example: some message
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
   securitySchemes:
     cc:
       type: apiKey

@@ -234,32 +234,41 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    parametermodels.OptionResponse:
+    Translatable:
       type: object
       properties:
-        added:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        addedby_id:
-          description: user ID
-          type: integer
-          example: 1
-        changed:
-          description: Unix timestamp
-          type: integer
-          example: 1595230999
-        changedby_id:
-          description: user ID
-          type: integer
-          example: 1
-        id:
-          type: integer
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+    requests.Request:
+      type: object
+      properties:
         name:
-          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          description: Names translations
           $ref: '#/components/schemas/Translatable'
-        parameter_id:
-          type: integer
+    Description:
+      type: object
+      properties:
+        en:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/ProductDescription'
+    ProductDescription:
+      type: object
+      properties:
+        html:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: <b>Very good product!</b>
+        plain_text:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: Very good product!
     products.ProductResponse:
       type: object
       properties:
@@ -485,23 +494,21 @@ components:
           type: string
         width:
           type: number
-    ProductDescription:
-      type: object
-      properties:
-        html:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: <b>Very good product!</b>
-        plain_text:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: Very good product!
     responses.Response:
       type: object
       properties:
         id:
           type: integer
           example: 73
+    models.ParameterOptionWithProductsResponse:
+      type: object
+      properties:
+        parameter_option:
+          $ref: '#/components/schemas/parametermodels.OptionResponse'
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.ProductResponse'
     requests.ParameterOptionRequest:
       type: object
       properties:
@@ -512,39 +519,32 @@ components:
           description: for parameter options
           type: integer
           example: 1
-    responses.MessageResponse:
+    parametermodels.OptionResponse:
       type: object
       properties:
-        message:
-          type: string
-          example: some message
-    models.ParameterOptionWithProductsResponse:
-      type: object
-      properties:
-        parameter_option:
-          $ref: '#/components/schemas/parametermodels.OptionResponse'
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.ProductResponse'
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    requests.Request:
-      type: object
-      properties:
+        added:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        addedby_id:
+          description: user ID
+          type: integer
+          example: 1
+        changed:
+          description: Unix timestamp
+          type: integer
+          example: 1595230999
+        changedby_id:
+          description: user ID
+          type: integer
+          example: 1
+        id:
+          type: integer
         name:
-          description: Names translations
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
           $ref: '#/components/schemas/Translatable'
-    Description:
-      type: object
-      properties:
-        en:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/ProductDescription'
+        parameter_id:
+          type: integer
   securitySchemes:
     cc:
       type: apiKey

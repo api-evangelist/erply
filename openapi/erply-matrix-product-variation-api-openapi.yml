@@ -242,29 +242,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    matrixmodels.ChangeVariationParentRequest:
-      type: object
-      properties:
-        dimension_value_ids:
-          description: Matrix variation can have up to 3 dimension values
-          type: array
-          items:
-            type: integer
-          example:
-          - 1
-          - 2
-          - 3
-    ProductDescription:
-      type: object
-      properties:
-        html:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: <b>Very good product!</b>
-        plain_text:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: Very good product!
     matrixmodels.VariationBulkCreateRequestItem:
       type: object
       properties:
@@ -288,27 +265,25 @@ components:
         variation_product:
           description: product, type must be PRODUCT
           $ref: '#/components/schemas/products.ProductRequest'
-    responses.BulkResult:
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    responses.MessageResponse:
       type: object
       properties:
         message:
           type: string
           example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
-    responses.Response:
+    Description:
       type: object
       properties:
-        id:
-          type: integer
-          example: 73
-    matrixmodels.CreateVariationRequest:
+        en:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/ProductDescription'
+    matrixmodels.VariationBulkChangeParentRequestItem:
       type: object
       properties:
         dimension_value_ids:
@@ -320,22 +295,10 @@ components:
           - 1
           - 2
           - 3
-        variation_product:
-          description: product, type must be PRODUCT
-          $ref: '#/components/schemas/products.ProductRequest'
-    matrixmodels.VariationBulkChangeParentRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/matrixmodels.VariationBulkChangeParentRequestItem'
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
+        productID:
+          type: integer
+        variationID:
+          type: integer
     products.ProductRequest:
       type: object
       properties:
@@ -560,7 +523,7 @@ components:
           type: string
         width:
           type: number
-    matrixmodels.VariationBulkChangeParentRequestItem:
+    matrixmodels.CreateVariationRequest:
       type: object
       properties:
         dimension_value_ids:
@@ -572,16 +535,9 @@ components:
           - 1
           - 2
           - 3
-        productID:
-          type: integer
-        variationID:
-          type: integer
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
+        variation_product:
+          description: product, type must be PRODUCT
+          $ref: '#/components/schemas/products.ProductRequest'
     responses.BulkResponseWithResults:
       type: object
       properties:
@@ -589,12 +545,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/responses.BulkResult'
-    Description:
+    ProductDescription:
       type: object
       properties:
-        en:
+        html:
           description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/ProductDescription'
+          type: string
+          example: <b>Very good product!</b>
+        plain_text:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: Very good product!
+    matrixmodels.ChangeVariationParentRequest:
+      type: object
+      properties:
+        dimension_value_ids:
+          description: Matrix variation can have up to 3 dimension values
+          type: array
+          items:
+            type: integer
+          example:
+          - 1
+          - 2
+          - 3
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    matrixmodels.VariationBulkChangeParentRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/matrixmodels.VariationBulkChangeParentRequestItem'
     matrixmodels.VariationBulkCreateRequest:
       type: object
       properties:
@@ -602,6 +588,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/matrixmodels.VariationBulkCreateRequestItem'
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
   securitySchemes:
     cc:
       type: apiKey

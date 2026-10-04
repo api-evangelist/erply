@@ -928,20 +928,19 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    LabelResponse:
+    model.WorkorderSettleRequest:
       type: object
       properties:
-        createdAt:
+        docType:
           type: string
-        createdById:
-          type: integer
-        label:
-          type: string
-        labelType:
-          type: string
-        taskId:
-          type: integer
-        workorderId:
+        payment:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkorderDocRequestPayment'
+        rounding:
+          description: Specify rounding amount (eg. 0.02 or -0.04). Rounding is applied to invoice total with tax, after all other calculations.
+          type: number
+        salepointId:
           type: integer
     BackupResponse:
       type: object
@@ -970,10 +969,39 @@ components:
         workorderNo:
           type: string
           example: '1'
-    WorkorderRequest:
+    model.WorkorderCopyRequest:
       type: object
       properties:
+        copyContact:
+          type: boolean
+        copyCustomer:
+          type: boolean
+        copyDevice:
+          type: boolean
+        copyItems:
+          type: boolean
+        copyRows:
+          type: boolean
+        copyTasks:
+          type: boolean
+        copyWarehouse:
+          type: boolean
+    WorkorderDocResponse:
+      type: object
+      properties:
+        cancelledAt:
+          type: string
+        cancelledById:
+          type: integer
+        confirmedAt:
+          type: string
+        confirmedById:
+          type: integer
         contactId:
+          type: integer
+        createdAt:
+          type: string
+        createdById:
           type: integer
         customerId:
           type: integer
@@ -984,66 +1012,82 @@ components:
         deviceUse:
           description: Stored in device_log table
           type: integer
+        emsThreadId:
+          type: integer
         entity:
           type: string
+        hasDocCredit:
+          type: boolean
         id:
           type: integer
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/LabelResponse'
+        netTotal:
+          type: number
+        noteCount:
+          type: integer
+        order:
+          type: integer
+        paid:
+          type: number
         parentId:
           type: integer
+        paymentId:
+          type: array
+          items:
+            type: integer
         priority:
           type: string
+        productStockState:
+          type: string
+        progress:
+          type: number
         receivedAt:
           type: string
         receivedById:
-          description: Set by user
           type: integer
         referenceNo:
           type: string
         returnedAt:
           type: string
         returnedById:
-          description: Set by user
           type: integer
         salepointId:
           type: integer
+        salesDoc:
+          $ref: '#/components/schemas/SalesDocument'
+        salesDocId:
+          type: integer
         state:
+          type: string
+        taskScheduledState:
           type: string
         taxExempt:
           type: boolean
+        templateId:
+          type: integer
         title:
+          type: string
+        total:
+          type: number
+        transactionalState:
           type: string
         type:
           type: string
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
+        vatTotal:
+          type: number
         warehouseId:
           type: integer
         workorderGroupId:
           type: integer
-    model.WorkorderPrepayRequest:
-      type: object
-      properties:
-        payment:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkorderDocRequestPayment'
-        rounding:
-          description: Specify rounding amount (eg. 0.02 or -0.04). Rounding is applied to invoice total with tax, after all other calculations.
-          type: number
-        salepointId:
-          type: integer
-    model.WorkorderSettleRequest:
-      type: object
-      properties:
-        docType:
+        workorderNo:
           type: string
-        payment:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkorderDocRequestPayment'
-        rounding:
-          description: Specify rounding amount (eg. 0.02 or -0.04). Rounding is applied to invoice total with tax, after all other calculations.
-          type: number
-        salepointId:
-          type: integer
     WorkorderDocRequestPayment:
       type: object
       properties:
@@ -1108,6 +1152,18 @@ components:
         type:
           description: CASH, TRANSFER, CARD, CREDIT, GIFTCARD, CHECK, TIP
           type: string
+    model.WorkorderPrepayRequest:
+      type: object
+      properties:
+        payment:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkorderDocRequestPayment'
+        rounding:
+          description: Specify rounding amount (eg. 0.02 or -0.04). Rounding is applied to invoice total with tax, after all other calculations.
+          type: number
+        salepointId:
+          type: integer
     core.Translatable:
       type: object
       properties:
@@ -1186,6 +1242,69 @@ components:
         zh_Hant:
           type: string
           example: ' '
+    WorkorderRequest:
+      type: object
+      properties:
+        contactId:
+          type: integer
+        customerId:
+          type: integer
+        data:
+          type: object
+        deviceId:
+          type: integer
+        deviceUse:
+          description: Stored in device_log table
+          type: integer
+        entity:
+          type: string
+        id:
+          type: integer
+        parentId:
+          type: integer
+        priority:
+          type: string
+        receivedAt:
+          type: string
+        receivedById:
+          description: Set by user
+          type: integer
+        referenceNo:
+          type: string
+        returnedAt:
+          type: string
+        returnedById:
+          description: Set by user
+          type: integer
+        salepointId:
+          type: integer
+        state:
+          type: string
+        taxExempt:
+          type: boolean
+        title:
+          type: string
+        type:
+          type: string
+        warehouseId:
+          type: integer
+        workorderGroupId:
+          type: integer
+    LabelResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        label:
+          type: string
+        labelType:
+          type: string
+        taskId:
+          type: integer
+        workorderId:
+          type: integer
     WorkorderOrderRequest:
       type: object
       properties:
@@ -1194,23 +1313,6 @@ components:
 
             with the same grouping. If left nil, the workorder will be moved to the last place'
           type: integer
-    model.WorkorderCopyRequest:
-      type: object
-      properties:
-        copyContact:
-          type: boolean
-        copyCustomer:
-          type: boolean
-        copyDevice:
-          type: boolean
-        copyItems:
-          type: boolean
-        copyRows:
-          type: boolean
-        copyTasks:
-          type: boolean
-        copyWarehouse:
-          type: boolean
     WorkorderResponse:
       type: object
       properties:
@@ -1276,108 +1378,6 @@ components:
         returnedById:
           type: integer
         salepointId:
-          type: integer
-        state:
-          type: string
-        taskScheduledState:
-          type: string
-        taxExempt:
-          type: boolean
-        templateId:
-          type: integer
-        title:
-          type: string
-        total:
-          type: number
-        transactionalState:
-          type: string
-        type:
-          type: string
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
-        vatTotal:
-          type: number
-        warehouseId:
-          type: integer
-        workorderGroupId:
-          type: integer
-        workorderNo:
-          type: string
-    WorkorderDocResponse:
-      type: object
-      properties:
-        cancelledAt:
-          type: string
-        cancelledById:
-          type: integer
-        confirmedAt:
-          type: string
-        confirmedById:
-          type: integer
-        contactId:
-          type: integer
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        customerId:
-          type: integer
-        data:
-          type: object
-        deviceId:
-          type: integer
-        deviceUse:
-          description: Stored in device_log table
-          type: integer
-        emsThreadId:
-          type: integer
-        entity:
-          type: string
-        hasDocCredit:
-          type: boolean
-        id:
-          type: integer
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/LabelResponse'
-        netTotal:
-          type: number
-        noteCount:
-          type: integer
-        order:
-          type: integer
-        paid:
-          type: number
-        parentId:
-          type: integer
-        paymentId:
-          type: array
-          items:
-            type: integer
-        priority:
-          type: string
-        productStockState:
-          type: string
-        progress:
-          type: number
-        receivedAt:
-          type: string
-        receivedById:
-          type: integer
-        referenceNo:
-          type: string
-        returnedAt:
-          type: string
-        returnedById:
-          type: integer
-        salepointId:
-          type: integer
-        salesDoc:
-          $ref: '#/components/schemas/SalesDocument'
-        salesDocId:
           type: integer
         state:
           type: string

@@ -343,17 +343,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ClsfLabelTypeRequest:
-      type: object
-      properties:
-        code:
-          type: string
-        entity:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
     ClsfLabelRequest:
       type: object
       properties:
@@ -367,6 +356,17 @@ components:
           $ref: '#/components/schemas/core.Translatable'
         type:
           type: string
+    ClsfLabelTypeRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        entity:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
     ClsfChildResponse:
       type: object
       properties:
@@ -374,31 +374,6 @@ components:
           type: string
         type:
           type: string
-    ClsfResponse:
-      type: object
-      properties:
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClsfChildResponse'
-        code:
-          type: string
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        entity:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-        parentId:
-          type: integer
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
     core.Translatable:
       type: object
       properties:
@@ -477,6 +452,31 @@ components:
         zh_Hant:
           type: string
           example: ' '
+    ClsfResponse:
+      type: object
+      properties:
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClsfChildResponse'
+        code:
+          type: string
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        entity:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+        parentId:
+          type: integer
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
   securitySchemes:
     AccessToken:
       type: apiKey

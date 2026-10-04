@@ -268,89 +268,26 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    linkedproductmodels.UpdateRequest:
-      type: object
-      properties:
-        linked_product_id:
-          type: integer
-        product_id:
-          type: integer
-    linkedproductmodels.CreateRequest:
-      type: object
-      properties:
-        linked_product_id:
-          type: integer
-        product_id:
-          type: integer
-        type:
-          description: Link type can be cross-sell or substitute
-          type: string
-          example: cross-sell
-    products.BulkReadRequestItem:
-      type: object
-      properties:
-        linkType:
-          type: string
-          example: cross-sell
-        productID:
-          type: integer
-          example: 1
-        skip:
-          type: integer
-        take:
-          type: integer
-          example: 20
-    responses.BulkResult:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
     responses.MessageResponse:
       type: object
       properties:
         message:
           type: string
           example: some message
-    products.BulkReadResponseItem:
+    products.BulkReadResponse:
       type: object
       properties:
-        error:
-          type: string
-        productID:
-          type: integer
         results:
           type: array
           items:
-            $ref: '#/components/schemas/linkedproductmodels.Response'
-    linkedproductmodels.BulkCreateRequest:
+            $ref: '#/components/schemas/products.BulkReadResponseItem'
+    responses.BulkResponseWithResults:
       type: object
       properties:
-        requests:
+        results:
           type: array
           items:
-            $ref: '#/components/schemas/linkedproductmodels.CreateRequest'
-    products.BulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.BulkReadRequestItem'
+            $ref: '#/components/schemas/responses.BulkResult'
     linkedproductmodels.Response:
       type: object
       properties:
@@ -382,20 +319,83 @@ components:
           description: Link type can be cross-sell or substitute
           type: string
           example: cross-sell
-    responses.BulkResponseWithResults:
+    linkedproductmodels.CreateRequest:
       type: object
       properties:
+        linked_product_id:
+          type: integer
+        product_id:
+          type: integer
+        type:
+          description: Link type can be cross-sell or substitute
+          type: string
+          example: cross-sell
+    linkedproductmodels.BulkCreateRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/linkedproductmodels.CreateRequest'
+    products.BulkReadRequestItem:
+      type: object
+      properties:
+        linkType:
+          type: string
+          example: cross-sell
+        productID:
+          type: integer
+          example: 1
+        skip:
+          type: integer
+        take:
+          type: integer
+          example: 20
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    linkedproductmodels.UpdateRequest:
+      type: object
+      properties:
+        linked_product_id:
+          type: integer
+        product_id:
+          type: integer
+    products.BulkReadRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.BulkReadRequestItem'
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
+    products.BulkReadResponseItem:
+      type: object
+      properties:
+        error:
+          type: string
+        productID:
+          type: integer
         results:
           type: array
           items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    products.BulkReadResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.BulkReadResponseItem'
+            $ref: '#/components/schemas/linkedproductmodels.Response'
   securitySchemes:
     cc:
       type: apiKey

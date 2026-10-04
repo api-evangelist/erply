@@ -190,12 +190,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.Response:
+    Translatable:
       type: object
       properties:
-        id:
-          type: integer
-          example: 73
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
     countries.CountryResponse:
       type: object
       properties:
@@ -230,12 +230,12 @@ components:
         message:
           type: string
           example: some message
-    Translatable:
+    responses.Response:
       type: object
       properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
+        id:
+          type: integer
+          example: 73
     countries.CountryRequest:
       type: object
       properties:

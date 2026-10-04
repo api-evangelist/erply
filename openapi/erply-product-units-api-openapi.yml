@@ -324,6 +324,12 @@ components:
         order:
           type: integer
           example: 15
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
     parammodels.SortRequest:
       type: object
       properties:
@@ -338,27 +344,26 @@ components:
           description: 'JSON field. For description: description_plain or description_html'
           type: string
           example: name
-    parammodels.BulkReadRequest:
+    products.BulkReadUnitsResponse:
       type: object
       properties:
-        requests:
+        results:
           type: array
           items:
-            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
-    responses.BulkResult:
+            $ref: '#/components/schemas/products.BulkReadUnitsResponseItem'
+    responses.MessageResponse:
       type: object
       properties:
         message:
           type: string
           example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
+    products.BulkCreateUnitsRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.UnitRequest'
     models.MoveRequest:
       type: object
       properties:
@@ -369,18 +374,13 @@ components:
         target_id:
           description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
           type: integer
-    responses.Response:
+    parammodels.PaginationParameters:
       type: object
       properties:
-        id:
+        skip:
           type: integer
-          example: 73
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
+        take:
+          type: integer
     parammodels.FilterJSON:
       type: object
       properties:
@@ -400,19 +400,32 @@ components:
           items: {}
         value:
           type: object
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    parammodels.BulkReadRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
     products.UnitRequest:
       type: object
       properties:
         name:
           description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
           $ref: '#/components/schemas/Translatable'
-    parammodels.PaginationParameters:
+    responses.Response:
       type: object
       properties:
-        skip:
+        id:
           type: integer
-        take:
-          type: integer
+          example: 73
     products.BulkReadUnitsResponseItem:
       type: object
       properties:
@@ -429,12 +442,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/products.UnitResponse'
-    Translatable:
+    responses.BulkResult:
       type: object
       properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+        message:
           type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
     parammodels.ReadRequestWithTotalCount:
       type: object
       properties:
@@ -448,27 +469,6 @@ components:
           $ref: '#/components/schemas/parammodels.SortRequest'
         withTotalCount:
           type: boolean
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    products.BulkCreateUnitsRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.UnitRequest'
-    products.BulkReadUnitsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.BulkReadUnitsResponseItem'
   securitySchemes:
     cc:
       type: apiKey

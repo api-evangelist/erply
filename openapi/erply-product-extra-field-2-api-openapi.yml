@@ -288,6 +288,153 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    parammodels.SortRequest:
+      type: object
+      properties:
+        desc:
+          description: If true - descending, if false - ascending
+          type: boolean
+        language:
+          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
+          type: string
+          example: en
+        selector:
+          description: 'JSON field. For description: description_plain or description_html'
+          type: string
+          example: name
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+    products.BulkReadExtraFieldsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.BulkReadExtraFieldsResponseItem'
+    products.CreateExtraFieldRequest:
+      type: object
+      properties:
+        code:
+          description: code of the extra field
+          type: string
+          example: code
+        is_active:
+          description: Is the field active?
+          type: boolean
+          example: true
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+    parammodels.PaginationParameters:
+      type: object
+      properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    parammodels.FilterJSON:
+      type: object
+      properties:
+        fieldName:
+          type: string
+          example: group_id
+        operandBefore:
+          description: supported values are "and", "or"
+          type: string
+          example: or
+        operator:
+          type: string
+          example: '='
+        sliceValue:
+          description: to be used if the value is a slice
+          type: array
+          items: {}
+        value:
+          type: object
+    models.MoveRequest:
+      type: object
+      properties:
+        position:
+          description: Position has to be  lastChild | before | after
+          type: string
+          example: after
+        target_id:
+          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
+          type: integer
+    parammodels.BulkReadRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    products.UpdateExtraFieldRequest:
+      type: object
+      properties:
+        code:
+          description: code of the extra field
+          type: string
+          example: code
+        is_active:
+          description: Is the field active?
+          type: boolean
+          example: true
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    products.BulkReadExtraFieldsResponseItem:
+      type: object
+      properties:
+        extraFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.ExtraFieldResponse'
+        message:
+          type: string
+          example: some message
+        resultId:
+          description: id of the response, if requested 3 read requests each ID represents 1 response item
+          type: integer
+        totalCount:
+          description: total number of records (ignores skip & take parameters)
+          type: integer
     products.ExtraFieldResponse:
       type: object
       properties:
@@ -325,84 +472,6 @@ components:
         order:
           type: integer
           example: 15
-    parammodels.SortRequest:
-      type: object
-      properties:
-        desc:
-          description: If true - descending, if false - ascending
-          type: boolean
-        language:
-          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
-          type: string
-          example: en
-        selector:
-          description: 'JSON field. For description: description_plain or description_html'
-          type: string
-          example: name
-    parammodels.BulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
-    products.UpdateExtraFieldRequest:
-      type: object
-      properties:
-        code:
-          description: code of the extra field
-          type: string
-          example: code
-        is_active:
-          description: Is the field active?
-          type: boolean
-          example: true
-        name:
-          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/Translatable'
-    products.BulkReadExtraFieldsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.BulkReadExtraFieldsResponseItem'
-    responses.BulkResult:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
-    models.MoveRequest:
-      type: object
-      properties:
-        position:
-          description: Position has to be  lastChild | before | after
-          type: string
-          example: after
-        target_id:
-          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
-          type: integer
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
     products.BulkCreateExtraFieldsRequest:
       type: object
       properties:
@@ -410,68 +479,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/products.CreateExtraFieldRequest'
-    parammodels.FilterJSON:
-      type: object
-      properties:
-        fieldName:
-          type: string
-          example: group_id
-        operandBefore:
-          description: supported values are "and", "or"
-          type: string
-          example: or
-        operator:
-          type: string
-          example: '='
-        sliceValue:
-          description: to be used if the value is a slice
-          type: array
-          items: {}
-        value:
-          type: object
-    parammodels.PaginationParameters:
-      type: object
-      properties:
-        skip:
-          type: integer
-        take:
-          type: integer
-    products.CreateExtraFieldRequest:
-      type: object
-      properties:
-        code:
-          description: code of the extra field
-          type: string
-          example: code
-        is_active:
-          description: Is the field active?
-          type: boolean
-          example: true
-        name:
-          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/Translatable'
-    products.BulkReadExtraFieldsResponseItem:
-      type: object
-      properties:
-        extraFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.ExtraFieldResponse'
-        message:
-          type: string
-          example: some message
-        resultId:
-          description: id of the response, if requested 3 read requests each ID represents 1 response item
-          type: integer
-        totalCount:
-          description: total number of records (ignores skip & take parameters)
-          type: integer
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
     parammodels.ReadRequestWithTotalCount:
       type: object
       properties:
@@ -485,13 +492,6 @@ components:
           $ref: '#/components/schemas/parammodels.SortRequest'
         withTotalCount:
           type: boolean
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
   securitySchemes:
     cc:
       type: apiKey

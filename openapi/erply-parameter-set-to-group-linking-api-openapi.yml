@@ -159,12 +159,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.Response:
+    responses.MessageResponse:
       type: object
       properties:
-        id:
-          type: integer
-          example: 73
+        message:
+          type: string
+          example: some message
     models.SetToGroupResponse:
       type: object
       properties:
@@ -190,12 +190,12 @@ components:
           type: integer
         id:
           type: integer
-    responses.MessageResponse:
+    responses.Response:
       type: object
       properties:
-        message:
-          type: string
-          example: some message
+        id:
+          type: integer
+          example: 73
     requests.IDRequest:
       type: object
       properties:

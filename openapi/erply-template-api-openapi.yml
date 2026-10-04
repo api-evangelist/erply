@@ -343,38 +343,6 @@ components:
           type: integer
         workorderId:
           type: integer
-    TemplateApplyRequest:
-      type: object
-      properties:
-        templateId:
-          type: integer
-        warehouseId:
-          type: integer
-        workorderId:
-          type: integer
-    TemplateRequest:
-      type: object
-      properties:
-        data:
-          type: object
-        id:
-          type: integer
-        itemId:
-          type: array
-          items:
-            type: integer
-        name:
-          type: string
-        scopeDeviceBrand:
-          type: string
-        scopeDeviceModel:
-          type: string
-        scopeDeviceSoldAtLessDaysAgo:
-          type: integer
-        scopeDeviceVersion:
-          type: string
-        workorderId:
-          type: integer
     WorkorderResponse:
       type: object
       properties:
@@ -469,6 +437,38 @@ components:
           type: integer
         workorderNo:
           type: string
+    TemplateApplyRequest:
+      type: object
+      properties:
+        templateId:
+          type: integer
+        warehouseId:
+          type: integer
+        workorderId:
+          type: integer
+    TemplateRequest:
+      type: object
+      properties:
+        data:
+          type: object
+        id:
+          type: integer
+        itemId:
+          type: array
+          items:
+            type: integer
+        name:
+          type: string
+        scopeDeviceBrand:
+          type: string
+        scopeDeviceModel:
+          type: string
+        scopeDeviceSoldAtLessDaysAgo:
+          type: integer
+        scopeDeviceVersion:
+          type: string
+        workorderId:
+          type: integer
   securitySchemes:
     AccessToken:
       type: apiKey

@@ -219,22 +219,50 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    recipemodels.BulkReadResponseItem:
+    recipemodels.Request:
+      type: object
+      properties:
+        amount:
+          type: number
+          example: 5
+        product_id:
+          type: integer
+          example: 77
+        product_id_component:
+          type: integer
+          example: 79
+    parammodels.SortRequest:
+      type: object
+      properties:
+        desc:
+          description: If true - descending, if false - ascending
+          type: boolean
+        language:
+          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
+          type: string
+          example: en
+        selector:
+          description: 'JSON field. For description: description_plain or description_html'
+          type: string
+          example: name
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    responses.MessageResponse:
       type: object
       properties:
         message:
           type: string
           example: some message
-        recipes:
-          type: array
-          items:
-            $ref: '#/components/schemas/recipemodels.Response'
-        resultId:
-          description: id of the response, if requested 3 read requests each ID represents 1 response item
-          type: integer
-        totalCount:
-          description: total number of records (ignores skip & take parameters)
-          type: integer
+    Description:
+      type: object
+      properties:
+        en:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/ProductDescription'
     recipemodels.Response:
       type: object
       properties:
@@ -274,6 +302,80 @@ components:
         product_id_component:
           type: integer
           example: 79
+    recipemodels.BulkReadResponseItem:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        recipes:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipemodels.Response'
+        resultId:
+          description: id of the response, if requested 3 read requests each ID represents 1 response item
+          type: integer
+        totalCount:
+          description: total number of records (ignores skip & take parameters)
+          type: integer
+    parammodels.PaginationParameters:
+      type: object
+      properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    parammodels.FilterJSON:
+      type: object
+      properties:
+        fieldName:
+          type: string
+          example: group_id
+        operandBefore:
+          description: supported values are "and", "or"
+          type: string
+          example: or
+        operator:
+          type: string
+          example: '='
+        sliceValue:
+          description: to be used if the value is a slice
+          type: array
+          items: {}
+        value:
+          type: object
+    ProductDescription:
+      type: object
+      properties:
+        html:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: <b>Very good product!</b>
+        plain_text:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: Very good product!
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
     products.ProductResponse:
       type: object
       properties:
@@ -499,70 +601,6 @@ components:
           type: string
         width:
           type: number
-    ProductDescription:
-      type: object
-      properties:
-        html:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: <b>Very good product!</b>
-        plain_text:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: Very good product!
-    parammodels.SortRequest:
-      type: object
-      properties:
-        desc:
-          description: If true - descending, if false - ascending
-          type: boolean
-        language:
-          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
-          type: string
-          example: en
-        selector:
-          description: 'JSON field. For description: description_plain or description_html'
-          type: string
-          example: name
-    responses.BulkResult:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
-    recipemodels.BulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/recipemodels.BulkReadRequestItem'
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    Description:
-      type: object
-      properties:
-        en:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/ProductDescription'
     recipemodels.BulkReadRequestItem:
       type: object
       properties:
@@ -581,32 +619,12 @@ components:
           $ref: '#/components/schemas/parammodels.SortRequest'
         withTotalCount:
           type: boolean
-    parammodels.FilterJSON:
+    responses.Response:
       type: object
       properties:
-        fieldName:
-          type: string
-          example: group_id
-        operandBefore:
-          description: supported values are "and", "or"
-          type: string
-          example: or
-        operator:
-          type: string
-          example: '='
-        sliceValue:
-          description: to be used if the value is a slice
-          type: array
-          items: {}
-        value:
-          type: object
-    parammodels.PaginationParameters:
-      type: object
-      properties:
-        skip:
+        id:
           type: integer
-        take:
-          type: integer
+          example: 73
     recipemodels.BulkReadResponse:
       type: object
       properties:
@@ -614,19 +632,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/recipemodels.BulkReadResponseItem'
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
     recipemodels.BulkCreateRequest:
       type: object
       properties:
@@ -634,18 +639,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/recipemodels.Request'
-    recipemodels.Request:
+    recipemodels.BulkReadRequest:
       type: object
       properties:
-        amount:
-          type: number
-          example: 5
-        product_id:
-          type: integer
-          example: 77
-        product_id_component:
-          type: integer
-          example: 79
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/recipemodels.BulkReadRequestItem'
   securitySchemes:
     cc:
       type: apiKey

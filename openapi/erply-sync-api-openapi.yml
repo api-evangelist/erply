@@ -165,21 +165,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    LabelResponse:
-      type: object
-      properties:
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        label:
-          type: string
-        labelType:
-          type: string
-        taskId:
-          type: integer
-        workorderId:
-          type: integer
     DeviceListResponse:
       type: object
       properties:
@@ -191,89 +176,94 @@ components:
             $ref: '#/components/schemas/DeviceResponse'
         totalCount:
           type: integer
-    TaskResponse:
+    RowResponse:
       type: object
       properties:
-        assignedToId:
+        amount:
+          type: number
+        confirmedAt:
+          type: string
+        confirmedById:
           type: integer
-          example: 1
         createdAt:
           type: string
-          example: '2022-01-01T00:00:00Z'
         createdById:
           type: integer
-          example: 1
         data:
           type: object
-        duration:
-          description: 'Number of minutes that have been spent on the task. This is either the user defined value
-
-            `userDuration` or calculated automatically from the difference between `startAt` and `endAt`.
-
-            Nil if these fields are not set'
-          type: integer
-          example: 1
-        endAt:
-          type: string
-          example: '2022-01-01T00:00:00Z'
+        discount:
+          type: number
         id:
           type: integer
-          example: 1
+        isLinked:
+          type: boolean
         itemId:
           type: integer
-          example: 1
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/LabelResponse'
-        repeatEndAt:
-          type: string
-          example: '2022-01-01T00:00:00Z'
-        repeatId:
+        netTotal:
+          type: number
+        nonStockProduct:
+          type: boolean
+        order:
           type: integer
-          example: 1
-        repeatStartAt:
-          description: Start of the repeated task range for easier access
-          type: string
-          example: '2022-01-01T00:00:00Z'
-        resourceId:
+        parentLinkId:
           type: integer
-          example: 1
-        rowId:
+        price:
+          type: number
+        productCode:
+          type: string
+        productId:
           type: integer
-          example: 1
-        rowNotes:
-          type: array
-          items:
-            $ref: '#/components/schemas/NoteResponse'
-        rrule:
+        productName:
           type: string
-          example: RRULE:FREQ=DAILY;UNTIL=20220919T063000Z
-        startAt:
+        productOriginalPrice:
+          type: number
+        productUnitId:
+          type: integer
+        productUpcEan:
           type: string
-          example: '2022-01-01T00:00:00Z'
+        purchaseOrderRowId:
+          type: integer
+        state:
+          type: string
+        taxExempt:
+          type: boolean
         title:
           type: string
-          example: Row A;Row B
-        type:
-          type: string
-          example: default
+        total:
+          type: number
         updatedAt:
           type: string
-          example: '2022-01-01T00:00:00Z'
         updatedById:
           type: integer
-          example: 1
-        userDuration:
-          description: User defined number of minutes that have been spent on the task
+        vatRateId:
           type: integer
-          example: 1
-        warehouseId:
-          type: integer
-          example: 1
+        vatTotal:
+          type: number
         workorderId:
           type: integer
-          example: 1
+    ItemResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        data:
+          type: object
+        id:
+          type: integer
+        templateId:
+          type: integer
+        templateSourceId:
+          type: integer
+        text:
+          type: string
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
+        workorderId:
+          type: integer
     DeviceResponse:
       type: object
       properties:
@@ -465,6 +455,21 @@ components:
           type: integer
         workorderNo:
           type: string
+    LabelResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        label:
+          type: string
+        labelType:
+          type: string
+        taskId:
+          type: integer
+        workorderId:
+          type: integer
     NoteResponse:
       type: object
       properties:
@@ -492,94 +497,89 @@ components:
           type: integer
         workorderId:
           type: integer
-    RowResponse:
+    TaskResponse:
       type: object
       properties:
-        amount:
-          type: number
-        confirmedAt:
-          type: string
-        confirmedById:
+        assignedToId:
           type: integer
+          example: 1
         createdAt:
           type: string
+          example: '2022-01-01T00:00:00Z'
         createdById:
           type: integer
+          example: 1
         data:
           type: object
-        discount:
-          type: number
+        duration:
+          description: 'Number of minutes that have been spent on the task. This is either the user defined value
+
+            `userDuration` or calculated automatically from the difference between `startAt` and `endAt`.
+
+            Nil if these fields are not set'
+          type: integer
+          example: 1
+        endAt:
+          type: string
+          example: '2022-01-01T00:00:00Z'
         id:
           type: integer
-        isLinked:
-          type: boolean
+          example: 1
         itemId:
           type: integer
-        netTotal:
-          type: number
-        nonStockProduct:
-          type: boolean
-        order:
-          type: integer
-        parentLinkId:
-          type: integer
-        price:
-          type: number
-        productCode:
+          example: 1
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/LabelResponse'
+        repeatEndAt:
           type: string
-        productId:
+          example: '2022-01-01T00:00:00Z'
+        repeatId:
           type: integer
-        productName:
+          example: 1
+        repeatStartAt:
+          description: Start of the repeated task range for easier access
           type: string
-        productOriginalPrice:
-          type: number
-        productUnitId:
+          example: '2022-01-01T00:00:00Z'
+        resourceId:
           type: integer
-        productUpcEan:
-          type: string
-        purchaseOrderRowId:
+          example: 1
+        rowId:
           type: integer
-        state:
+          example: 1
+        rowNotes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoteResponse'
+        rrule:
           type: string
-        taxExempt:
-          type: boolean
+          example: RRULE:FREQ=DAILY;UNTIL=20220919T063000Z
+        startAt:
+          type: string
+          example: '2022-01-01T00:00:00Z'
         title:
           type: string
-        total:
-          type: number
+          example: Row A;Row B
+        type:
+          type: string
+          example: default
         updatedAt:
           type: string
+          example: '2022-01-01T00:00:00Z'
         updatedById:
           type: integer
-        vatRateId:
+          example: 1
+        userDuration:
+          description: User defined number of minutes that have been spent on the task
           type: integer
-        vatTotal:
-          type: number
+          example: 1
+        warehouseId:
+          type: integer
+          example: 1
         workorderId:
           type: integer
-    ItemResponse:
-      type: object
-      properties:
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        data:
-          type: object
-        id:
-          type: integer
-        templateId:
-          type: integer
-        templateSourceId:
-          type: integer
-        text:
-          type: string
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
-        workorderId:
-          type: integer
+          example: 1
     response:
       type: object
       properties:

@@ -559,38 +559,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    configuration:
+    moveRequest:
       type: object
       properties:
-        added:
-          type: integer
-        addedby_id:
-          type: integer
-        application:
-          type: string
-          example: erply-to-woo-sync
-        changed:
-          type: integer
-        changedby_id:
-          type: integer
-        id:
-          type: string
-        level:
-          description: Level is optional
-          type: string
-          example: Pos
         level_id:
-          description: LevelID is optional
+          description: LevelID is new level_id to set for the config
           type: string
-          example: '1'
-        name:
-          type: string
-          example: adyen
-        type:
-          description: Type is optional
-          type: string
-          example: payment
-        value: {}
     configurationRequest:
       type: object
       properties:
@@ -628,6 +602,38 @@ components:
           example: payment
         value:
           description: 'Value stored by the configuration. Supported types: JSON, JSON array, string'
+    configuration:
+      type: object
+      properties:
+        added:
+          type: integer
+        addedby_id:
+          type: integer
+        application:
+          type: string
+          example: erply-to-woo-sync
+        changed:
+          type: integer
+        changedby_id:
+          type: integer
+        id:
+          type: string
+        level:
+          description: Level is optional
+          type: string
+          example: Pos
+        level_id:
+          description: LevelID is optional
+          type: string
+          example: '1'
+        name:
+          type: string
+          example: adyen
+        type:
+          description: Type is optional
+          type: string
+          example: payment
+        value: {}
     response:
       type: object
       properties:
@@ -649,12 +655,6 @@ components:
       properties:
         value:
           description: 'Value stored by the configuration. Supported types: JSON, JSON array, string'
-    moveRequest:
-      type: object
-      properties:
-        level_id:
-          description: LevelID is new level_id to set for the config
-          type: string
   securitySchemes:
     cc:
       type: apiKey

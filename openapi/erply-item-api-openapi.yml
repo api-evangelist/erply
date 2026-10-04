@@ -299,13 +299,6 @@ components:
           type: string
         workorderId:
           type: integer
-    RowLinkRequest:
-      type: object
-      properties:
-        rowIds:
-          type: array
-          items:
-            type: integer
     ItemResponse:
       type: object
       properties:
@@ -329,6 +322,13 @@ components:
           type: integer
         workorderId:
           type: integer
+    RowLinkRequest:
+      type: object
+      properties:
+        rowIds:
+          type: array
+          items:
+            type: integer
   securitySchemes:
     AccessToken:
       type: apiKey

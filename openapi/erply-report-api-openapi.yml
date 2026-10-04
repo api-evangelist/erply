@@ -480,6 +480,57 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    model.WorkorderReport:
+      type: object
+      properties:
+        avgTotal:
+          description: Average Total of workorders
+          type: number
+          example: 100
+        avgYear:
+          description: Average year of associated devices
+          type: integer
+          example: 2010
+        brand:
+          description: Device brand
+          type: string
+          example: ford
+        linkedDevice:
+          description: If values correspond to workorders with an associated device
+          type: boolean
+          example: true
+        maxTotal:
+          description: Highest Total of workorders
+          type: number
+          example: 1000
+        minTotal:
+          description: Lowest Total of workorders
+          type: number
+          example: 10
+        model:
+          description: Device model
+          type: string
+          example: transit
+        netTotal:
+          description: Sum of Net Total of workorders
+          type: number
+          example: 80
+        total:
+          description: Grand total of workorders
+          type: number
+          example: 100
+        vatTotal:
+          description: Sum of VAT Total of workorders
+          type: number
+          example: 20
+        workorderCount:
+          description: Number of workorders
+          type: integer
+          example: 4
+        year:
+          description: Device year
+          type: string
+          example: '2022'
     model.ProductReport:
       type: object
       properties:
@@ -582,57 +633,6 @@ components:
           description: Device version
           type: string
           example: cargo van
-        year:
-          description: Device year
-          type: string
-          example: '2022'
-    model.WorkorderReport:
-      type: object
-      properties:
-        avgTotal:
-          description: Average Total of workorders
-          type: number
-          example: 100
-        avgYear:
-          description: Average year of associated devices
-          type: integer
-          example: 2010
-        brand:
-          description: Device brand
-          type: string
-          example: ford
-        linkedDevice:
-          description: If values correspond to workorders with an associated device
-          type: boolean
-          example: true
-        maxTotal:
-          description: Highest Total of workorders
-          type: number
-          example: 1000
-        minTotal:
-          description: Lowest Total of workorders
-          type: number
-          example: 10
-        model:
-          description: Device model
-          type: string
-          example: transit
-        netTotal:
-          description: Sum of Net Total of workorders
-          type: number
-          example: 80
-        total:
-          description: Grand total of workorders
-          type: number
-          example: 100
-        vatTotal:
-          description: Sum of VAT Total of workorders
-          type: number
-          example: 20
-        workorderCount:
-          description: Number of workorders
-          type: integer
-          example: 4
         year:
           description: Device year
           type: string

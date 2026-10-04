@@ -451,29 +451,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    DeviceLogResponse:
-      type: object
-      properties:
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        date:
-          type: string
-        deviceId:
-          type: integer
-        id:
-          type: integer
-        name:
-          type: string
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
-        valueInt:
-          type: integer
-        workorderId:
-          type: integer
     DeviceResponse:
       type: object
       properties:
@@ -610,6 +587,29 @@ components:
         year:
           type: string
           example: '2020'
+    DeviceLogResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        date:
+          type: string
+        deviceId:
+          type: integer
+        id:
+          type: integer
+        name:
+          type: string
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
+        valueInt:
+          type: integer
+        workorderId:
+          type: integer
   securitySchemes:
     AccessToken:
       type: apiKey
