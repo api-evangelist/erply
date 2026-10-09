@@ -68,3 +68,58 @@ rate_limit_statements:
 - Advanced Customer Database + API - 1M customers
 - Advanced Customer Database + API - 10M customers
 - Company's net sales turnover up to $25 000 a month
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units:
+  - object
+  plans:
+  - name: Giftshop & Grocery chain (Monthly)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - object
+    periods:
+    - month
+  - name: Multichannel chains (Monthly)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - object
+    periods:
+    - month
+  - name: Giftshop & Grocery chain (Annual)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - object
+    periods:
+    - month
+  - name: Multichannel chains (Annual)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - object
+    periods:
+    - month
+  - name: POS for NETSUITE
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Franchise & Chain
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - none
