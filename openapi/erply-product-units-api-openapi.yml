@@ -295,6 +295,151 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    parammodels.SortRequest:
+      type: object
+      properties:
+        desc:
+          description: If true - descending, if false - ascending
+          type: boolean
+        language:
+          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
+          type: string
+          example: en
+        selector:
+          description: 'JSON field. For description: description_plain or description_html'
+          type: string
+          example: name
+    parammodels.PaginationParameters:
+      type: object
+      properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    products.UnitRequest:
+      type: object
+      properties:
+        name:
+          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/Translatable'
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
+    parammodels.BulkReadRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
+    products.BulkReadUnitsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.BulkReadUnitsResponseItem'
+    products.BulkReadUnitsResponseItem:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resultId:
+          description: id of the response, if requested 3 read requests each ID represents 1 response item
+          type: integer
+        totalCount:
+          description: total number of records (ignores skip & take parameters)
+          type: integer
+        units:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.UnitResponse'
+    models.MoveRequest:
+      type: object
+      properties:
+        position:
+          description: Position has to be  lastChild | before | after
+          type: string
+          example: after
+        target_id:
+          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
+          type: integer
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    products.BulkCreateUnitsRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.UnitRequest'
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+    parammodels.ReadRequestWithTotalCount:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.FilterJSON'
+        paginationParameters:
+          $ref: '#/components/schemas/parammodels.PaginationParameters'
+        sortingParameters:
+          $ref: '#/components/schemas/parammodels.SortRequest'
+        withTotalCount:
+          type: boolean
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    parammodels.FilterJSON:
+      type: object
+      properties:
+        fieldName:
+          type: string
+          example: group_id
+        operandBefore:
+          description: supported values are "and", "or"
+          type: string
+          example: or
+        operator:
+          type: string
+          example: '='
+        sliceValue:
+          description: to be used if the value is a slice
+          type: array
+          items: {}
+        value:
+          type: object
     products.UnitResponse:
       type: object
       properties:
@@ -324,151 +469,6 @@ components:
         order:
           type: integer
           example: 15
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    parammodels.SortRequest:
-      type: object
-      properties:
-        desc:
-          description: If true - descending, if false - ascending
-          type: boolean
-        language:
-          description: Language in ISO 639-1 standard. Is needed only for translatable properties like description and name.
-          type: string
-          example: en
-        selector:
-          description: 'JSON field. For description: description_plain or description_html'
-          type: string
-          example: name
-    products.BulkReadUnitsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.BulkReadUnitsResponseItem'
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    products.BulkCreateUnitsRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.UnitRequest'
-    models.MoveRequest:
-      type: object
-      properties:
-        position:
-          description: Position has to be  lastChild | before | after
-          type: string
-          example: after
-        target_id:
-          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
-          type: integer
-    parammodels.PaginationParameters:
-      type: object
-      properties:
-        skip:
-          type: integer
-        take:
-          type: integer
-    parammodels.FilterJSON:
-      type: object
-      properties:
-        fieldName:
-          type: string
-          example: group_id
-        operandBefore:
-          description: supported values are "and", "or"
-          type: string
-          example: or
-        operator:
-          type: string
-          example: '='
-        sliceValue:
-          description: to be used if the value is a slice
-          type: array
-          items: {}
-        value:
-          type: object
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    parammodels.BulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
-    products.UnitRequest:
-      type: object
-      properties:
-        name:
-          description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/Translatable'
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
-    products.BulkReadUnitsResponseItem:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        resultId:
-          description: id of the response, if requested 3 read requests each ID represents 1 response item
-          type: integer
-        totalCount:
-          description: total number of records (ignores skip & take parameters)
-          type: integer
-        units:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.UnitResponse'
-    responses.BulkResult:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
-    parammodels.ReadRequestWithTotalCount:
-      type: object
-      properties:
-        filters:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.FilterJSON'
-        paginationParameters:
-          $ref: '#/components/schemas/parammodels.PaginationParameters'
-        sortingParameters:
-          $ref: '#/components/schemas/parammodels.SortRequest'
-        withTotalCount:
-          type: boolean
   securitySchemes:
     cc:
       type: apiKey

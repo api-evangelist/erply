@@ -288,12 +288,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
     parammodels.SortRequest:
       type: object
       properties:
@@ -308,20 +302,36 @@ components:
           description: 'JSON field. For description: description_plain or description_html'
           type: string
           example: name
-    responses.MessageResponse:
+    parammodels.PaginationParameters:
       type: object
       properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    products.BulkReadExtraFieldsResponseItem:
+      type: object
+      properties:
+        extraFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.ExtraFieldResponse'
         message:
           type: string
           example: some message
-    products.BulkReadExtraFieldsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.BulkReadExtraFieldsResponseItem'
-    products.CreateExtraFieldRequest:
+        resultId:
+          description: id of the response, if requested 3 read requests each ID represents 1 response item
+          type: integer
+        totalCount:
+          description: total number of records (ignores skip & take parameters)
+          type: integer
+    products.UpdateExtraFieldRequest:
       type: object
       properties:
         code:
@@ -335,57 +345,7 @@ components:
         name:
           description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
           $ref: '#/components/schemas/Translatable'
-    parammodels.PaginationParameters:
-      type: object
-      properties:
-        skip:
-          type: integer
-        take:
-          type: integer
-    parammodels.FilterJSON:
-      type: object
-      properties:
-        fieldName:
-          type: string
-          example: group_id
-        operandBefore:
-          description: supported values are "and", "or"
-          type: string
-          example: or
-        operator:
-          type: string
-          example: '='
-        sliceValue:
-          description: to be used if the value is a slice
-          type: array
-          items: {}
-        value:
-          type: object
-    models.MoveRequest:
-      type: object
-      properties:
-        position:
-          description: Position has to be  lastChild | before | after
-          type: string
-          example: after
-        target_id:
-          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
-          type: integer
-    parammodels.BulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    products.UpdateExtraFieldRequest:
+    products.CreateExtraFieldRequest:
       type: object
       properties:
         code:
@@ -413,28 +373,88 @@ components:
           description: identifier of the result item
           type: integer
           example: 2
-    responses.Response:
+    parammodels.BulkReadRequest:
       type: object
       properties:
-        id:
-          type: integer
-          example: 73
-    products.BulkReadExtraFieldsResponseItem:
-      type: object
-      properties:
-        extraFields:
+        requests:
           type: array
           items:
-            $ref: '#/components/schemas/products.ExtraFieldResponse'
+            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
+    models.MoveRequest:
+      type: object
+      properties:
+        position:
+          description: Position has to be  lastChild | before | after
+          type: string
+          example: after
+        target_id:
+          description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
+          type: integer
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    responses.MessageResponse:
+      type: object
+      properties:
         message:
           type: string
           example: some message
-        resultId:
-          description: id of the response, if requested 3 read requests each ID represents 1 response item
-          type: integer
-        totalCount:
-          description: total number of records (ignores skip & take parameters)
-          type: integer
+    parammodels.ReadRequestWithTotalCount:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.FilterJSON'
+        paginationParameters:
+          $ref: '#/components/schemas/parammodels.PaginationParameters'
+        sortingParameters:
+          $ref: '#/components/schemas/parammodels.SortRequest'
+        withTotalCount:
+          type: boolean
+    products.BulkReadExtraFieldsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.BulkReadExtraFieldsResponseItem'
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    parammodels.FilterJSON:
+      type: object
+      properties:
+        fieldName:
+          type: string
+          example: group_id
+        operandBefore:
+          description: supported values are "and", "or"
+          type: string
+          example: or
+        operator:
+          type: string
+          example: '='
+        sliceValue:
+          description: to be used if the value is a slice
+          type: array
+          items: {}
+        value:
+          type: object
+    products.BulkCreateExtraFieldsRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.CreateExtraFieldRequest'
     products.ExtraFieldResponse:
       type: object
       properties:
@@ -472,26 +492,6 @@ components:
         order:
           type: integer
           example: 15
-    products.BulkCreateExtraFieldsRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.CreateExtraFieldRequest'
-    parammodels.ReadRequestWithTotalCount:
-      type: object
-      properties:
-        filters:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.FilterJSON'
-        paginationParameters:
-          $ref: '#/components/schemas/parammodels.PaginationParameters'
-        sortingParameters:
-          $ref: '#/components/schemas/parammodels.SortRequest'
-        withTotalCount:
-          type: boolean
   securitySchemes:
     cc:
       type: apiKey

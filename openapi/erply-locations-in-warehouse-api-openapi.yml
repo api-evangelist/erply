@@ -78,12 +78,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
     warehouses.LocationJSON:
       type: object
       properties:
@@ -110,6 +104,12 @@ components:
         name:
           type: string
           example: loc1
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
   securitySchemes:
     cc:
       type: apiKey

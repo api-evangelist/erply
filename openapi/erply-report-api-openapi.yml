@@ -480,101 +480,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    model.WorkorderReport:
-      type: object
-      properties:
-        avgTotal:
-          description: Average Total of workorders
-          type: number
-          example: 100
-        avgYear:
-          description: Average year of associated devices
-          type: integer
-          example: 2010
-        brand:
-          description: Device brand
-          type: string
-          example: ford
-        linkedDevice:
-          description: If values correspond to workorders with an associated device
-          type: boolean
-          example: true
-        maxTotal:
-          description: Highest Total of workorders
-          type: number
-          example: 1000
-        minTotal:
-          description: Lowest Total of workorders
-          type: number
-          example: 10
-        model:
-          description: Device model
-          type: string
-          example: transit
-        netTotal:
-          description: Sum of Net Total of workorders
-          type: number
-          example: 80
-        total:
-          description: Grand total of workorders
-          type: number
-          example: 100
-        vatTotal:
-          description: Sum of VAT Total of workorders
-          type: number
-          example: 20
-        workorderCount:
-          description: Number of workorders
-          type: integer
-          example: 4
-        year:
-          description: Device year
-          type: string
-          example: '2022'
-    model.ProductReport:
-      type: object
-      properties:
-        amount:
-          description: Total amount of products over the matching rows
-          type: number
-          example: 1
-        groupId:
-          description: ID of the product group. If nil, the specific product group can vary
-          type: integer
-          example: 28
-        groupName:
-          description: Group name
-          type: string
-        level:
-          description: Result level. Ranges from 0 to 100. 0 being grand total values and 100 being specific product values. Levels 1-99 indicate product group hierarchy depth
-          type: integer
-          example: 1
-        netTotal:
-          description: Net total of all matching rows
-          type: number
-          example: 80
-        parentGroupId:
-          description: ID of the parent group of this product group in case of product group hierarchies
-          type: integer
-          example: 27
-        parentGroupName:
-          description: Parent group name
-          type: string
-        productId:
-          description: ID of the product. If nil, the specific product can vary
-          type: integer
-          example: 62
-        productName:
-          description: Product name
-          type: string
-        total:
-          description: Total of all matching rows
-          type: number
-          example: 100
-        vatTotal:
-          description: VAT total of all matching rows
-          type: number
-          example: 20
     model.TaskReport:
       type: object
       properties:
@@ -633,6 +538,101 @@ components:
           description: Device version
           type: string
           example: cargo van
+        year:
+          description: Device year
+          type: string
+          example: '2022'
+    model.ProductReport:
+      type: object
+      properties:
+        amount:
+          description: Total amount of products over the matching rows
+          type: number
+          example: 1
+        groupId:
+          description: ID of the product group. If nil, the specific product group can vary
+          type: integer
+          example: 28
+        groupName:
+          description: Group name
+          type: string
+        level:
+          description: Result level. Ranges from 0 to 100. 0 being grand total values and 100 being specific product values. Levels 1-99 indicate product group hierarchy depth
+          type: integer
+          example: 1
+        netTotal:
+          description: Net total of all matching rows
+          type: number
+          example: 80
+        parentGroupId:
+          description: ID of the parent group of this product group in case of product group hierarchies
+          type: integer
+          example: 27
+        parentGroupName:
+          description: Parent group name
+          type: string
+        productId:
+          description: ID of the product. If nil, the specific product can vary
+          type: integer
+          example: 62
+        productName:
+          description: Product name
+          type: string
+        total:
+          description: Total of all matching rows
+          type: number
+          example: 100
+        vatTotal:
+          description: VAT total of all matching rows
+          type: number
+          example: 20
+    model.WorkorderReport:
+      type: object
+      properties:
+        avgTotal:
+          description: Average Total of workorders
+          type: number
+          example: 100
+        avgYear:
+          description: Average year of associated devices
+          type: integer
+          example: 2010
+        brand:
+          description: Device brand
+          type: string
+          example: ford
+        linkedDevice:
+          description: If values correspond to workorders with an associated device
+          type: boolean
+          example: true
+        maxTotal:
+          description: Highest Total of workorders
+          type: number
+          example: 1000
+        minTotal:
+          description: Lowest Total of workorders
+          type: number
+          example: 10
+        model:
+          description: Device model
+          type: string
+          example: transit
+        netTotal:
+          description: Sum of Net Total of workorders
+          type: number
+          example: 80
+        total:
+          description: Grand total of workorders
+          type: number
+          example: 100
+        vatTotal:
+          description: Sum of VAT Total of workorders
+          type: number
+          example: 20
+        workorderCount:
+          description: Number of workorders
+          type: integer
+          example: 4
         year:
           description: Device year
           type: string

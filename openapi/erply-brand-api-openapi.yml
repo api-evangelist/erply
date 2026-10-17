@@ -249,45 +249,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    brandmodels.BulkResponseItem:
-      type: object
-      properties:
-        brands:
-          type: array
-          items:
-            $ref: '#/components/schemas/brandmodels.Response'
-        message:
-          type: string
-          example: some message
-        resultId:
-          description: id of the response, if requested 3 read requests each ID represents 1 response item
-          type: integer
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    parammodels.BulkReadRequestNoTotalCount:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.ReadRequest'
-    brandmodels.BulkCreateRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/brandmodels.Request'
     parammodels.SortRequest:
       type: object
       properties:
@@ -302,32 +263,6 @@ components:
           description: 'JSON field. For description: description_plain or description_html'
           type: string
           example: name
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    parammodels.FilterJSON:
-      type: object
-      properties:
-        fieldName:
-          type: string
-          example: group_id
-        operandBefore:
-          description: supported values are "and", "or"
-          type: string
-          example: or
-        operator:
-          type: string
-          example: '='
-        sliceValue:
-          description: to be used if the value is a slice
-          type: array
-          items: {}
-        value:
-          type: object
     parammodels.PaginationParameters:
       type: object
       properties:
@@ -335,6 +270,58 @@ components:
           type: integer
         take:
           type: integer
+    brandmodels.Request:
+      type: object
+      properties:
+        description:
+          $ref: '#/components/schemas/Translatable'
+        name:
+          type: string
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    brandmodels.BulkCreateRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/brandmodels.Request'
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
+    parammodels.ReadRequest:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.FilterJSON'
+        paginationParameters:
+          $ref: '#/components/schemas/parammodels.PaginationParameters'
+        sortingParameters:
+          $ref: '#/components/schemas/parammodels.SortRequest'
+    parammodels.BulkReadRequestNoTotalCount:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.ReadRequest'
     brandmodels.Response:
       type: object
       properties:
@@ -360,44 +347,13 @@ components:
           type: integer
         name:
           type: string
-    responses.Response:
+    responses.BulkResponseWithResults:
       type: object
       properties:
-        id:
-          type: integer
-          example: 73
-    brandmodels.Request:
-      type: object
-      properties:
-        description:
-          $ref: '#/components/schemas/Translatable'
-        name:
-          type: string
-    parammodels.ReadRequest:
-      type: object
-      properties:
-        filters:
+        results:
           type: array
           items:
-            $ref: '#/components/schemas/parammodels.FilterJSON'
-        paginationParameters:
-          $ref: '#/components/schemas/parammodels.PaginationParameters'
-        sortingParameters:
-          $ref: '#/components/schemas/parammodels.SortRequest'
-    responses.BulkResult:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
+            $ref: '#/components/schemas/responses.BulkResult'
     brandmodels.BulkResponse:
       type: object
       properties:
@@ -405,6 +361,50 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/brandmodels.BulkResponseItem'
+    brandmodels.BulkResponseItem:
+      type: object
+      properties:
+        brands:
+          type: array
+          items:
+            $ref: '#/components/schemas/brandmodels.Response'
+        message:
+          type: string
+          example: some message
+        resultId:
+          description: id of the response, if requested 3 read requests each ID represents 1 response item
+          type: integer
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    parammodels.FilterJSON:
+      type: object
+      properties:
+        fieldName:
+          type: string
+          example: group_id
+        operandBefore:
+          description: supported values are "and", "or"
+          type: string
+          example: or
+        operator:
+          type: string
+          example: '='
+        sliceValue:
+          description: to be used if the value is a slice
+          type: array
+          items: {}
+        value:
+          type: object
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
   securitySchemes:
     cc:
       type: apiKey

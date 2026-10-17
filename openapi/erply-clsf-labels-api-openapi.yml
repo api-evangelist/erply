@@ -343,6 +343,31 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ClsfResponse:
+      type: object
+      properties:
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClsfChildResponse'
+        code:
+          type: string
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        entity:
+          type: string
+        id:
+          type: integer
+        name:
+          $ref: '#/components/schemas/core.Translatable'
+        parentId:
+          type: integer
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
     ClsfLabelRequest:
       type: object
       properties:
@@ -354,24 +379,6 @@ components:
           type: integer
         name:
           $ref: '#/components/schemas/core.Translatable'
-        type:
-          type: string
-    ClsfLabelTypeRequest:
-      type: object
-      properties:
-        code:
-          type: string
-        entity:
-          type: string
-        id:
-          type: integer
-        name:
-          $ref: '#/components/schemas/core.Translatable'
-    ClsfChildResponse:
-      type: object
-      properties:
-        code:
-          type: string
         type:
           type: string
     core.Translatable:
@@ -452,31 +459,24 @@ components:
         zh_Hant:
           type: string
           example: ' '
-    ClsfResponse:
+    ClsfChildResponse:
       type: object
       properties:
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClsfChildResponse'
         code:
           type: string
-        createdAt:
+        type:
           type: string
-        createdById:
-          type: integer
+    ClsfLabelTypeRequest:
+      type: object
+      properties:
+        code:
+          type: string
         entity:
           type: string
         id:
           type: integer
         name:
           $ref: '#/components/schemas/core.Translatable'
-        parentId:
-          type: integer
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
   securitySchemes:
     AccessToken:
       type: apiKey

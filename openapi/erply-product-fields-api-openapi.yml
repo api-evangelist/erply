@@ -179,6 +179,19 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    products.PermissionSet:
+      type: object
+      properties:
+        edit:
+          type: boolean
+        view:
+          type: boolean
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
     products.ProductFieldsPermissions:
       type: object
       properties:
@@ -341,12 +354,6 @@ components:
           $ref: '#/components/schemas/products.PermissionSet'
         width:
           $ref: '#/components/schemas/products.PermissionSet'
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
     products.ProductInheritedFieldsRequest:
       type: object
       properties:
@@ -509,19 +516,12 @@ components:
           type: boolean
         width:
           type: boolean
-    responses.Response:
+    responses.MessageResponse:
       type: object
       properties:
-        id:
-          type: integer
-          example: 73
-    products.PermissionSet:
-      type: object
-      properties:
-        edit:
-          type: boolean
-        view:
-          type: boolean
+        message:
+          type: string
+          example: some message
   securitySchemes:
     cc:
       type: apiKey

@@ -128,6 +128,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    server.importResult:
+      type: object
+      properties:
+        error:
+          type: string
+        id:
+          type: string
     response:
       type: object
       properties:
@@ -136,13 +143,6 @@ components:
         message:
           type: string
         statusCode:
-          type: string
-    server.importResult:
-      type: object
-      properties:
-        error:
-          type: string
-        id:
           type: string
   securitySchemes:
     cc:

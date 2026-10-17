@@ -187,12 +187,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    responses.MessageResponse:
+    responses.Response:
       type: object
       properties:
-        message:
-          type: string
-          example: some message
+        id:
+          type: integer
+          example: 73
     models.AttributeRequest:
       type: object
       properties:
@@ -217,12 +217,6 @@ components:
           example: int
         value:
           description: based on the type value should be number of text
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
     responses.BulkResponse:
       type: object
       properties:
@@ -254,6 +248,12 @@ components:
           example: text
         value:
           description: based on the type value can be number of text
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
   securitySchemes:
     cc:
       type: apiKey

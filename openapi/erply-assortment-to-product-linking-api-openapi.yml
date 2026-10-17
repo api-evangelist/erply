@@ -497,68 +497,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    models.AssortmentToProductRequest:
+    responses.Response:
       type: object
       properties:
-        product_id:
-          type: integer
-        product_name_in_assortment:
-          $ref: '#/components/schemas/Translatable'
-        status:
-          description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
-          type: string
-          example: ACTIVE
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    Description:
-      type: object
-      properties:
-        en:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/ProductDescription'
-    models.AssortmentToProductLinkResponse:
-      type: object
-      properties:
-        assortment_id:
-          type: integer
         id:
           type: integer
-        product_id:
-          type: integer
-        product_name_in_assortment:
-          $ref: '#/components/schemas/Translatable'
-        status:
-          description: Status of the Assortment To Product link
-          type: string
-          example: ACTIVE
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    ProductDescription:
-      type: object
-      properties:
-        html:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: <b>Very good product!</b>
-        plain_text:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: Very good product!
+          example: 73
     responses.BulkResult:
       type: object
       properties:
@@ -573,31 +517,17 @@ components:
           description: identifier of the result item
           type: integer
           example: 2
-    models.AssortmentToProductUpdateRequest:
+    ProductDescription:
       type: object
       properties:
-        product_name_in_assortment:
-          $ref: '#/components/schemas/Translatable'
-        status:
-          description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+        html:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
           type: string
-          example: ACTIVE
-    products.ProductsResponseWithCount:
-      type: object
-      properties:
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/products.ProductResponseWithLinkStatus'
-        totalCount:
-          type: integer
-          example: 20
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
+          example: <b>Very good product!</b>
+        plain_text:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: Very good product!
     products.ProductResponseWithLinkStatus:
       type: object
       properties:
@@ -827,6 +757,40 @@ components:
           type: string
         width:
           type: number
+    Description:
+      type: object
+      properties:
+        en:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/ProductDescription'
+    models.AssortmentToProductRequest:
+      type: object
+      properties:
+        product_id:
+          type: integer
+        product_name_in_assortment:
+          $ref: '#/components/schemas/Translatable'
+        status:
+          description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+          type: string
+          example: ACTIVE
+    products.ProductsResponseWithCount:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/products.ProductResponseWithLinkStatus'
+        totalCount:
+          type: integer
+          example: 20
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
     models.AssortmentToProductBulkRequest:
       type: object
       properties:
@@ -834,6 +798,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/models.AssortmentToProductRequest'
+    models.AssortmentToProductUpdateRequest:
+      type: object
+      properties:
+        product_name_in_assortment:
+          $ref: '#/components/schemas/Translatable'
+        status:
+          description: 'Status is a classifier with four possible values: ''ACTIVE'' (DEFAULT), ''NO_LONGER_ORDERED'', ''NOT_FOR_SALE'' and ''ARCHIVED''.'
+          type: string
+          example: ACTIVE
+    models.AssortmentToProductLinkResponse:
+      type: object
+      properties:
+        assortment_id:
+          type: integer
+        id:
+          type: integer
+        product_id:
+          type: integer
+        product_name_in_assortment:
+          $ref: '#/components/schemas/Translatable'
+        status:
+          description: Status of the Assortment To Product link
+          type: string
+          example: ACTIVE
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
   securitySchemes:
     cc:
       type: apiKey

@@ -383,14 +383,6 @@ components:
           type: integer
         workorderId:
           type: integer
-    RowOrderRequest:
-      type: object
-      properties:
-        inFrontOfId:
-          description: 'ID of the record in front of which the moved row should be placed. Must belong to a record associated
-
-            with the same workorder. If left nil, the row will be moved to the last place'
-          type: integer
     RowResponse:
       type: object
       properties:
@@ -455,6 +447,14 @@ components:
         vatTotal:
           type: number
         workorderId:
+          type: integer
+    RowOrderRequest:
+      type: object
+      properties:
+        inFrontOfId:
+          description: 'ID of the record in front of which the moved row should be placed. Must belong to a record associated
+
+            with the same workorder. If left nil, the row will be moved to the last place'
           type: integer
   securitySchemes:
     AccessToken:

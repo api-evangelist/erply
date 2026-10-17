@@ -184,18 +184,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Translatable:
+    responses.Response:
       type: object
       properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
+        id:
+          type: integer
+          example: 73
     models.AssortmentRequest:
       type: object
       properties:
@@ -205,12 +199,6 @@ components:
         name:
           description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
           $ref: '#/components/schemas/Translatable'
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
     models.AssortmentResponse:
       type: object
       properties:
@@ -237,6 +225,18 @@ components:
         name:
           description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
           $ref: '#/components/schemas/Translatable'
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
   securitySchemes:
     cc:
       type: apiKey

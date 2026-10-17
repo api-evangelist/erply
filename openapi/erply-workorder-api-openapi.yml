@@ -928,64 +928,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    model.WorkorderSettleRequest:
-      type: object
-      properties:
-        docType:
-          type: string
-        payment:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkorderDocRequestPayment'
-        rounding:
-          description: Specify rounding amount (eg. 0.02 or -0.04). Rounding is applied to invoice total with tax, after all other calculations.
-          type: number
-        salepointId:
-          type: integer
-    BackupResponse:
-      type: object
-      properties:
-        backupId:
-          type: integer
-          example: 1
-        createdAt:
-          type: string
-          example: '2022-01-01T00:00:00Z'
-        createdById:
-          type: integer
-          example: 1
-        docNo:
-          description: Number of the sales document for which this backup was created
-          type: string
-          example: '123'
-        eventName:
-          $ref: '#/components/schemas/core.Translatable'
-        eventType:
-          type: string
-          example: doc_quote_created
-        workorderId:
-          type: integer
-          example: 1
-        workorderNo:
-          type: string
-          example: '1'
-    model.WorkorderCopyRequest:
-      type: object
-      properties:
-        copyContact:
-          type: boolean
-        copyCustomer:
-          type: boolean
-        copyDevice:
-          type: boolean
-        copyItems:
-          type: boolean
-        copyRows:
-          type: boolean
-        copyTasks:
-          type: boolean
-        copyWarehouse:
-          type: boolean
     WorkorderDocResponse:
       type: object
       properties:
@@ -1088,6 +1030,47 @@ components:
           type: integer
         workorderNo:
           type: string
+    LabelResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        label:
+          type: string
+        labelType:
+          type: string
+        taskId:
+          type: integer
+        workorderId:
+          type: integer
+    model.WorkorderPrepayRequest:
+      type: object
+      properties:
+        payment:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkorderDocRequestPayment'
+        rounding:
+          description: Specify rounding amount (eg. 0.02 or -0.04). Rounding is applied to invoice total with tax, after all other calculations.
+          type: number
+        salepointId:
+          type: integer
+    model.WorkorderSettleRequest:
+      type: object
+      properties:
+        docType:
+          type: string
+        payment:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkorderDocRequestPayment'
+        rounding:
+          description: Specify rounding amount (eg. 0.02 or -0.04). Rounding is applied to invoice total with tax, after all other calculations.
+          type: number
+        salepointId:
+          type: integer
     WorkorderDocRequestPayment:
       type: object
       properties:
@@ -1152,18 +1135,33 @@ components:
         type:
           description: CASH, TRANSFER, CARD, CREDIT, GIFTCARD, CHECK, TIP
           type: string
-    model.WorkorderPrepayRequest:
+    BackupResponse:
       type: object
       properties:
-        payment:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkorderDocRequestPayment'
-        rounding:
-          description: Specify rounding amount (eg. 0.02 or -0.04). Rounding is applied to invoice total with tax, after all other calculations.
-          type: number
-        salepointId:
+        backupId:
           type: integer
+          example: 1
+        createdAt:
+          type: string
+          example: '2022-01-01T00:00:00Z'
+        createdById:
+          type: integer
+          example: 1
+        docNo:
+          description: Number of the sales document for which this backup was created
+          type: string
+          example: '123'
+        eventName:
+          $ref: '#/components/schemas/core.Translatable'
+        eventType:
+          type: string
+          example: doc_quote_created
+        workorderId:
+          type: integer
+          example: 1
+        workorderNo:
+          type: string
+          example: '1'
     core.Translatable:
       type: object
       properties:
@@ -1242,77 +1240,42 @@ components:
         zh_Hant:
           type: string
           example: ' '
-    WorkorderRequest:
+    SalesDocument:
       type: object
       properties:
-        contactId:
-          type: integer
-        customerId:
-          type: integer
-        data:
-          type: object
-        deviceId:
-          type: integer
-        deviceUse:
-          description: Stored in device_log table
-          type: integer
-        entity:
+        net:
+          type: number
+        receiptLink:
           type: string
-        id:
+        rounding:
+          type: number
+        salesDocId:
           type: integer
-        parentId:
-          type: integer
-        priority:
+        salesDocLink:
           type: string
-        receivedAt:
+        salesDocNo:
           type: string
-        receivedById:
-          description: Set by user
-          type: integer
-        referenceNo:
-          type: string
-        returnedAt:
-          type: string
-        returnedById:
-          description: Set by user
-          type: integer
-        salepointId:
-          type: integer
-        state:
-          type: string
-        taxExempt:
+        total:
+          type: number
+        vat:
+          type: number
+    model.WorkorderCopyRequest:
+      type: object
+      properties:
+        copyContact:
           type: boolean
-        title:
-          type: string
-        type:
-          type: string
-        warehouseId:
-          type: integer
-        workorderGroupId:
-          type: integer
-    LabelResponse:
-      type: object
-      properties:
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        label:
-          type: string
-        labelType:
-          type: string
-        taskId:
-          type: integer
-        workorderId:
-          type: integer
-    WorkorderOrderRequest:
-      type: object
-      properties:
-        inFrontOfId:
-          description: 'ID of the record in front of which the moved record should be placed. Must belong to a record associated
-
-            with the same grouping. If left nil, the workorder will be moved to the last place'
-          type: integer
+        copyCustomer:
+          type: boolean
+        copyDevice:
+          type: boolean
+        copyItems:
+          type: boolean
+        copyRows:
+          type: boolean
+        copyTasks:
+          type: boolean
+        copyWarehouse:
+          type: boolean
     WorkorderResponse:
       type: object
       properties:
@@ -1407,25 +1370,62 @@ components:
           type: integer
         workorderNo:
           type: string
-    SalesDocument:
+    WorkorderRequest:
       type: object
       properties:
-        net:
-          type: number
-        receiptLink:
-          type: string
-        rounding:
-          type: number
-        salesDocId:
+        contactId:
           type: integer
-        salesDocLink:
+        customerId:
+          type: integer
+        data:
+          type: object
+        deviceId:
+          type: integer
+        deviceUse:
+          description: Stored in device_log table
+          type: integer
+        entity:
           type: string
-        salesDocNo:
+        id:
+          type: integer
+        parentId:
+          type: integer
+        priority:
           type: string
-        total:
-          type: number
-        vat:
-          type: number
+        receivedAt:
+          type: string
+        receivedById:
+          description: Set by user
+          type: integer
+        referenceNo:
+          type: string
+        returnedAt:
+          type: string
+        returnedById:
+          description: Set by user
+          type: integer
+        salepointId:
+          type: integer
+        state:
+          type: string
+        taxExempt:
+          type: boolean
+        title:
+          type: string
+        type:
+          type: string
+        warehouseId:
+          type: integer
+        workorderGroupId:
+          type: integer
+    WorkorderOrderRequest:
+      type: object
+      properties:
+        inFrontOfId:
+          description: 'ID of the record in front of which the moved record should be placed. Must belong to a record associated
+
+            with the same grouping. If left nil, the workorder will be moved to the last place'
+          type: integer
   securitySchemes:
     AccessToken:
       type: apiKey

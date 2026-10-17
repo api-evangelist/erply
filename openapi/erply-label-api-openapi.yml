@@ -168,21 +168,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    LabelResponse:
-      type: object
-      properties:
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        label:
-          type: string
-        labelType:
-          type: string
-        taskId:
-          type: integer
-        workorderId:
-          type: integer
     LabelRequest:
       type: object
       properties:
@@ -203,6 +188,21 @@ components:
           type: array
           items:
             type: string
+        taskId:
+          type: integer
+        workorderId:
+          type: integer
+    LabelResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        label:
+          type: string
+        labelType:
+          type: string
         taskId:
           type: integer
         workorderId:

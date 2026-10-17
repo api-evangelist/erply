@@ -129,12 +129,34 @@ paths:
                 $ref: '#/components/schemas/models.OutputError'
 components:
   schemas:
-    models.OutputError:
+    models.OutputEvent:
       type: object
       properties:
-        error:
+        action:
+          description: action the webhook was registered for
           type: string
-          example: Description of the failure
+        createdAt:
+          description: time when the event was created into the process queue
+          type: string
+        eventDate:
+          description: date when the event was created in the stream
+          type: string
+        id:
+          description: ID of the event
+          type: string
+        processedAt:
+          description: time when the event was processed
+          type: string
+        rowID:
+          description: id of the row, when it exists
+          type: integer
+          format: int64
+        status:
+          description: if the event has been processed to a webhook
+          type: string
+        table:
+          description: Table the webhook was registered for
+          type: string
     models.OutputWebhook:
       type: object
       properties:
@@ -168,34 +190,12 @@ components:
         tries:
           description: Tries number of times the webhook was tried
           type: integer
-    models.OutputEvent:
+    models.OutputError:
       type: object
       properties:
-        action:
-          description: action the webhook was registered for
+        error:
           type: string
-        createdAt:
-          description: time when the event was created into the process queue
-          type: string
-        eventDate:
-          description: date when the event was created in the stream
-          type: string
-        id:
-          description: ID of the event
-          type: string
-        processedAt:
-          description: time when the event was processed
-          type: string
-        rowID:
-          description: id of the row, when it exists
-          type: integer
-          format: int64
-        status:
-          description: if the event has been processed to a webhook
-          type: string
-        table:
-          description: Table the webhook was registered for
-          type: string
+          example: Description of the failure
   securitySchemes:
     ClientCode:
       type: apiKey

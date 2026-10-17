@@ -293,41 +293,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TemplateResponse:
-      type: object
-      properties:
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        data:
-          type: object
-        id:
-          type: integer
-        itemIds:
-          type: array
-          items:
-            type: integer
-        name:
-          type: string
-        relevance:
-          type: number
-        scopeDeviceBrand:
-          type: string
-        scopeDeviceModel:
-          type: string
-        scopeDeviceSoldAtLessDaysAgo:
-          type: integer
-        scopeDeviceVersion:
-          type: string
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
-        usedCount:
-          type: integer
-        workorderId:
-          type: integer
     LabelResponse:
       type: object
       properties:
@@ -340,6 +305,15 @@ components:
         labelType:
           type: string
         taskId:
+          type: integer
+        workorderId:
+          type: integer
+    TemplateApplyRequest:
+      type: object
+      properties:
+        templateId:
+          type: integer
+        warehouseId:
           type: integer
         workorderId:
           type: integer
@@ -437,15 +411,6 @@ components:
           type: integer
         workorderNo:
           type: string
-    TemplateApplyRequest:
-      type: object
-      properties:
-        templateId:
-          type: integer
-        warehouseId:
-          type: integer
-        workorderId:
-          type: integer
     TemplateRequest:
       type: object
       properties:
@@ -467,6 +432,41 @@ components:
           type: integer
         scopeDeviceVersion:
           type: string
+        workorderId:
+          type: integer
+    TemplateResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        data:
+          type: object
+        id:
+          type: integer
+        itemIds:
+          type: array
+          items:
+            type: integer
+        name:
+          type: string
+        relevance:
+          type: number
+        scopeDeviceBrand:
+          type: string
+        scopeDeviceModel:
+          type: string
+        scopeDeviceSoldAtLessDaysAgo:
+          type: integer
+        scopeDeviceVersion:
+          type: string
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
+        usedCount:
+          type: integer
         workorderId:
           type: integer
   securitySchemes:

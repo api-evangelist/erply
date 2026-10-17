@@ -398,16 +398,25 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Description:
+    matrixmodels.ProductBulkReadResponse:
       type: object
       properties:
-        en:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          $ref: '#/components/schemas/ProductDescription'
-    matrixmodels.DimensionsByMatrixProductIDBulkReadResponseItem:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/matrixmodels.ProductBulkReadResponseItem'
+    parammodels.PaginationParameters:
+      type: object
+      properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    matrixmodels.DimensionIDs:
       type: object
       properties:
         dimension_ids:
+          description: up to 3 dimensions. If you want to specify only 2nd or 3rd dimension, leave the first and/or second as 0
           type: array
           items:
             type: integer
@@ -415,40 +424,58 @@ components:
           - 1
           - 2
           - 3
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: matrix product ID
-          type: integer
-        resultId:
-          type: integer
-    matrixmodels.ProductBulkReadResponseItem:
+    matrixmodels.VariationDescription:
       type: object
       properties:
-        message:
-          type: string
-          example: some message
-        resultId:
+        dimension_id:
           type: integer
-        variations:
+        dimension_name:
+          $ref: '#/components/schemas/Translatable'
+        dimension_value_code:
+          type: string
+        dimension_value_id:
+          type: integer
+        dimension_value_name:
+          $ref: '#/components/schemas/Translatable'
+        dimension_value_order:
+          type: integer
+    matrixmodels.UpdateProductDimensionsRequest:
+      type: object
+      properties:
+        dimension_ids:
+          description: up to 3 dimensions. If you want to specify only 2nd or 3rd dimension, leave the first and/or second as 0
           type: array
           items:
-            $ref: '#/components/schemas/matrixmodels.ProductVariationJSON'
-    responses.BulkResult:
+            type: integer
+          example:
+          - 1
+          - 2
+          - 3
+    Description:
+      type: object
+      properties:
+        en:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          $ref: '#/components/schemas/ProductDescription'
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+    responses.MessageResponse:
       type: object
       properties:
         message:
           type: string
           example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
+    matrixmodels.ProductBulkCreateRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/matrixmodels.ProductBulkCreateRequestItem'
     matrixmodels.ProductVariationJSON:
       type: object
       properties:
@@ -490,32 +517,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/matrixmodels.VariationDescription'
-    matrixmodels.DimensionsByMatrixProductIDBulkReadResponse:
+    matrixmodels.DimensionsByMatrixProductIDBulkReadResponseItem:
       type: object
       properties:
-        results:
+        dimension_ids:
           type: array
           items:
-            $ref: '#/components/schemas/matrixmodels.DimensionsByMatrixProductIDBulkReadResponseItem'
-    responses.BulkResponseWithResults:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    ProductDescription:
-      type: object
-      properties:
-        html:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+            type: integer
+          example:
+          - 1
+          - 2
+          - 3
+        message:
           type: string
-          example: <b>Very good product!</b>
-        plain_text:
-          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-          example: Very good product!
-    matrixmodels.UpdateProductDimensionsRequest:
+          example: some message
+        resourceId:
+          description: matrix product ID
+          type: integer
+        resultId:
+          type: integer
+    matrixmodels.CreateProductRequest:
       type: object
       properties:
         dimension_ids:
@@ -527,56 +548,9 @@ components:
           - 1
           - 2
           - 3
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
-    matrixmodels.ProductBulkReadRequestItem:
-      type: object
-      properties:
-        matrix_product_ids:
-          description: 'Expected usage: API client has a matrix product ID and wants to get a complete list of variations. Format: 1 or many matrix product IDs.'
-          type: array
-          items:
-            type: integer
-        paginationParameters:
-          $ref: '#/components/schemas/parammodels.PaginationParameters'
-        product_ids:
-          description: 'Expected usage: API client will get a bunch of products from GET /v1/product and will want to fetch variation descriptions for the same items. Format: 1 or many product IDs.'
-          type: array
-          items:
-            type: integer
-    matrixmodels.ProductBulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/matrixmodels.ProductBulkReadRequestItem'
-    matrixmodels.VariationDescription:
-      type: object
-      properties:
-        dimension_id:
-          type: integer
-        dimension_name:
-          $ref: '#/components/schemas/Translatable'
-        dimension_value_code:
-          type: string
-        dimension_value_id:
-          type: integer
-        dimension_value_name:
-          $ref: '#/components/schemas/Translatable'
-        dimension_value_order:
-          type: integer
-    matrixmodels.ProductBulkReadResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/matrixmodels.ProductBulkReadResponseItem'
+        matrix_product:
+          description: Matrix product can have up to 3 dimensions
+          $ref: '#/components/schemas/products.ProductRequest'
     matrixmodels.ProductWithVariations:
       type: object
       properties:
@@ -586,34 +560,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/matrixmodels.ProductVariationJSON'
-    matrixmodels.DimensionsBulkUpdateRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/matrixmodels.DimensionsBulkUpdateRequestItem'
-    matrixmodels.DimensionsBulkReadRequest:
-      type: object
-      properties:
-        matrix_product_ids:
-          type: array
-          items:
-            type: integer
-        paginationParameters:
-          $ref: '#/components/schemas/parammodels.PaginationParameters'
-    matrixmodels.DimensionIDs:
-      type: object
-      properties:
-        dimension_ids:
-          description: up to 3 dimensions. If you want to specify only 2nd or 3rd dimension, leave the first and/or second as 0
-          type: array
-          items:
-            type: integer
-          example:
-          - 1
-          - 2
-          - 3
     products.ProductRequest:
       type: object
       properties:
@@ -838,13 +784,91 @@ components:
           type: string
         width:
           type: number
-    parammodels.PaginationParameters:
+    matrixmodels.ProductBulkReadRequest:
       type: object
       properties:
-        skip:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/matrixmodels.ProductBulkReadRequestItem'
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
           type: integer
-        take:
+          example: 2
+        resultId:
+          description: identifier of the result item
           type: integer
+          example: 2
+    ProductDescription:
+      type: object
+      properties:
+        html:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: <b>Very good product!</b>
+        plain_text:
+          description: Description supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
+          example: Very good product!
+    matrixmodels.ProductBulkReadResponseItem:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resultId:
+          type: integer
+        variations:
+          type: array
+          items:
+            $ref: '#/components/schemas/matrixmodels.ProductVariationJSON'
+    matrixmodels.ProductBulkCreateRequestItem:
+      type: object
+      properties:
+        dimension_ids:
+          description: up to 3 dimensions. If you want to specify only 2nd or 3rd dimension, leave the first and/or second as 0
+          type: array
+          items:
+            type: integer
+          example:
+          - 1
+          - 2
+          - 3
+        generateCode2Automatically:
+          description: if true, the product code2 will be generated based on the user configuration or will generate the conde in case there is none
+          type: boolean
+        generateCodeAutomatically:
+          description: if true, the product code will be generated based on the user configuration or will generate the conde in case there is none
+          type: boolean
+        matrix_product:
+          description: Matrix product can have up to 3 dimensions
+          $ref: '#/components/schemas/products.ProductRequest'
+    responses.BulkResponseWithResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    matrixmodels.DimensionsByMatrixProductIDBulkReadResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/matrixmodels.DimensionsByMatrixProductIDBulkReadResponseItem'
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
     products.ProductResponse:
       type: object
       properties:
@@ -1070,61 +1094,13 @@ components:
           type: string
         width:
           type: number
-    matrixmodels.CreateProductRequest:
-      type: object
-      properties:
-        dimension_ids:
-          description: up to 3 dimensions. If you want to specify only 2nd or 3rd dimension, leave the first and/or second as 0
-          type: array
-          items:
-            type: integer
-          example:
-          - 1
-          - 2
-          - 3
-        matrix_product:
-          description: Matrix product can have up to 3 dimensions
-          $ref: '#/components/schemas/products.ProductRequest'
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    matrixmodels.ProductBulkCreateRequest:
+    matrixmodels.DimensionsBulkUpdateRequest:
       type: object
       properties:
         requests:
           type: array
           items:
-            $ref: '#/components/schemas/matrixmodels.ProductBulkCreateRequestItem'
-    matrixmodels.ProductBulkCreateRequestItem:
-      type: object
-      properties:
-        dimension_ids:
-          description: up to 3 dimensions. If you want to specify only 2nd or 3rd dimension, leave the first and/or second as 0
-          type: array
-          items:
-            type: integer
-          example:
-          - 1
-          - 2
-          - 3
-        generateCode2Automatically:
-          description: if true, the product code2 will be generated based on the user configuration or will generate the conde in case there is none
-          type: boolean
-        generateCodeAutomatically:
-          description: if true, the product code will be generated based on the user configuration or will generate the conde in case there is none
-          type: boolean
-        matrix_product:
-          description: Matrix product can have up to 3 dimensions
-          $ref: '#/components/schemas/products.ProductRequest'
+            $ref: '#/components/schemas/matrixmodels.DimensionsBulkUpdateRequestItem'
     matrixmodels.DimensionsBulkUpdateRequestItem:
       type: object
       properties:
@@ -1139,6 +1115,30 @@ components:
           - 3
         matrix_product_id:
           type: integer
+    matrixmodels.ProductBulkReadRequestItem:
+      type: object
+      properties:
+        matrix_product_ids:
+          description: 'Expected usage: API client has a matrix product ID and wants to get a complete list of variations. Format: 1 or many matrix product IDs.'
+          type: array
+          items:
+            type: integer
+        paginationParameters:
+          $ref: '#/components/schemas/parammodels.PaginationParameters'
+        product_ids:
+          description: 'Expected usage: API client will get a bunch of products from GET /v1/product and will want to fetch variation descriptions for the same items. Format: 1 or many product IDs.'
+          type: array
+          items:
+            type: integer
+    matrixmodels.DimensionsBulkReadRequest:
+      type: object
+      properties:
+        matrix_product_ids:
+          type: array
+          items:
+            type: integer
+        paginationParameters:
+          $ref: '#/components/schemas/parammodels.PaginationParameters'
   securitySchemes:
     cc:
       type: apiKey

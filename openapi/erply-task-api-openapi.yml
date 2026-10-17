@@ -417,21 +417,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    LabelResponse:
-      type: object
-      properties:
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        label:
-          type: string
-        labelType:
-          type: string
-        taskId:
-          type: integer
-        workorderId:
-          type: integer
     TaskRequest:
       type: object
       properties:
@@ -483,33 +468,6 @@ components:
         workorderId:
           type: integer
           example: 1
-    NoteResponse:
-      type: object
-      properties:
-        createdAt:
-          type: string
-        createdById:
-          type: integer
-        data:
-          type: object
-        id:
-          type: integer
-        itemId:
-          type: integer
-        rowId:
-          type: integer
-        taskId:
-          type: integer
-        text:
-          type: string
-        type:
-          type: string
-        updatedAt:
-          type: string
-        updatedById:
-          type: integer
-        workorderId:
-          type: integer
     TaskResponse:
       type: object
       properties:
@@ -593,6 +551,48 @@ components:
         workorderId:
           type: integer
           example: 1
+    LabelResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        label:
+          type: string
+        labelType:
+          type: string
+        taskId:
+          type: integer
+        workorderId:
+          type: integer
+    NoteResponse:
+      type: object
+      properties:
+        createdAt:
+          type: string
+        createdById:
+          type: integer
+        data:
+          type: object
+        id:
+          type: integer
+        itemId:
+          type: integer
+        rowId:
+          type: integer
+        taskId:
+          type: integer
+        text:
+          type: string
+        type:
+          type: string
+        updatedAt:
+          type: string
+        updatedById:
+          type: integer
+        workorderId:
+          type: integer
   securitySchemes:
     AccessToken:
       type: apiKey

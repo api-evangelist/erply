@@ -249,12 +249,6 @@ components:
           type: integer
         value:
           description: can be any type. Can be parameter option also
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
     requests.ValueRequest:
       type: object
       properties:
@@ -265,6 +259,12 @@ components:
         id:
           type: integer
           example: 73
+    responses.MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
   securitySchemes:
     cc:
       type: apiKey

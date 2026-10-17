@@ -285,12 +285,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Translatable:
-      type: object
-      properties:
-        en:
-          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
-          type: string
     parammodels.SortRequest:
       type: object
       properties:
@@ -305,28 +299,6 @@ components:
           description: 'JSON field. For description: description_plain or description_html'
           type: string
           example: name
-    responses.MessageResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-    groupmodels.BulkReadPriorityGroupsResponseItem:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        priority_groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/groupmodels.PriorityGroupResponse'
-        resultId:
-          description: id of the response, if requested 3 read requests each ID represents 1 response item
-          type: integer
-        totalCount:
-          description: total number of records (ignores skip & take parameters)
-          type: integer
     groupmodels.PriorityGroupResponse:
       type: object
       properties:
@@ -356,6 +328,54 @@ components:
         order:
           type: integer
           example: 15
+    parammodels.PaginationParameters:
+      type: object
+      properties:
+        skip:
+          type: integer
+        take:
+          type: integer
+    responses.Response:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 73
+    responses.BulkResult:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        resourceId:
+          description: identifier of the REST-ful response
+          type: integer
+          example: 2
+        resultId:
+          description: identifier of the result item
+          type: integer
+          example: 2
+    groupmodels.BulkReadPriorityGroupsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/groupmodels.BulkReadPriorityGroupsResponseItem'
+    parammodels.BulkReadRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
+    groupmodels.BulkCreatePriorityGroupRequest:
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            $ref: '#/components/schemas/groupmodels.PriorityGroupCreateRequest'
     models.MoveRequest:
       type: object
       properties:
@@ -366,13 +386,48 @@ components:
         target_id:
           description: Target ID represents the object that the requested object is put after, or before, or becomes the last child of
           type: integer
-    parammodels.PaginationParameters:
+    responses.BulkResponseWithResults:
       type: object
       properties:
-        skip:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/responses.BulkResult'
+    parammodels.ReadRequestWithTotalCount:
+      type: object
+      properties:
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/parammodels.FilterJSON'
+        paginationParameters:
+          $ref: '#/components/schemas/parammodels.PaginationParameters'
+        sortingParameters:
+          $ref: '#/components/schemas/parammodels.SortRequest'
+        withTotalCount:
+          type: boolean
+    groupmodels.BulkReadPriorityGroupsResponseItem:
+      type: object
+      properties:
+        message:
+          type: string
+          example: some message
+        priority_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/groupmodels.PriorityGroupResponse'
+        resultId:
+          description: id of the response, if requested 3 read requests each ID represents 1 response item
           type: integer
-        take:
+        totalCount:
+          description: total number of records (ignores skip & take parameters)
           type: integer
+    Translatable:
+      type: object
+      properties:
+        en:
+          description: This field supports more languages. Please read Translatable names and descriptions block in the documentation.
+          type: string
     parammodels.FilterJSON:
       type: object
       properties:
@@ -392,73 +447,18 @@ components:
           items: {}
         value:
           type: object
-    responses.BulkResponseWithResults:
+    responses.MessageResponse:
       type: object
       properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/responses.BulkResult'
-    parammodels.BulkReadRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.ReadRequestWithTotalCount'
-    responses.Response:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 73
+        message:
+          type: string
+          example: some message
     groupmodels.PriorityGroupCreateRequest:
       type: object
       properties:
         name:
           description: /This field supports more languages. Please read Translatable names and descriptions block in the documentation.
           $ref: '#/components/schemas/Translatable'
-    groupmodels.BulkReadPriorityGroupsResponse:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/groupmodels.BulkReadPriorityGroupsResponseItem'
-    responses.BulkResult:
-      type: object
-      properties:
-        message:
-          type: string
-          example: some message
-        resourceId:
-          description: identifier of the REST-ful response
-          type: integer
-          example: 2
-        resultId:
-          description: identifier of the result item
-          type: integer
-          example: 2
-    parammodels.ReadRequestWithTotalCount:
-      type: object
-      properties:
-        filters:
-          type: array
-          items:
-            $ref: '#/components/schemas/parammodels.FilterJSON'
-        paginationParameters:
-          $ref: '#/components/schemas/parammodels.PaginationParameters'
-        sortingParameters:
-          $ref: '#/components/schemas/parammodels.SortRequest'
-        withTotalCount:
-          type: boolean
-    groupmodels.BulkCreatePriorityGroupRequest:
-      type: object
-      properties:
-        requests:
-          type: array
-          items:
-            $ref: '#/components/schemas/groupmodels.PriorityGroupCreateRequest'
   securitySchemes:
     cc:
       type: apiKey
